@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2018 at 09:55 AM
+-- Generation Time: May 22, 2018 at 05:38 PM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -216,7 +216,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 `id_user` int(11) NOT NULL,
   `nama_pengguna` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `status` enum('mahasiswa','dosen','sarpras') NOT NULL,
+  `status` tinyint(1) NOT NULL,
   `id_level` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
@@ -226,9 +226,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id_user`, `nama_pengguna`, `password`, `status`, `id_level`, `timestamp`) VALUES
-(1, 'siti', '1234', 'mahasiswa', 1, '2018-05-21 15:47:23'),
-(2, 'Budi', 'abc12', 'dosen', 1, '2018-05-21 15:47:23'),
-(3, 'tono', 'aa123', 'sarpras', 4, '2018-05-21 15:48:36');
+(1, 'siti', '1234', 1, 1, '2018-05-22 14:57:54'),
+(2, 'Budi', 'abc12', 0, 1, '2018-05-22 15:34:51'),
+(3, 'tono', 'aa123', 1, 4, '2018-05-22 14:57:54');
 
 --
 -- Indexes for dumped tables
