@@ -6,12 +6,13 @@ class Cadm_datauser extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		//$this->load->model('mlogin');
-		$this->load->helper('url','form');
+		$this->load->model('Mkoor_datauser');
+		$this->load->helper('url');
 	}
 
 	public function index()
 	{
-		$this->load->view('adm_datauser');
+		$data['user']=$this->Mkoor_datauser->user();
+		$this->load->view('adm_datauser',$data);
 	}
 }

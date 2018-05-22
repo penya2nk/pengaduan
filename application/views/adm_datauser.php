@@ -98,30 +98,32 @@
                                         <tr>
                                             <th>ID Pengguna</th>
                                             <th>Nama Pengguna</th>
-                                            <th>NIP/NIM</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php
+                                            foreach ($user as $data)
+                                            {
+                                        ?>
                                         <tr>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 5.0</td>
-                                            <td>Win 95+</td>
-                                            <td>Win 95+</td>
+                                            <td><?php echo $data->id_user ?></td>
+                                            <td><?php echo $data->nama_pengguna ?></td>
+                                            <td>
+                                                <?php 
+                                                if($data->status == 1)
+                                                {
+                                                    echo "aktif";
+                                                }
+                                                else
+                                                {
+                                                    echo "tidak aktif";
+                                                } 
+                                            ?></td>
                                         </tr>
-                                        <tr>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 5.0</td>
-                                            <td>Win 95+</td>
-                                            <td>5+</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 5.0</td>
-                                            <td>Win 95+</td>
-                                            <td>5+</td>
-                                        </tr>
-
+                                        <?php
+                                            } 
+                                        ?>
                                     </tbody>
                                 </table>
                             <!-- /.row (nested) -->
