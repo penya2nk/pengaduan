@@ -10,3 +10,4 @@ class Madmin_datauser extends CI_Model {
 		return $this->db->get()->result();
 	}
 }
+?>

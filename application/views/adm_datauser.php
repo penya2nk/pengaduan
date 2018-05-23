@@ -61,13 +61,18 @@
                         </li>
                         
                         <li>
-                            <a href=<?php echo base_url('admin')?> style="color: #000000"><i class="glyphicon glyphicon-home"></i> Data Pengaduan</a>
+                            <a href=<?php echo base_url('admin')?> style="color: #000000"><i class="glyphicon glyphicon-home"></i>&nbsp; Data Pengaduan</a>
                         </li>
                         <li>
-                            <a href=<?php echo base_url('admin/laporan')?> style="color: #000000" class="a"><i class="fa fa-area-chart"></i> Laporan</a>
+                            <a href=<?php echo base_url('admin/laporan')?> style="color: #000000" class="a"><i class="fa fa-area-chart"></i>&nbsp; Laporan</a>
                         </li>
                         <li>
-                            <a href=<?php echo base_url('admin/data_user')?> style="color: #000000" class="a"><i class="fa fa-users"></i> Data User</a>
+                            <a href="#" style="color: #000000" class="a"><i class="fa fa-users"></i>&nbsp; Data User<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href=<?php echo base_url('admin/data_user')?>>Panels and Wells</a>
+                                </li>
+                            </ul>
                         </li>
                         
                     </ul>
