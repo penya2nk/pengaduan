@@ -15,6 +15,7 @@
 
   <!-- Custom styles for this template -->
   <link href=<?php echo base_url("assets/logo/css/logo-nav.css")?> rel="stylesheet">
+  <link href=<?php echo base_url("assets/vendor/font-awesome/css/font-awesome.min.css")?>  rel="stylesheet" type="text/css">
 
 </head>
 
@@ -23,14 +24,8 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="http://placehold.it/300x60?text=Logo" width="150" height="30" alt="">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
+
+      <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
             <a class="nav-link" href="#">Home
               <span class="sr-only">(current)</span>
@@ -38,6 +33,23 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active dropdown">
+            <a class="nav-link" href="#">
+              <span class="fa fa-user"></span>&nbsp;Isnaini Barochatun
+              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item" type="button">Action</button>
+    <button class="dropdown-item" type="button">Another action</button>
+    <button class="dropdown-item" type="button">Something else here</button>
+  </div>
+            </a>
           </li>
         </ul>
       </div>
@@ -56,9 +68,10 @@
           <form>
 
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label"><b>Password</b></label>
+              <label class="col-sm-2 col-form-label"><b>Waktu Kejadian</b></label>
               <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+
+                
               </div>
             </div>
           </form>
@@ -75,6 +88,9 @@
   <script src=<?php echo base_url("assets/logo/vendor/jquery/jquery.min.js")?>></script>
   <script src=<?php echo base_url("assets/logo/vendor/bootstrap/js/bootstrap.bundle.min.js")?>></script>
 
+<script type="text/javascript">
+  $(".input-group.date").datepicker({autoclose: true, todayHighlight: true});
+</script>
 </body>
 
 </html>

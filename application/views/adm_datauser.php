@@ -63,9 +63,7 @@
                         <li>
                             <a href=<?php echo base_url('admin')?> ><i class="fa fa-home"></i>&nbsp; Data Pengaduan</a>
                         </li>
-                        <li>
-                            <a href=<?php echo base_url('admin/laporan')?> ><i class="fa fa-area-chart"></i>&nbsp; Laporan</a>
-                        </li>
+                        
                         <li class="active">
                             <a href="#"><i class="fa fa-users"></i>&nbsp; Data User<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">

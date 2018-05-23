@@ -14,8 +14,5 @@ class Cadm_datapengaduan extends CI_Controller {
 	{
 		$this->load->view('adm_datapengaduan');
 	}
-	public function laporan()
-	{
-		$this->load->view('laporan');
-	}
+	
 }
