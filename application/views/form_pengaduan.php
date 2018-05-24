@@ -204,17 +204,16 @@
                                 <label>Tindak Lanjut</label><br>
                                 <div class="input_fields_wrap">
                                     <div>
-                                        <input type="text" name="mytext[]">
+                                        <input type="text" class="" name="mytext[]">
                                         <a class="add_field_button"><i class="fa fa-plus"></i></a>
                                     </div>
                                 </div>
+                            </div>
 
-
-
-                                <div class="form-group">
-                                  <label>Deskripsi</label>
-                                  <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                              </div>
+                            <div class="form-group">
+                                <label>Deskripsi</label>
+                                <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                            </div>
 
                               <div class="box-footer">
                                 <a href="#" class="btn btn-warning btn-md"><span class="glyphicon glyphicon-send"></span> Kirim </a>
@@ -321,7 +320,6 @@
         if(x < max_fields){
             x++; 
             $(wrapper).append('<div><input type="text" name="mytext[]"/><a href="#" class="remove">Remove</a></div>'); //add input box
-        }
     });
     
     $(wrapper).on("click",".remove", function(e){ //user click on remove text

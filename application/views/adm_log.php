@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Data User</title>
+    <title>Data Pengaduan</title>
 
     <link href=<?php echo base_url("assets/vendor/bootstrap/css/bootstrap.min.css")?> rel="stylesheet">
     <link href=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.css")?>  rel="stylesheet">
@@ -61,16 +61,16 @@
                         </li>
                         
                         <li>
-                            <a href=<?php echo base_url('admin')?> ><i class="fa fa-home"></i>&nbsp; Data Pengaduan</a>
+                            <a href=<?php echo base_url('admin')?>><i class="fa fa-home"></i>&nbsp; Data Pengaduan</a>
                         </li>
-                        <li>
-                            <a href=<?php echo base_url('admin/log_penanganan')?> ><i class="fa fa-archive"></i>&nbsp; Log Penanganan</a>
+                        <li class="active">
+                            <a href=<?php echo base_url('admin/log_penanganan')?> style="color: #000000"><i class="fa fa-archive"></i><b>&nbsp; Log Penanganan</b></a>
                         </li>
                         <li class="active">
                             <a href="#"><i class="fa fa-users"></i>&nbsp; Data User<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href=<?php echo base_url('admin/data_user')?> style="color: #000000"><b>Panels and Wells</b></a>
+                                    <a href=<?php echo base_url('admin/data_user')?>>Panels and Wells</a>
                                 </li>
                             </ul>
                         </li>
@@ -86,7 +86,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Data User</h1>
+                    <h1 class="page-header">Data Pengaduan</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -95,40 +95,48 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <input type="file">
+                            Basic Form Elements
                         </div>
                             <div class="panel-body">
                                 <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>ID Pengguna</th>
-                                            <th>Nama Pengguna</th>
+                                            <th>ID Pengaduan</th>
+                                            <th>Pengelola</th>
+                                            <th>Level</th>
                                             <th>Status</th>
+                                            <th>Waktu</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php
-                                            foreach ($user as $data)
-                                            {
-                                        ?>
                                         <tr>
-                                            <td><?php echo $data->id_user ?></td>
-                                            <td><?php echo $data->nama_pengguna ?></td>
-                                            <td>
-                                                <?php 
-                                                if($data->status == 1)
-                                                {
-                                                    echo "aktif";
-                                                }
-                                                else
-                                                {
-                                                    echo "tidak aktif";
-                                                } 
-                                            ?></td>
+                                            <td>1</td>
+                                            <td>Isnaini Barochatun</td>
+                                            <td>Analis</td>
+                                            <td><a href="#"><span class="badge badge-success">diterima</span></a></td>
+                                            <td>12:30:30 22/05/2018</td>
                                         </tr>
-                                        <?php
-                                            } 
-                                        ?>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Muhammad Fakhurrifqi</td>
+                                            <td>Koordinator</td>
+                                            <td><a href="#"><span class="badge badge-warning">diproses</span></a></td>
+                                            <td>15:35:35 25/05/2018</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Isnaini Barochatun</td>
+                                            <td>Koordinator</td>
+                                            <td><a href="#"><span class="badge badge-warning">selesai</span></a></td>
+                                            <td>15:35:35 25/05/2018</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Isnaini Barochatun</td>
+                                            <td>analis</td>
+                                            <td><a href="#"><span class="badge badge-warning">diterima</span></a></td>
+                                            <td>15:35:35 25/05/2018</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             <!-- /.row (nested) -->
