@@ -27,13 +27,13 @@
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color: #005580">
             <div class="navbar-header">
-                
+
                 <a class="navbar-brand" style="color: #ffffff" >SI PENGADUAN</a>
             </div>
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
-                
+
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a style="color: #ffffff" href=<?php echo base_url("login/index")?> ><i class="fa fa-fw fa-sign-out"></i>Logout</a>
@@ -43,9 +43,9 @@
 
             <!--- user panel -->
             <section class="sidebar">
-                    <div class="pull-center image">
-                        <img src='<?php echo base_url("img/user2.png")?>' class="img-circle" alt="User Image"  style="margin-left: 24%; margin-right: 24%; margin-top: 10%; width: 50%">
-                    </div>
+                <div class="pull-center image">
+                    <img src='<?php echo base_url("img/user2.png")?>' class="img-circle" alt="User Image"  style="margin-left: 24%; margin-right: 24%; margin-top: 10%; width: 50%">
+                </div>
             </section>
 
             <!-- MENU -->
@@ -97,50 +97,64 @@
                         <div class="panel-heading">
                             Basic Form Elements
                         </div>
-                            <div class="panel-body">
-                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th>ID Pengaduan</th>
-                                            <th>Pengelola</th>
-                                            <th>Level</th>
-                                            <th>Status</th>
-                                            <th>Waktu</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Isnaini Barochatun</td>
-                                            <td>Analis</td>
-                                            <td><a href="#"><span class="badge badge-success">diterima</span></a></td>
-                                            <td>12:30:30 22/05/2018</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Muhammad Fakhurrifqi</td>
-                                            <td>Koordinator</td>
-                                            <td><a href="#"><span class="badge badge-warning">diproses</span></a></td>
-                                            <td>15:35:35 25/05/2018</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Isnaini Barochatun</td>
-                                            <td>Koordinator</td>
-                                            <td><a href="#"><span class="badge badge-warning">selesai</span></a></td>
-                                            <td>15:35:35 25/05/2018</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Isnaini Barochatun</td>
-                                            <td>analis</td>
-                                            <td><a href="#"><span class="badge badge-warning">diterima</span></a></td>
-                                            <td>15:35:35 25/05/2018</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <div class="panel-body">
+                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>ID Pengaduan</th>
+                                        <th>Pengelola</th>
+                                        <th>Level</th>
+                                        <th>Status</th>
+                                        <th>Waktu</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Isnaini Barochatun</td>
+                                        <td>Analis</td>
+                                        <td><a href="#"><span class="badge badge-success">diterima</span></a></td>
+                                        <td>12:30:30 22/05/2018</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Muhammad Fakhurrifqi</td>
+                                        <td>Koordinator</td>
+                                        <td><a href="#"><span class="badge badge-warning">diproses</span></a></td>
+                                        <td>15:35:35 25/05/2018</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Isnaini Barochatun</td>
+                                        <td>Koordinator</td>
+                                        <td><a href="#"><span class="badge badge-warning">selesai</span></a></td>
+                                        <td>15:35:35 25/05/2018</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Isnaini Barochatun</td>
+                                        <td>analis</td>
+                                        <td><a href="#"><span class="badge badge-warning">diterima</span></a></td>
+                                        <td>15:35:35 25/05/2018</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Isnaini Barochatun</td>
+                                        <td>Koordinator</td>
+                                        <td><a href="#"><span class="badge badge-warning">selesai</span></a></td>
+                                        <td>15:35:35 25/05/2018</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Isnaini Barochatun</td>
+                                        <td>analis</td>
+                                        <td><a href="#"><span class="badge badge-warning">diterima</span></a></td>
+                                        <td>15:35:35 25/05/2018</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                             <!-- /.row (nested) -->
-                            </div>
+                        </div>
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
@@ -162,13 +176,12 @@
     <script src=<?php echo base_url("assets/vendor/datatables-responsive/dataTables.responsive.js")?> ></script>
     <script src=<?php echo base_url("assets/dist/js/sb-admin-2.js")?> ></script>
 
-    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
-    $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-            responsive: true
+        $(document).ready(function() {
+            $('#dataTables-example').DataTable({
+                responsive: true
+            });
         });
-    });
     </script>
 
 </body>
