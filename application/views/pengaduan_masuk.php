@@ -17,7 +17,8 @@
     <link href=<?php echo base_url("assets/vendor/datatables-responsive/dataTables.responsive.css")?>  rel="stylesheet">
     <link href=<?php echo base_url("assets/dist/css/sb-admin-2.css")?> rel="stylesheet">
     <link href=<?php echo base_url("assets/vendor/font-awesome/css/font-awesome.min.css")?>  rel="stylesheet" type="text/css">
-
+    <link rel="stylesheet" type="text/css" href=<?php echo base_url("assets/badge.css")?> >
+    
 </head>
 
 <body>
