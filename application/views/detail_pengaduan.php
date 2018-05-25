@@ -64,7 +64,7 @@
                             <a href=<?php echo base_url('analis')?> style="color: #000000"><i class="fa fa-envelope"></i><b>&nbsp; Pengaduan Masuk</b></a>
                         </li>
                         <li>
-                            <a href=<?php echo base_url('analis/data_pengaduan')?> ><i class="fa fa-table"></i>&nbsp; Data Pengaduan</a>
+                            <a href=<?php echo base_url('analis/riwayat_pengaduan')?> ><i class="fa fa-table"></i>&nbsp; Riwayat Pengaduan</a>
                         </li>
                         
                     </ul>
