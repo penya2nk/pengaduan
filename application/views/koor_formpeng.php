@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Form Pengaduan Koordinator</title>
+    <title>Koordinator</title>
 
     <link href=<?php echo base_url("assets/vendor/bootstrap/css/bootstrap.min.css")?> rel="stylesheet">
     <link href=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.css")?> rel="stylesheet">
@@ -62,12 +62,8 @@
                             <a href=<?php echo base_url('koordinator')?> style="color: #000000"><i class="fa fa-envelope"></i> Pengaduan Masuk</a>
                         </li>
                         <li>
-                            <a href=<?php echo base_url('koordinator/form')?> style="color: #000000" class="a"><i class="fa fa-edit"></i> Form Pengaduan</a>
+                            <a href=<?php echo base_url('koordinator/form')?> style="color: #000000" class="a"><i class="fa fa-edit"></i><b>&nbsp; Form Pengaduan</b></a>
                         </li>
-                        <li>
-                            <a href="#" style="color: #000000" class="a"><i class="fa fa-bar-chart"></i> Laporan</a>
-                        </li>
-                        
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

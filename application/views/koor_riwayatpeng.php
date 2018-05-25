@@ -62,13 +62,13 @@
                         </li>
                         
                         <li>
-                            <a href=<?php echo base_url('koordinator')?> style="color: #000000"><i class="fa fa-envelope"></i><b>&nbsp; Pengaduan Masuk</b></a>
+                            <a href=<?php echo base_url('koordinator')?> ><i class="fa fa-envelope"></i> Pengaduan Masuk</a>
+                        </li>
+                        <li class="active">
+                            <a href=<?php echo base_url('koordinator/riwayat')?> style="color: #000000"><i class="fa fa-table"></i><b>&nbsp; Riwayat Pengaduan</b></a>
                         </li>
                         <li>
-                            <a href=<?php echo base_url('koordinator/riwayat')?> class="a"><i class="fa fa-table"></i> Riwayat Pengaduan</a>
-                        </li>
-                        <li>
-                            <a href=<?php echo base_url('koordinator/form')?> class="a"><i class="fa fa-edit"></i> Form Pengaduan</a>
+                            <a href=<?php echo base_url('koordinator/form')?> ><i class="fa fa-edit"></i> Form Pengaduan</a>
                         </li>
                         
                     </ul>
@@ -82,7 +82,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Pengaduan Masuk</h1>
+                    <h1 class="page-header">Riwayat Pengaduan</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -96,36 +96,33 @@
                             <div class="panel-body">
                                 <table width="100%" class="table table-striped table-hover" id="dataTables-example" class="text-center">
                                     <thead>
-                                        <tr class="text-center">
-                                            <th>Pilih</th>
+                                        <tr>
+                                            <th>ID Pengaduan</th>
                                             <th>Subjek</th>
                                             <th>Kategori</th>
                                             <th>Tempat</th>
                                             <th>Jam</th>
                                             <th>Tanggal</th>
-                                            <th>Detail</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php 
-                                            foreach ($masuk as $data) {
+                                        <?php
+                                            foreach ($proses as $data)
+                                            {
                                         ?>
                                         <tr>
-                                            <td><input type="checkbox"></td>
+                                            <td><?php echo $data->id_pengaduan ?></td>
                                             <td><?php echo $data->subjek ?></td>
                                             <td><?php echo $data->kategori ?></td>
                                             <td><?php echo $data->nama_ruang ?></td>
                                             <td><?php echo date('H:i:s', strtotime($data->wkt_pengaduan)) ?></td>
                                             <td><?php echo date('d-F-Y', strtotime($data->wkt_pengaduan)) ?></td>
-                                            <td>
-                                                
-                                                <a href="#" class="btn btn-primary" style="margin-left: 10px"><span class="fa fa-eye"></span> Detail </a>
-                                            </td>
+                                            <td><span class="badge warning"><?php echo $data->status ?></span></td>
                                         </tr>
-                                        <?php 
-                                    }
-                                    ?>
-                                        
+                                        <?php
+                                            }
+                                        ?>
                                     </tbody>
                                 </table>
                             <!-- /.row (nested) -->

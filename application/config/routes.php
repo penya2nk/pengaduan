@@ -70,6 +70,7 @@ $route['analis/ubah_pengaduan'] = 'analis/Cpengaduan_masuk/ubah';
 
 //koor
 $route['koordinator'] = 'koor/Ckpengaduan_masuk';
+$route['koordinator/riwayat'] = 'koor/Ck_riwayatpeng';
 $route['koordinator/form'] = 'koor/Ckform_pengaduan';
 
 
