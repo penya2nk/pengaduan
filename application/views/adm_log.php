@@ -11,12 +11,13 @@
 
     <title>Data Pengaduan</title>
 
-    <link href=<?php echo base_url("assets/vendor/bootstrap/css/bootstrap.min.css")?> rel="stylesheet">
+    <link href=<?php echo base_url("assets/vendor/bootstrap/css/bootstrap.css")?> rel="stylesheet">
     <link href=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.css")?>  rel="stylesheet">
     <link href=<?php echo base_url("assets/vendor/datatables-plugins/dataTables.bootstrap.css")?>  rel="stylesheet">
     <link href=<?php echo base_url("assets/vendor/datatables-responsive/dataTables.responsive.css")?>  rel="stylesheet">
     <link href=<?php echo base_url("assets/dist/css/sb-admin-2.css")?> rel="stylesheet">
     <link href=<?php echo base_url("assets/vendor/font-awesome/css/font-awesome.min.css")?>  rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href=<?php echo base_url("assets/badge.css")?> >
 
 </head>
 
@@ -113,21 +114,21 @@
                                         <td>1</td>
                                         <td>Isnaini Barochatun</td>
                                         <td>Analis</td>
-                                        <td><a href="#"><span class="badge badge-success">diterima</span></a></td>
+                                        <td><span class="badge primary">diterima</span></td>
                                         <td>12:30:30 22/05/2018</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
                                         <td>Muhammad Fakhurrifqi</td>
                                         <td>Koordinator</td>
-                                        <td><a href="#"><span class="badge badge-warning">diproses</span></a></td>
+                                        <td><a href="#"><span class="badge warning">diproses</span></a></td>
                                         <td>15:35:35 25/05/2018</td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
                                         <td>Isnaini Barochatun</td>
                                         <td>Koordinator</td>
-                                        <td><a href="#"><span class="badge badge-warning">selesai</span></a></td>
+                                        <td><a href="#"><span class="badge success">selesai</span></a></td>
                                         <td>15:35:35 25/05/2018</td>
                                     </tr>
                                     <tr>

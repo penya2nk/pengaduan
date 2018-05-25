@@ -1,0 +1,32 @@
+.primary {
+color: #fff;
+background-color: #007bff;
+}
+.secondary {
+  color: #fff;
+  background-color: #6c757d;
+}
+.success {
+  color: #fff;
+  background-color: #28a745;
+}
+.info {
+  color: #fff;
+  background-color: #17a2b8;
+}
+.info {
+  color: #fff;
+  background-color: #17a2b8;
+}
+.warning {
+  color: #fff;
+  background-color: #ffc107;
+}
+.danger {
+  color: #fff;
+  background-color: #dc3545;
+}
+.light {
+  color: #fff;
+  background-color: #f8f9fa;
+}
