@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2018 at 05:38 PM
+-- Generation Time: May 25, 2018 at 07:36 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `kategori` (
 `id_kategori` int(11) NOT NULL,
   `kategori` varchar(100) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `kategori`
@@ -73,7 +73,8 @@ CREATE TABLE IF NOT EXISTS `kategori` (
 
 INSERT INTO `kategori` (`id_kategori`, `kategori`, `timestamp`) VALUES
 (1, 'komputer', '2018-05-21 15:40:43'),
-(2, 'AC', '2018-05-21 15:40:43');
+(2, 'AC', '2018-05-21 15:40:43'),
+(3, 'dosen', '2018-05-25 04:55:36');
 
 -- --------------------------------------------------------
 
@@ -101,6 +102,20 @@ INSERT INTO `level` (`id_level`, `nama_level`, `posisi`, `timestamp`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pegawai`
+--
+
+CREATE TABLE IF NOT EXISTS `pegawai` (
+`id_pegawai` int(11) NOT NULL,
+  `nama_pegawai` int(11) NOT NULL,
+  `nip` int(11) NOT NULL,
+  `password` int(11) NOT NULL,
+  `id_level` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pengaduan`
 --
 
@@ -121,14 +136,15 @@ CREATE TABLE IF NOT EXISTS `pengaduan` (
   `update_by` int(11) NOT NULL,
   `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(1) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `pengaduan`
 --
 
 INSERT INTO `pengaduan` (`id_pengaduan`, `id_user`, `id_jenis`, `id_kategori`, `id_ruang`, `wkt_pengaduan`, `tgl_kejadian`, `subjek`, `penyebab`, `efek`, `deskripsi`, `kejadian`, `status`, `update_by`, `update_at`, `deleted`) VALUES
-(1, 1, 1, 1, 1, '2018-05-21 15:54:24', '2018-05-16', 'PC tidak bisa nyala', 'karena kabel di belakang monitor kendor', 'harus pindah ke meja lain', 'PC nomer 17 tiba-tiba tidak bisa dinyalakan', 'tidak tau', 'diterima', 0, '2018-05-22 07:35:08', 0);
+(1, 1, 1, 1, 1, '2018-05-21 15:54:24', '2018-05-16', 'PC tidak bisa nyala', 'karena kabel di belakang monitor kendor', 'harus pindah ke meja lain', 'PC nomer 17 tiba-tiba tidak bisa dinyalakan', 'tidak tau', 'diproses', 0, '2018-05-25 04:59:03', 0),
+(2, 2, 1, 3, 3, '2018-05-25 04:58:28', '2018-05-10', 'Pak xyz jarang dateng ngajar mata kuliah abc', NULL, 'jadi banyak pengganti terus susah cari jadwal gantinya', 'Pak xyz sering sekali mendadak tidak bisa ngajar, padahal ini sudah hampir UAS dan kelas C baru masuk 4 kali pertemuan', 'beberapa', 'diterima', 0, '2018-05-25 04:58:50', 0);
 
 -- --------------------------------------------------------
 
@@ -259,6 +275,12 @@ ALTER TABLE `level`
  ADD PRIMARY KEY (`id_level`);
 
 --
+-- Indexes for table `pegawai`
+--
+ALTER TABLE `pegawai`
+ ADD PRIMARY KEY (`id_pegawai`);
+
+--
 -- Indexes for table `pengaduan`
 --
 ALTER TABLE `pengaduan`
@@ -312,17 +334,22 @@ MODIFY `id_jenis` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `level`
 --
 ALTER TABLE `level`
 MODIFY `id_level` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
+-- AUTO_INCREMENT for table `pegawai`
+--
+ALTER TABLE `pegawai`
+MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `pengaduan`
 --
 ALTER TABLE `pengaduan`
-MODIFY `id_pengaduan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id_pengaduan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `pengaduan_kategori`
 --
