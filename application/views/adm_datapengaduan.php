@@ -68,7 +68,7 @@
                             <a href=<?php echo base_url('admin/log_penanganan')?> ><i class="fa fa-archive"></i>&nbsp; Log Penanganan</a>
                         </li>
                         <li class="active">
-                            <a href="#"><i class="fa fa-users"></i>&nbsp; Data User<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-users"></i>&nbsp; Data Pengguna<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href=<?php echo base_url('admin/data_user')?>>Panels and Wells</a>
