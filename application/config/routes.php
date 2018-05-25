@@ -64,8 +64,7 @@ $route['user'] = 'user/Cform';
 //analis
 $route['analis'] = 'analis/Cpengaduan_masuk';
 $route['analis/detail_pengaduan/(:num)'] = 'analis/Cpengaduan_masuk/detail/$1';
-$route['analis/data_pengaduan'] = 'analis/Canalis_datapeng';
-$route['analis/laporan'] = 'analis/Canalis_datapeng/laporan';
+$route['analis/riwayat_pengaduan'] = 'analis/Canalis_riwayatpeng';
 $route['analis/kirim_pengaduan'] = 'analis/Cpengaduan_masuk/kirim';
 $route['analis/ubah_pengaduan'] = 'analis/Cpengaduan_masuk/ubah';
 

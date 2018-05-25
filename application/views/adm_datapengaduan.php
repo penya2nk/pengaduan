@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Data Pengaduan</title>
+    <title>Admin</title>
 
     <link href=<?php echo base_url("assets/vendor/bootstrap/css/bootstrap.min.css")?> rel="stylesheet">
     <link href=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.css")?>  rel="stylesheet">
@@ -87,7 +87,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Data Pengaduan</h1>
+                    <h1 class="page-header">Data Pengaduan Masuk</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

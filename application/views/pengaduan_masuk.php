@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Pengaduan Masuk</title>
+    <title>Analis</title>
 
     <link href=<?php echo base_url("assets/vendor/bootstrap/css/bootstrap.min.css")?> rel="stylesheet">
     <link href=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.css")?>  rel="stylesheet">
@@ -61,14 +61,11 @@
                             <!-- /input-group -->
                         </li>
                         
-                        <li>
-                            <a href=<?php echo base_url('analis')?> style="color: #000000"><i class="fa fa-envelope"></i> Pengaduan Masuk</a>
+                        <li class="active">
+                            <a href=<?php echo base_url('analis')?> style="color: #000000"><i class="fa fa-envelope"></i><b>&nbsp; Pengaduan Masuk</b></a>
                         </li>
                         <li>
-                            <a href=<?php echo base_url('analis/data_pengaduan')?> style="color: #000000" class="a"><i class="fa fa-table"></i> Data Pengaduan</a>
-                        </li>
-                        <li>
-                            <a href="#" style="color: #000000" class="a"><i class="fa fa-bar-chart"></i> Laporan</a>
+                            <a href=<?php echo base_url('analis/riwayat_pengaduan')?> ><i class="fa fa-table"></i>&nbsp; Riwayat Pengaduan</a>
                         </li>
                         
                     </ul>

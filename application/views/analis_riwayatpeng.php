@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Data Pengaduan</title>
+    <title>Analis</title>
 
     <link href=<?php echo base_url("assets/vendor/bootstrap/css/bootstrap.min.css")?> rel="stylesheet">
     <link href=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.css")?>  rel="stylesheet">
@@ -61,13 +61,10 @@
                         </li>
                         
                         <li>
-                            <a href=<?php echo base_url('analis')?> style="color: #000000" ><i class="fa fa-envelope"></i> Pengaduan Masuk</a>
+                            <a href=<?php echo base_url('analis')?> ><i class="fa fa-envelope"></i>&nbsp; Pengaduan Masuk</a>
                         </li>
-                        <li>
-                            <a href=<?php echo base_url('analis/data_pengaduan')?> style="color: #000000" ><i class="fa fa-table"></i> Data Pengaduan</a>
-                        </li>
-                        <li>
-                            <a href=<?php echo base_url('analis/laporan')?> style="color: #000000" style="color: #000000"><i class="fa fa-users"></i> Laporan</a>
+                        <li class="active">
+                            <a href=<?php echo base_url('analis/riwayat_pengaduan')?> style="color: #000000" ><i class="fa fa-table"></i><b>&nbsp; Riwayat Pengaduan</b></a>
                         </li>
                         
                     </ul>
@@ -81,7 +78,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Data Pengaduan</h1>
+                    <h1 class="page-header">Riwayat Pengaduan</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -100,27 +97,28 @@
                                             <th>Subjek</th>
                                             <th>Kategori</th>
                                             <th>Tempat</th>
-                                            <th>Waktu Masuk</th>
+                                            <th>Jam</th>
+                                            <th>Tanggal</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php
+                                            foreach ($proses as $data)
+                                            {
+                                        ?>
                                         <tr>
-                                            <td>1</td>
-                                            <td>abcdefhg</td>
-                                            <td>abcdefhg</td>
-                                            <td>abcdefhg</td>
-                                            <td><a href=<?php echo base_url("analis/detail_pengaduan")?>abcdefhg</td>
-                                            <td>selesai</td>
+                                            <td><?php echo $data->id_pengaduan ?></td>
+                                            <td><?php echo $data->subjek ?></td>
+                                            <td><?php echo $data->kategori ?></td>
+                                            <td><?php echo $data->nama_ruang ?></td>
+                                            <td><?php echo date('H:i:s', strtotime($data->wkt_pengaduan)) ?></td>
+                                            <td><?php echo date('d-F-Y', strtotime($data->wkt_pengaduan)) ?></td>
+                                            <td><span class="badge warning"><?php echo $data->status ?></span></td>
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>abcdefhg</td>
-                                            <td>abcdefhg</td>
-                                            <td>abcdefhg</td>
-                                            <td><a href=<?php echo base_url("analis/detail_pengaduan")?>abcdefhg</td>
-                                            <td>belum</td>
-                                        </tr>
+                                        <?php
+                                            }
+                                        ?>
                                     </tbody>
                                 </table>
                             <!-- /.row (nested) -->

@@ -61,13 +61,10 @@
                         </li>
 
                         <li>
-                            <a href=<?php echo base_url('analis')?> style="color: #000000"><i class="fa fa-envelope"></i> Pengaduan Masuk</a>
+                            <a href=<?php echo base_url('analis')?> style="color: #000000"><i class="fa fa-envelope"></i><b>&nbsp; Pengaduan Masuk</b></a>
                         </li>
                         <li>
-                            <a href=<?php echo base_url('analis/data_pengaduan')?> style="color: #000000" class="a"><i class="fa fa-table"></i> Data Pengaduan</a>
-                        </li>
-                        <li>
-                            <a href="#" style="color: #000000" class="a"><i class="fa fa-bar-chart"></i> Laporan</a>
+                            <a href=<?php echo base_url('analis/data_pengaduan')?> ><i class="fa fa-table"></i>&nbsp; Data Pengaduan</a>
                         </li>
                         
                     </ul>
