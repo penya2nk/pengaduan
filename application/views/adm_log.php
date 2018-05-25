@@ -131,27 +131,6 @@
                                         <td><a href="#"><span class="badge success">selesai</span></a></td>
                                         <td>15:35:35 25/05/2018</td>
                                     </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Isnaini Barochatun</td>
-                                        <td>analis</td>
-                                        <td><a href="#"><span class="badge badge-warning">diterima</span></a></td>
-                                        <td>15:35:35 25/05/2018</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Isnaini Barochatun</td>
-                                        <td>Koordinator</td>
-                                        <td><a href="#"><span class="badge badge-warning">selesai</span></a></td>
-                                        <td>15:35:35 25/05/2018</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Isnaini Barochatun</td>
-                                        <td>analis</td>
-                                        <td><a href="#"><span class="badge badge-warning">diterima</span></a></td>
-                                        <td>15:35:35 25/05/2018</td>
-                                    </tr>
                                 </tbody>
                             </table>
                             <!-- /.row (nested) -->
