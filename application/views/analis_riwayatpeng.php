@@ -100,6 +100,7 @@
                                             <th>Jam</th>
                                             <th>Tanggal</th>
                                             <th>Status</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -115,6 +116,7 @@
                                             <td><?php echo date('H:i:s', strtotime($data->wkt_pengaduan)) ?></td>
                                             <td><?php echo date('d-F-Y', strtotime($data->wkt_pengaduan)) ?></td>
                                             <td><span class="badge warning"><?php echo $data->status ?></span></td>
+                                            <td><a class="btn btn-danger" href="#"><i class="fa fa-remove"></i></a></td>
                                         </tr>
                                         <?php
                                             }

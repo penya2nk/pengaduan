@@ -11,5 +11,10 @@ class Madmin_datauser extends CI_Model {
 		$this->db->where('u.id_level = 1');
 		return $this->db->get()->result();
 	}
+
+	public function upload_data()
+	{
+
+	}
 }
 ?>

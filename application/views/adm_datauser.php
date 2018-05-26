@@ -96,7 +96,11 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <input type="file">
+                            <form action="<?php echo base_url()?>excel/upload/" method="POST" enctype="multipart/form-data">
+                                <input type="file">
+                                <input type="submit" value="upload file">  
+                            </form>
+
                         </div>
                             <div class="panel-body">
                                 <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
