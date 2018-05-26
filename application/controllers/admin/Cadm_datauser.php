@@ -9,7 +9,7 @@ class Cadm_datauser extends CI_Controller {
 		$this->load->model('Madmin_datauser');
 		$this->load->database();
 		$this->load->helper('url');
-		$this->load->libary(array('PHPExcel','PHPExcel/IOFactory'));
+		$this->load->library(array('PHPExcel','PHPExcel/IOFactory'));
 	}
 
 	public function index()
@@ -54,15 +54,16 @@ class Cadm_datauser extends CI_Controller {
 
 			$data = array(
 				"id_user" => $rowData[0][0],
-				"nama_pengguna" => $rowData[0][0],
-				"password" => $rowData[0][0],
-				"status" => $rowData[0][0],
-				"timestamp" => $rowData[0][0]
+				"nama_pengguna" => $rowData[0][1],
+				"password" => $rowData[0][2],
+				"status" => $rowData[0][3],
+				"id_level" => $rowData[0][4],
+				"timestamp" => $rowData[0][5]
 			);
 
 			$insert = $this->db->insert("user",$data);
 			delete_files($media['file_path']);
 		}
-		redirect('excel/');
+		redirect('admin/data_user/');
 	}
 }

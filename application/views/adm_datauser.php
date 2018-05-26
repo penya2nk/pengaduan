@@ -96,7 +96,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <form action="<?php echo base_url()?>excel/upload/" method="POST" enctype="multipart/form-data">
+                            <form action="<?php echo base_url()?>admin/data_user/" method="POST" enctype="multipart/form-data">
                                 <input type="file">
                                 <input type="submit" value="upload file">  
                             </form>
