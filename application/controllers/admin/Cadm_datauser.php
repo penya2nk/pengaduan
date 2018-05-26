@@ -60,7 +60,7 @@ class Cadm_datauser extends CI_Controller {
 				"timestamp" => $rowData[0][0]
 			);
 
-			$insert = $this->db->insert("eimport",$data);
+			$insert = $this->db->insert("user",$data);
 			delete_files($media['file_path']);
 		}
 		redirect('excel/');
