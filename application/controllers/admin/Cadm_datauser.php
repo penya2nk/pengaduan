@@ -7,6 +7,7 @@ class Cadm_datauser extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Madmin_datauser');
+		$this->load->database();
 		$this->load->helper('url');
 		$this->load->libary(array('PHPExcel','PHPExcel/IOFactory'));
 	}
@@ -28,6 +29,7 @@ class Cadm_datauser extends CI_Controller {
 
 		$this->load->libary('upload');
 		$this->upload->initialize($config);
+		$this->load->libary('upload',$config);
 
 		if (! $this->upload->do_upload('file'))
 			$this->upload->display_errors();
