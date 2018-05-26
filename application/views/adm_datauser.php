@@ -123,11 +123,11 @@
                                                 <?php 
                                                 if($data->status == 1)
                                                 {
-                                                    echo "aktif";
+                                                    echo "<span class='badge success'>aktif</span>";
                                                 }
                                                 else
                                                 {
-                                                    echo "tidak aktif";
+                                                    echo "<span class='badge danger'>tidak aktif</span>";
                                                 } 
                                             ?></td>
                                         </tr>

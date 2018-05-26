@@ -8,7 +8,7 @@ class Madmin_datauser extends CI_Model {
 		$this->db->select('u.id_user, u.nama_pengguna, u.status, l.nama_level');
 		$this->db->from('user u','level l');
 		$this->db->join('level l','l.id_level = u.id_level');
-		$this->db->where('u.id_level = 1');
+		//$this->db->where('u.id_level = 1');
 		return $this->db->get()->result();
 	}
 
