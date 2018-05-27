@@ -20,30 +20,34 @@ class Cadm_datauser extends CI_Controller {
 
 	public function upload()
 	{
-		$fileName = time().$_FILES['title']['name'];
+		$fileName = time().$_FILES['file']['name'];
 
 		$config['upload_path']='./assets/';
 		$config['file_name']=$fileName;
 		$config['allowed_types']='xls|xlsx|csv';
 		$config['max_size']=10000;
 
+<<<<<<< HEAD
 		$this->load->libary('upload');
 		$this->upload->initialize($config);
+=======
+		$this->load->library('upload',$config);
+>>>>>>> 0343e76f907fb462268846956348f399e66ddd7a
 
-		if (! $this->upload->do_upload('file'))
+		if (! $this->upload->do_upload('file')) {
 			$this->upload->display_errors();
-
-		$media = $this->upload->data('file');
+		}else{
+		$media = $this->upload->data();
 		$inputFileName = './assets/'.$media['file_name'];
 
-		try {
+		// try {
+		// }catch(Exception $e){
+			// die('Eror loading file"'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
+		// }
 
-			$inputFileType = IOFactory::indentify($inputFileName);
+			$inputFileType = IOFactory::identify($inputFileName);
 			$objReader = IOFactory::createReader($inputFileType);
 			$objPHPExcel = $objReader->load($inputFileName);
-		}catch(Exception $e){
-			die('Eror loading file"'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
-		}
 		$sheet = $objPHPExcel->getSheet(0);
 		$highestRow = $sheet->getHighestRow();
 		$highestColumn = $sheet->getHighestColumn();
@@ -52,16 +56,15 @@ class Cadm_datauser extends CI_Controller {
 			$rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row, NULL, TRUE, FALSE);
 
 			$data = array(
-				"id_user" => $rowData[0][0],
 				"nama_pengguna" => $rowData[0][1],
 				"password" => $rowData[0][2],
 				"status" => $rowData[0][3],
-				"id_level" => $rowData[0][4],
-				"timestamp" => $rowData[0][5]
+				"id_level" => $rowData[0][4]
 			);
 
 			$insert = $this->db->insert("user",$data);
-			delete_files($media['file_path']);
+			unlink($inputFileName); //File Deleted After uploading in database .
+		}
 		}
 		redirect('admin/data_user/');
 	}
