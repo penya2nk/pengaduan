@@ -57,6 +57,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['admin'] = 'admin/Cadm_datapengaduan';  //akses halaman pertama
 $route['admin/log_penanganan'] = 'admin/Cadm_log';  //akses halaman pertama
 $route['admin/data_user'] = 'admin/Cadm_datauser';
+$route['admin/data_user/upload'] = 'admin/Cadm_datauser/upload';
 
 //user
 $route['user'] = 'user/Cform';
