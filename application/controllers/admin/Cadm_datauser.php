@@ -31,35 +31,36 @@ class Cadm_datauser extends CI_Controller {
 		if (! $this->upload->do_upload('file')) {
 			$this->upload->display_errors();
 		}else{
-		$media = $this->upload->data();
-		$inputFileName = './assets/'.$media['file_name'];
+			$media = $this->upload->data();
+			$inputFileName = './assets/'.$media['file_name'];
 
-		// try {
-		// }catch(Exception $e){
-			// die('Eror loading file"'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
-		// }
+			try {
+				$inputFileType = IOFactory::identify($inputFileName);
+				$objReader = IOFactory::createReader($inputFileType);
+				$objPHPExcel = $objReader->load($inputFileName);
+			} catch(Exception $e) {
+				die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
+			}
 
-			$inputFileType = IOFactory::identify($inputFileName);
-			$objReader = IOFactory::createReader($inputFileType);
-			$objPHPExcel = $objReader->load($inputFileName);
-		$sheet = $objPHPExcel->getSheet(0);
-		$highestRow = $sheet->getHighestRow();
-		$highestColumn = $sheet->getHighestColumn();
+			
+			$sheet = $objPHPExcel->getSheet(0);
+			$highestRow = $sheet->getHighestRow();
+			$highestColumn = $sheet->getHighestColumn();
 
-		for ($row=2; $row <= $highestRow; $row++) { 
-			$rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row, NULL, TRUE, FALSE);
+			for ($row=2; $row <= $highestRow; $row++) { 
+				$rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row, NULL, TRUE, FALSE);
 
-			$data = array(
-				"nama_pengguna" => $rowData[0][1],
-				"password" => $rowData[0][2],
-				"status" => $rowData[0][3],
-				"id_level" => $rowData[0][4]
-			);
+				$data = array(
+					"nama_pengguna" => $rowData[0][1],
+					"password" => $rowData[0][2],
+					"status" => $rowData[0][3],
+					"id_level" => $rowData[0][4]
+				);
 
-			$insert = $this->db->insert("user",$data);
+				$insert = $this->db->insert("user",$data);
 			unlink($inputFileName); //File Deleted After uploading in database .
 		}
-		}
-		redirect('admin/data_user/');
 	}
+	redirect('admin/data_user/');
+}
 }
