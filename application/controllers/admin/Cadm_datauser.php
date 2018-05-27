@@ -29,7 +29,6 @@ class Cadm_datauser extends CI_Controller {
 
 		$this->load->libary('upload');
 		$this->upload->initialize($config);
-		$this->load->libary('upload',$config);
 
 		if (! $this->upload->do_upload('file'))
 			$this->upload->display_errors();

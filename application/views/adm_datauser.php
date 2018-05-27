@@ -71,7 +71,7 @@
                             <a href="#"><i class="fa fa-users"></i>&nbsp; Data Pengguna<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href=<?php echo base_url('admin/data_user')?> style="color: #000000"><b>Panels and Wells</b></a>
+                                    <a href=<?php echo base_url('admin/data_user')?> style="color: #000000"><b>Data user</b></a>
                                 </li>
                             </ul>
                         </li>
