@@ -59,7 +59,7 @@
                                 <p>Isnaini Barochatun</p>
                             </div>
                             <!-- /input-group -->
-                        </li>
+														</li>
                         
                         <li>
                             <a href=<?php echo base_url('admin')?> ><i class="fa fa-home"></i>&nbsp; Data Pengaduan</a>
