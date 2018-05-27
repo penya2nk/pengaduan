@@ -30,6 +30,7 @@ class Cadm_datauser extends CI_Controller {
 		$this->load->library('upload',$config);
 		if (! $this->upload->do_upload('file')) {
 			$this->upload->display_errors();
+
 		}else{
 			$media = $this->upload->data();
 			$inputFileName = './assets/'.$media['file_name'];
