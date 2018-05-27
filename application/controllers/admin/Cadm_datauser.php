@@ -27,13 +27,7 @@ class Cadm_datauser extends CI_Controller {
 		$config['allowed_types']='xls|xlsx|csv';
 		$config['max_size']=10000;
 
-<<<<<<< HEAD
-		$this->load->libary('upload');
-		$this->upload->initialize($config);
-=======
 		$this->load->library('upload',$config);
->>>>>>> 0343e76f907fb462268846956348f399e66ddd7a
-
 		if (! $this->upload->do_upload('file')) {
 			$this->upload->display_errors();
 		}else{
