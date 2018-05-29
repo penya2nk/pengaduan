@@ -35,7 +35,7 @@
               </center>
 
               <div class="panel-body">
-                <form role="form" action=<?php echo base_url("#")?> method="POST">
+                <form role="form" action=<?php echo base_url("login/loginMe")?> method="POST">
                   <fieldset>
 
                     <div class="form-group">
@@ -43,7 +43,7 @@
                         <div class="input-group-addon">
                           <i class="fa fa-user"></i>
                         </div>
-                        <select class="form-control">
+                        <select name="username" class="form-control">
                           <option value="0">-------------- Masuk sebagai -------------</option>
                           <option value="admin">admin</option>
                           <option value="analis">analis</option>
@@ -57,12 +57,12 @@
                         <div class="input-group-addon">
                           <i class="fa fa-key"></i>
                         </div>
-                        <input class="form-control" placeholder="Password" type="password" required="required">
+                        <input name="password" class="form-control" placeholder="Password" type="password" required="required">
                       </div>
                     </div>
                     <div class="checkbox">
                       <center>
-                        <button class="btn btn-sm btn-primary" type="submit">MASUK</button>
+                        <input class="btn btn-sm btn-primary" type="submit" value="MASUK">
                       </center>
                     </div>
 

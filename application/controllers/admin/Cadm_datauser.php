@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-class Cadm_datauser extends CI_Controller {
+require APPPATH . '/libraries/BaseController.php';
+class Cadm_datauser extends BaseController {
 
 	function __construct()
 	{
@@ -10,6 +10,7 @@ class Cadm_datauser extends CI_Controller {
 		$this->load->database();
 		$this->load->helper('url');
 		$this->load->library(array('PHPExcel','PHPExcel/IOFactory'));
+		$this->isLoggedIn();
 	}
 
 	public function index()

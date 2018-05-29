@@ -112,10 +112,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
 
-                            <form action="<?php echo base_url()?>admin/data_user/upload" method="POST" enctype="multipart/form-data">
-                                <input type="file" name="file" required>
-                                <input type="submit" value="upload file">  
-                            </form>
+                            <a href="#" class="btn btn-success btn-md" data-toggle="modal" data-target="#modalUpload"><span class="fa fa-upload"></span> Upload </a>
 
                         </div>
                         <div class="panel-body">
@@ -167,7 +164,7 @@
         </div>
         <!-- /#wrapper -->
 
-    <!-- modal setting -->
+        <!-- modal setting -->
         <div class="modal modal-primary fade" id="settingModal" style="margin-top: 5%">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -189,9 +186,44 @@
                     <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Batal</button>
                     <input type="submit" class="btn btn-primary" value="Simpan">
                 </div>
+
+                <form action="<?php echo base_url()?>admin/data_user/upload" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="file" required>
+                    <input type="submit" value="upload file">  
+                </form>
             </form>
         </div>
     </div>
+</div>
+<!-- modal setting -->
+
+<!-- modal setting -->
+<div class="modal modal-primary fade" id="modalUpload" style="margin-top: 5%">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">JUDUL MODAL</h4>
+      </div>
+
+      <form method="POST" action="<?php echo base_url('#') ?>">
+          <div class="modal-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-danger">Perhatian!</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <form action="<?php echo base_url()?>admin/data_user/upload" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" required>
+                <input type="submit" value="upload file">  
+            </form>
+        </div>
+    </form>
+</div>
+</div>
 </div>
 <!-- modal setting -->
 

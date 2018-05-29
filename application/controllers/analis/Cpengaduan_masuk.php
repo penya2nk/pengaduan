@@ -1,13 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-class Cpengaduan_masuk extends CI_Controller {
+require APPPATH . '/libraries/BaseController.php';
+class Cpengaduan_masuk extends BaseController {
 
 	function __construct()
 	{
 		parent::__construct();
 		$this->load->model('Manalis_pengaduanmsk');
 		$this->load->helper('url','form');
+		$this->isLoggedIn();
 	}
 
 	public function index()

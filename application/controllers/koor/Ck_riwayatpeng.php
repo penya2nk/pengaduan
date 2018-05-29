@@ -1,13 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-class Ck_riwayatpeng extends CI_Controller {
+require APPPATH . '/libraries/BaseController.php';
+class Ck_riwayatpeng extends BaseController {
 
 	function __construct()
 	{
 		parent::__construct();
 		//$this->load->model('Mkoor_pengaduan');
 		$this->load->helper('url','form');
+		$this->isLoggedIn();
 	}
 
 	public function index()

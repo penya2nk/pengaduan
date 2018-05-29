@@ -1,13 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-class Cadm_datapengaduan extends CI_Controller {
+require APPPATH . '/libraries/BaseController.php';
+class Cadm_datapengaduan extends BaseController {
 
 	function __construct()
 	{
 		parent::__construct();
 		//$this->load->model('mlogin');
 		$this->load->helper('url','form');
+		$this->isLoggedIn();
 	}
 
 	public function index()
