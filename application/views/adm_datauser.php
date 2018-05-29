@@ -46,7 +46,8 @@
                     <ul class="dropdown-menu dropdown-user">
                         <li><a data-toggle="modal" data-target="#settingModal"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="<?php echo base_url('logout_karyawan')?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
