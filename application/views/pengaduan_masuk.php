@@ -117,7 +117,7 @@
                                             foreach ($pengaduan as $data) {
                                         ?>
                                         <tr>
-                                            <td><input type="checkbox"></td>
+                                            <td><center><input type="checkbox"></center></td>
                                             <td><?php echo $data->subjek ?></td>
                                             <td><?php echo $data->kategori ?></td>
                                             <td><?php echo $data->nama_ruang ?></td>

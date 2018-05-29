@@ -43,6 +43,14 @@ class Manalis_pengaduanmsk extends CI_Model {
 	public function kirim($data)
 	{
 		return $this->db->insert('pengaduan_level',$data);
+
+/**		return $this->db->query('DELIMITER $$
+			CREATE TRIGGER `log` AFTER INSERT ON  `pengaduan_level` 
+			FOR EACH ROW BEGIN 
+			UPDATE pengaduan 
+			SET status = `diproses` WHERE status = `diterima` 
+			END$$
+			DELIMITER', $data); **/
 	}
 
 	public function ubah($data,$id_pengaduan)

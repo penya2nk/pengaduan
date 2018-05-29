@@ -27,19 +27,19 @@ class Login extends CI_Controller {
         
         if(!isset($isLoggedIn) || $isLoggedIn != TRUE)
         {
-            $this->load->view('login');
+            $this->load->view('Login');
         }
         else
         {
         	if ($username == 'admin') { //nyamain val opt
-                    	redirect('admin');
-                    }
-                    elseif ($username == 'analis') {
-                    	redirect('analis');
-                    }
-                    elseif ($username == 'koordinator') {
-                    	redirect('koordinator');
-                    }
+                	redirect('admin');
+                }
+                elseif ($username == 'analis') {
+                	redirect('analis');
+                }
+                elseif ($username == 'koordinator') {
+                	redirect('koordinator');
+                }
         }
     }
     
@@ -76,7 +76,7 @@ class Login extends CI_Controller {
                                             'username'=>$username,
                                             'isLoggedIn' => TRUE
                                     );
-//langsung redirect                                    
+                           
                     $this->session->set_userdata($sessionArray);
                     if ($username == 'admin') { //nyamain val opt
                     	redirect('admin');

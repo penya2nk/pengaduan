@@ -125,7 +125,8 @@
                                             <td><?php echo date('H:i:s', strtotime($data->wkt_pengaduan)) ?></td>
                                             <td><?php echo date('d-F-Y', strtotime($data->wkt_pengaduan)) ?></td>
                                             <td><span class="badge warning"><?php echo $data->status ?></span></td>
-                                            <td><a class="btn btn-danger" href="#"><i class="fa fa-remove"></i></a></td>
+                                            <td><a class="btn btn-danger" href="#"><i class="fa fa-trash"></i></a>&nbsp;
+                                                <a class="btn btn-primary" href="#"><i class="fa fa-eye"></i></a></td>
                                         </tr>
                                         <?php
                                             }

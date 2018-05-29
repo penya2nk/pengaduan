@@ -43,7 +43,7 @@
                         <div class="input-group-addon">
                           <i class="fa fa-user"></i>
                         </div>
-                        <input type="text" class="form-control"  placeholder="NIP/NIM">
+                        <input type="text" name="username" class="form-control"  placeholder="NIP/NIM">
                       </div>
                     </div>
 
