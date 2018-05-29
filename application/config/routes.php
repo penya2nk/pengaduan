@@ -53,6 +53,8 @@ $route['default_controller'] = 'login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['forget'] = 'forget';
+
 //admin
 $route['admin'] = 'admin/Cadm_datapengaduan';  //akses halaman pertama
 $route['admin/log_penanganan'] = 'admin/Cadm_log';  //akses halaman pertama
