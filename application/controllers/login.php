@@ -14,9 +14,4 @@ class login extends CI_Controller {
 	{
 		$this->load->view('login');
 	}
-
-	public function forget()
-	{
-		$this->load->view('lupa_password');
-	}
 }

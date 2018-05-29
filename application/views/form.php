@@ -42,7 +42,8 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active dropdown">
-            <a class="nav-link" href="#">
+
+            <a class="nav-link" href="">
               <span class="fa fa-user"></span>&nbsp;Isnaini Barochatun
               <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                 <button class="dropdown-item" type="button">Action</button>
@@ -50,6 +51,7 @@
                 <button class="dropdown-item" type="button">Something else here</button>
               </div>
             </a>
+            
           </li>
         </ul>
       </div>

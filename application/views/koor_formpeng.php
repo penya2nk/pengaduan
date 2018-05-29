@@ -34,7 +34,7 @@
                 
                 <!-- /.dropdown -->
                 <li class="dropdown">
-                    <a style="color: #ffffff" href="index.html"><i class="fa fa-fw fa-sign-out"></i>Logout</a>
+                    <a style="color: #ffffff" href=<?php echo base_url("login">)?> <i class="fa fa-fw fa-sign-out"></i>Isnaini Barochatun</a>
                 </li>
             </ul>
             <!-- /.navbar-top-links -->
