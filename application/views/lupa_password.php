@@ -29,7 +29,7 @@
             <center>
               <div class="panel-heading" style="align-items: center;">
                 <img src=<?php echo base_url("img/ugm.gif")?> style="width: auto; height: 100px; margin-bottom: 30px">
-                <h3 class="panel-title">RESET PASSWORD</h3>
+                <h3 class="panel-title"><b>RESET PASSWORD</b></h3>
             </div>
         </center>
 

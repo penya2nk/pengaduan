@@ -28,25 +28,38 @@
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="background-color: #005580">
             <div class="navbar-header">
-                
+
                 <a class="navbar-brand" style="color: #ffffff" >SI PENGADUAN</a>
             </div>
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
-                
-                <!-- /.dropdown -->
+
+                <!-- /.dropdown 
                 <li class="dropdown">
-                    <a style="color: #ffffff" href=<?php echo base_url("login")?> ><i class="fa fa-fw fa-sign-out"></i>Isnaini Barochatun</a>
+                    <a style="color: #ffffff" href=<?php //echo base_url("login")?> ><i class="fa fa-fw fa-sign-out"></i>Isnaini Barochatun</a>
+                </li> -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #ffffff">
+                        <i class="fa fa-user fa-fw"></i> Isnaini barochatun</i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a data-toggle="modal" data-target="#settingModal"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
                 </li>
+
             </ul>
             <!-- /.navbar-top-links -->
 
             <!--- user panel -->
             <section class="sidebar">
-                    <div class="pull-center image">
-                        <img src='<?php echo base_url("img/user2.png")?>' class="img-circle" alt="User Image"  style="margin-left: 24%; margin-right: 24%; margin-top: 10%; width: 50%">
-                    </div>
+                <div class="pull-center image">
+                    <img src='<?php echo base_url("img/user2.png")?>' class="img-circle" alt="User Image"  style="margin-left: 24%; margin-right: 24%; margin-top: 10%; width: 50%">
+                </div>
             </section>
 
             <!-- MENU -->
@@ -59,8 +72,9 @@
                                 <p>Isnaini Barochatun</p>
                             </div>
                             <!-- /input-group -->
-														</li>
+                        </li>
                         
+                        <!-- menu -->
                         <li>
                             <a href=<?php echo base_url('admin')?> ><i class="fa fa-home"></i>&nbsp; Data Pengaduan</a>
                         </li>
@@ -75,6 +89,7 @@
                                 </li>
                             </ul>
                         </li>
+                        <!-- menu -->
                         
                     </ul>
                 </div>
@@ -96,25 +111,26 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
+
                             <form action="<?php echo base_url()?>admin/data_user/upload" method="POST" enctype="multipart/form-data">
                                 <input type="file" name="file" required>
                                 <input type="submit" value="upload file">  
                             </form>
 
                         </div>
-                            <div class="panel-body">
-                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th>ID Pengguna</th>
-                                            <th>Nama Pengguna</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                            foreach ($user as $data)
-                                            {
+                        <div class="panel-body">
+                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>ID Pengguna</th>
+                                        <th>Nama Pengguna</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    foreach ($user as $data)
+                                    {
                                         ?>
                                         <tr>
                                             <td><?php echo $data->id_user ?></td>
@@ -129,44 +145,72 @@
                                                 {
                                                     echo "<span class='badge danger'>tidak aktif</span>";
                                                 } 
-                                            ?></td>
-                                        </tr>
-                                        <?php
-                                            } 
+                                                ?></td>
+                                            </tr>
+                                            <?php
+                                        } 
                                         ?>
                                     </tbody>
                                 </table>
-                            <!-- /.row (nested) -->
+                                <!-- /.row (nested) -->
                             </div>
-                        <!-- /.panel-body -->
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
                     </div>
-                    <!-- /.panel -->
+                    <!-- /.col-lg-12 -->
                 </div>
-                <!-- /.col-lg-12 -->
+                <!-- /.row -->
             </div>
-            <!-- /.row -->
+            <!-- /#page-wrapper -->
+
         </div>
-        <!-- /#page-wrapper -->
+        <!-- /#wrapper -->
 
+    <!-- modal setting -->
+        <div class="modal modal-primary fade" id="settingModal" style="margin-top: 5%">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title">JUDUL MODAL</h4>
+              </div>
+
+              <form method="POST" action="<?php echo base_url('#') ?>">
+                  <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            KONTEN MODAL
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Batal</button>
+                    <input type="submit" class="btn btn-primary" value="Simpan">
+                </div>
+            </form>
+        </div>
     </div>
-    <!-- /#wrapper -->
+</div>
+<!-- modal setting -->
 
-    <script src=<?php echo base_url("assets/vendor/jquery/jquery.min.js")?> ></script>
-    <script src=<?php echo base_url("assets/vendor/bootstrap/js/bootstrap.min.js")?> ></script>
-    <script src=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.js")?> ></script>
-    <script src=<?php echo base_url("assets/vendor/datatables/js/jquery.dataTables.min.js")?> ></script>
-    <script src=<?php echo base_url("assets/vendor/datatables-plugins/dataTables.bootstrap.min.js")?> ></script>
-    <script src=<?php echo base_url("assets/vendor/datatables-responsive/dataTables.responsive.js")?> ></script>
-    <script src=<?php echo base_url("assets/dist/js/sb-admin-2.js")?> ></script>
+<script src=<?php echo base_url("assets/vendor/jquery/jquery.min.js")?> ></script>
+<script src=<?php echo base_url("assets/vendor/bootstrap/js/bootstrap.min.js")?> ></script>
+<script src=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.js")?> ></script>
+<script src=<?php echo base_url("assets/vendor/datatables/js/jquery.dataTables.min.js")?> ></script>
+<script src=<?php echo base_url("assets/vendor/datatables-plugins/dataTables.bootstrap.min.js")?> ></script>
+<script src=<?php echo base_url("assets/vendor/datatables-responsive/dataTables.responsive.js")?> ></script>
+<script src=<?php echo base_url("assets/dist/js/sb-admin-2.js")?> ></script>
 
-    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-    <script>
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
     $(document).ready(function() {
         $('#dataTables-example').DataTable({
             responsive: true
         });
     });
-    </script>
+</script>
 
 </body>
 

@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Login Pengadu</title>
+  <title>Employeer</title>
 
   <link href=<?php echo base_url("assets/vendor/bootstrap/css/bootstrap.min.css")?> rel="stylesheet">
   <link href=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.css")?> rel="stylesheet">
@@ -43,7 +43,12 @@
                         <div class="input-group-addon">
                           <i class="fa fa-user"></i>
                         </div>
-                        <input type="text" class="form-control"  placeholder="NIP/NIM">
+                        <select class="form-control">
+                          <option value="0">-------------- Masuk sebagai -------------</option>
+                          <option value="admin">admin</option>
+                          <option value="analis">analis</option>
+                          <option value="koordinator">koordinator</option>
+                        </select>
                       </div>
                     </div>
 

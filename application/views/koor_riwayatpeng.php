@@ -37,7 +37,16 @@
                 
                 <!-- /.dropdown -->
                 <li class="dropdown">
-                    <a style="color: #ffffff" href=<?php echo base_url("login/index")?> ><i class="fa fa-fw fa-sign-out"></i>Logout</a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #ffffff">
+                        <i class="fa fa-user fa-fw"></i> Isnaini barochatun</i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a data-toggle="modal" data-target="#settingModal"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
                 </li>
             </ul>
             <!-- /.navbar-top-links -->
@@ -136,9 +145,36 @@
             <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
-
     </div>
     <!-- /#wrapper -->
+
+    <!-- modal setting -->
+        <div class="modal modal-primary fade" id="settingModal" style="margin-top: 5%">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title">JUDUL MODAL</h4>
+              </div>
+
+              <form method="POST" action="<?php echo base_url('#') ?>">
+                  <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            KONTEN MODAL
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Batal</button>
+                    <input type="submit" class="btn btn-primary" value="Simpan">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- modal setting -->
 
     <script src=<?php echo base_url("assets/vendor/jquery/jquery.min.js")?> ></script>
     <script src=<?php echo base_url("assets/vendor/bootstrap/js/bootstrap.min.js")?> ></script>
