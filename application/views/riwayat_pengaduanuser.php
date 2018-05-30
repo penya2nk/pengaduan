@@ -25,14 +25,14 @@
   <div id="wrapper">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color: #005580">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color: #00004d">
       <div class="container">
         <div class="navbar-header" style="margin-left: 15px">
           <span>
             <a class="navbar-brand" href="<?php echo base_url('user')?>" style="color: #ffffff; margin-right: 10px">Form Pengaduan</a>&nbsp;
           </span>
           <span>
-            <a class="navbar-brand" href="<?php echo base_url('user/riwayat_pengaduan')?>" style="background-color: #0077b3; color: #ffffff">Riwayat Pengaduan</a>
+            <a class="navbar-brand" href="<?php echo base_url('user/riwayat_pengaduan')?>" style="background-color: #000080; color: #ffffff">Riwayat Pengaduan</a>
           </span>
         </div>
         <!-- /.navbar-header -->
@@ -78,41 +78,41 @@
                 <center><h3><strong>RIWAYAT PENGADUAN</strong></h3></center>
               </div>
               <div class="panel-body">
-                
+
                 <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                <thead>
-                                    <tr>
-                                        <th>ID Pengaduan</th>
-                                        <th>Pengelola</th>
-                                        <th>Level</th>
-                                        <th>Status</th>
-                                        <th>Waktu</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Isnaini Barochatun</td>
-                                        <td>Analis</td>
-                                        <td><span class="badge primary">diterima</span></td>
-                                        <td>12:30:30 22/05/2018</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Muhammad Fakhurrifqi</td>
-                                        <td>Koordinator</td>
-                                        <td><a href="#"><span class="badge warning">diproses</span></a></td>
-                                        <td>15:35:35 25/05/2018</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Isnaini Barochatun</td>
-                                        <td>Koordinator</td>
-                                        <td><a href="#"><span class="badge success">selesai</span></a></td>
-                                        <td>15:35:35 25/05/2018</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                  <thead>
+                    <tr>
+                      <th>ID Pengaduan</th>
+                      <th>Pengelola</th>
+                      <th>Level</th>
+                      <th>Status</th>
+                      <th>Waktu</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Isnaini Barochatun</td>
+                      <td>Analis</td>
+                      <td><span class="badge primary">diterima</span></td>
+                      <td>12:30:30 22/05/2018</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Muhammad Fakhurrifqi</td>
+                      <td>Koordinator</td>
+                      <td><a href="#"><span class="badge warning">diproses</span></a></td>
+                      <td>15:35:35 25/05/2018</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Isnaini Barochatun</td>
+                      <td>Koordinator</td>
+                      <td><a href="#"><span class="badge success">selesai</span></a></td>
+                      <td>15:35:35 25/05/2018</td>
+                    </tr>
+                  </tbody>
+                </table>
 
               </div>
               <div class="panel-footer">
@@ -144,6 +144,14 @@
 
 <!-- Custom Theme JavaScript -->
 <script src=<?php echo base_url("assets/dist/js/sb-admin-2.js")?> ></script>
+
+<script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+    </script>
 
 <script type="text/javascript">
   $(document).ready(function(){

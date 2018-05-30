@@ -23,11 +23,11 @@
   <div id="wrapper">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color: #005580">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color: #00004d">
       <div class="container">
         <div class="navbar-header" style="margin-left: 15px">
           <span>
-            <a class="navbar-brand" href="<?php echo base_url('user')?>" style="background-color: #0077b3; color: #ffffff; margin-right: 10px">Form Pengaduan</a>&nbsp;
+            <a class="navbar-brand" href="<?php echo base_url('user')?>" style="background-color: #000080; color: #ffffff; margin-right: 10px">Form Pengaduan</a>&nbsp;
           </span>
           <span>
             <a class="navbar-brand" href="<?php echo base_url('user/riwayat_pengaduan')?>" style=" color: #ffffff">Riwayat Pengaduan</a>
@@ -76,7 +76,7 @@
                 <center><h3><strong>FORM PENGADUAN</strong></h3></center>
               </div>
               <div class="panel-body">
-                <form action="" method="POST">
+                <form action="" method="POST" role="form">
 
                   <div class="form-group" style="margin-left: 15px">
                     <label>Silahkan isikan tanggal kejadian :</label>
@@ -114,9 +114,11 @@
                         ?>
                       </select> 
                     </div>
+                  </div>
+                  <div class="form-group">
                     <div class="col-md-6">
                       <label><b>Pilih ruang kejadian</b></label>
-                      <select class="form-control">
+                      <select class="form-control" name="ruang" id="ruang required">
                         <option>----------------------------------------- pilih ruang ------------------------------------------</option>
                       </select>
                     </div>
@@ -155,38 +157,38 @@
 <script src=<?php echo base_url("assets/dist/js/sb-admin-2.js")?> ></script>
 
 <script type="text/javascript">
-  $(document).ready(function(){
-    $('#tempat').change(function(){
-      var id=$(this).val();
-      $.ajax({
-                    url : "<?php echo base_url('user/Cform/ruang');?>", //ngarahin ke function ruang di contrll
+        $(document).ready(function(){
+            $('#tempat').change(function(){
+                var id=$(this).val();
+                $.ajax({
+                    url : "<?php echo base_url('user/Cform/ruang');?>", //ngarahin ke function ruang di cform
                     method : "POST",
                     data : {id:id},
                     async : false,
                     dataType : 'json',
                     success : function(data){
-                      var html = '';
-                      var i;
+                        var html = '';
+                        var i;
 
-                      html += '<option value="">---------------------------------- pilih ruang -----------------------------------</option>'
+                        html += '<option>----------------------------------------- pilih ruang ------------------------------------------</option>';
 
-                      if(data.length == 0)
-                      {
-                        html += '<option value = ""> Maaf, data tidak ditemukan!</option>';
-                      }
-                      else
-                      {
+                        if(data.length == 0)
+                        {
+                            html += '<option value = ""> Maaf, data tidak ditemukan!</option>';
+                        }
+                        else
+                        {
                         for(i=0; i<data.length; i++)
                         {   //jika ada, maka akan tampilkan data dari tabel ruang
-                          html += '<option value = "'+ data[i].id_ruang +'">' + data[i].nama_ruang +'</option>';
+                            html += '<option value = "'+ data[i].id_ruang +'">' + data[i].nama_ruang +'</option>';
                         }
-                      }
-                      $('.ruang').html(html);
                     }
-                  });
-    });
-  });
-</script>
+                        $('.ruang').html(html);
+                    }
+                });
+            });
+        });
+    </script>
 
 <script type="text/javascript">
   $(document).ready(function() {
