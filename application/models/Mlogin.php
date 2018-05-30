@@ -8,7 +8,7 @@ class Mlogin extends CI_Model {
         $this->db->select('u.id_user, u.password, u.nama_pengguna, u.username, u.id_role, r.role');
         $this->db->from('user u');
         $this->db->join('roles r','r.id_role = u.id_role');
-        $this->db->where('u.nama_pengguna',$user);
+        $this->db->where('u.username',$user);
         $this->db->where('u.deleted', 0);
         $query = $this->db->get();
         
@@ -24,4 +24,6 @@ class Mlogin extends CI_Model {
             return array();
         }
     }
+
+    
 }

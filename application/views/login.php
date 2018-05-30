@@ -35,7 +35,7 @@
               </center>
 
               <div class="panel-body">
-                <form role="form" action=<?php echo base_url("#")?> method="POST">
+                <form role="form" action=<?php echo base_url("Login_pengadu/loginMe")?> method="POST">
                   <fieldset>
 
                     <div class="form-group">
@@ -52,7 +52,7 @@
                         <div class="input-group-addon">
                           <i class="fa fa-key"></i>
                         </div>
-                        <input class="form-control" placeholder="Password" type="password" required="required">
+                        <input class="form-control" placeholder="Password" name="password" type="password" required="required">
                       </div>
                     </div>
                     <div class="checkbox">

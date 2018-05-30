@@ -54,7 +54,7 @@ class Cadm_datauser extends BaseController {
 
 				$data = array(
 					"nama_pengguna" => $rowData[0][1],
-					"password" => $rowData[0][2],
+					"password" => password_hash($rowData[0][2], PASSWORD_BCRYPT),
 					"status" => $rowData[0][3],
 					"id_level" => $rowData[0][4]
 				);
@@ -63,6 +63,6 @@ class Cadm_datauser extends BaseController {
 			unlink($inputFileName); //File Deleted After uploading in database .
 		}
 	}
-	redirect('admin/data_user/');
+	redirect('admin/data_user');
 }
 }

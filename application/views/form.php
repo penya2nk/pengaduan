@@ -21,10 +21,10 @@
 
 </head>
 
-<body>
+<body style="background-color: #d9d9d9">
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #005580">
     <div class="container">
 
       <ul class="navbar-nav ml-auto">
@@ -43,7 +43,7 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active dropdown">
 
-            <a class="nav-link" href="">
+            <a class="nav-link" href="<?php echo base_url('#') ?>">
               <span class="fa fa-user"></span>&nbsp;Isnaini Barochatun
               <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                 <button class="dropdown-item" type="button">Action</button>
@@ -62,7 +62,7 @@
   <div class="container">
     <h1 class="mt-5">Sistem Informasi Pengaduan</h1>
 
-    <div class="card" style="border:none;">
+    <div class="card" style="">
       <div class="card-body">
         <h5 class="card-title"></h5>
         <div class="card-text">
