@@ -1,13 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-class Cform extends CI_Controller {
+require APPPATH . '/libraries/BaseController.php';
+class Cform extends BaseController {
 
 	function __construct()
 	{
 		parent::__construct();
 		$this->load->model('Mform_pengaduan');
 		$this->load->helper('url','form');
+		$this->isLoggedIn();
 	}
 
 	public function index()
@@ -25,12 +26,6 @@ class Cform extends CI_Controller {
 		$data= $this->Mform_pengaduan->ruang($id);
 		echo json_encode($data);
 	}
-
-	public function form()
-	{
-		$this->load->view('form');
-	}
-
 
 /*
 	public function tambah()

@@ -42,7 +42,7 @@
                     <div class="input-group-addon">
                       <i class="fa fa-user"></i>
                   </div>
-                  <input type="text" class="form-control" placeholder="NIP/NIM">
+                  <input type="text" class="form-control" name="username" placeholder="NIP/NIM">
               </div>
           </div>
 
@@ -51,7 +51,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-key"></i>
               </div>
-              <input class="form-control" type="password" placeholder="password baru">
+              <input class="form-control" type="password" name="password" placeholder="password baru">
           </div>
       </div>
 
@@ -60,7 +60,7 @@
             <div class="input-group-addon">
               <i class="fa fa-key"></i>
           </div>
-          <input class="form-control" placeholder="Konfirmasi password" type="password" required="required">
+          <input class="form-control" placeholder="Konfirmasi password" name="password_confirm" type="password" required="required">
       </div>
   </div>
 

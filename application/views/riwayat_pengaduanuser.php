@@ -15,6 +15,8 @@
   <link href=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.css")?> rel="stylesheet">
   <link href=<?php echo base_url("assets/dist/css/sb-admin-2.css")?> rel="stylesheet">
   <link href=<?php echo base_url("assets/vendor/font-awesome/css/font-awesome.min.css")?> rel="stylesheet" type="text/css">
+  <link href=<?php echo base_url("assets/vendor/datatables-responsive/dataTables.responsive.css")?>  rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href=<?php echo base_url("assets/badge.css")?> >
 
 </head>
 
@@ -27,10 +29,10 @@
       <div class="container">
         <div class="navbar-header" style="margin-left: 15px">
           <span>
-            <a class="navbar-brand" href="<?php echo base_url('user')?>" style="background-color: #0077b3; color: #ffffff; margin-right: 10px">Form Pengaduan</a>&nbsp;
+            <a class="navbar-brand" href="<?php echo base_url('user')?>" style="color: #ffffff; margin-right: 10px">Form Pengaduan</a>&nbsp;
           </span>
           <span>
-            <a class="navbar-brand" href="<?php echo base_url('user/riwayat_pengaduan')?>" style=" color: #ffffff">Riwayat Pengaduan</a>
+            <a class="navbar-brand" href="<?php echo base_url('user/riwayat_pengaduan')?>" style="background-color: #0077b3; color: #ffffff">Riwayat Pengaduan</a>
           </span>
         </div>
         <!-- /.navbar-header -->
@@ -73,56 +75,45 @@
           <div class="col-lg-12">
             <div class="panel panel-default">
               <div class="panel-heading">
-                <center><h3><strong>FORM PENGADUAN</strong></h3></center>
+                <center><h3><strong>RIWAYAT PENGADUAN</strong></h3></center>
               </div>
               <div class="panel-body">
-                <form action="" method="POST">
+                
+                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>ID Pengaduan</th>
+                                        <th>Pengelola</th>
+                                        <th>Level</th>
+                                        <th>Status</th>
+                                        <th>Waktu</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Isnaini Barochatun</td>
+                                        <td>Analis</td>
+                                        <td><span class="badge primary">diterima</span></td>
+                                        <td>12:30:30 22/05/2018</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Muhammad Fakhurrifqi</td>
+                                        <td>Koordinator</td>
+                                        <td><a href="#"><span class="badge warning">diproses</span></a></td>
+                                        <td>15:35:35 25/05/2018</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Isnaini Barochatun</td>
+                                        <td>Koordinator</td>
+                                        <td><a href="#"><span class="badge success">selesai</span></a></td>
+                                        <td>15:35:35 25/05/2018</td>
+                                    </tr>
+                                </tbody>
+                            </table>
 
-                  <div class="form-group" style="margin-left: 15px">
-                    <label>Silahkan isikan tanggal kejadian :</label>
-                    <div class="input-group col-sm-6">
-                      <div class="input-group-addon">
-                        <i class="fa fa-calendar"></i>
-                      </div>
-                      <input type="date" class="form-control" datapicker required="Wajib diisi">
-                    </div>
-                  </div>
-
-                  <div class="form-group" style="margin-left: 15px">
-                    <label>Silahkan isikan subjek pengaduan :</label>
-                    <div class="input-group col-sm-12">
-                      <div class="input-group-addon">
-                        <i class="fa fa-edit"></i>
-                      </div>
-                      <input type="text" name="subjek" class="form-control" required="required">
-                    </div>
-                  </div>
-
-                  <div class="form-group" style="width: 100%">
-                    <div class="col-md-6">
-                      <label><b>Pilih tempat kejadian:</b></label>
-                      <select class="form-control" name="tempat"  id="tempat" required="Wajib diisi">
-                        <option value="0">----------------------------------------- pilih tempat ------------------------------------------</option>
-                        <?php
-                        foreach ($tempat as $data){
-                          ?>
-                          <option value="<?php echo $data->id_tempat ?>" >
-                            <?php echo $data->nama_tempat ?>
-                          </option>
-                          <?php
-                        }
-                        ?>
-                      </select> 
-                    </div>
-                    <div class="col-md-6">
-                      <label><b>Pilih ruang kejadian</b></label>
-                      <select class="form-control">
-                        <option>----------------------------------------- pilih ruang ------------------------------------------</option>
-                      </select>
-                    </div>
-                  </div>
-
-                </form>
               </div>
               <div class="panel-footer">
                 Panel Footer

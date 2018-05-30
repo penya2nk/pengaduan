@@ -28,7 +28,16 @@
             <div class="login-panel panel panel-default">
 
               <center>
-                <div class="panel-heading" style="align-items: center;">
+
+                <?php if($this->session->flashdata('message')): ?>
+                    <div class="alert alert-danger alert-dismissable fade-in">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <strong><?php echo $this->session->flashdata('alert'); ?></strong>&nbsp;<br>
+                        <?php echo $this->session->flashdata('message'); ?>
+                  </div>
+                <?php endif; ?>
+
+                <div class="panel-heading" style="align-items: center; margin-top: none">
                   <img src=<?php echo base_url("img/ugm.gif")?> style="width: auto; height: 100px; margin-bottom: 30px">
                   <h3 class="panel-title"><b>LOGIN SISTEM INFORMASI PENGADUAN</b></h3>
                 </div>
@@ -64,7 +73,7 @@
                   </fieldset>
                 </form>
                 <center style="margin-top: 10px">
-                  <a class="d-block small" href=<?php echo base_url("forget")?> >Lupa Password?</a>
+                  <a class="d-block small" href=<?php echo base_url("forgot")?> >Lupa Password?</a>
                 </center>
 
               </div>

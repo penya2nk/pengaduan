@@ -55,8 +55,9 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 $route['karyawan'] = 'Login/login_karyawan';
-$route['forget'] = 'forget';
+$route['forgot'] = 'forgot';
 $route['logout_karyawan'] = 'login/logout_karyawan';
+$route['logout'] = 'Login_pengadu/logout';
 
 //admin
 $route['admin'] = 'admin/Cadm_datapengaduan';  //akses halaman pertama
@@ -65,7 +66,8 @@ $route['admin/data_user'] = 'admin/Cadm_datauser';
 $route['admin/data_user/upload'] = 'admin/Cadm_datauser/upload';
 
 //user
-$route['user'] = 'user/Cform/form';
+$route['user'] = 'user/Cform';
+$route['user/riwayat_pengaduan'] = 'user/Criwayat_pengaduanuser';
 
 //analis
 $route['analis'] = 'analis/Cpengaduan_masuk';
@@ -79,5 +81,3 @@ $route['koordinator'] = 'koor/Ckpengaduan_masuk';
 $route['koordinator/riwayat'] = 'koor/Ck_riwayatpeng';
 $route['koordinator/form'] = 'koor/Ckform_pengaduan';
 
-
-//$route['form'] = 'user/Cform/form';

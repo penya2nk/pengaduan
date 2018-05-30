@@ -75,7 +75,9 @@ class Login_pengadu extends CI_Controller {
             }
             else
             {
-                $this->session->set_flashdata('error', 'username or password mismatch');
+                //$this->session->set_flashdata('error', 'username or password mismatch!');
+                $this->session->set_flashdata('alert', 'Gagal login!');
+                $this->session->set_flashdata('message', 'Periksa kembali username dan password Anda.');
                 
                 redirect('login');
             }
@@ -88,8 +90,11 @@ class Login_pengadu extends CI_Controller {
     	redirect('Login_pengadu');
     }
 
-    public function reset_bySistem()
+    public function forget()
     {
-        
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+        $password_confrim = $this->input->post('password_confirm');
+
     }
 }
