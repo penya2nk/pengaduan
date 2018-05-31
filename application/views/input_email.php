@@ -28,26 +28,34 @@
 
             <center>
 
+              <!-- Alert -->
+               <?php if($this->session->flashdata('message')): ?>
+                    <div class="alert alert-<?php $this->session->flashdata['style']; ?> alert-dismissable fade-in">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <strong><?php echo $this->session->flashdata('alert'); ?></strong>&nbsp;<br>
+                        <?php echo $this->session->flashdata('message'); ?>
+                  </div>
+                <?php endif; ?>
+               <!-- End Alert -->
+     
               <div class="panel-heading" style="align-items: center;">
                 <img src=<?php echo base_url("img/ugm.gif")?> style="width: auto; height: 100px; margin-bottom: 30px">
-                <h3 class="panel-title"><b>RESET PASSWORD</b></h3>
+                <h3 class="panel-title"><b>MASUKKAN EMAIL UGM ANDA</b></h3>
             </div>
         </center>
 
         <div class="panel-body">
-            <form role="form" action=<?php echo base_url("forgot/kirim_reset")?> method="POST">
+            <form role="form" action=<?php echo base_url("forgot/kirim_email")?> method="POST">
              <fieldset>
 
           <div class="form-group">
               <div class="input-group">
                 <div class="input-group-addon">
-                  <i class="fa fa-key"></i>
+                  <i class="fa fa-envelope"></i>
               </div>
-              <input type="hidden" name="id_user" value="<?php echo $id_token[0]->id_user ;?>">
-              <input type="hidden" name="token" value="<?php echo $id_token[0]->token ; ?>">
-              <input class="form-control" type="password" name="password" placeholder="masukkan password baru">
+              <input class="form-control" type="email" name="email" placeholder="Isi email ugm Anda">
           </div>
-        </div>
+      </div>
 
   <center>
     <button class="btn btn-sm btn-primary" type="submit">SIMPAN</button>

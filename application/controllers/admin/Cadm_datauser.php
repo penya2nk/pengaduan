@@ -54,9 +54,10 @@ class Cadm_datauser extends BaseController {
 
 				$data = array(
 					"nama_pengguna" => $rowData[0][1],
-					"password" => password_hash($rowData[0][2], PASSWORD_BCRYPT),
-					"status" => $rowData[0][3],
-					"id_level" => $rowData[0][4]
+					"email" => $rowData[0][2],
+					"password" => password_hash($rowData[0][3], PASSWORD_BCRYPT),
+					"status" => $rowData[0][4],
+					"id_level" => $rowData[0][5]
 				);
 
 				$insert = $this->db->insert("user",$data);

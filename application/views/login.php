@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Login Pengadu</title>
+  <title>Login SI Pengaduan</title>
 
   <link href=<?php echo base_url("assets/vendor/bootstrap/css/bootstrap.min.css")?> rel="stylesheet">
   <link href=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.css")?> rel="stylesheet">
@@ -30,7 +30,7 @@
               <center>
 
                 <?php if($this->session->flashdata('message')): ?>
-                    <div class="alert alert-danger alert-dismissable fade-in">
+                    <div class="alert alert-<?php echo $this->session->flashdata['style']; ?> alert-dismissable fade-in">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                         <strong><?php echo $this->session->flashdata('alert'); ?></strong>&nbsp;<br>
                         <?php echo $this->session->flashdata('message'); ?>

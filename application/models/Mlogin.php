@@ -25,5 +25,37 @@ class Mlogin extends CI_Model {
         }
     }
 
-    
+    //function yang dipakai buat reset password
+
+    public function getByEmail($email){
+      $this->db->where('email',$email);
+      $result = $this->db->get('user');
+      return $result;
+  }
+
+  public function simpanToken($data){
+      $this->db->insert('token', $data);
+      return $this->db->affected_rows();
+  }
+
+public function getToken($token){
+        $this->db->select('token, id_user');
+        $this->db->from('token');
+        $this->db->where('token',$token);
+        
+        $query = $this->db->get();
+        return $query->result();
+  }
+
+  public function cekToken($token){
+      $this->db->where('token',$token);
+      $result = $this->db->get('token');
+      return $result;
+  }
+
+  public function ubahData($data,$id)
+  {
+    $this->db->where('id_user',$id);
+    return $this->db->update('user', $data);
+  }
 }

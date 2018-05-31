@@ -56,6 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['karyawan'] = 'Login/login_karyawan';
 $route['forgot'] = 'forgot';
+$route['forgot/reset_password'] = 'forgot/lupa_password';
 $route['logout_karyawan'] = 'login/logout_karyawan';
 $route['logout'] = 'Login_pengadu/logout';
 
