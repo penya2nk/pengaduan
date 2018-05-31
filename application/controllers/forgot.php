@@ -81,11 +81,13 @@ class forgot extends CI_Controller {
 		    }
 
 		    $cekLevel = $this->Mlogin->getLevel($user_token); //ngeset halaman balik loginnya
- 			if($cekLevel->id_role == '1')
+
+ 			if($cekLevel->id_role == '1' || $cekLevel->id_role == '2')
  			{
 			 redirect('login');
 			}
-			else({
+			else
+			{
 				redirect('karyawan');
 			}
 
@@ -151,11 +153,13 @@ class forgot extends CI_Controller {
 			$this->session->set_flashdata('message', 'Silahkan login kembali');
 
 			$cekLevel = $this->Mlogin->getLevel($id);		//tambahan buat ngeset halaman balik
-			if($cekLevel->id_level == '1')
-			{
-			redirect('login');
+			
+			if($cekLevel->id_role == '1' || $cekLevel->id_role == '2')
+ 			{
+			 redirect('login');
 			}
-			else{
+			else
+			{
 				redirect('karyawan');
 			}
 			

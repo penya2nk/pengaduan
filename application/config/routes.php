@@ -53,7 +53,6 @@ $route['default_controller'] = 'Login_pengadu';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-
 $route['karyawan'] = 'Login/login_karyawan';
 $route['forgot'] = 'forgot';
 $route['forgot/reset_password'] = 'forgot/lupa_password';
@@ -82,3 +81,4 @@ $route['koordinator'] = 'koor/Ckpengaduan_masuk';
 $route['koordinator/riwayat'] = 'koor/Ck_riwayatpeng';
 $route['koordinator/form'] = 'koor/Ckform_pengaduan';
 
+$route['laporan'] = 'laporan';

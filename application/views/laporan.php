@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Laporan Data Pengaduan</title>
+    <title>Koordinator</title>
 
     <link href=<?php echo base_url("assets/vendor/bootstrap/css/bootstrap.min.css")?> rel="stylesheet">
     <link href=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.css")?> rel="stylesheet">
@@ -29,12 +29,12 @@
                 <a class="navbar-brand" style="color: #ffffff" >SI PENGADUAN</a>
             </div>
             <!-- /.navbar-header -->
-            
+
             <ul class="nav navbar-top-links navbar-right">
                 
                 <!-- /.dropdown -->
                 <li class="dropdown">
-                    <a style="color: #ffffff" href="index.html"><i class="fa fa-fw fa-sign-out"></i>Logout</a>
+                    <a style="color: #ffffff" href=<?php echo base_url("login">)?> <i class="fa fa-fw fa-sign-out"></i>Isnaini Barochatun</a>
                 </li>
             </ul>
             <!-- /.navbar-top-links -->
@@ -57,21 +57,13 @@
                             </div>
                             <!-- /input-group -->
                         </li>
-
-                        <li class="nav-item">
-                          <a class="nav-link" href=<?php echo base_url('admin')?> style="color: #000000">
-                            <i class="fa fa-fw fa-home"></i>
-                            <span class="nav-link-text" >Dashboard</span>
-                          </a>
-                        </li>
-                        <!--
+                        
                         <li>
-                            <a href=<?php //echo base_url('admin/laporan')?> style="color: #000000" class="a"><i class="fa fa-area-chart"></i> Laporan</a>
+                            <a href=<?php echo base_url('koordinator')?> style="color: #000000"><i class="fa fa-envelope"></i> Pengaduan Masuk</a>
                         </li>
                         <li>
-                            <a href=<?php //echo base_url('admin/data_user')?> style="color: #000000" class="a"><i class="fa fa-users"></i> Data User</a>
+                            <a href=<?php echo base_url('koordinator/form')?> style="color: #000000" class="a"><i class="fa fa-edit"></i><b>&nbsp; Form Pengaduan</b></a>
                         </li>
--->
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -83,7 +75,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Laporan Data Pengaduan</h1>
+                    <h1 class="page-header">Form Pengaduan</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -95,41 +87,102 @@
                             Basic Form Elements
                         </div>
                             <div class="panel-body">
-                                
-                                <div class="card mb-3">
-                                    <div class="card-header">
-                                      <i class="fa fa-area-chart"></i> Area Chart Example</div>
-                                    <div class="card-body">
-                                      <canvas id="myAreaChart" width="100%" height="30"></canvas>
-                                    </div>
-                                    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-                                  </div>
-                                  <div class="row">
-                                    <div class="col-lg-8">
-                                      <!-- Example Bar Chart Card-->
-                                      <div class="card mb-3">
-                                        <div class="card-header">
-                                          <i class="fa fa-bar-chart"></i> Bar Chart Example</div>
-                                        <div class="card-body">
-                                          <canvas id="myBarChart" width="100" height="50"></canvas>
-                                        </div>
-                                        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-                                      </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                      <!-- Example Pie Chart Card-->
-                                      <div class="card mb-3">
-                                        <div class="card-header">
-                                          <i class="fa fa-pie-chart"></i> Pie Chart Example</div>
-                                        <div class="card-body">
-                                          <canvas id="myPieChart" width="100%" height="100"></canvas>
-                                        </div>
-                                        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-                                      </div>
-                                    </div>
-                                  </div>
+                                <div class="row">
+                                    <div class="col-lg-9">
+
+                                        <form role="form">
+                                          <div class="box-body">
+
+                                            <div class="form-group">
+                                              <label>Subjek</label>
+
+                                                <div class="input-group">
+                                                  <div class="input-group-addon">
+                                                    <i class="fa fa-pencil"></i>
+                                                  </div>
+                                                  <input type="text" class="form-control" id="subjek" placeholder="Silahkan isi subjek" style="width: 100%;">
+                                            </div><br>
+
+                                            <div class="form-group">
+                                                      <label>Tempat</label>
+                                                        <select class="form-control" name="tempat"  id="tempat" style="width: 50%; font-color:black">
+                                                            <option value="0">---------------------------- pilih -----------------------------</option>
+                                                            <?php
+                                                                foreach ($tempat as $data){
+                                                            ?>
+                                                            <option value="<?php echo $data->id_tempat ?>" ><?php echo $data->nama_tempat ?></option>
+                                                            <?php
+                                                                }
+                                                            ?>
+                                                        </select> 
+
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                      <label>Ruang</label>
+                                                        <select class="ruang form-control" style="width: 50%; font-color:black">
+                                                            <option value="0">---------------------------- pilih -----------------------------</option>
+                                                        </select>
+                                                    </div>
+
+                                            <div class="form-group">
+                                              <label>Kategori</label>
+                                                <select class="form-control" style="length:50%; font-color:black" id="myselect" >
+                                                    <?php 
+                                                    foreach ($kategori as $data) {
+                                                    ?>
+                                                    <option value="<?php echo $data->id_kategori ?>"><?php echo $data->kategori ?></option>
+                                                    <?php } ?>
+                                                    <option value="secondoption" style="color:#009933"> Buat Kategori Baru</option>
+                                                </select> 
+                                            </div>
+
+                                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 10%">
+                                                  <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                      <div class="modal-header">
+                                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                          <span aria-hidden="true">×</span>
+                                                        </button>
+                                                        <h3 class="modal-title">
+                                                            Silahkan buat kategori baru
+                                                        </h3>
+                                                      </div>
+                                                      <div class="modal-body">
+                                                          
+                                                          <div class="form-group">
+                                                              <label>Kategori</label>
+
+                                                                <div class="input-group">
+                                                                  <div class="input-group-addon">
+                                                                    <i class="fa fa-pencil"></i>
+                                                                  </div>
+                                                                  <input type="text" class="form-control" id="subjek" placeholder="Silahkan isi kategori" style="width: 100%;">
+                                                            </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="modal-footer">
+                                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                                                        <a class="btn btn-primary" href="#">simpan</a>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+
+                                            <div class="form-group">
+                                              <label>Pengaduan</label>
+                                                <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                            </div>
+
+                                            <div class="box-footer">
+                                                <a href="#" class="btn btn-warning btn-md"><span class="glyphicon glyphicon-send"></span> Kirim </a>
+                                            </div>
+                                            
+                                        </form>
+
                                 </div>
-                                
+                                <!-- /.col-lg-6 (nested) -->
+                            </div>
                             <!-- /.row (nested) -->
                         </div>
                         <!-- /.panel-body -->
@@ -146,13 +199,10 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src=<?php echo base_url("assets/vendor/jquery/jquery.min.js")?>  ></script>
-    <script src=<?php echo base_url("assets/vendor/bootstrap/js/bootstrap.bundle.min.js")?> ></script>
-    <script src=<?php echo base_url("assets/vendor/jquery-easing/jquery.easing.min.js")?> ></script>
-    <script src=<?php echo base_url("assets/vendor/chart.js/Chart.min.js")?> ></script>
-    <script src=<?php echo base_url("assets/js/sb-admin.min.js")?> ></script>
-    <script src=<?php echo base_url("assets/js/sb-admin-charts.min.js")?> ></script>
-  </div>
+    <script src=<?php echo base_url("assets/vendor/jquery/jquery.min.js")?> ></script>
+    <script src=<?php echo base_url("assets/vendor/bootstrap/js/bootstrap.min.js")?> ></script>
+    <script src=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.js")?> ></script>
+    <script src=<?php echo base_url("assets/dist/js/sb-admin-2.js")?> ></script>
 
 </body>
 

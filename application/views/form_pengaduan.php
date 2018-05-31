@@ -118,7 +118,7 @@
                   <div class="form-group">
                     <div class="col-md-6">
                       <label><b>Pilih ruang kejadian</b></label>
-                      <select class="form-control" name="ruang" id="ruang required">
+                      <select class="form-control ruang" name="ruang" id="ruang required">
                         <option>----------------------------------------- pilih ruang ------------------------------------------</option>
                       </select>
                     </div>
@@ -164,7 +164,6 @@
                     url : "<?php echo base_url('user/Cform/ruang');?>", //ngarahin ke function ruang di cform
                     method : "POST",
                     data : {id:id},
-                    async : false,
                     dataType : 'json',
                     success : function(data){
                         var html = '';
