@@ -58,4 +58,12 @@ public function getToken($token){
     $this->db->where('id_user',$id);
     return $this->db->update('user', $data);
   }
+
+  public function getLevel($id)
+  {
+    return $this->db
+    ->join('level','level.id_level = user.id_level')
+    ->where('user.id_user',$id)
+    ->get('user')->row();
+  }
 }

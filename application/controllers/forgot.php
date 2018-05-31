@@ -79,8 +79,15 @@ class forgot extends CI_Controller {
 		    $this->session->set_flashdata('message', 'Silahkan cek email anda');
 
 		    }
-		    redirect ('login');
-		    	// exit;
+
+		    $cekLevel = $this->Mlogin->getLevel($user_token); //ngeset halaman balik loginnya
+ 			if($cekLevel->id_role == '1')
+ 			{
+			 redirect('login');
+			}
+			else({
+				redirect('karyawan');
+			}
 
 		}
 	
@@ -143,14 +150,23 @@ class forgot extends CI_Controller {
 			$this->session->set_flashdata('alert', 'Password Berhasil Dirubah!');
 			$this->session->set_flashdata('message', 'Silahkan login kembali');
 
+			$cekLevel = $this->Mlogin->getLevel($id);		//tambahan buat ngeset halaman balik
+			if($cekLevel->id_level == '1')
+			{
 			redirect('login');
+			}
+			else{
+				redirect('karyawan');
+			}
+			
 		}else{
 			$this->session->set_flashdata('style', 'danger');
 			$this->session->set_flashdata('alert', 'Password Gagal Dirubah');
 			$this->session->set_flashdata('message', 'Cek kembali yang anda masukkan');
 
+redirect('forgot/lupa_password/'.$token);
 		}
-		redirect('forgot/lupa_password/'.$token);
+		
 	}
 
 	public function lupa_password($token)

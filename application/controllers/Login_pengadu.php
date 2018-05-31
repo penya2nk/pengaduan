@@ -75,7 +75,7 @@ class Login_pengadu extends CI_Controller {
             }
             else
             {
-                //$this->session->set_flashdata('error', 'username or password mismatch!');
+                $this->session->set_flashdata('style', 'danger');
                 $this->session->set_flashdata('alert', 'Gagal login!');
                 $this->session->set_flashdata('message', 'Periksa kembali username dan password Anda.');
                 
