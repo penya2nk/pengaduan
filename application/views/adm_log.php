@@ -70,13 +70,13 @@
                             <!-- /input-group -->
                         </li>
                         
+                        <li class="active">
+                            <a href=<?php echo base_url('admin')?> style="color: #000000"><i class="fa fa-archive"></i><b>&nbsp; Log Penanganan</b></a>
+                        </li>
                         <li>
-                            <a href=<?php echo base_url('admin')?>><i class="fa fa-home"></i>&nbsp; Data Pengaduan</a>
+                            <a href=<?php echo base_url('admin/data_lokasi')?>><i class="fa fa-home"></i>&nbsp; Data Lokasi</a>
                         </li>
-                        <li class="active">
-                            <a href=<?php echo base_url('admin/log_penanganan')?> style="color: #000000"><i class="fa fa-archive"></i><b>&nbsp; Log Penanganan</b></a>
-                        </li>
-                        <li class="active">
+                        <li>
                             <a href="#"><i class="fa fa-users"></i>&nbsp; Data Pengguna<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>

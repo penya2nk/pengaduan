@@ -76,11 +76,12 @@
                         </li>
                         
                         <!-- menu -->
+                        
                         <li>
-                            <a href=<?php echo base_url('admin')?> ><i class="fa fa-home"></i>&nbsp; Data Pengaduan</a>
+                            <a href=<?php echo base_url('admin')?> ><i class="fa fa-archive"></i>&nbsp; Log Penanganan</a>
                         </li>
                         <li>
-                            <a href=<?php echo base_url('admin/log_penanganan')?> ><i class="fa fa-archive"></i>&nbsp; Log Penanganan</a>
+                            <a href=<?php echo base_url('admin/data_lokasi')?> ><i class="fa fa-home"></i>&nbsp; Data Lokasi</a>
                         </li>
                         <li class="active">
                             <a href="#"><i class="fa fa-users"></i>&nbsp; Data Pengguna<span class="fa arrow"></span></a>
@@ -135,13 +136,13 @@
                                             <td><?php echo $data->nama_pengguna ?></td>
                                             <td>
                                                 <?php 
-                                                if($data->status == 1)
+                                                if($data->status == 0)
                                                 {
-                                                    echo "<span class='badge success'>aktif</span>";
+                                                    echo "<span class='badge success'>tidak aktif</span>";
                                                 }
                                                 else
                                                 {
-                                                    echo "<span class='badge danger'>tidak aktif</span>";
+                                                    echo "<span class='badge danger'>aktif</span>";
                                                 } 
                                                 ?></td>
                                             </tr>

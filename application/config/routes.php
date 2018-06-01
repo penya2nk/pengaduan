@@ -60,11 +60,11 @@ $route['logout_karyawan'] = 'login/logout_karyawan';
 $route['logout'] = 'Login_pengadu/logout';
 
 //admin
-$route['admin'] = 'admin/Cadm_datapengaduan';  //akses halaman pertama
-$route['admin/log_penanganan'] = 'admin/Cadm_log';  //akses halaman pertama
+$route['admin'] = 'admin/Cadm_log';  //akses halaman pertama
+$route['admin/data_lokasi'] = 'admin/Cadm_dataruangtempat';  //akses halaman kedua
 $route['admin/data_user'] = 'admin/Cadm_datauser';
 $route['admin/data_user/upload'] = 'admin/Cadm_datauser/upload';
-
+$route['admin/tambah_ruang'] = 'admin/Cadm_dataruangtempat/tambah_ruang';
 //user
 $route['user'] = 'user/Cform';
 $route['user/riwayat_pengaduan'] = 'user/Criwayat_pengaduanuser';

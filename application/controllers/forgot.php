@@ -63,13 +63,13 @@ class forgot extends CI_Controller {
 		    $this->email->initialize($config);
 		    $this->email->set_newline("\r\n");
 
-		    $this->email->from('halodunia1980@gmail.com', 'Admin-Sistem Informasi Pengaduan');
+		    $this->email->from('halodunia1980@gmail.com', 'Sistem Informasi Pengaduan');
 		    $this->email->to($email);
 		    $this->email->subject('Reset Password');
 
 		    $this->email->message("
-		    	Token ini berlaku untuk 2 jam dari pengiriman token ini:
-		    	Klik disini untuk reset password anda : http://localhost/pengaduan/forgot/lupa_password/$tokenstring"
+		    	Token ini hanya berlaku untuk 2 jam dari pengiriman token saat ini:
+		    	Klik disini untuk reset password Anda : http://localhost/pengaduan/forgot/lupa_password/$tokenstring"
 		    );
 		    $this->email->send();
 

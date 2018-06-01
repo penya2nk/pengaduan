@@ -59,7 +59,7 @@
       </div>
 
   <center>
-    <button class="btn btn-sm btn-primary" type="submit">SIMPAN</button>
+    <button class="btn btn-sm btn-primary" type="submit">VALIDASI</button>
 </center>
 
 

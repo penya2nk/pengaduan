@@ -27,7 +27,7 @@ class Login extends CI_Controller {
         
         if(!isset($isLoggedIn) || $isLoggedIn != TRUE)
         {
-            $this->load->view('Login');
+            $this->load->view('login_karyawan');
         }
         else
         {
