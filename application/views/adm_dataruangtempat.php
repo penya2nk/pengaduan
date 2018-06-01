@@ -129,71 +129,143 @@
                                                 <td><?php echo $data->id_ruang ?></td>
                                                 <td><?php echo $data->nama_ruang ?></td>
                                                 <td>
-                                                    <span><i class="fa fa-edit" style="color: blue"></i></span>&nbsp;
+                                                    <span><i class="fa fa-edit" style="color: blue" data-toggle="modal" data-target="#editRuang"></i></span>&nbsp;
                                                     <span><i class="fa fa-trash-o" style="color: red"></i></span>
                                                 </td>
                                             </tr>
-                                            <?php
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.table-responsive -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-6 -->
-                <div class="col-lg-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <strong>TEMPAT</strong>
-                            <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#tempat" style="margin-left: 70%"><i class="fa fa-plus"></i> tambah</button>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 20px">No</th>
-                                            <th>Nama Tempat</th>
-                                            <th style="width: 50px">Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        foreach ($tempat as $data) 
-                                        {
-                                            ?>
-                                            <tr>
-                                                <td><?php echo $data->id_tempat ?></td>
-                                                <td><?php echo $data->nama_tempat ?></td>
-                                                <td>
-                                                    <span><i class="fa fa-edit" style="color: blue"></i></span>&nbsp;
-                                                    <span><i class="fa fa-trash-o" style="color: red"></i></span>
-                                                </td>
-                                            </tr>
-                                            <?php
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.table-responsive -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-6 -->
-            </div>
-        </div>
-        <!-- /#page-wrapper -->
 
-        <!-- modal tambah ruang -->
+                                            <!-- modal edit -->
+                                            <div>
+                                                <div class="modal modal-primary fade" id="editRuang" style="margin-top: 5%">
+                                                  <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                      <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                          <span aria-hidden="true">&times;</span></button>
+                                                          <h4 class="modal-title">EDIT RUANG</h4>
+                                                      </div>
+
+                                                      <form method="POST" action="<?php echo base_url('admin/edit_ruang') ?>">
+                                                          <div class="modal-body">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+
+                                                                    <div class="form-group">
+                                                                        <label>Edit ruang</label>
+                                                                        <input class="form-control" type="text" name="nama_ruang" value="<?php echo $data->nama_ruang ?>">
+                                                                        <input class="form-control" type="hidden" name="id_ruang" value="<?php echo $data->id_ruang ?>">
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Batal</button>
+                                                            <input type="submit" class="btn btn-primary" value="simpan">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            </div>
+                                        </div>
+
+                                        <?php
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-6 -->
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <strong>TEMPAT</strong>
+                        <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#tempat" style="margin-left: 70%"><i class="fa fa-plus"></i> tambah</button>
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 20px">No</th>
+                                        <th>Nama Tempat</th>
+                                        <th style="width: 50px">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    foreach ($tempat as $data) 
+                                    {
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $data->id_tempat ?></td>
+                                            <td><?php echo $data->nama_tempat ?></td>
+                                            <td>
+                                                <span><i class="fa fa-edit" style="color: blue" data-toggle="modal" data-target="#editTempat"></i></span>&nbsp;
+                                                <span><i class="fa fa-trash-o" style="color: red"></i></span>
+                                            </td>
+                                        </tr>
+
+                                        <!-- modal edit -->
+                                            <div>
+                                                <div class="modal modal-primary fade" id="editTempat" style="margin-top: 5%">
+                                                  <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                      <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                          <span aria-hidden="true">&times;</span></button>
+                                                          <h4 class="modal-title">EDIT TEMPAT</h4>
+                                                      </div>
+
+                                                      <form method="POST" action="<?php echo base_url('admin/edit_tempat') ?>">
+                                                          <div class="modal-body">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+
+                                                                    <div class="form-group">
+                                                                        <label>Edit Tempat</label>
+                                                                        <input class="form-control" type="text" name="nama_tempat" value="<?php echo $data->nama_tempat ?>">
+                                                                        <input class="form-control" type="text" name="id_tempat" value="<?php echo $data->id_tempat ?>">
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Batal</button>
+                                                            <input type="submit" class="btn btn-primary" value="simpan">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            </div>
+                                        </div>
+                                        <?php
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-6 -->
+        </div>
+    </div>
+    <!-- /#page-wrapper -->
+
+    <!-- modal tambah ruang -->
+    <div>
         <div class="modal modal-primary fade" id="ruang" style="margin-top: 5%">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -205,65 +277,32 @@
 
               <form method="POST" action="<?php echo base_url('admin/tambah_ruang') ?>">
                   <div class="modal-body">
-                    <div class="alert alert-info alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                <b>Perhatian!</b> Jika Anda ingin membuat ruang di tempat baru, Anda wajib membuat tempat baru terlebih dahulu. Terimakasih.
-                            </div>
-
                     <div class="row">
                         <div class="col-md-12">
+                            <div class="alert alert-info alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <b>Perhatian!</b> Jika Anda ingin menambahkan ruang di tempat baru, Anda harus menambahkan tempat baru terlebih dahulu. Terimakasih.</a>.
+                            </div>
+
                             <div class="form-group">
                                 <label>Pilih Tempat untuk ruang baru:</label>
                                 <select class="form-control" name="id_tempat">
-                                    <option value="0">------------------ pilih tempat -------------------</option>
+                                    <option value="0">-------------------------------- pilih tempat ----------------------------------</option>
                                     <?php
-                                        foreach ($tempat as $data) 
-                                        {
-                                    ?>
-                                    <option value="<?php echo $data->id_tempat ?>"><?php echo $data->nama_tempat ?></option>
-                                    <?php
-                                        }
+                                    foreach ($tempat as $data) 
+                                    {
+                                        ?>
+                                        <option value="<?php echo $data->id_tempat ?>"><?php echo $data->nama_tempat ?></option>
+                                        <?php
+                                    }
                                     ?>
                                 </select>
-                                
                             </div>
 
                             <div class="form-group">
                                 <label>Tambah ruang</label>
                                 <input class="form-control" type="text" name="nama_ruang">
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Batal</button>
-                    <input type="submit" class="btn btn-primary" value="simpan">
-                </div>
-            </form>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-
-    <!-- modal tambah ruang -->
-    <div>
-        <div class="modal modal-primary fade" id="tempat" style="margin-top: 5%">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title">TAMBAH TEMPAT</h4>
-              </div>
-
-              <form method="POST" action="<?php echo base_url('admin/tambah_tempat') ?>">
-                  <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12">
-
-                            <div class="form-group">
-                                <label>Tambah tempat</label>
-                                <input class="form-control" type="text" name="nama_tempat">
                             </div>
 
                         </div>
@@ -278,6 +317,44 @@
         <!-- /.modal-content -->
     </div>
 </div>
+
+<!-- modal tambah ruang -->
+<div>
+    <div class="modal modal-primary fade" id="tempat" style="margin-top: 5%">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">TAMBAH TEMPAT</h4>
+          </div>
+
+          <form method="POST" action="<?php echo base_url('admin/tambah_tempat') ?>">
+              <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="form-group">
+                            <label>Tambah tempat</label>
+                            <input class="form-control" type="text" name="nama_tempat">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Batal</button>
+                <input type="submit" class="btn btn-primary" value="simpan">
+            </div>
+        </form>
+    </div>
+    <!-- /.modal-content -->
+</div>
+</div>
+
+
+
+
 
 
 </div>

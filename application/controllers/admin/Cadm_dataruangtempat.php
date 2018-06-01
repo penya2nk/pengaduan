@@ -44,5 +44,27 @@ class Cadm_dataruangtempat extends BaseController {
 		$this->Madm_ruangtempat->tambah_tempat($data);
 		redirect('admin/data_lokasi');
 	}
+
+	public function edit_ruang()
+	{
+		$id_ruang = $this->input->post('id_ruang');
+		$nama_ruang = $this->input->post('nama_ruang');
+		$data = array(
+			'nama_ruang' => $nama_ruang
+		);
+		$this->Madm_ruangtempat->edit_ruang($data, $id_ruang);
+		redirect('admin/data_lokasi');
+	}
+
+	public function edit_tempat()
+	{
+		$id_ruang = $this->input->post('id_tempat');
+		$nama_ruang = $this->input->post('nama_tempat');
+		$data = array(
+			'nama_tempat' => $nama_tempat
+		);
+		$this->Madm_ruangtempat->edit_tempat($data, $id_tempat);
+		redirect('admin/data_lokasi');
+	}
 	
 }

@@ -65,6 +65,9 @@ $route['admin/data_lokasi'] = 'admin/Cadm_dataruangtempat';  //akses halaman ked
 $route['admin/data_user'] = 'admin/Cadm_datauser';
 $route['admin/data_user/upload'] = 'admin/Cadm_datauser/upload';
 $route['admin/tambah_ruang'] = 'admin/Cadm_dataruangtempat/tambah_ruang';
+$route['admin/edit_ruang'] = 'admin/Cadm_dataruangtempat/edit_ruang';
+$route['admin/tambah_tempat'] = 'admin/Cadm_dataruangtempat/tambah_tempat';
+$route['admin/edit_tempat'] = 'admin/Cadm_dataruangtempat/edit_tempat';
 //user
 $route['user'] = 'user/Cform';
 $route['user/riwayat_pengaduan'] = 'user/Criwayat_pengaduanuser';

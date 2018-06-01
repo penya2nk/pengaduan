@@ -136,13 +136,13 @@
                                             <td><?php echo $data->nama_pengguna ?></td>
                                             <td>
                                                 <?php 
-                                                if($data->status == 0)
+                                                if($data->status == 1)
                                                 {
-                                                    echo "<span class='badge success'>tidak aktif</span>";
+                                                    echo "<span class='badge success'>aktif</span>";
                                                 }
                                                 else
                                                 {
-                                                    echo "<span class='badge danger'>aktif</span>";
+                                                    echo "<span class='badge danger'>tidak aktif</span>";
                                                 } 
                                                 ?></td>
                                             </tr>
