@@ -68,6 +68,8 @@ $route['admin/tambah_ruang'] = 'admin/Cadm_dataruangtempat/tambah_ruang';
 $route['admin/edit_ruang'] = 'admin/Cadm_dataruangtempat/edit_ruang';
 $route['admin/tambah_tempat'] = 'admin/Cadm_dataruangtempat/tambah_tempat';
 $route['admin/edit_tempat'] = 'admin/Cadm_dataruangtempat/edit_tempat';
+$route['admin/hapus_ruang/(:num)'] = 'admin/Cadm_dataruangtempat/hapus_ruang/$1';
+$route['admin/hapus_tempat/(:num)'] = 'admin/Cadm_dataruangtempat/hapus_tempat/$1';
 //user
 $route['user'] = 'user/Cform';
 $route['user/riwayat_pengaduan'] = 'user/Criwayat_pengaduanuser';

@@ -129,14 +129,14 @@
                                                 <td><?php echo $data->id_ruang ?></td>
                                                 <td><?php echo $data->nama_ruang ?></td>
                                                 <td>
-                                                    <span><i class="fa fa-edit" style="color: blue" data-toggle="modal" data-target="#editRuang"></i></span>&nbsp;
-                                                    <span><i class="fa fa-trash-o" style="color: red"></i></span>
+                                                    <span><i class="fa fa-edit" style="color: blue" data-toggle="modal" data-target="#editRuang<?php echo $data->id_ruang; ?>"></i></span>&nbsp;
+                                                    <a href="<?php echo base_url('admin/hapus_ruang/'.$data->id_ruang) ?>"><i class="fa fa-trash-o" style="color: red"></i></a>
                                                 </td>
                                             </tr>
 
                                             <!-- modal edit -->
                                             <div>
-                                                <div class="modal modal-primary fade" id="editRuang" style="margin-top: 5%">
+                                                <div class="modal modal-primary fade" id="editRuang<?php echo $data->id_ruang; ?>" style="margin-top: 5%">
                                                   <div class="modal-dialog">
                                                     <div class="modal-content">
                                                       <div class="modal-header">
@@ -208,14 +208,14 @@
                                             <td><?php echo $data->id_tempat ?></td>
                                             <td><?php echo $data->nama_tempat ?></td>
                                             <td>
-                                                <span><i class="fa fa-edit" style="color: blue" data-toggle="modal" data-target="#editTempat"></i></span>&nbsp;
-                                                <span><i class="fa fa-trash-o" style="color: red"></i></span>
+                                                <span><i class="fa fa-edit" style="color: blue" data-toggle="modal" data-target="#editTempat<?php echo $data->id_tempat; ?>"></i></span>&nbsp;
+                                                <a href="<?php echo base_url('admin/hapus_tempat/'.$data->id_tempat) ?>"><i class="fa fa-trash-o" style="color: red"></i></a>
                                             </td>
                                         </tr>
 
                                         <!-- modal edit -->
                                             <div>
-                                                <div class="modal modal-primary fade" id="editTempat" style="margin-top: 5%">
+                                                <div class="modal modal-primary fade" id="editTempat<?php echo $data->id_tempat; ?>" style="margin-top: 5%">
                                                   <div class="modal-dialog">
                                                     <div class="modal-content">
                                                       <div class="modal-header">
@@ -232,7 +232,7 @@
                                                                     <div class="form-group">
                                                                         <label>Edit Tempat</label>
                                                                         <input class="form-control" type="text" name="nama_tempat" value="<?php echo $data->nama_tempat ?>">
-                                                                        <input class="form-control" type="text" name="id_tempat" value="<?php echo $data->id_tempat ?>">
+                                                                        <input class="form-control" type="hidden" name="id_tempat" value="<?php echo $data->id_tempat ?>">
                                                                     </div>
 
                                                                 </div>

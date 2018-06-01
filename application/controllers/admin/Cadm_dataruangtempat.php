@@ -53,7 +53,7 @@ class Cadm_dataruangtempat extends BaseController {
 			'nama_ruang' => $nama_ruang
 		);
 		$this->Madm_ruangtempat->edit_ruang($data, $id_ruang);
-		redirect('admin/data_lokasi');
+		redirect('admin/data_lokasi/'.$id_ruang);
 	}
 
 	public function edit_tempat()
@@ -64,6 +64,20 @@ class Cadm_dataruangtempat extends BaseController {
 			'nama_tempat' => $nama_tempat
 		);
 		$this->Madm_ruangtempat->edit_tempat($data, $id_tempat);
+		redirect('admin/data_lokasi');
+	}
+
+	public function hapus_ruang($id_ruang)
+	{
+		$this->db->where('id_ruang',$id_ruang);
+		$this->db->update('ruang',array('deleted' => '1'));
+		redirect('admin/data_lokasi');
+	}
+
+	public function hapus_tempat($id_tempat)
+	{
+		$this->db->where('id_tempat',$id_tempat);
+		$this->db->update('tempat',array('deleted' => '1'));
 		redirect('admin/data_lokasi');
 	}
 	
