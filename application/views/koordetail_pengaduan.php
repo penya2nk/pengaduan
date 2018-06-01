@@ -70,10 +70,13 @@
                         </li>
 
                         <li>
-                            <a href=<?php echo base_url('analis')?> style="color: #000000"><i class="fa fa-envelope"></i><b>&nbsp; Pengaduan Masuk</b></a>
+                            <a href=<?php echo base_url('koordinator')?> style="color: #000000"><i class="fa fa-envelope"></i><b>&nbsp; Pengaduan Masuk</b></a>
                         </li>
                         <li>
-                            <a href=<?php echo base_url('analis/riwayat_pengaduan')?> ><i class="fa fa-table"></i>&nbsp; Riwayat Pengaduan</a>
+                            <a href=<?php echo base_url('koordinator/riwayat')?> class="a"><i class="fa fa-table"></i> Riwayat Pengaduan</a>
+                        </li>
+                        <li>
+                            <a href=<?php echo base_url('koordinator/form')?> class="a"><i class="fa fa-edit"></i> Form Pengaduan</a>
                         </li>
                         
                     </ul>
@@ -97,7 +100,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div>
-                                <a href="#" class="btn btn-warning btn-md" data-toggle="modal" data-target="#modalKirim"><span class="fa fa-send"></span> Kirim </a>
+                                <a href="<?php echo base_url('koordinator/konfirmasi') ?>" class="btn btn-success btn-md"><span class="fa fa-check-square-o"></span> Konfirmasi </a>
                             </div>
 
                         </div>

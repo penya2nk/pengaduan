@@ -80,7 +80,7 @@
                             <a href="#"><i class="fa fa-users"></i>&nbsp; Data Pengguna<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href=<?php echo base_url('admin/data_user')?>>Panels and Wells</a>
+                                    <a href=<?php echo base_url('admin/data_user')?>>Data Pengguna</a>
                                 </li>
                             </ul>
                         </li>

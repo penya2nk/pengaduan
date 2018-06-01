@@ -85,5 +85,7 @@ $route['analis/ubah_pengaduan'] = 'analis/Cpengaduan_masuk/ubah';
 $route['koordinator'] = 'koor/Ckpengaduan_masuk';
 $route['koordinator/riwayat'] = 'koor/Ck_riwayatpeng';
 $route['koordinator/form'] = 'koor/Ckform_pengaduan';
+$route['koordinator/detail_pengaduan_koor/(:num)'] = 'koor/Ckpengaduan_masuk/detail_koor/$1';
+$route['koordinator/konfirmasi'] = 'koor/Ckpengaduan_masuk/konfirmasi';
 
 $route['laporan'] = 'laporan';
