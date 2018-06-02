@@ -76,95 +76,140 @@
                 <center><h3><strong>FORM PENGADUAN</strong></h3></center>
               </div>
               <div class="panel-body">
-                <form action="" method="POST" role="form">
+                <!-- Tab Pane Draft -->
+                <div class="tab-content">
+                  <div class="active tab-pane fade in" id="edit_profil">
+                   <div class="box-body">
 
-                  <div class="form-group" style="margin-left: 15px">
-                    <label>Silahkan isikan tanggal kejadian :</label>
-                    <div class="input-group col-sm-6">
-                      <div class="input-group-addon">
-                        <i class="fa fa-calendar"></i>
+                    <form action="" method="POST" role="form">
+
+                      <div class="form-group" style="margin-left: 15px">
+                        <label>Silahkan isikan tanggal kejadian :</label>
+                        <div class="input-group col-sm-6">
+                          <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                          </div>
+                          <input type="date" class="form-control" datapicker required="Wajib diisi">
+                        </div>
                       </div>
-                      <input type="date" class="form-control" datapicker required="Wajib diisi">
-                    </div>
-                  </div>
 
-                  <div class="form-group" style="margin-left: 15px">
-                    <label>Silahkan isikan subjek pengaduan :</label>
-                    <div class="input-group col-sm-12">
-                      <div class="input-group-addon">
-                        <i class="fa fa-edit"></i>
+                      <div class="form-group" style="margin-left: 15px">
+                        <label>Silahkan isikan subjek pengaduan :</label>
+                        <div class="input-group col-sm-12">
+                          <div class="input-group-addon">
+                            <i class="fa fa-edit"></i>
+                          </div>
+                          <input type="text" name="subjek" class="form-control" required="required">
+                        </div>
                       </div>
-                      <input type="text" name="subjek" class="form-control" required="required">
-                    </div>
-                  </div>
 
-                  <div class="form-group" style="width: 100%; margin-bottom: 10px">
-                    <div class="col-md-6">
-                      <label><b>Pilih tempat kejadian:</b></label>
-                      <select class="form-control" name="tempat"  id="tempat" required="Wajib diisi">
-                        <option value="0">----------------------------------------- pilih tempat ------------------------------------------</option>
-                        <?php
-                        foreach ($tempat as $data){
-                          ?>
-                          <option value="<?php echo $data->id_tempat ?>" >
-                            <?php echo $data->nama_tempat ?>
-                          </option>
-                          <?php
-                        }
-                        ?>
-                      </select> 
+                      <div class="form-group" style="width: 100%; margin-bottom: 10px">
+                        <div class="col-md-6">
+                          <label><b>Pilih tempat kejadian:</b></label>
+                          <select class="form-control" name="tempat"  id="tempat" required="Wajib diisi">
+                            <option value="0">----------------------------------------- pilih tempat ------------------------------------------</option>
+                            <?php
+                            foreach ($tempat as $data){
+                              ?>
+                              <option value="<?php echo $data->id_tempat ?>" >
+                                <?php echo $data->nama_tempat ?>
+                              </option>
+                              <?php
+                            }
+                            ?>
+                          </select> 
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-md-6">
+                          <label><b>Pilih ruang kejadian</b></label>
+                          <select class="form-control ruang" name="ruang" id="ruang required">
+                            <option>----------------------------------------- pilih ruang ------------------------------------------</option>
+                          </select>
+                        </div>
+                      </div><br>
+
+                      <div class="form-group" style="width: 100%;">
+                        <div class="col-md-6">
+                          <label><b>Pilih kategori kejadian:</b></label>
+                          <select class="form-control" name="kategori"  id="kategori" required="Wajib diisi">
+                            <option value="0">----------------------------------------- pilih tempat ------------------------------------------</option>
+                            <?php
+                            foreach ($kategori as $data){
+                              ?>
+                              <option value="<?php echo $data->id_kategori ?>" >
+                                <?php echo $data->kategori ?>
+                              </option>
+                              <?php
+                            }
+                            ?>
+                          </select> 
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-md-6">
+                          <label><b>Pilih jenis kejadian</b></label>
+                          <select class="form-control ruang" name="ruang" id="ruang required">
+                            <option>----------------------------------------- pilih ruang ------------------------------------------</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <br>
+
+                    </div>
+                    <div class="box-footer with-border" style="margin-left:90%; margin-top: 30px">
+                      <a href="#edit"  class="btn btn-primary" data-toggle="tab">Edit Profil</a>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <div class="col-md-6">
-                      <label><b>Pilih ruang kejadian</b></label>
-                      <select class="form-control ruang" name="ruang" id="ruang required">
-                        <option>----------------------------------------- pilih ruang ------------------------------------------</option>
+                  <!-- /.tab-pane -->
+                  
+                  <div class="tab-pane fade in" id="edit">
+                    <div class="form-group">
+                      <label>Seberapa sering terjadi</label>
+                      <select class="form-control" name="kejadian" style="width: 50%; font-color:black">
+                        <option value="0">
+                          ---------------------------- pilih -----------------------------
+                        </option>
+                        <option value="pertama">Pertama kali</option>
+                        <option value="beberapa_kali">Beberapa kali</option>
+                        <option value="tidak_tahu">Tidak tahu</option>
                       </select>
                     </div>
-                  </div><br>
 
-                  <div class="form-group" style="width: 100%;">
-                    <div class="col-md-6">
-                      <label><b>Pilih kategori kejadian:</b></label>
-                      <select class="form-control" name="kategori"  id="kategori" required="Wajib diisi">
-                        <option value="0">----------------------------------------- pilih tempat ------------------------------------------</option>
-                        <?php
-                        foreach ($kategori as $data){
-                          ?>
-                          <option value="<?php echo $data->id_kategori ?>" >
-                            <?php echo $data->kategori ?>
-                          </option>
-                          <?php
-                        }
-                        ?>
-                      </select> 
+                    <div class="form-group">
+                      <label>Penyebab</label>
+                      <input type="text" class="form-control" id="subjek" placeholder="Silahkan isi penyebab">
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-md-6">
-                      <label><b>Pilih jenis kejadian</b></label>
-                      <select class="form-control ruang" name="ruang" id="ruang required">
-                        <option>----------------------------------------- pilih ruang ------------------------------------------</option>
-                      </select>
-                    </div>
-                  </div>
 
-                </form>
-              </div>
-              <div class="panel-footer">
-                Panel Footer
+                    <div class="form-group">
+                      <label>Tindak Lanjut</label><br>
+                      <input id="idf" value="1" type="hidden">
+                      <button class="btn btn-success" onclick="add(); return false;">Tambah</button>
+                      <div id="divAdd"></div>
+                    </div>
+
+                    <div>
+                    <a href="#edit_profil" class="btn btn-primary" data-toggle="tab" >Batal</a>
+                  </div></div>
+                  <!-- /.tab-pane -->
+                  
+                </div>
+                <!-- /.tab-content -->
               </div>
             </div>
           </div>
+
         </div>
-        <!-- /.col-lg-12 -->
+
       </div>
-      <!-- /.row -->
+      <!-- /.col-lg-12 -->
     </div>
-    <!-- /.container-fluid -->
+    <!-- /.row -->
   </div>
-  <!-- /#page-wrapper -->
+  <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->
 
 </div>
 </div>
@@ -183,37 +228,37 @@
 <script src=<?php echo base_url("assets/dist/js/sb-admin-2.js")?> ></script>
 
 <script type="text/javascript">
-        $(document).ready(function(){
-            $('#tempat').change(function(){
-                var id=$(this).val();
-                $.ajax({
+  $(document).ready(function(){
+    $('#tempat').change(function(){
+      var id=$(this).val();
+      $.ajax({
                     url : "<?php echo base_url('user/Cform/ruang');?>", //ngarahin ke function ruang di cform
                     method : "POST",
                     data : {id:id},
                     dataType : 'json',
                     success : function(data){
-                        var html = '';
-                        var i;
+                      var html = '';
+                      var i;
 
-                        html += '<option>----------------------------------------- pilih ruang ------------------------------------------</option>';
+                      html += '<option>----------------------------------------- pilih ruang ------------------------------------------</option>';
 
-                        if(data.length == 0)
-                        {
-                            html += '<option value = ""> Maaf, data tidak ditemukan!</option>';
-                        }
-                        else
-                        {
+                      if(data.length == 0)
+                      {
+                        html += '<option value = ""> Maaf, data tidak ditemukan!</option>';
+                      }
+                      else
+                      {
                         for(i=0; i<data.length; i++)
                         {   //jika ada, maka akan tampilkan data dari tabel ruang
-                            html += '<option value = "'+ data[i].id_ruang +'">' + data[i].nama_ruang +'</option>';
+                          html += '<option value = "'+ data[i].id_ruang +'">' + data[i].nama_ruang +'</option>';
                         }
+                      }
+                      $('.ruang').html(html);
                     }
-                        $('.ruang').html(html);
-                    }
-                });
-            });
-        });
-    </script>
+                  });
+    });
+  });
+</script>
 
 <script type="text/javascript">
   $(document).ready(function() {

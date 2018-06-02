@@ -95,7 +95,7 @@ class Login extends CI_Controller {
                 $this->session->set_flashdata('alert', 'Gagal login!');
                 $this->session->set_flashdata('message', 'Periksa kembali username dan password Anda.');
                 
-                redirect('login');
+                redirect('karyawan');
             }
         }
     }

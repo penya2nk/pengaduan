@@ -87,7 +87,7 @@ class Login_pengadu extends CI_Controller {
     public function logout()
     {
     	$this->session->sess_destroy();
-    	redirect('Login_pengadu');
+    	redirect('login');
     }
 
     public function forget()

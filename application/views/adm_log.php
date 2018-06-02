@@ -126,20 +126,6 @@
                                         <td><span class="badge primary">diterima</span></td>
                                         <td>12:30:30 22/05/2018</td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Muhammad Fakhurrifqi</td>
-                                        <td>Koordinator</td>
-                                        <td><a href="#"><span class="badge warning">diproses</span></a></td>
-                                        <td>15:35:35 25/05/2018</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Isnaini Barochatun</td>
-                                        <td>Koordinator</td>
-                                        <td><a href="#"><span class="badge success">selesai</span></a></td>
-                                        <td>15:35:35 25/05/2018</td>
-                                    </tr>
                                 </tbody>
                             </table>
                             <!-- /.row (nested) -->

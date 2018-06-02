@@ -51,8 +51,8 @@ class forgot extends CI_Controller {
 			$config['protocol'] = "smtp";
 			$config['smtp_host'] = "ssl://smtp.googlemail.com";
 			$config['smtp_port'] = 465;
-		    $config['smtp_user'] = "halodunia1980@gmail.com"; // ganti dengan emailmu sendiri
-		    $config['smtp_pass'] = "loremipsum1980"; // ganti dengan password emailmu
+		    $config['smtp_user'] = "sinfo.pengaduan@gmail.com"; // ganti dengan emailmu sendiri
+		    $config['smtp_pass'] = "Vendredijuin8102"; // ganti dengan password emailmu
 		    $config['charset'] = "iso-8859-1";
 		    $config['mailtype'] = "html";
 		    $config['wordwrap'] = "TRUE";
@@ -63,7 +63,7 @@ class forgot extends CI_Controller {
 		    $this->email->initialize($config);
 		    $this->email->set_newline("\r\n");
 
-		    $this->email->from('halodunia1980@gmail.com', 'Sistem Informasi Pengaduan');
+		    $this->email->from('sinfo.pengaduan@gmail.com', 'Sistem Informasi Pengaduan');
 		    $this->email->to($email);
 		    $this->email->subject('Reset Password');
 

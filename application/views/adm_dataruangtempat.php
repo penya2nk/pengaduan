@@ -111,8 +111,19 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
+                            <!-- search -->
+                            <div class="form-group" style="margin-bottom: 10px; width: 50%">
+                              <div class="input-group">
+                                <div class="input-group-addon">
+                                  <i class="fa fa-search"></i>
+                                </div>
+                                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari nama ruang.." class="form-control">
+                              </div>
+                            </div>
+                            <!-- end search -->
+
                             <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" style="overflow-y: scroll;">
+                                <table class="table table-striped table-bordered table-hover" id="myTable">
                                     <thead>
                                         <tr>
                                             <th style="width: 20px">No</th>
@@ -190,8 +201,18 @@
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover">
+                        <!-- search -->
+                            <div class="form-group" style="margin-bottom: 10px; width: 50%">
+                              <div class="input-group">
+                                <div class="input-group-addon">
+                                  <i class="fa fa-search"></i>
+                                </div>
+                                <input type="text" id="myInputPlace" onkeyup="myFunction2()" placeholder="Cari nama tempat.." class="form-control">
+                              </div>
+                            </div>
+                            <!-- end search -->
+                        <div class="table-responsive" id="navbar">
+                            <table class="table table-striped table-bordered table-hover" id="myTablePlace">
                                 <thead>
                                     <tr>
                                         <th style="width: 20px">No</th>
@@ -403,6 +424,65 @@
             responsive: true
         });
     });
+</script>
+
+<script>
+function myFunction() {
+    //deklarasi variabelnya
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+<script type="text/javascript">
+    function myFunction2() {
+    //deklarasi variabelnya
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInputPlace");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTablePlace");
+  tr = table.getElementsByTagName("tr");
+
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+<script type="text/javascript">
+    var colNumber=3 //number of table columns
+
+
+for (var i=0; i<colNumber; i++)
+  {
+      var thWidth=$("#scroll").find("th:eq("+i+")").width();
+      var tdWidth=$("#scroll").find("td:eq("+i+")").width();      
+      if (thWidth<tdWidth)                    
+          $("#scroll").find("th:eq("+i+")").width(tdWidth);
+      else
+          $("#scroll").find("td:eq("+i+")").width(thWidth);           
+  }  
 </script>
 
 </body>
