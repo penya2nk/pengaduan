@@ -89,3 +89,4 @@ $route['koordinator/detail_pengaduan_koor/(:num)'] = 'koor/Ckpengaduan_masuk/det
 $route['koordinator/konfirmasi'] = 'koor/Ckpengaduan_masuk/konfirmasi';
 
 $route['laporan'] = 'laporan';
+

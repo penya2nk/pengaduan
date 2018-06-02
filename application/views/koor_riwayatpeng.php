@@ -117,8 +117,7 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                            foreach ($proses as $data)
-                                            {
+                                            foreach ($selesai as $data) {
                                         ?>
                                         <tr>
                                             <td><?php echo $data->id_pengaduan ?></td>

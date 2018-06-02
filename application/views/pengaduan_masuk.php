@@ -103,7 +103,6 @@
                                 <table width="100%" class="table table-striped table-hover" id="dataTables-example" class="text-center">
                                     <thead>
                                         <tr class="text-center">
-                                            <th>Pilih</th>
                                             <th>Subjek</th>
                                             <th>Kategori</th>
                                             <th>Tempat</th>
@@ -117,7 +116,6 @@
                                             foreach ($pengaduan as $data) {
                                         ?>
                                         <tr>
-                                            <td><center><input type="checkbox"></center></td>
                                             <td><?php echo $data->subjek ?></td>
                                             <td><?php echo $data->kategori ?></td>
                                             <td><?php echo $data->nama_ruang ?></td>

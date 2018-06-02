@@ -6,13 +6,14 @@ class Ck_riwayatpeng extends BaseController {
 	function __construct()
 	{
 		parent::__construct();
-		//$this->load->model('Mkoor_pengaduan');
+		$this->load->model('Mkoor_riwayat');
 		$this->load->helper('url','form');
 		$this->isLoggedIn();
 	}
 
 	public function index()
 	{
-		$this->load->view('koor_riwayatpeng');
+		$data['selesai'] = $this->Mkoor_riwayat->pengaduan_selesai();
+		$this->load->view('koor_riwayatpeng',$data);
 	}
 }

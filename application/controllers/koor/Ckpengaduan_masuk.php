@@ -19,8 +19,6 @@ class Ckpengaduan_masuk extends BaseController
 	public function detail_koor($id)
 	{
 		$data['detail_pengaduan']=$this->Mkoor_masuk->detail_koor($id);
-		//$data['level']=$this->Mkoor_masuk->level();	//ke level tujuan
-
 		$this->load->view('koordetail_pengaduan',$data);
 
 	}
