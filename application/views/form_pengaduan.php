@@ -120,6 +120,7 @@
                           </select> 
                         </div>
                       </div>
+
                       <div class="form-group">
                         <div class="col-md-6">
                           <label><b>Pilih ruang kejadian</b></label>
@@ -127,39 +128,14 @@
                             <option>----------------------------------------- pilih ruang ------------------------------------------</option>
                           </select>
                         </div>
-                      </div><br>
-
-                      <div class="form-group" style="width: 100%;">
-                        <div class="col-md-6">
-                          <label><b>Pilih kategori kejadian:</b></label>
-                          <select class="form-control" name="kategori"  id="kategori" required="Wajib diisi">
-                            <option value="0">----------------------------------------- pilih tempat ------------------------------------------</option>
-                            <?php
-                            foreach ($kategori as $data){
-                              ?>
-                              <option value="<?php echo $data->id_kategori ?>" >
-                                <?php echo $data->kategori ?>
-                              </option>
-                              <?php
-                            }
-                            ?>
-                          </select> 
-                        </div>
                       </div>
-                      <div class="form-group">
-                        <div class="col-md-6">
-                          <label><b>Pilih jenis kejadian</b></label>
-                          <select class="form-control ruang" name="ruang" id="ruang required">
-                            <option>----------------------------------------- pilih ruang ------------------------------------------</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <br>
 
                     </div>
-                    <div class="box-footer with-border" style="margin-left:90%; margin-top: 30px">
-                      <a href="#edit"  class="btn btn-primary" data-toggle="tab">Edit Profil</a>
+
+                    <div class="footer">
+                      <div class="box-footer with-border" style="margin-left:90%; margin-top: 30px">
+                        <a href="#edit" class="btn btn-primary" data-toggle="tab">Edit Profil</a>
+                      </div>
                     </div>
                   </div>
                   <!-- /.tab-pane -->
@@ -261,24 +237,7 @@
 </script>
 
 <script type="text/javascript">
-  $(document).ready(function() {
-    var max_fields      = 5; //maksimal field yg boleh nambah
-    var wrapper         = $(".input_fields_wrap"); //pembungkus fieldnya
-    var add      = $(".add_field_button"); //tambah button id
-    
-    var x = 1; //inisial di textbox count
-    $(add).click(function(e){ //tambahin ketika di klik
-      e.preventDefault();
-      if(x < max_fields){
-        x++; 
-            $(wrapper).append('<div><input type="text" name="mytext[]"/><a href="#" class="remove">Remove</a></div>'); //add input box
-          }
-        });
-    
-    $(wrapper).on("click",".remove", function(e){ //user click on remove text
-      e.preventDefault(); $(this).parent('div').remove(); x--;
-    })
-  });
+  
 </script>
 
 </body>

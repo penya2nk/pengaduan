@@ -8,7 +8,7 @@ class Cadm_datauser extends BaseController {
 		parent::__construct();
 		$this->load->model('Madmin_datauser');
 		$this->load->database();
-		$this->load->helper('url','download');
+		$this->load->helper(array('url','download'));
 		$this->load->library(array('PHPExcel','PHPExcel/IOFactory'));
 		$this->isLoggedIn();
 	}
@@ -66,4 +66,9 @@ class Cadm_datauser extends BaseController {
 	}
 	redirect('admin/data_user');
 }
+
+	public function download()
+	{
+		force_download('file/format_user_data.xlsx',NULL);
+	}
 }

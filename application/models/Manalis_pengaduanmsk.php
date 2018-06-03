@@ -16,7 +16,8 @@ class Manalis_pengaduanmsk extends CI_Model {
 		$this->db->from('pengaduan p'); //tabel
 		$this->db->join('ruang r','r.id_ruang = p.id_ruang');
 		$this->db->join('kategori k','k.id_kategori = p.id_kategori');
-		$this->db->where('status',"diterima");
+		$this->db->where('p.status',"diterima");
+		$this->db->order_by('wkt_pengaduan','DESC');
 		return $this->db->get()->result();	//hasil
 	}
 
@@ -43,6 +44,7 @@ class Manalis_pengaduanmsk extends CI_Model {
 	public function kirim($data)
 	{
 		return $this->db->insert('pengaduan_level',$data);
+
 
 /**		return $this->db->query('DELIMITER $$
 			CREATE TRIGGER `log` AFTER INSERT ON  `pengaduan_level` 

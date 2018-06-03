@@ -123,11 +123,6 @@
                                         <td><?php echo $data->nama_pengguna ?></td>
                                     </tr>
                                     <tr>
-                                        <td><b>Tempat</b></td>
-                                        <td>:</td>
-                                        <td><?php echo $data->nama_tempat ?></td>
-                                    </tr>
-                                    <tr>
                                         <td><b>Ruang</b></td>
                                         <td>:</td>
                                         <td><?php echo $data->nama_ruang ?></td>
@@ -193,7 +188,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
-                                                <input type="submit" class="btn btn-primary" value="kirim">
+                                                <input type="submit" class="btn btn-primary" value="kirim" href="<?php echo base_url('analis/update_status/'.$data->id_pengaduan)?>" >
                                             </div>
                                         </form>
                                     </div>

@@ -84,7 +84,7 @@
                             <a href=<?php echo base_url('admin/data_lokasi')?> ><i class="fa fa-home"></i>&nbsp; Data Lokasi</a>
                         </li>
                         <li class="active">
-                            <a href="#"><i class="fa fa-users"></i>&nbsp; Data Pengguna<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-users"></i>&nbsp; Data User<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href=<?php echo base_url('admin/data_user')?> style="color: #000000"><b>Data user</b></a>
@@ -114,7 +114,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
 
-                            <a href="#" class="btn btn-success btn-md" data-toggle="modal" data-target="#modalUpload"><span class="fa fa-upload"></span> Upload </a>
+                            <a href="#" class="btn btn-success btn-md" data-toggle="modal" data-target="#modalUpload"><span class="fa fa-upload"></span> Unggah </a>
 
                         </div>
                         <div class="panel-body">
@@ -123,28 +123,37 @@
                                     <tr>
                                         <th>ID Pengguna</th>
                                         <th>Nama Pengguna</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
                                         <th>Status</th>
+                                        <th style="width: 40px;">aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    foreach ($user as $data)
+                                        foreach ($user as $data)
                                     {
                                         ?>
                                         <tr>
                                             <td><?php echo $data->id_user ?></td>
                                             <td><?php echo $data->nama_pengguna ?></td>
+                                            <td><?php echo $data->email ?></td>
+                                            <td><?php echo $data->role ?></td>
                                             <td>
                                                 <?php 
-                                                if($data->status == 1)
+                                                    if($data->status == 1)
                                                 {
-                                                    echo "<span class='badge success'>aktif</span>";
+                                                   echo "<span class='badge success'>aktif</span>";
                                                 }
-                                                else
+                                               else
                                                 {
-                                                    echo "<span class='badge danger'>tidak aktif</span>";
+                                                   echo "<span class='badge danger'>tidak aktif</span>";
                                                 } 
                                                 ?></td>
+                                                <td>
+                                                    <a href="#" style="color: blue"><i class="fa fa-edit"></i></a>&nbsp;
+                                                    <a href="#" style="color: red"><i class="fa fa-trash-o"></i></a>
+                                                </td>
                                             </tr>
                                             <?php
                                         } 
@@ -212,15 +221,23 @@
           <div class="modal-body">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="alert alert-danger">Perhatian!</a></div>
 
+                    <div class="alert alert-danger alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <b>Perhatian!</b> Jika Anda ingin mengunggah data excel, pastikan data Anda sudah sesuai dengan syarat upload di bawah:
+                    </div>
+                        1. Data yang dapat diunggah dalam format <b>xls, xlsx, dan csv</b>.<br>
+                        2. Ukuran file maksimum 10 mb.<br>
+                        3. Untuk menghindari kegagalan, Anda dapat mengunduh contoh format file di bawah:<br>
+                        <a href="<?php echo base_url('admin/download') ?>" class="btn btn-sm btn-success" style="margin-top: 10px"><i class="fa fa-download"></i> Unduh</a><br><br>
+                        4. Jika telah memenuhi syarat, silahkan unggah data Anda.
                 </div>
             </div>
         </div>
         <div class="modal-footer">
             <form action="<?php echo base_url()?>admin/data_user/upload" method="POST" enctype="multipart/form-data">
                 <input type="file" name="file" required>
-                <input type="submit" value="upload">
+                <input type="submit" value="unggah" class="btn btn-primary">
             </form>
         </div>
     

@@ -31,7 +31,7 @@ class Cpengaduan_masuk extends BaseController {
 		$id_pengaduan = $this->input->post('id_pengaduan');
 		$data = array(
 			'id_pengaduan'=>$id_pengaduan,
-			'id_level'=>$id_level
+			'id_level'=>$id_level,
 		);
 		$this->Manalis_pengaduanmsk->kirim($data);
 		redirect('analis');
@@ -51,9 +51,10 @@ class Cpengaduan_masuk extends BaseController {
 		redirect('analis/detail_pengaduan/'.$id_pengaduan);
 	}
 
-	public function laporan_analis()
+	public function update_status($id_pengaduan,$status)
 	{
-		$this->load->view('laporan');
+		$this->db->where('id_pengaduan',$id_pengaduan);
+		$this->db->update('pengaduan_level',array('status'=>"diproses"));
 	}
 
 
