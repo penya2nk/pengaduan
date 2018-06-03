@@ -126,7 +126,7 @@
                                             <td><?php echo $data->nama_ruang ?></td>
                                             <td><?php echo date('H:i:s', strtotime($data->wkt_pengaduan)) ?></td>
                                             <td><?php echo date('d-F-Y', strtotime($data->wkt_pengaduan)) ?></td>
-                                            <td><span class="badge warning"><?php echo $data->status ?></span></td>
+                                            <td><span class="badge success"><?php echo $data->status ?></span></td>
                                         </tr>
                                         <?php
                                             }

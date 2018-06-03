@@ -9,7 +9,7 @@ class Manalis_riwayatpeng extends CI_Model {
 		$this->db->from('pengaduan p'); //tabel
 		$this->db->join('ruang r','r.id_ruang = p.id_ruang');
 		$this->db->join('kategori k','k.id_kategori = p.id_kategori');
-		$this->db->where('status',"diproses" && "selesai");
+		$this->db->where('p.status',"diproses");
 		return $this->db->get()->result();	//hasil
 	}
 }
