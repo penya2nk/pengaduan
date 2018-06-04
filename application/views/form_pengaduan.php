@@ -67,8 +67,7 @@
       <!-- Page Content -->
       <div class="container">
 
-        <h1 class="page-header"></h1>
-
+        <h2 class="page-header"><img src="<?php echo base_url('img/ugm.gif') ?>" style="width: auto; height: 60px; margin-right: 10px"> SISTEM INFORMASI PENGADUAN</h2>
         <div class="row">
           <div class="col-lg-12">
             <div class="panel panel-default">
