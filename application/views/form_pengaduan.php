@@ -130,9 +130,23 @@
                         </div>
                       </div>
 
-                      <!-- kategori dan jenis -->
-                      <div class="form-group" style="width: 100%; margin-bottom: 10px;">
-                        <div class="col-md-6" style="margin-top: 20px">
+                    </div>
+
+                    <div class="footer" style="margin-left:93%;">
+                      <div class="box-footer with-border">
+                        <a href="#halaman_2" class="btn btn-primary" data-toggle="tab" style="margin-top: 20px">lanjut</a>
+                      </div>
+                    </div>
+
+
+                  </div>
+                  <!-- /.tab-pane -->
+                  
+                  <div class="tab-pane fade in" id="halaman_2">
+
+                    <!-- kategori dan jenis -->
+                      <div class="form-group" style="width: 100%">
+                        <div class="col-md-6" style="margin-bottom: 20px;">
                           <label><b>Pilih kategori kejadian:</b></label>
                           <select class="form-control" name="tempat"  id="tempat" required="Wajib diisi">
                             <option value="0">----------------------------------------- pilih tempat ------------------------------------------</option>
@@ -149,7 +163,7 @@
                       </div>
 
                       <div class="form-group">
-                        <div class="col-md-6" style="margin-top: 20px">
+                        <div class="col-md-6" style="margin-bottom: 20px;">
                           <label><b>Pilih jenis kejadian</b></label>
                           <select class="form-control ruang" name="ruang" id="ruang required">
                             <option>----------------------------------------- pilih ruang ------------------------------------------</option>
@@ -157,22 +171,10 @@
                         </div>
                       </div>
 
-                    </div>
 
-                    <div class="footer" style="margin-left:93%;">
-                      <div class="box-footer with-border">
-                        <a href="#halaman_2" class="btn btn-primary" data-toggle="tab" style="margin-top: 20px">lanjut</a>
-                      </div>
-                    </div>
-
-
-                  </div>
-                  <!-- /.tab-pane -->
-                  
-                  <div class="tab-pane fade in" id="halaman_2">
                     <div class="form-group" style="margin-left: 15px">
                       <label>Seberapa sering terjadi:</label>
-                      <select class="form-control" name="kejadian" style="width: 50%; font-color:black">
+                      <select class="form-control" name="kejadian" style="width: 50%;">
                         <option value="0">
                           ---------------------------- pilih -----------------------------
                         </option>
@@ -187,11 +189,6 @@
                       <input type="text" class="form-control" id="efek" placeholder="Silahkan isi efek">
                     </div>
 
-                    <div class="form-group" style="margin-left: 15px; margin-right:15px">
-                      <label>Penyebab</label>
-                      <input type="text" class="form-control" id="penyebab" placeholder="Silahkan isi penyebab">
-                    </div>
-
                     <div style="margin-left: 86%">
                       <a href="#halaman_1" class="btn btn-warning" data-toggle="tab" style="margin-top: 20px">kembali</a>&nbsp;
                         <a href="#halaman_3" class="btn btn-primary" data-toggle="tab" style="margin-top: 20px">lanjut</a>
@@ -200,6 +197,11 @@
                   <!-- /.tab-pane -->
 
                   <div class="tab-pane fade in" id="halaman_3">
+
+                    <div class="form-group" style="margin-left: 15px; margin-right:15px">
+                      <label>Penyebab</label>
+                      <input type="text" class="form-control" id="penyebab" placeholder="Silahkan isi penyebab">
+                    </div>
 
                     <div class="field_wrapper" style="margin-left: 15px; margin-right:15px">
                       <label>Tindak Lanjut</label><br>
