@@ -40,7 +40,7 @@ class BaseController extends CI_Controller {
 		}
 		else{ //awalan route
 
-			redirect ( 'login' );//route login
+			redirect ( 'login_pengaduan' );//route login
 		}
 		} else {
 			$this->role = $this->session->userdata ( 'role' );

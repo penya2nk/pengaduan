@@ -78,7 +78,7 @@
               <div class="panel-body">
                 <!-- Tab Pane Draft -->
                 <div class="tab-content">
-                  <div class="active tab-pane fade in" id="edit_profil">
+                  <div class="active tab-pane fade in" id="halaman_1">
                    <div class="box-body">
 
                     <form action="" method="POST" role="form">
@@ -93,7 +93,7 @@
                         </div>
                       </div>
 
-                      <div class="form-group" style="margin-left: 15px">
+                      <div class="form-group" style="margin-left: 15px; margin-right:15px">
                         <label>Silahkan isikan subjek pengaduan :</label>
                         <div class="input-group col-sm-12">
                           <div class="input-group-addon">
@@ -103,6 +103,7 @@
                         </div>
                       </div>
 
+                      <!-- ruang dan tempat -->
                       <div class="form-group" style="width: 100%; margin-bottom: 10px">
                         <div class="col-md-6">
                           <label><b>Pilih tempat kejadian:</b></label>
@@ -130,19 +131,48 @@
                         </div>
                       </div>
 
+                      <!-- kategori dan jenis -->
+                      <div class="form-group" style="width: 100%; margin-bottom: 10px;">
+                        <div class="col-md-6" style="margin-top: 20px">
+                          <label><b>Pilih kategori kejadian:</b></label>
+                          <select class="form-control" name="tempat"  id="tempat" required="Wajib diisi">
+                            <option value="0">----------------------------------------- pilih tempat ------------------------------------------</option>
+                            <?php
+                              foreach ($kategori as $data)
+                              {
+                            ?>
+                            <option value="<?php echo $data->id_kategori ?>"><?php echo $data->kategori ?></option>
+                            <?php
+                              }
+                            ?>
+                          </select> 
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="col-md-6" style="margin-top: 20px">
+                          <label><b>Pilih jenis kejadian</b></label>
+                          <select class="form-control ruang" name="ruang" id="ruang required">
+                            <option>----------------------------------------- pilih ruang ------------------------------------------</option>
+                          </select>
+                        </div>
+                      </div>
+
                     </div>
 
-                    <div class="footer">
-                      <div class="box-footer with-border" style="margin-left:90%; margin-top: 30px">
-                        <a href="#edit" class="btn btn-primary" data-toggle="tab">Edit Profil</a>
+                    <div class="footer" style="margin-left:93%;">
+                      <div class="box-footer with-border">
+                        <a href="#halaman_2" class="btn btn-primary" data-toggle="tab" style="margin-top: 20px">lanjut</a>
                       </div>
                     </div>
+
+
                   </div>
                   <!-- /.tab-pane -->
                   
-                  <div class="tab-pane fade in" id="edit">
-                    <div class="form-group">
-                      <label>Seberapa sering terjadi</label>
+                  <div class="tab-pane fade in" id="halaman_2">
+                    <div class="form-group" style="margin-left: 15px">
+                      <label>Seberapa sering terjadi:</label>
                       <select class="form-control" name="kejadian" style="width: 50%; font-color:black">
                         <option value="0">
                           ---------------------------- pilih -----------------------------
@@ -153,21 +183,45 @@
                       </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" style="margin-left: 15px; margin-right:15px">
+                      <label>Efek kejadian:</label>
+                      <input type="text" class="form-control" id="efek" placeholder="Silahkan isi efek">
+                    </div>
+
+                    <div class="form-group" style="margin-left: 15px; margin-right:15px">
                       <label>Penyebab</label>
-                      <input type="text" class="form-control" id="subjek" placeholder="Silahkan isi penyebab">
+                      <input type="text" class="form-control" id="penyebab" placeholder="Silahkan isi penyebab">
                     </div>
 
-                    <div class="form-group">
+                    <div style="margin-left: 86%">
+                      <a href="#halaman_1" class="btn btn-warning" data-toggle="tab" style="margin-top: 20px">kembali</a>&nbsp;
+                        <a href="#halaman_3" class="btn btn-primary" data-toggle="tab" style="margin-top: 20px">lanjut</a>
+                    </div>
+                </div>
+                  <!-- /.tab-pane -->
+
+                  <div class="tab-pane fade in" id="halaman_3">
+
+                    <div class="field_wrapper" style="margin-left: 15px; margin-right:15px">
                       <label>Tindak Lanjut</label><br>
-                      <input id="idf" value="1" type="hidden">
-                      <button class="btn btn-success" onclick="add(); return false;">Tambah</button>
-                      <div id="divAdd"></div>
+                        <div class="input-group" style="width: 50%; margin-bottom: 5px">
+                            <input type="text" name="field_name[]" value="" class="form-control">
+                            <div class="input-group-btn">
+                            <a href="javascript:void(0);" class="btn btn-success add_button" title="Add field"><i class="fa fa-plus"></i></a>
+                          </div>
+                        </div>
                     </div>
 
-                    <div>
-                    <a href="#edit_profil" class="btn btn-primary" data-toggle="tab" >Batal</a>
-                  </div></div>
+                    <div class="form-group" style="margin-left: 15px; margin-right:15px">
+                        <label>Deskripsi</label>
+                          <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                    </div>
+
+                    <div style="margin-left: 85%">
+                      <a href="#halaman_2" class="btn btn-warning" data-toggle="tab" style="margin-top: 20px">kembali</a>&nbsp;
+                        <a href="#" class="btn btn-success" style="margin-top: 20px">Simpan</a>
+                    </div>
+                </div>
                   <!-- /.tab-pane -->
                   
                 </div>
@@ -237,7 +291,26 @@
 </script>
 
 <script type="text/javascript">
-  
+$(document).ready(function(){
+    var maxField = 5; //Input fields increment limitation
+    var addButton = $('.add_button'); //Add button selector
+    var wrapper = $('.field_wrapper'); //Input field wrapper
+    var fieldHTML = '<div style="width:100%; margin-bottom:5px"><input type="text" name="field_name[]" value=""/><a href="javascript:void(0);" class="remove_button" title="Remove field"><i style="color:red" class="fa fa-remove"><i/></a></div>';
+
+    //New input field html 
+    var x = 1; //Initial field counter is 1
+    $(addButton).click(function(){ //Once add button is clicked
+        if(x < maxField){ //Check maximum number of input fields
+            x++; //Increment field counter
+            $(wrapper).append(fieldHTML); // Add field html
+        }
+    });
+    $(wrapper).on('click', '.remove_button', function(e){ //Once remove button is clicked
+        e.preventDefault();
+        $(this).parent('div').remove(); //Remove field html
+        x--; //Decrement field counter
+    });
+});
 </script>
 
 </body>

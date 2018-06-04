@@ -79,7 +79,7 @@ class Login_pengadu extends CI_Controller {
                 $this->session->set_flashdata('alert', 'Gagal login!');
                 $this->session->set_flashdata('message', 'Periksa kembali username dan password Anda.');
                 
-                redirect('login');
+                redirect('login_pengaduan');
             }
         }
     }
@@ -87,7 +87,7 @@ class Login_pengadu extends CI_Controller {
     public function logout()
     {
     	$this->session->sess_destroy();
-    	redirect('login');
+    	redirect('login_pengaduan');
     }
 
     public function forget()

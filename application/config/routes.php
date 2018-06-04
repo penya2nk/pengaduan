@@ -53,6 +53,7 @@ $route['default_controller'] = 'Login_pengadu';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['login_pengaduan'] = 'Login_pengadu'; //path lain dari login
 $route['karyawan'] = 'Login/login_karyawan';
 $route['forgot'] = 'forgot';
 $route['forgot/reset_password'] = 'forgot/lupa_password';
