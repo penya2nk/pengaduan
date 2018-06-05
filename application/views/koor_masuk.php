@@ -117,7 +117,9 @@
                                     </thead>
                                     <tbody>
                                         <?php 
+                                            $this->load->model('Mkoor_masuk');
                                             foreach ($masuk as $data) {
+                                                if($this->Mkoor_masuk->pengaduan_selesai($data->id_pengaduan) == 0){
                                         ?>
                                         <tr>
                                             <td><input type="checkbox"></td>
@@ -132,7 +134,7 @@
                                             </td>
                                         </tr>
                                         <?php 
-                                    }
+                                    }}
                                     ?>
                                         
                                     </tbody>

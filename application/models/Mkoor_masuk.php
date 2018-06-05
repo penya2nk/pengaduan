@@ -14,6 +14,13 @@ class Mkoor_masuk extends CI_Model
 		return $this->db->get()->result();
 	}
 
+	public function pengaduan_selesai($id_pengaduan)
+	{
+		$this->db->where('pl.id_pengaduan', $id_pengaduan);
+		$this->db->where('pl.status',"selesai");
+		return $this->db->get('pengaduan_level pl')->num_rows();	//hasil
+	}
+
 	public function detail_koor($id)
 	{
 		$this->db->select('p.id_pengaduan, p.subjek, p.deskripsi, p.kejadian, p.penyebab, p.tgl_kejadian, p.efek,  r.nama_ruang, k.kategori, u.nama_pengguna, t.nama_tempat');	//select field yang mau ditampilin

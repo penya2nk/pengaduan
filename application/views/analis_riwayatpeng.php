@@ -102,7 +102,7 @@
                                 <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>ID Pengaduan</th>
+                                            <th>No</th>
                                             <th>Subjek</th>
                                             <th>Kategori</th>
                                             <th>Tempat</th>
@@ -114,24 +114,33 @@
                                     </thead>
                                     <tbody>
                                         <?php
+                                            $this->load->model('Manalis_riwayatpeng');
+                                        $i = 1;
                                             foreach ($proses as $data)
                                             {
+                                                
                                         ?>
                                         <tr>
-                                            <td><?php echo $data->id_pengaduan ?></td>
+                                            <td><?php echo $i; ?></td>
                                             <td><?php echo $data->subjek ?></td>
                                             <td><?php echo $data->kategori ?></td>
                                             <td><?php echo $data->nama_ruang ?></td>
                                             <td><?php echo date('H:i:s', strtotime($data->wkt_pengaduan)) ?></td>
                                             <td><?php echo date('d-F-Y', strtotime($data->wkt_pengaduan)) ?></td>
                                             <td>
+                                            <?php
+                                                if($this->Manalis_riwayatpeng->pengaduan_selesai($data->id_pengaduan) == 0){
+                                            ?>
                                                 <span class="badge warning"><?php echo $data->status ?></span>
+                                            <?php }else{ ?>
+                                                <span class="badge success">Selesai</span>
+                                            <?php }?>
                                             </td>
-
                                             <td><a class="btn btn-danger" href="#"><i class="fa fa-trash"></i></a>&nbsp;
                                                 <a class="btn btn-primary" href="#"><i class="fa fa-eye"></i></a></td>
                                         </tr>
                                         <?php
+                                            $i++;
                                             }
                                         ?>
                                     </tbody>

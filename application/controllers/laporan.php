@@ -6,12 +6,13 @@ class Laporan extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		//$this->load->model('mlogin');
+		$this->load->model('Mlaporan');
 		$this->load->helper('url','form');
 	}
 
 	public function index()
 	{
+		$data['pengaduan']=$this->Mlaporan->kategori();
 		$this->load->view('laporan');
 	}
 }

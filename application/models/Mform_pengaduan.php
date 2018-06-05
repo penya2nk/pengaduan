@@ -6,8 +6,9 @@ class Mform_pengaduan extends CI_Model {
 	
 	public function kategori()
 	{
-		$this->db->select('id_kategori, kategori');
-		$this->db->from('kategori');
+		$this->db->select(' k.id_kategori, k.kategori');
+		$this->db->from('pengaduan p','pengaduan_level pl');
+		$this->db->join('kategori k','pl.id_kategori = k.id_kategori');
 		return $this->db->get()->result();
 	}
 
@@ -39,4 +40,8 @@ class Mform_pengaduan extends CI_Model {
 		return $this->db->get()->result();
 	}
 	
+	public function tambah()
+	{
+
+	}
 }

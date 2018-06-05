@@ -9,12 +9,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Koordinator</title>
+    <title>Admin</title>
 
     <link href=<?php echo base_url("assets/vendor/bootstrap/css/bootstrap.min.css")?> rel="stylesheet">
-    <link href=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.css")?> rel="stylesheet">
+    <link href=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.css")?>  rel="stylesheet">
+    <link href=<?php echo base_url("assets/vendor/datatables-plugins/dataTables.bootstrap.css")?>  rel="stylesheet">
+    <link href=<?php echo base_url("assets/vendor/datatables-responsive/dataTables.responsive.css")?>  rel="stylesheet">
     <link href=<?php echo base_url("assets/dist/css/sb-admin-2.css")?> rel="stylesheet">
-    <link href=<?php echo base_url("assets/vendor/font-awesome/css/font-awesome.min.css")?> rel="stylesheet" type="text/css">
+    <link href=<?php echo base_url("assets/vendor/morrisjs/morris.css")?> rel="stylesheet">
+    <link href=<?php echo base_url("assets/vendor/font-awesome/css/font-awesome.min.css")?>  rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href=<?php echo base_url("assets/badge.css")?> >
 
 </head>
 
@@ -23,186 +27,262 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color: #005580">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="background-color: #005580">
             <div class="navbar-header">
-                
+
                 <a class="navbar-brand" style="color: #ffffff" >SI PENGADUAN</a>
             </div>
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
-                
-                <!-- /.dropdown -->
+
+                <!-- /.dropdown 
                 <li class="dropdown">
-                    <a style="color: #ffffff" href=<?php echo base_url("login">)?> <i class="fa fa-fw fa-sign-out"></i>Isnaini Barochatun</a>
-                </li>
-            </ul>
-            <!-- /.navbar-top-links -->
-
-            <!--- user panel -->
-            <section class="sidebar">
-                    <div class="pull-center image">
-                        <img src='<?php echo base_url("img/user2.png")?>' class="img-circle" alt="User Image"  style="margin-left: 24%; margin-right: 24%; margin-top: 10%; width: 50%">
-                    </div>
-            </section>
-
-            <!-- MENU -->
-            <div class="navbar-default sidebar" role="navigation" style="margin-top: 15%;">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-
-                        <li class="sidebar-search" >
-                            <div class="input-group custom-search-form" style="margin-left: 20%">
-                                <p>Isnaini Barochatun</p>
-                            </div>
-                            <!-- /input-group -->
+                    <a style="color: #ffffff" href=<?php //echo base_url("login")?> ><i class="fa fa-fw fa-sign-out"></i>Isnaini Barochatun</a>
+                </li> -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #ffffff">
+                        <i class="fa fa-user fa-fw"></i> Isnaini barochatun</i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a data-toggle="modal" data-target="#settingModal"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
-                        
-                        <li>
-                            <a href=<?php echo base_url('koordinator')?> style="color: #000000"><i class="fa fa-envelope"></i> Pengaduan Masuk</a>
+                        <li><a href="<?php echo base_url('logout_karyawan')?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
-                        <li>
-                            <a href=<?php echo base_url('koordinator/form')?> style="color: #000000" class="a"><i class="fa fa-edit"></i><b>&nbsp; Form Pengaduan</b></a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
+                    </li>
+                </ul>
+                <!-- /.dropdown-user -->
+            </li>
+
+        </ul>
+        <!-- /.navbar-top-links -->
+
+        <!--- user panel -->
+        <section class="sidebar">
+            <div class="pull-center image">
+                <img src='<?php echo base_url("img/user2.png")?>' class="img-circle" alt="User Image"  style="margin-left: 24%; margin-right: 24%; margin-top: 10%; width: 50%">
             </div>
-            <!-- /.navbar-static-side -->
-        </nav>
+        </section>
 
-        <!-- Page Content -->
-        <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Form Pengaduan</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Basic Form Elements
+        <!-- MENU -->
+        <div class="navbar-default sidebar" role="navigation" style="margin-top: 15%;">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+
+                    <li class="sidebar-search" >
+                        <div class="input-group custom-search-form" style="margin-left: 20%">
+                            <p>Isnaini Barochatun</p>
                         </div>
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-lg-9">
+                        <!-- /input-group -->
+                    </li>
 
-                                        <form role="form">
-                                          <div class="box-body">
+                    <!-- menu -->
 
-                                            <div class="form-group">
-                                              <label>Subjek</label>
+                    <li>
+                        <a href=<?php echo base_url('laporan')?> ><i class="fa fa-archive"></i>&nbsp; Laporan</a>
+                    </li>
+                    <!-- menu -->
 
-                                                <div class="input-group">
-                                                  <div class="input-group-addon">
-                                                    <i class="fa fa-pencil"></i>
-                                                  </div>
-                                                  <input type="text" class="form-control" id="subjek" placeholder="Silahkan isi subjek" style="width: 100%;">
-                                            </div><br>
-
-                                            <div class="form-group">
-                                                      <label>Tempat</label>
-                                                        <select class="form-control" name="tempat"  id="tempat" style="width: 50%; font-color:black">
-                                                            <option value="0">---------------------------- pilih -----------------------------</option>
-                                                            <?php
-                                                                foreach ($tempat as $data){
-                                                            ?>
-                                                            <option value="<?php echo $data->id_tempat ?>" ><?php echo $data->nama_tempat ?></option>
-                                                            <?php
-                                                                }
-                                                            ?>
-                                                        </select> 
-
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                      <label>Ruang</label>
-                                                        <select class="ruang form-control" style="width: 50%; font-color:black">
-                                                            <option value="0">---------------------------- pilih -----------------------------</option>
-                                                        </select>
-                                                    </div>
-
-                                            <div class="form-group">
-                                              <label>Kategori</label>
-                                                <select class="form-control" style="length:50%; font-color:black" id="myselect" >
-                                                    <?php 
-                                                    foreach ($kategori as $data) {
-                                                    ?>
-                                                    <option value="<?php echo $data->id_kategori ?>"><?php echo $data->kategori ?></option>
-                                                    <?php } ?>
-                                                    <option value="secondoption" style="color:#009933"> Buat Kategori Baru</option>
-                                                </select> 
-                                            </div>
-
-                                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 10%">
-                                                  <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                      <div class="modal-header">
-                                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                                          <span aria-hidden="true">×</span>
-                                                        </button>
-                                                        <h3 class="modal-title">
-                                                            Silahkan buat kategori baru
-                                                        </h3>
-                                                      </div>
-                                                      <div class="modal-body">
-                                                          
-                                                          <div class="form-group">
-                                                              <label>Kategori</label>
-
-                                                                <div class="input-group">
-                                                                  <div class="input-group-addon">
-                                                                    <i class="fa fa-pencil"></i>
-                                                                  </div>
-                                                                  <input type="text" class="form-control" id="subjek" placeholder="Silahkan isi kategori" style="width: 100%;">
-                                                            </div>
-                                                        </div>
-                                                      </div>
-                                                      <div class="modal-footer">
-                                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                                                        <a class="btn btn-primary" href="#">simpan</a>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-
-                                            <div class="form-group">
-                                              <label>Pengaduan</label>
-                                                <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                                            </div>
-
-                                            <div class="box-footer">
-                                                <a href="#" class="btn btn-warning btn-md"><span class="glyphicon glyphicon-send"></span> Kirim </a>
-                                            </div>
-                                            
-                                        </form>
-
-                                </div>
-                                <!-- /.col-lg-6 (nested) -->
-                            </div>
-                            <!-- /.row (nested) -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
+                </ul>
             </div>
-            <!-- /.row -->
+            <!-- /.sidebar-collapse -->
         </div>
-        <!-- /#page-wrapper -->
+        <!-- /.navbar-static-side -->
+    </nav>
 
+    <!-- Page Content -->
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Dashboard</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-comments fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">26</div>
+                                <div>New Comments!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-green">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-tasks fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">12</div>
+                                <div>New Tasks!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-yellow">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-shopping-cart fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">124</div>
+                                <div>New Orders!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
+                        <div class="pull-right">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                    Actions
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu pull-right" role="menu">
+                                    <li><a href="#">Action</a>
+                                    </li>
+                                    <li><a href="#">Another action</a>
+                                    </li>
+                                    <li><a href="#">Something else here</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div id="morris-area-chart"></div>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
+                        <div class="pull-right">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                    Actions
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu pull-right" role="menu">
+                                    <li><a href="#">Action</a>
+                                    </li>
+                                    <li><a href="#">Another action</a>
+                                    </li>
+                                    <li><a href="#">Something else here</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="row">
+                            
+                            <!-- /.col-lg-4 (nested) -->
+                            <div class="col-lg-10">
+                                <div id="morris-bar-chart"></div>
+                            </div>
+                            <!-- /.col-lg-8 (nested) -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-8 -->
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bar-chart-o fa-fw"></i> Donut Chart Example
+                    </div>
+                    <div class="panel-body">
+                        <div id="morris-donut-chart"></div>
+                        <a href="#" class="btn btn-default btn-block">View Details</a>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+
+            </div>
+            <!-- /.col-lg-4 -->
+        </div>
+        <!-- /.row -->
     </div>
-    <!-- /#wrapper -->
+    <!-- /#page-wrapper -->
 
-    <!-- jQuery -->
-    <script src=<?php echo base_url("assets/vendor/jquery/jquery.min.js")?> ></script>
-    <script src=<?php echo base_url("assets/vendor/bootstrap/js/bootstrap.min.js")?> ></script>
-    <script src=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.js")?> ></script>
-    <script src=<?php echo base_url("assets/dist/js/sb-admin-2.js")?> ></script>
+</div>
+<!-- /#wrapper -->
+
+<script src=<?php echo base_url("assets/vendor/jquery/jquery.min.js")?> ></script>
+<script src=<?php echo base_url("assets/vendor/bootstrap/js/bootstrap.min.js")?> ></script>
+<script src=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.js")?> ></script>
+<script src=<?php echo base_url("assets/vendor/datatables/js/jquery.dataTables.min.js")?> ></script>
+<script src=<?php echo base_url("assets/vendor/datatables-plugins/dataTables.bootstrap.min.js")?> ></script>
+<script src=<?php echo base_url("assets/vendor/datatables-responsive/dataTables.responsive.js")?> ></script>
+<script src=<?php echo base_url("assets/vendor/raphael/raphael.min.js")?> ></script>
+<script src=<?php echo base_url("assets/vendor/morrisjs/morris.min.js")?> ></script>
+<script src=<?php echo base_url("assets/data/morris-data.js")?> ></script>
+<script src=<?php echo base_url("assets/dist/js/sb-admin-2.js")?> ></script>
+
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+</script>
 
 </body>
 

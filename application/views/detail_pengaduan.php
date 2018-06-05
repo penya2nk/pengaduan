@@ -177,7 +177,7 @@
                                                             <?php
                                                             foreach ($level as $l) {
                                                                 ?>
-                                                                <option value="<?php echo $l->id_level ?>"><?php echo $l->nama_level.' '.$l->posisi ?></option>
+                                                                <option value="<?php echo $l->id_kategori ?>"><?php echo $l->nama_level.' '.$l->posisi ?></option>
                                                                 <?php
                                                             }
                                                             ?>

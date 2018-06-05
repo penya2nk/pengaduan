@@ -72,6 +72,7 @@ $route['admin/edit_tempat'] = 'admin/Cadm_dataruangtempat/edit_tempat';
 $route['admin/hapus_ruang/(:num)'] = 'admin/Cadm_dataruangtempat/hapus_ruang/$1';
 $route['admin/hapus_tempat/(:num)'] = 'admin/Cadm_dataruangtempat/hapus_tempat/$1';
 $route['admin/download'] = 'admin/Cadm_datauser/download';
+$route['admin/ubah_password'] = 'admin/Cadm_datauser/save_password';
 //user
 $route['user'] = 'user/Cform';
 $route['user/riwayat_pengaduan'] = 'user/Criwayat_pengaduanuser';
@@ -89,7 +90,7 @@ $route['koordinator'] = 'koor/Ckpengaduan_masuk';
 $route['koordinator/riwayat'] = 'koor/Ck_riwayatpeng';
 $route['koordinator/form'] = 'koor/Ckform_pengaduan';
 $route['koordinator/detail_pengaduan_koor/(:num)'] = 'koor/Ckpengaduan_masuk/detail_koor/$1';
-$route['koordinator/konfirmasi'] = 'koor/Ckpengaduan_masuk/konfirmasi';
+$route['koordinator/konfirmasi/(:num)'] = 'koor/Ckpengaduan_masuk/konfirmasi/$1';
 
 $route['laporan'] = 'laporan';
 

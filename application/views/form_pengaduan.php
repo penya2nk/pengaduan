@@ -88,7 +88,7 @@
                           <div class="input-group-addon">
                             <i class="fa fa-calendar"></i>
                           </div>
-                          <input type="date" class="form-control" datapicker required="Wajib diisi">
+                          <input type="date" name="waktu" class="form-control" datapicker required="Wajib diisi">
                         </div>
                       </div>
 
@@ -124,7 +124,7 @@
                       <div class="form-group">
                         <div class="col-md-6">
                           <label><b>Pilih ruang kejadian</b></label>
-                          <select class="form-control ruang" name="ruang" id="ruang required">
+                          <select class="form-control ruang" name="ruang" id="ruang" required>
                             <option>----------------------------------------- pilih ruang ------------------------------------------</option>
                           </select>
                         </div>
@@ -148,7 +148,7 @@
                       <div class="form-group" style="width: 100%">
                         <div class="col-md-6" style="margin-bottom: 20px;">
                           <label><b>Pilih kategori kejadian:</b></label>
-                          <select class="form-control" name="tempat"  id="tempat" required="Wajib diisi">
+                          <select class="form-control" name="kategori"  id="kategori" required="Wajib diisi">
                             <option value="0">----------------------------------------- pilih tempat ------------------------------------------</option>
                             <?php
                               foreach ($kategori as $data)
@@ -165,8 +165,16 @@
                       <div class="form-group">
                         <div class="col-md-6" style="margin-bottom: 20px;">
                           <label><b>Pilih jenis kejadian</b></label>
-                          <select class="form-control ruang" name="ruang" id="ruang required">
-                            <option>----------------------------------------- pilih ruang ------------------------------------------</option>
+                          <select class="form-control jenis" name="jenis" id="jenis" required>
+                            <option>----------------------------------------- pilih jenis ------------------------------------------</option>
+                            <?php
+                              foreach ($jenis as $data)
+                              {
+                            ?>
+                            <option value="<?php echo $data->id_jenis ?>"><?php echo $data->nama_jenis ?></option>
+                            <?php
+                              }
+                            ?>
                           </select>
                         </div>
                       </div>
@@ -186,7 +194,7 @@
 
                     <div class="form-group" style="margin-left: 15px; margin-right:15px">
                       <label>Efek kejadian:</label>
-                      <input type="text" class="form-control" id="efek" placeholder="Silahkan isi efek">
+                      <input type="text" class="form-control" name="efek" id="efek" placeholder="Silahkan isi efek">
                     </div>
 
                     <div style="margin-left: 86%">
@@ -200,10 +208,10 @@
 
                     <div class="form-group" style="margin-left: 15px; margin-right:15px">
                       <label>Penyebab</label>
-                      <input type="text" class="form-control" id="penyebab" placeholder="Silahkan isi penyebab">
+                      <input type="text" class="form-control" name="penyebab" id="penyebab" placeholder="Silahkan isi penyebab">
                     </div>
 
-                    <div class="field_wrapper" style="margin-left: 15px; margin-right:15px">
+                    <!-- <div class="field_wrapper" style="margin-left: 15px; margin-right:15px">
                       <label>Tindak Lanjut</label><br>
                         <div class="input-group" style="width: 50%; margin-bottom: 5px">
                             <input type="text" name="field_name[]" value="" class="form-control">
@@ -211,20 +219,20 @@
                             <a href="javascript:void(0);" class="btn btn-success add_button" title="Add field"><i class="fa fa-plus"></i></a>
                           </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-group" style="margin-left: 15px; margin-right:15px">
                         <label>Deskripsi</label>
-                          <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                          <textarea class="form-control" name="deskripsi" rows="3" placeholder="Enter ..."></textarea>
                     </div>
 
                     <div style="margin-left: 85%">
-                      <a href="#halaman_2" class="btn btn-warning" data-toggle="tab" style="margin-top: 20px">kembali</a>&nbsp;
-                        <a href="#" class="btn btn-success" style="margin-top: 20px">Simpan</a>
+                        <a href="#halaman_2" class="btn btn-warning" data-toggle="tab" style="margin-top: 20px">kembali</a>&nbsp;
+                          <a href="#" class="btn btn-success" style="margin-top: 20px">Simpan</a>
+                      </div>
                     </div>
-                </div>
                   <!-- /.tab-pane -->
-                  
+                  </form>
                 </div>
                 <!-- /.tab-content -->
               </div>

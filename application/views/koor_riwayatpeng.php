@@ -106,7 +106,7 @@
                                 <table width="100%" class="table table-striped table-hover" id="dataTables-example" class="text-center">
                                     <thead>
                                         <tr>
-                                            <th>ID Pengaduan</th>
+                                            <th>No</th>
                                             <th>Subjek</th>
                                             <th>Kategori</th>
                                             <th>Tempat</th>
@@ -117,10 +117,11 @@
                                     </thead>
                                     <tbody>
                                         <?php
+                                            $i = 1;
                                             foreach ($selesai as $data) {
                                         ?>
                                         <tr>
-                                            <td><?php echo $data->id_pengaduan ?></td>
+                                            <td><?php echo $i; ?></td>
                                             <td><?php echo $data->subjek ?></td>
                                             <td><?php echo $data->kategori ?></td>
                                             <td><?php echo $data->nama_ruang ?></td>
@@ -129,6 +130,7 @@
                                             <td><span class="badge success"><?php echo $data->status ?></span></td>
                                         </tr>
                                         <?php
+                                            $i++;
                                             }
                                         ?>
                                     </tbody>

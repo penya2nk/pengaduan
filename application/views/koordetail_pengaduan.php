@@ -100,7 +100,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div>
-                                <a href="<?php echo base_url('koordinator/konfirmasi'); ?>" class="btn btn-success btn-md"><span class="fa fa-check-square-o"></span> Konfirmasi </a>
+                                <a href="<?php echo base_url('koordinator/konfirmasi/'.$detail_pengaduan[0]->id_pengaduan); ?>" class="btn btn-success btn-md"><span class="fa fa-check-square-o"></span> Konfirmasi </a>
                             </div>
 
                         </div>

@@ -25,7 +25,7 @@ class forgot extends CI_Controller {
   // cek email ada atau engga
 		if (!$rs->num_rows() > 0){
 			$this->session->set_flashdata('alert', 'Email tidak ditemukan!');
-			$this->session->set_flashdata('message', 'Cek kembali email yang terdaftar.');
+			$this->session->set_flashdata('message', 'Cek kembali email Anda.');
 
 			redirect ('forgot');
 		}
@@ -166,7 +166,7 @@ class forgot extends CI_Controller {
 		}else{
 			$this->session->set_flashdata('style', 'danger');
 			$this->session->set_flashdata('alert', 'Password Gagal Dirubah');
-			$this->session->set_flashdata('message', 'Cek kembali yang anda masukkan');
+			$this->session->set_flashdata('message', 'Silahkan coba kembali.');
 
 redirect('forgot/lupa_password/'.$token);
 		}

@@ -13,6 +13,7 @@ class Cadm_log extends BaseController {
 
 	public function index()
 	{
-		$this->load->view('adm_log');
+		$data['log_activity']=$this->Madm_log->log_activity();
+		$this->load->view('adm_log',$data);
 	}
 }

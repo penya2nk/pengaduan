@@ -113,7 +113,9 @@
                                     </thead>
                                     <tbody>
                                         <?php 
+                                        $this->load->model('Manalis_pengaduanmsk');
                                             foreach ($pengaduan as $data) {
+                                                if($this->Manalis_pengaduanmsk->pengaduan_diproses($data->id_pengaduan) == 0){
                                         ?>
                                         <tr>
                                             <td><?php echo $data->subjek ?></td>
@@ -127,6 +129,7 @@
                                             </td>
                                         </tr>
                                         <?php 
+                                    }
                                     }
                                     ?>
                                         

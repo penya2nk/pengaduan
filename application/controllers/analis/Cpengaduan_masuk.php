@@ -13,7 +13,8 @@ class Cpengaduan_masuk extends BaseController {
 
 	public function index()
 	{
-		$data['pengaduan']=$this->Manalis_pengaduanmsk->pengaduan_masuk();
+		$id_user = $this->session->userdata('id_user');
+		$data['pengaduan']=$this->Manalis_pengaduanmsk->pengaduan_masuk($id_user);
 		$this->load->view('pengaduan_masuk',$data);
 	}
 
@@ -29,9 +30,12 @@ class Cpengaduan_masuk extends BaseController {
 	{
 		$id_level = $this->input->post('id_level');
 		$id_pengaduan = $this->input->post('id_pengaduan');
+		$id_user = $this->session->userdata('id_user');
 		$data = array(
 			'id_pengaduan'=>$id_pengaduan,
-			'id_level'=>$id_level,
+			'id_kategori'=>$id_level,
+			'id_user'=>$id_user,
+			'status'=>'diproses'
 		);
 		$this->Manalis_pengaduanmsk->kirim($data);
 		redirect('analis');

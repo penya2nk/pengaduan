@@ -111,21 +111,35 @@
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
+                                        <th>No</th>
                                         <th>ID Pengaduan</th>
+                                        <th>Subjek</th>
                                         <th>Pengelola</th>
-                                        <th>Level</th>
+                                        <th>Kategori</th>
                                         <th>Status</th>
                                         <th>Waktu</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php
+                                        $i = 1;
+
+                                        foreach ($log_activity as $data)
+                                        {
+                                    ?>
                                     <tr>
-                                        <td>1</td>
-                                        <td>Isnaini Barochatun</td>
-                                        <td>Analis</td>
-                                        <td><span class="badge primary">diterima</span></td>
-                                        <td>12:30:30 22/05/2018</td>
+                                        <td><?php echo $i; ?></td>
+                                        <td><?php echo $data->id_pengaduan ?></td>
+                                        <td><?php echo $data->subjek ?></td>
+                                        <td><?php echo $data->role ?></td>
+                                        <td><?php echo $data->kategori ?></td>
+                                        <td><?php echo $data->status ?></td>
+                                        <td><?php echo $data->wkt_pengaduan ?></td>
                                     </tr>
+                                    <?php
+                                        $i++;
+                                        }
+                                    ?>
                                 </tbody>
                             </table>
                             <!-- /.row (nested) -->

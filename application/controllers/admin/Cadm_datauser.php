@@ -57,7 +57,9 @@ class Cadm_datauser extends BaseController {
 					"email" => $rowData[0][2],
 					"password" => password_hash($rowData[0][3], PASSWORD_BCRYPT),
 					"status" => $rowData[0][4],
-					"id_level" => $rowData[0][5]
+					"id_level" => $rowData[0][5],
+					"timestamp" => $rowData[0][6],
+					"username" => $rowData[0][7],
 				);
 
 				$insert = $this->db->insert("user",$data);
@@ -71,4 +73,33 @@ class Cadm_datauser extends BaseController {
 	{
 		force_download('file/format_user_data.xlsx',NULL);
 	}
+
+	public function save_password()
+	 { 
+	  $this->form_validation->set_rules('new','New','required|alpha_numeric');
+	  $this->form_validation->set_rules('re_new', 'Retype New', 'required|matches[new]');
+
+	    if($this->form_validation->run() == FALSE)
+	  {
+			redirect('admin/data_user');
+	  }
+	  	else
+	  {
+	   $cek_old = $this->model_account->cek_old();
+
+	   if ($cek_old == False){
+		    $this->session->set_flashdata('error','Password lama yang Anda masukkan salah' );
+		    
+		    redirect('admin/data_user');
+	   }
+	   	else
+	   {
+		    $this->Madmin_datauser->save();
+		    $this->session->sess_destroy();
+		    $this->session->set_flashdata('error','Password anda telah berhasil diubah' );
+		    
+		    redirect('karyawan');
+	   }//end if valid_user
+	  }
+ }
 }
