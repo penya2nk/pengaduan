@@ -16,5 +16,12 @@ class Canalis_riwayatpeng extends BaseController {
 		$data['proses']=$this->Manalis_riwayatpeng->pengaduan_proses();
 		$this->load->view('analis_riwayatpeng',$data);
 	}
+
+	public function deleted($id_pengaduan)
+	{
+		$this->db->where('id_pengaduan',$id_pengaduan);
+		$this->db->update('pengaduan', array('deleted'=> 1));
+		redirect('analis/riwayat_pengaduan');
+	}
 	
 }

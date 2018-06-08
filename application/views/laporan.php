@@ -196,7 +196,9 @@
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
-                        <div id="morris-area-chart"></div>
+                        <div id="morris-area-chart2">
+                            
+                        </div>
                     </div>
                     <!-- /.panel-body -->
                 </div>
@@ -282,6 +284,36 @@
             responsive: true
         });
     });
+</script>
+
+<script type="text/javascript">
+    $(function() {
+
+    Morris.Area({
+        element: 'morris-area-chart2',
+        data: [{
+            period: '2010 Q1',
+            iphone: 1500
+        }, {
+            period: '2010 Q2',
+            iphone: 1000
+        }, {
+            period: '2010 Q3',
+            iphone: 1200
+        }, {
+            period: '2010 Q4',
+            iphone: 3767
+        }],
+        xkey: 'period',
+        ykeys: ['iphone'],
+        labels: ['iPhone'],
+        pointSize: 2,
+        hideHover: 'auto',
+        resize: true
+    });
+    
+});
+
 </script>
 
 </body>

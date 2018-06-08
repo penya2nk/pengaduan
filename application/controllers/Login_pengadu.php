@@ -61,14 +61,17 @@ class Login_pengadu extends CI_Controller {
             {
                 foreach ($result as $res)
                 {
-                    $sessionArray = array('id_user'=>$res->id_user,                    
-                                            'id_role'=>$res->id_role,
-                                            'role'=>$res->role,
-                                            'nama_pengguna'=>$res->nama_pengguna,
-                                            'username'=>$username,
-                                            'isLoggedIn' => TRUE
-                                    );
-                           
+                    $sessionArray = array(
+                        // 'usenname'=>$res->id_user,                    
+
+                        'id_user'=>$res->id_user,                    
+                        'id_role'=>$res->id_role,
+                        'role'=>$res->role,
+                        'nama_pengguna'=>$res->nama_pengguna,
+                        'username'=>$username,
+                        'isLoggedIn' => TRUE
+                    );
+
                     $this->session->set_userdata($sessionArray);
                     redirect('user');
                 }

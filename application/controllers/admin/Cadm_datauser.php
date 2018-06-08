@@ -100,6 +100,32 @@ class Cadm_datauser extends BaseController {
 		    
 		    redirect('karyawan');
 	   }//end if valid_user
-	  }
+	}
  }
+ 
+ 	public function edit_user()
+ 	{
+ 		$id_user = $this->input->post('id_user');
+		$nama = $this->input->post('nama');
+		$email = $this->input->post('email');
+		$id_level = $this->input->post('id_level');
+		$id_role = $this->input->post('id_role');
+		$username = $this->input->post('username');
+		$data = array(
+			'nama_pengguna' => $nama,
+			'email' => $email,
+			'id_level' => $id_level,
+			'id_role' => $id_role,
+			'username' => $username,
+		);
+		$this->Madm_datauser->edit_user($data, $id_user);
+		redirect('admin/edit_user/'.$id_user);
+ 	}
+
+ 	public function hapus_user($id_user)
+ 	{
+ 		$this->db->where('id_user',$id_user);
+		$this->db->update('user',array('deleted' => '1'));
+		redirect('admin/data_user');
+ 	}
 }

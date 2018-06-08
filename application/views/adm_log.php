@@ -112,7 +112,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>ID Pengaduan</th>
+                                        <th>ID</th>
                                         <th>Subjek</th>
                                         <th>Pengelola</th>
                                         <th>Kategori</th>
@@ -133,8 +133,24 @@
                                         <td><?php echo $data->subjek ?></td>
                                         <td><?php echo $data->role ?></td>
                                         <td><?php echo $data->kategori ?></td>
-                                        <td><?php echo $data->status ?></td>
-                                        <td><?php echo $data->wkt_pengaduan ?></td>
+                                        <td>
+                                            <?php
+                                                if ($data->status == 'diterima') {
+                                            ?>
+                                                <span class="badge badge primary"><?php echo $data->status ?></span>
+                                            <?php
+                                                }elseif($data->status == 'diproses'){
+                                            ?>
+                                                <span class="badge badge warning"><?php echo $data->status ?></span>
+                                            <?php
+                                                }else{
+                                            ?>
+                                                <span class="badge badge success"><?php echo $data->status ?></span>
+                                            <?php
+                                                }
+                                            ?>
+                                        </td>
+                                        <td><?php echo date('H:i:s', strtotime($data->timestamp)) ?></td>
                                     </tr>
                                     <?php
                                         $i++;

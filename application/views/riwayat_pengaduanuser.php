@@ -28,26 +28,21 @@
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color: #00004d">
       <div class="container">
-        <div class="navbar-header" style="margin-left: 15px">
-          <span>
-            <a class="navbar-brand" href="<?php echo base_url('user')?>" style="color: #ffffff; margin-right: 10px">Form Pengaduan</a>&nbsp;
-          </span>
-          <span>
-            <a class="navbar-brand" href="<?php echo base_url('user/riwayat_pengaduan')?>" style="background-color: #000080; color: #ffffff">Riwayat Pengaduan</a>
-          </span>
-        </div>
-        <!-- /.navbar-header -->
-
-        <ul class="nav navbar-top-links navbar-right">
-
+        <ul class="nav navbar-top-links navbar-left">
           <!-- /.dropdown -->
+          <li class="dropdown">
+            <a href="<?php echo base_url('user')?>" style="color: #ffffff"><i class="fa fa-send"></i> Form
+            </a>
+          </li>
+          <li>
+            <a href="<?php echo base_url('user/riwayat_pengaduan')?>" style="color: #ffffff"><i class="fa fa-history"></i> Riwayat
+            </a>
+          </li>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #ffffff">
               <i class="fa fa-user fa-fw"></i> Isnaini barochatun</i>
             </a>
             <ul class="dropdown-menu dropdown-user">
-              <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-              </li>
               <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
               </li>
               <li class="divider"></li>
@@ -57,6 +52,14 @@
             <!-- /.dropdown-user -->
           </li>
           <!-- /.dropdown -->
+
+        </ul>
+        <!-- /.navbar-top-links -->
+
+        <ul class="nav navbar-top-links navbar-right">
+
+          <!-- /.dropdown -->
+          
         </ul>
         <!-- /.navbar-top-links -->
 

@@ -29,21 +29,12 @@ class Cform extends BaseController {
 
 	public function tambah()
 	{
-		// $waktu = $this->input->post('waktu');
-		// $subjek = $this->input->post('subjek');
-		// $tempat = $this->input->post('tempat');
-		// $ruang = $this->input->post('ruang');
-		// $kategori = $this->input->post('kategori');
-		// $kejadian = $this->input->post('kejadian');
-		// $efek = $this->input->post('efek');
-		// $penyebab = $this->input->post('deskripsi');
+		
+		if ($this->input->post('simpan')) {
+			
+		$this->Mform_pengaduan->tambah();
+		redirect('user');
+		}
 
-		// $data = array(
-		// 	'tgl_kejadian' => $waktu,
-		// 	'subjek' => $subjek,
-		// 	'id_tempat' => $tempat,
-		// 	'id_ruang' => $ruang,
-		// 	'id_kategori' => $kategori
-		// );
 	}
 }

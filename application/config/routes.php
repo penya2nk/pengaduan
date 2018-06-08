@@ -72,10 +72,14 @@ $route['admin/edit_tempat'] = 'admin/Cadm_dataruangtempat/edit_tempat';
 $route['admin/hapus_ruang/(:num)'] = 'admin/Cadm_dataruangtempat/hapus_ruang/$1';
 $route['admin/hapus_tempat/(:num)'] = 'admin/Cadm_dataruangtempat/hapus_tempat/$1';
 $route['admin/download'] = 'admin/Cadm_datauser/download';
+$route['admin/edit_user'] = 'admin/Cadm_datauser/edit_user';
+$route['admin/hapus_user/(:num)'] = 'admin/Cadm_datauser/hapus_user/$1';
 $route['admin/ubah_password'] = 'admin/Cadm_datauser/save_password';
+
 //user
 $route['user'] = 'user/Cform';
 $route['user/riwayat_pengaduan'] = 'user/Criwayat_pengaduanuser';
+$route['user/insert_data'] = 'user/Cform/tambah';
 
 //analis
 $route['analis'] = 'analis/Cpengaduan_masuk';
@@ -84,6 +88,7 @@ $route['analis/riwayat_pengaduan'] = 'analis/Canalis_riwayatpeng';
 $route['analis/kirim_pengaduan'] = 'analis/Cpengaduan_masuk/kirim';
 $route['analis/ubah_pengaduan'] = 'analis/Cpengaduan_masuk/ubah';
 $route['analis/update_status'] = 'analis/Cpengaduan_masuk/update_status';
+$route['analis/riwayat_deleted/(:num)'] = 'analis/Canalis_riwayatpeng/deleted/$1';
 
 //koor
 $route['koordinator'] = 'koor/Ckpengaduan_masuk';

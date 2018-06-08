@@ -11,6 +11,7 @@ class Manalis_riwayatpeng extends CI_Model {
 		$this->db->join('kategori k','k.id_kategori = p.id_kategori');
 		$this->db->join('pengaduan_level pl','pl.id_pengaduan = p.id_pengaduan');
 		$this->db->where('pl.status','diproses');
+		$this->db->where('p.deleted',0);
 		return $this->db->get()->result();	//hasil
 	}
 

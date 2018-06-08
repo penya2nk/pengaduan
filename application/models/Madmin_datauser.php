@@ -9,25 +9,35 @@ class Madmin_datauser extends CI_Model {
 		$this->db->from('user u','level l', 'roles r');
 		$this->db->join('level l','l.id_level = u.id_level');
 		$this->db->join('roles r','r.id_role = u.id_role','left');
+		$this->db->where('deleted',0);
 		return $this->db->get()->result();
 	}
 
-	public function save()
+		// //bikin update password di admin dulu
+		// public function save()
+		// {
+		// 	$password = password_hash($this->input->post('new'), PASSWORD_BCRYPT);
+		// 	$data = array (
+		// 		'password' => $password
+		// 	);
+		// 	$this->db->where('id_user', $this->session->userdata('id_user'));
+		// 	$this->db->update('user', $data);
+		// }
+		// //fungsi untuk mengecek password lama :
+		// public function cek_old()
+		// {
+		// 	$old = password_hash($this->input->post('old'), PASSWORD_BCRYPT);
+		// 	$this->db->where('password',$old);
+		// 	$query = $this->db->get('user');
+		// 	return $query->result();
+		// }
+		// //end
+
+	public function edit_user($data,$id_user)
 	{
-		$password = password_hash($this->input->post('new'), PASSWORD_BCRYPT);
-		$data = array (
-			'password' => $password
-		);
-		$this->db->where('id_user', $this->session->userdata('id_user'));
-		$this->db->update('user', $data);
-	}
-	//fungsi untuk mengecek password lama :
-	public function cek_old()
-	{
-		$old = password_hash($this->input->post('old'), PASSWORD_BCRYPT);
-		$this->db->where('password',$old);
-		$query = $this->db->get('user');
-		return $query->result();
+		$this->db->where('id_user',$id_user);
+		$this->db->update('user',$data);
+		//return $this->db->get()->result();
 	}
 }
 ?>

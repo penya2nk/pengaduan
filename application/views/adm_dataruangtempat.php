@@ -122,7 +122,7 @@
                             </div>
                             <!-- end search -->
 
-                            <div class="table-responsive">
+                            <div class="table-responsive" style="overflow-x: auto">
                                 <table class="table table-striped table-bordered table-hover" id="myTable">
                                     <thead>
                                         <tr>
@@ -141,6 +141,7 @@
                                                 <td><?php echo $data->nama_ruang ?></td>
                                                 <td>
                                                     <span><i class="fa fa-edit" style="color: blue" data-toggle="modal" data-target="#editRuang<?php echo $data->id_ruang; ?>"></i></span>&nbsp;
+                                                    
                                                     <a href="<?php echo base_url('admin/hapus_ruang/'.$data->id_ruang) ?>"><i class="fa fa-trash-o" style="color: red"></i></a>
                                                 </td>
                                             </tr>
@@ -234,7 +235,7 @@
                                             </td>
                                         </tr>
 
-                                        <!-- modal edit -->
+                                        <!-- modal edit tempat -->
                                             <div>
                                                 <div class="modal modal-primary fade" id="editTempat<?php echo $data->id_tempat; ?>" style="margin-top: 5%">
                                                   <div class="modal-dialog">

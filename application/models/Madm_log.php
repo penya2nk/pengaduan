@@ -17,10 +17,13 @@ class Madm_log extends CI_Model {
 		// $this->db->join('roles r','r.id_role = u.id_role','left');
 		// return $this->db->get()->result();
 		
-		$this->db->select('p.id_pengaduan, p.wkt_pengaduan, pl.id_user, pl.status, pl.kategori, r.role, p.subjek');
-		$this->db->from('pengaduan_level pl, pengaduan p, user l');
+		$this->db->select('p.id_pengaduan, p.wkt_pengaduan, pl.id_user, pl.status, k.kategori, r.role, p.subjek, pl.timestamp');
+		$this->db->from('pengaduan_level pl');
+		$this->db->join('user u','u.id_user = pl.id_user');
 		$this->db->join('pengaduan p','p.id_pengaduan = pl.id_pengaduan');
+		$this->db->join('kategori k','k.id_kategori = pl.id_kategori');
 		$this->db->join('roles r','r.id_role = u.id_role');
+		$this->db->order_by('timestamp','ASC');
 		return $this->db->get()->result();
 	}
 

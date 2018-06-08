@@ -25,26 +25,28 @@
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color: #00004d">
       <div class="container">
-        <div class="navbar-header" style="margin-left: 15px">
-          <span>
-            <a class="navbar-brand" href="<?php echo base_url('user')?>" style="background-color: #000080; color: #ffffff; margin-right: 10px">Form Pengaduan</a>&nbsp;
-          </span>
-          <span>
-            <a class="navbar-brand" href="<?php echo base_url('user/riwayat_pengaduan')?>" style=" color: #ffffff">Riwayat Pengaduan</a>
-          </span>
-        </div>
-        <!-- /.navbar-header -->
+
+        <ul class="nav navbar-top-links navbar-left">
+          <!-- /.dropdown -->
+          <li class="dropdown">
+            <a href="<?php echo base_url('user')?>" style="color: #ffffff"><i class="fa fa-send"></i> Form
+            </a>
+          </li>
+          <li>
+            <a href="<?php echo base_url('user/riwayat_pengaduan')?>" style="color: #ffffff"><i class="fa fa-history"></i> Riwayat
+            </a>
+          </li>
+
+        </ul>
+        <!-- /.navbar-top-links -->
 
         <ul class="nav navbar-top-links navbar-right">
 
-          <!-- /.dropdown -->
-          <li class="dropdown">
+           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #ffffff">
-              <i class="fa fa-user fa-fw"></i> Isnaini barochatun</i>
+              <i class="fa fa-user fa-fw"></i> <?php echo $this->session->userdata('nama_pengguna'); ?></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
-              <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-              </li>
               <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
               </li>
               <li class="divider"></li>
@@ -80,7 +82,7 @@
                   <div class="active tab-pane fade in" id="halaman_1">
                    <div class="box-body">
 
-                    <form action="" method="POST" role="form">
+                    <form action="<?php echo base_url('user/insert_data') ?>" method="POST" role="form">
 
                       <div class="form-group" style="margin-left: 15px">
                         <label>Silahkan isikan tanggal kejadian :</label>
@@ -132,9 +134,9 @@
 
                     </div>
 
-                    <div class="footer" style="margin-left:93%;">
+                    <div class="footer" style="margin-left:92%;">
                       <div class="box-footer with-border">
-                        <a href="#halaman_2" class="btn btn-primary" data-toggle="tab" style="margin-top: 20px">lanjut</a>
+                        <a href="#halaman_2" class="btn btn-primary" data-toggle="tab" style="margin-top: 55px">lanjut <i class="fa fa-chevron-right"></i></a>
                       </div>
                     </div>
 
@@ -197,9 +199,9 @@
                       <input type="text" class="form-control" name="efek" id="efek" placeholder="Silahkan isi efek">
                     </div>
 
-                    <div style="margin-left: 86%">
-                      <a href="#halaman_1" class="btn btn-warning" data-toggle="tab" style="margin-top: 20px">kembali</a>&nbsp;
-                        <a href="#halaman_3" class="btn btn-primary" data-toggle="tab" style="margin-top: 20px">lanjut</a>
+                    <div style="margin-left: 83%">
+                      <a href="#halaman_1" class="btn btn-warning" data-toggle="tab" style="margin-top: 20px"><i class="fa fa-chevron-left"></i> kembali</a>&nbsp;
+                        <a href="#halaman_3" class="btn btn-primary" data-toggle="tab" style="margin-top: 20px">lanjut <i class="fa fa-chevron-right"></i></a>
                     </div>
                 </div>
                   <!-- /.tab-pane -->
@@ -226,9 +228,14 @@
                           <textarea class="form-control" name="deskripsi" rows="3" placeholder="Enter ..."></textarea>
                     </div>
 
-                    <div style="margin-left: 85%">
-                        <a href="#halaman_2" class="btn btn-warning" data-toggle="tab" style="margin-top: 20px">kembali</a>&nbsp;
-                          <a href="#" class="btn btn-success" style="margin-top: 20px">Simpan</a>
+                    <div class="form-group" style="margin-left: 15px; margin-right:15px">
+                      <label>Saran:</label>
+                      <input type="text" class="form-control" name="saran" id="saran" placeholder="Silahkan berikan saran">
+                    </div>
+
+                    <div style="margin-left: 83%">
+                        <a href="#halaman_2" class="btn btn-warning" data-toggle="tab" style="margin-top: 20px"><i class="fa fa-chevron-left"></i> kembali</a>&nbsp;
+                        <button class="btn btn-success" name="simpan" value="simpan" style="margin-top: 20px; width:80px">simpan</button>
                       </div>
                     </div>
                   <!-- /.tab-pane -->
