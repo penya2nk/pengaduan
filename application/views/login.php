@@ -29,6 +29,7 @@
             <div class="login-panel panel panel-default">
 
               <center>
+                
                   <?php if($this->session->flashdata('message')): ?>
                     <div class="alert alert-<?php echo $this->session->flashdata['style']; ?> alert-dismissable fade-in">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>

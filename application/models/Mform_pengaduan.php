@@ -16,6 +16,7 @@ class Mform_pengaduan extends CI_Model {
 
 		$this->db->select('id_tempat, nama_tempat');
 		$this->db->from('tempat');
+		$this->db->order_by('nama_tempat','ASC');
 		return $this->db->get()->result();
 	}
 	public function ruang($id)
@@ -23,6 +24,7 @@ class Mform_pengaduan extends CI_Model {
 		$this->db->select('id_ruang,nama_ruang');
 		$this->db->from('ruang');
 		$this->db->where('id_tempat',$id);
+		$this->db->order_by('nama_ruang','ASC');
 		return $this->db->get()->result();
 	}
 	public function jenis_kejadian()

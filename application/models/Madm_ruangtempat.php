@@ -8,6 +8,7 @@ class Madm_ruangtempat extends CI_Model {
 		$this->db->select('id_ruang, id_tempat, nama_ruang');
 		$this->db->from('ruang');
 		$this->db->where('deleted',0);
+		$this->db->order_by('nama_ruang','ASC');
 		return $this->db->get()->result();
 	}
 
@@ -16,6 +17,7 @@ class Madm_ruangtempat extends CI_Model {
 		$this->db->select('id_tempat, nama_tempat');
 		$this->db->from('tempat');
 		$this->db->where('deleted',0);
+		$this->db->order_by('nama_tempat','ASC');
 		return $this->db->get()->result();
 	}
 

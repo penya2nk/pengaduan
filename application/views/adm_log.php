@@ -38,7 +38,7 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #ffffff">
-                        <i class="fa fa-user fa-fw"></i> Isnaini barochatun</i>
+                        <i class="fa fa-user fa-fw"></i> <?php echo $this->session->userdata('nama_pengguna'); ?></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a data-toggle="modal" data-target="#settingModal"><i class="fa fa-gear fa-fw"></i> Settings</a>

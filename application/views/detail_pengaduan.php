@@ -37,7 +37,7 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #ffffff">
-                        <i class="fa fa-user fa-fw"></i> Isnaini barochatun</i>
+                        <i class="fa fa-user fa-fw"></i> <?php echo $this->session->userdata('nama_pengguna'); ?></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a data-toggle="modal" data-target="#settingModal"><i class="fa fa-gear fa-fw"></i> Settings</a>
@@ -118,9 +118,9 @@
                                         <td><?php echo $data->subjek ?></td>
                                     </tr>
                                     <tr>
-                                        <td><b>Nama Pengadu</b></td>
+                                        <td><b>ID Pengadu</b></td>
                                         <td>:</td>
-                                        <td><?php echo $data->nama_pengguna ?></td>
+                                        <td><?php echo $data->id_user ?></td>
                                     </tr>
                                     <tr>
                                         <td><b>Ruang</b></td>
@@ -136,7 +136,6 @@
                                         <td><b>Penyebab</b></td>
                                         <td>:</td>
                                         <td><?php echo $data->penyebab ?>
-                                            <a style="margin-left: 10px" data-toggle="modal" data-target="#modalEdit"><span class="fa fa-edit"></span></a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -153,7 +152,7 @@
                                         <td><b>Kategori</b></td>
                                         <td>:</td>
                                         <td><?php echo $data->kategori ?>
-                                            <span></span>
+                                            <a style="margin-left: 10px" data-toggle="modal" data-target="#modalEdit"><span class="fa fa-edit"></span></a>
                                         </td>
                                     </tr>
 
@@ -209,14 +208,25 @@
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span></button>
-                                          <h4 class="modal-title">Ubah atau Isi Penyebab</h4>
+                                          <h4 class="modal-title">Ubah Kategori</h4>
                                     </div>
                                     <div class="modal-body">
 
                                         <div class="form-group">
-                                            <label>Penyebab</label>
-                                                <input class="form-control" type="text" name="penyebab" value="<?php echo $data->penyebab ?>">
-                                                <input type="hidden" name="id_pengaduan" value="<?php echo $data->id_pengaduan ?>">
+                                            <!-- <label>Penyebab</label> -->
+                                                <!-- <input class="form-control" type="text" name="penyebab" value="<?php //echo $data->penyebab ?>">
+                                                <input type="hidden" name="id_pengaduan" value="<?php //echo $data->id_pengaduan ?>"> -->
+                                            <label>Kategori Baru:</label>
+                                                <select name="kategori">
+                                                    <option value="<?php echo $data->id_kategori ?>"><?php echo $data->kategori ?>"</option>
+                                                    <?php
+                                                        foreach ($kategori as $data) {
+                                                    ?>
+                                                    <option value="<?php echo $data->id_kategori ?>"><?php echo $data->kategori ?></option>
+                                                    <?php
+                                                        }
+                                                    ?>
+                                                </select>
                                         </div>
 
                                     </div>
@@ -228,7 +238,7 @@
                                     </form>
 
                             </div>
-                            <!-- /.modal-content -->
+                            <!-- /.modal-content
                         </div>
                         <!-- /.modal-dialog -->
                     </div>

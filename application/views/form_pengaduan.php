@@ -18,7 +18,7 @@
 
 </head>
 
-<body style="background-color: #e6e6e6">
+<body style="background-color: #e7e7e7">
 
   <div id="wrapper">
 
@@ -42,176 +42,187 @@
 
         <ul class="nav navbar-top-links navbar-right">
 
-           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #ffffff">
-              <i class="fa fa-user fa-fw"></i> <?php echo $this->session->userdata('nama_pengguna'); ?></i>
-            </a>
-            <ul class="dropdown-menu dropdown-user">
-              <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-              </li>
-              <li class="divider"></li>
-              <li><a href="<?php echo base_url('logout') ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-              </li>
-            </ul>
-            <!-- /.dropdown-user -->
-          </li>
-          <!-- /.dropdown -->
-        </ul>
-        <!-- /.navbar-top-links -->
+         <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #ffffff">
+            <i class="fa fa-user fa-fw"></i> <?php echo $this->session->userdata('nama_pengguna'); ?></i>
+          </a>
+          <ul class="dropdown-menu dropdown-user">
+            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+            </li>
+            <li class="divider"></li>
+            <li><a href="<?php echo base_url('logout') ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+            </li>
+          </ul>
+          <!-- /.dropdown-user -->
+        </li>
+        <!-- /.dropdown -->
+      </ul>
+      <!-- /.navbar-top-links -->
 
-        <div class="navbar-default sidebar" role="navigation">
+      <div class="navbar-default sidebar" role="navigation">
 
-          <!-- /.sidebar-collapse -->
-        </div>
-        <!-- /.navbar-static-side -->
-      </nav>
+        <!-- /.sidebar-collapse -->
+      </div>
+      <!-- /.navbar-static-side -->
+    </nav>
 
-      <!-- Page Content -->
-      <div class="container">
+    <!-- Page Content -->
+    <div class="container">
+      <!-- <h2 class="page-header"><img src="<?php //echo base_url('img/ugm.gif') ?>" style="width: auto; height: 60px; margin-right: 10px"> SISTEM INFORMASI PENGADUAN</h2> -->
+      <div class="row">
+        <div class="col-lg-12">
 
-        <h2 class="page-header"><img src="<?php echo base_url('img/ugm.gif') ?>" style="width: auto; height: 60px; margin-right: 10px"> SISTEM INFORMASI PENGADUAN</h2>
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <center><h3><strong>FORM PENGADUAN</strong></h3></center>
+          <?php if($this->session->flashdata('message')): ?>
+              <div class="alert alert-success" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Success!</strong> You have been signed in successfully!
               </div>
-              <div class="panel-body">
-                <!-- Tab Pane Draft -->
-                <div class="tab-content">
-                  <div class="active tab-pane fade in" id="halaman_1">
-                   <div class="box-body">
+          <?php endif; ?>
 
-                    <form action="<?php echo base_url('user/insert_data') ?>" method="POST" role="form">
+          <div class="alert alert-info" style="margin-top: 20px">
+            <strong>Perhatian!</strong> Informasi <b>data diri Anda tidak akan terlihat</b> pada laporan pengaduan. Mohon berikan informasi sejelas-jelasnya untuk tindak lanjut yang lebih baik. Terimakasih.</a>.
+          </div>
 
-                      <div class="form-group" style="margin-left: 15px">
-                        <label>Silahkan isikan tanggal kejadian :</label>
-                        <div class="input-group col-sm-6">
-                          <div class="input-group-addon">
-                            <i class="fa fa-calendar"></i>
-                          </div>
-                          <input type="date" name="waktu" class="form-control" datapicker required="Wajib diisi">
-                        </div>
-                      </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <center><h3><strong>FORM PENGADUAN</strong></h3></center>
+            </div>
+            <div class="panel-body">
+              <!-- Tab Pane Draft -->
+              <div class="tab-content">
+                <div class="active tab-pane fade in" id="halaman_1">
+                 <div class="box-body">
 
-                      <div class="form-group" style="margin-left: 15px; margin-right:15px">
-                        <label>Silahkan isikan subjek pengaduan :</label>
-                        <div class="input-group col-sm-12">
-                          <div class="input-group-addon">
-                            <i class="fa fa-edit"></i>
-                          </div>
-                          <input type="text" name="subjek" class="form-control" required="required">
-                        </div>
-                      </div>
-
-                      <!-- ruang dan tempat -->
-                      <div class="form-group" style="width: 100%; margin-bottom: 10px">
-                        <div class="col-md-6">
-                          <label><b>Pilih tempat kejadian:</b></label>
-                          <select class="form-control" name="tempat"  id="tempat" required="Wajib diisi">
-                            <option value="0">----------------------------------------- pilih tempat ------------------------------------------</option>
-                            <?php
-                            foreach ($tempat as $data){
-                              ?>
-                              <option value="<?php echo $data->id_tempat ?>" >
-                                <?php echo $data->nama_tempat ?>
-                              </option>
-                              <?php
-                            }
-                            ?>
-                          </select> 
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <div class="col-md-6">
-                          <label><b>Pilih ruang kejadian</b></label>
-                          <select class="form-control ruang" name="ruang" id="ruang" required>
-                            <option>----------------------------------------- pilih ruang ------------------------------------------</option>
-                          </select>
-                        </div>
-                      </div>
-
-                    </div>
-
-                    <div class="footer" style="margin-left:92%;">
-                      <div class="box-footer with-border">
-                        <a href="#halaman_2" class="btn btn-primary" data-toggle="tab" style="margin-top: 55px">lanjut <i class="fa fa-chevron-right"></i></a>
-                      </div>
-                    </div>
-
-
-                  </div>
-                  <!-- /.tab-pane -->
-                  
-                  <div class="tab-pane fade in" id="halaman_2">
-
-                    <!-- kategori dan jenis -->
-                      <div class="form-group" style="width: 100%">
-                        <div class="col-md-6" style="margin-bottom: 20px;">
-                          <label><b>Pilih kategori kejadian:</b></label>
-                          <select class="form-control" name="kategori"  id="kategori" required="Wajib diisi">
-                            <option value="0">----------------------------------------- pilih tempat ------------------------------------------</option>
-                            <?php
-                              foreach ($kategori as $data)
-                              {
-                            ?>
-                            <option value="<?php echo $data->id_kategori ?>"><?php echo $data->kategori ?></option>
-                            <?php
-                              }
-                            ?>
-                          </select> 
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <div class="col-md-6" style="margin-bottom: 20px;">
-                          <label><b>Pilih jenis kejadian</b></label>
-                          <select class="form-control jenis" name="jenis" id="jenis" required>
-                            <option>----------------------------------------- pilih jenis ------------------------------------------</option>
-                            <?php
-                              foreach ($jenis as $data)
-                              {
-                            ?>
-                            <option value="<?php echo $data->id_jenis ?>"><?php echo $data->nama_jenis ?></option>
-                            <?php
-                              }
-                            ?>
-                          </select>
-                        </div>
-                      </div>
-
+                  <form action="<?php echo base_url('user/insert_data') ?>" method="POST" role="form">
 
                     <div class="form-group" style="margin-left: 15px">
-                      <label>Seberapa sering terjadi:</label>
-                      <select class="form-control" name="kejadian" style="width: 50%;">
-                        <option value="0">
-                          ---------------------------- pilih -----------------------------
-                        </option>
-                        <option value="pertama">Pertama kali</option>
-                        <option value="beberapa_kali">Beberapa kali</option>
-                        <option value="tidak_tahu">Tidak tahu</option>
+                      <label>Silahkan isikan tanggal kejadian :</label>
+                      <div class="input-group col-sm-6">
+                        <div class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="date" name="waktu" class="form-control" datapicker required="required">
+                      </div>
+                    </div>
+
+                    <div class="form-group" style="margin-left: 15px; margin-right:15px">
+                      <label>Silahkan isikan subjek pengaduan :</label>
+                      <div class="input-group col-sm-12">
+                        <div class="input-group-addon">
+                          <i class="fa fa-edit"></i>
+                        </div>
+                        <input type="text" name="subjek" class="form-control" required="required">
+                      </div>
+                    </div>
+
+                    <!-- ruang dan tempat -->
+                    <div class="form-group" style="width: 100%; margin-bottom: 10px">
+                      <div class="col-md-6">
+                        <label><b>Pilih tempat kejadian:</b></label>
+                        <select class="form-control" name="tempat"  id="tempat" required="Wajib diisi">
+                          <option value="0">----------------------------------------- pilih tempat ------------------------------------------</option>
+                          <?php
+                          foreach ($tempat as $data){
+                            ?>
+                            <option value="<?php echo $data->id_tempat ?>" >
+                              <?php echo $data->nama_tempat ?>
+                            </option>
+                            <?php
+                          }
+                          ?>
+                        </select> 
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-md-6">
+                        <label><b>Pilih ruang kejadian</b></label>
+                        <select class="form-control ruang" name="ruang" id="ruang" required>
+                          <option>----------------------------------------- pilih ruang ------------------------------------------</option>
+                        </select>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="footer" style="margin-left:92%;">
+                    <div class="box-footer with-border">
+                      <a href="#halaman_2" class="btn btn-primary" data-toggle="tab" style="margin-top: 55px">lanjut <i class="fa fa-chevron-right"></i></a>
+                    </div>
+                  </div>
+
+
+                </div>
+                <!-- /.tab-pane -->
+
+                <div class="tab-pane fade in" id="halaman_2">
+
+                  <!-- kategori dan jenis -->
+                  <div class="form-group" style="width: 100%">
+                    <div class="col-md-6" style="margin-bottom: 20px;">
+                      <label><b>Pilih kategori kejadian:</b></label>
+                      <select class="form-control" name="kategori"  id="kategori" required="Wajib diisi">
+                        <option value="0">----------------------------------------- pilih tempat ------------------------------------------</option>
+                        <?php
+                        foreach ($kategori as $data)
+                        {
+                          ?>
+                          <option value="<?php echo $data->id_kategori ?>"><?php echo $data->kategori ?></option>
+                          <?php
+                        }
+                        ?>
+                      </select> 
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-md-6" style="margin-bottom: 20px;">
+                      <label><b>Pilih jenis kejadian</b></label>
+                      <select class="form-control jenis" name="jenis" id="jenis" required>
+                        <option>----------------------------------------- pilih jenis ------------------------------------------</option>
+                        <?php
+                        foreach ($jenis as $data)
+                        {
+                          ?>
+                          <option value="<?php echo $data->id_jenis ?>"><?php echo $data->nama_jenis ?></option>
+                          <?php
+                        }
+                        ?>
                       </select>
                     </div>
+                  </div>
 
-                    <div class="form-group" style="margin-left: 15px; margin-right:15px">
-                      <label>Efek kejadian:</label>
-                      <input type="text" class="form-control" name="efek" id="efek" placeholder="Silahkan isi efek">
-                    </div>
 
-                    <div style="margin-left: 83%">
-                      <a href="#halaman_1" class="btn btn-warning" data-toggle="tab" style="margin-top: 20px"><i class="fa fa-chevron-left"></i> kembali</a>&nbsp;
-                        <a href="#halaman_3" class="btn btn-primary" data-toggle="tab" style="margin-top: 20px">lanjut <i class="fa fa-chevron-right"></i></a>
-                    </div>
+                  <div class="form-group" style="margin-left: 15px">
+                    <label>Seberapa sering terjadi:</label>
+                    <select class="form-control" name="kejadian" style="width: 50%;">
+                      <option value="0">
+                        ------------------------------------------ pilih frekuensi ------------------------------------------
+                      </option>
+                      <option value="pertama">Pertama kali</option>
+                      <option value="beberapa_kali">Beberapa kali</option>
+                      <option value="tidak_tahu">Tidak tahu</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group" style="margin-left: 15px; margin-right:15px">
+                    <label>Efek kejadian:</label>
+                    <input type="text" class="form-control" name="efek" id="efek" placeholder="Silahkan isi efek">
+                  </div>
+
+                  <div style="margin-left: 83%">
+                    <a href="#halaman_1" class="btn btn-warning" data-toggle="tab" style="margin-top: 20px"><i class="fa fa-chevron-left"></i> kembali</a>&nbsp;
+                    <a href="#halaman_3" class="btn btn-primary" data-toggle="tab" style="margin-top: 20px">lanjut <i class="fa fa-chevron-right"></i></a>
+                  </div>
                 </div>
-                  <!-- /.tab-pane -->
+                <!-- /.tab-pane -->
 
-                  <div class="tab-pane fade in" id="halaman_3">
+                <div class="tab-pane fade in" id="halaman_3">
 
-                    <div class="form-group" style="margin-left: 15px; margin-right:15px">
-                      <label>Penyebab</label>
-                      <input type="text" class="form-control" name="penyebab" id="penyebab" placeholder="Silahkan isi penyebab">
-                    </div>
+                  <div class="form-group" style="margin-left: 15px; margin-right:15px">
+                    <label>Penyebab</label>
+                    <input type="text" class="form-control" name="penyebab" id="penyebab" placeholder="Silahkan isi penyebab">
+                  </div>
 
                     <!-- <div class="field_wrapper" style="margin-left: 15px; margin-right:15px">
                       <label>Tindak Lanjut</label><br>
@@ -221,24 +232,24 @@
                             <a href="javascript:void(0);" class="btn btn-success add_button" title="Add field"><i class="fa fa-plus"></i></a>
                           </div>
                         </div>
-                    </div> -->
+                      </div> -->
 
-                    <div class="form-group" style="margin-left: 15px; margin-right:15px">
+                      <div class="form-group" style="margin-left: 15px; margin-right:15px">
                         <label>Deskripsi</label>
-                          <textarea class="form-control" name="deskripsi" rows="3" placeholder="Enter ..."></textarea>
-                    </div>
+                        <textarea class="form-control" name="deskripsi" rows="3" placeholder="Enter ..." required="required"></textarea>
+                      </div>
 
-                    <div class="form-group" style="margin-left: 15px; margin-right:15px">
-                      <label>Saran:</label>
-                      <input type="text" class="form-control" name="saran" id="saran" placeholder="Silahkan berikan saran">
-                    </div>
+                      <div class="form-group" style="margin-left: 15px; margin-right:15px">
+                        <label>Saran:</label>
+                        <input type="text" class="form-control" name="saran" id="saran" placeholder="Silahkan berikan saran">
+                      </div>
 
-                    <div style="margin-left: 83%">
+                      <div style="margin-left: 83%">
                         <a href="#halaman_2" class="btn btn-warning" data-toggle="tab" style="margin-top: 20px"><i class="fa fa-chevron-left"></i> kembali</a>&nbsp;
                         <button class="btn btn-success" name="simpan" value="simpan" style="margin-top: 20px; width:80px">simpan</button>
                       </div>
                     </div>
-                  <!-- /.tab-pane -->
+                    <!-- /.tab-pane -->
                   </form>
                 </div>
                 <!-- /.tab-content -->
@@ -258,7 +269,15 @@
 <!-- /#page-wrapper -->
 
 </div>
+
+<footer class="footer">
+  <div class="container">
+   <strong>Copyright &copy; 2018 <a href="#">Tugas Akhir</a></strong>
+ </div>
+</footer>
+
 </div>
+
 <!-- /#wrapper -->
 
 <!-- jQuery -->
@@ -307,7 +326,7 @@
 </script>
 
 <script type="text/javascript">
-$(document).ready(function(){
+  $(document).ready(function(){
     var maxField = 5; //Input fields increment limitation
     var addButton = $('.add_button'); //Add button selector
     var wrapper = $('.field_wrapper'); //Input field wrapper
@@ -319,14 +338,27 @@ $(document).ready(function(){
         if(x < maxField){ //Check maximum number of input fields
             x++; //Increment field counter
             $(wrapper).append(fieldHTML); // Add field html
-        }
-    });
+          }
+        });
     $(wrapper).on('click', '.remove_button', function(e){ //Once remove button is clicked
-        e.preventDefault();
+      e.preventDefault();
         $(this).parent('div').remove(); //Remove field html
         x--; //Decrement field counter
-    });
-});
+      });
+  });
+</script>
+
+<script type="text/javascript">
+  $(document).ready (function(){
+    // $("#success-alert").hide();
+    // $("#myWish").click(function showAlert() {
+    //   $("#success-alert").alert();
+
+    window.setTimeout(function() {
+      $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+      });
+    }, 4000);       
 </script>
 
 </body>

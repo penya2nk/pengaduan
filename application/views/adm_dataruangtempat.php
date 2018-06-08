@@ -38,7 +38,7 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #ffffff">
-                        <i class="fa fa-user fa-fw"></i> Isnaini barochatun</i>
+                        <i class="fa fa-user fa-fw"></i> <?php echo $this->session->userdata('nama_pengguna'); ?></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a data-toggle="modal" data-target="#settingModal"><i class="fa fa-gear fa-fw"></i> Settings</a>
@@ -133,11 +133,12 @@
                                     </thead>
                                     <tbody>
                                         <?php
+                                        $i = 1;
                                         foreach ($ruang as $data) 
                                         {
                                             ?>
                                             <tr>
-                                                <td><?php echo $data->id_ruang ?></td>
+                                                <td><?php echo $i; ?></td>
                                                 <td><?php echo $data->nama_ruang ?></td>
                                                 <td>
                                                     <span><i class="fa fa-edit" style="color: blue" data-toggle="modal" data-target="#editRuang<?php echo $data->id_ruang; ?>"></i></span>&nbsp;
@@ -182,6 +183,7 @@
                                         </div>
 
                                         <?php
+                                        $i++;
                                     }
                                     ?>
                                 </tbody>
@@ -223,11 +225,12 @@
                                 </thead>
                                 <tbody>
                                     <?php
+                                    $x = 1;
                                     foreach ($tempat as $data) 
                                     {
                                         ?>
                                         <tr>
-                                            <td><?php echo $data->id_tempat ?></td>
+                                            <td><?php echo $x; ?></td>
                                             <td><?php echo $data->nama_tempat ?></td>
                                             <td>
                                                 <span><i class="fa fa-edit" style="color: blue" data-toggle="modal" data-target="#editTempat<?php echo $data->id_tempat; ?>"></i></span>&nbsp;
@@ -270,6 +273,7 @@
                                             </div>
                                         </div>
                                         <?php
+                                        $x++;
                                     }
                                     ?>
                                 </tbody>

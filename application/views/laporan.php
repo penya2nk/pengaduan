@@ -197,7 +197,9 @@
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div id="morris-area-chart2">
-                            
+                            <?php
+                             foreach ($pengaduan as $data) {}
+                            ?>
                         </div>
                     </div>
                     <!-- /.panel-body -->
@@ -291,6 +293,7 @@
 
     Morris.Area({
         element: 'morris-area-chart2',
+
         data: [{
             period: '2010 Q1',
             iphone: 1500
