@@ -140,18 +140,13 @@
                                 $i = 1;
                                 foreach ($user as $data)
                                 {
+																	if($data->id_role == 1) {
                                     ?>
                                     <tr>
                                         <td><?php echo $i; ?></td>
                                         <td><?php echo $data->nama_pengguna ?></td>
                                         <td><?php echo $data->email ?></td>
-                                        <td>
-                                            <?php
-                                            if($this->Madmin_datauser->mahasiswa($data->id_role) == 1){
-                                            echo $data->role;
-                                        }
-                                            ?>
-                                        </td>
+                                        <td><?php echo $data->role ?></td>
                                         <td>
                                             <?php
                                             $i++;
@@ -213,7 +208,8 @@
                             <!-- modal edit user -->
 
                             <?php
-                        } 
+																	}
+												} 
                         ?>
                     </tbody>
                 </table>
