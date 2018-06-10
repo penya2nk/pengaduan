@@ -77,6 +77,9 @@ class Cadm_datauser extends BaseController {
 	//function mau cek data user
 	public function save_password()
 	 { 
+
+	 	$this->load->library('form_validation');
+	 	
 	  $this->form_validation->set_rules('new','New','required|alpha_numeric');
 	  $this->form_validation->set_rules('re_new', 'Retype New', 'required|matches[new]');
 

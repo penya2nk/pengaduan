@@ -250,15 +250,15 @@
                 <div class="col-md-12">
 									<div class="form-group">
 										<label>Password lama :</label>
-										<input type="password" name="old" class="form-control" value="Password Lama" required>
+										<input type="password" name="old" class="form-control" placeholder="Password Lama" required>
 									</div>
 									<div class="form-group">
 										<label>Password baru :</label>
-										<input type="password" name="new" class="form-control" value="Password Baru" required>
+										<input type="password" name="new" class="form-control" placeholder="Password Baru" required>
 									</div>
 									<div class="form-group">
 										<label>Ulangi password baru :</label>
-										<input type="password" name="re_new" class="form-control" value="Ulangi Password Baru" required>
+										<input type="password" name="re_new" class="form-control" placeholder="Ulangi Password Baru" required>
 									</div>
 								</div>
 							</div>
