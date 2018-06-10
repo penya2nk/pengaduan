@@ -77,12 +77,7 @@
                             <a href=<?php echo base_url('admin/data_lokasi')?>><i class="fa fa-home"></i>&nbsp; Data Lokasi</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-users"></i>&nbsp; Data Pengguna<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href=<?php echo base_url('admin/data_user')?>>Data Pengguna</a>
-                                </li>
-                            </ul>
+                            <a href=<?php echo base_url('admin/data_user')?> ><i class="fa fa-users"></i>&nbsp; Data Pengguna</a>
                         </li>
                         
                     </ul>

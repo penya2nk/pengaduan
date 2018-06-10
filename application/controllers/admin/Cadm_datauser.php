@@ -79,7 +79,7 @@ class Cadm_datauser extends BaseController {
 	 { 
 
 	 	$this->load->library('form_validation');
-	 	
+
 	  $this->form_validation->set_rules('new','New','required|alpha_numeric');
 	  $this->form_validation->set_rules('re_new', 'Retype New', 'required|matches[new]');
 
@@ -89,7 +89,7 @@ class Cadm_datauser extends BaseController {
 	  }
 	  	else
 	  {
-	   $cek_old = $this->model_account->cek_old();
+	   $cek_old = $this->Madmin_datauser->cek_old();
 
 	   if ($cek_old == False){
 		    $this->session->set_flashdata('error','Password lama yang Anda masukkan salah' );
