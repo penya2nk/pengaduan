@@ -250,7 +250,7 @@
             </table>
 
             <div class="footer">
-                <a href="#" class="btn btn-outline btn-md" data-toggle="modal" data-target="#modalTambah" style="color: blue"><span class="fa fa-plus-circle"></span> Tambah Kategori </a>
+                <a href="#" class="btn btn-outline btn-md" data-toggle="modal" data-target="#modalKategori" style="color: blue"><span class="fa fa-plus-circle"></span> Buat Kategori </a>
             </div>
             <!-- /.row (nested) -->
         </div>
@@ -295,6 +295,36 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Batal</button>
                     <input type="submit" class="btn btn-primary" value="Simpan">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- modal setting -->
+
+<!-- modal tambah -->
+        <div class="modal modal-primary fade" id="modalKategori" style="margin-top: 5%">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title">BUAT KATEGORI BARU</h4>
+              </div>
+
+              <form method="POST" action="<?php echo base_url('analis/detail_pengaduan') ?>">
+                  <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form action="#" method="POST">
+                                <label>Kategori Baru :</label>
+                                <input class="form-control" type="text" name="kategori">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" class="btn btn-primary" value="simpan" href="<?php echo base_url('analis/tambah_kategori/')?>" >
                 </div>
             </form>
         </div>

@@ -84,12 +84,7 @@
                         <a href=<?php echo base_url('admin/data_lokasi')?> ><i class="fa fa-home"></i>&nbsp; Data Lokasi</a>
                     </li>
                     <li class="active">
-                        <a href="#"><i class="fa fa-users"></i>&nbsp; Data User<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href=<?php echo base_url('admin/data_user')?> style="color: #000000"><b>Data user</b></a>
-                            </li>
-                        </ul>
+                        <a href=<?php echo base_url('admin/data_user')?> style="color: #000000" ><i class="fa fa-users"></i>&nbsp; Data Pengguna</a>
                     </li>
                     <!-- menu -->
 
@@ -118,7 +113,18 @@
 
                     </div>
                     <div class="panel-body">
-                        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        
+                        <ul class="nav nav-tabs" style="margin-bottom: 20px">
+                            <li class="active"><a data-toggle="tab" href="#mahasiswa">mahasiswa</a></li>
+                            <li><a data-toggle="tab" href="#dosen" >Dosen</a></li>
+                            <li><a data-toggle="tab" href="#staf" >Staf</a></li>
+                        </ul>
+
+                        
+                        <div class="tab-content">
+                            <div id="mahasiswa" class="tab-pane fade in active">
+                                <!-- data mahasiswa -->
+                                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -139,7 +145,13 @@
                                         <td><?php echo $i; ?></td>
                                         <td><?php echo $data->nama_pengguna ?></td>
                                         <td><?php echo $data->email ?></td>
-                                        <td><?php echo $data->role ?></td>
+                                        <td>
+                                            <?php
+                                            if($this->Madmin_datauser->mahasiswa($data->id_role) == 1){
+                                            echo $data->role;
+                                        }
+                                            ?>
+                                        </td>
                                         <td>
                                             <?php
                                             $i++;
@@ -205,6 +217,19 @@
                         ?>
                     </tbody>
                 </table>
+
+                            </div>
+
+                            <div id="dosen" class="tab-pane fade">
+                                <!-- data dosen -->
+                            </div>
+
+                            <div id="staf" class="tab-pane fade">
+                                <!-- data staf -->
+                            </div>
+
+                        </div>
+
                 <!-- /.row (nested) -->
             </div>
             <!-- /.panel-body -->

@@ -61,5 +61,17 @@ class Cpengaduan_masuk extends BaseController {
 		$this->db->update('pengaduan_level',array('status'=>"diproses"));
 	}
 
+	public function tambah_kategori()
+	{
+		$id_kategori = $this->input->post('id_kategori');
+		$kategori = $this->input->post('kategori');
+
+		$data = array(
+			'kategori' => $kategori
+		);
+		$this->Manalis_pengaduanmsk->simpan('$data');
+		redirect('analis/detail_pengaduan/');
+	}
+
 
 }

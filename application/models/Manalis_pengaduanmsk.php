@@ -15,7 +15,7 @@ class Manalis_pengaduanmsk extends CI_Model {
 		$this->db->select('p.id_pengaduan, p.subjek, p.wkt_pengaduan, r.nama_ruang, k.kategori');	//select field yang mau ditampilin
 		$this->db->from('pengaduan p'); //tabel
 		$this->db->join('ruang r','r.id_ruang = p.id_ruang');
-		$this->db->join('kategori k','k.id_kategori = p.id_kategori');
+		$this->db->join('kategori k','p.id_kategori = k.id_kategori');
 		$this->db->join('pengaduan_level pl','pl.id_pengaduan = p.id_pengaduan','left');
 		$this->db->where('pl.status',"diterima");
 		$this->db->order_by('wkt_pengaduan','ASC');
@@ -69,5 +69,10 @@ class Manalis_pengaduanmsk extends CI_Model {
 	{
 		$this->db->where('id_pengaduan',$id_pengaduan);
 		return $this->db->update('pengaduan',$data);
+	}
+
+	public function simpan($data)
+	{
+		$this->db->insert('kategori',$data);
 	}
 }
