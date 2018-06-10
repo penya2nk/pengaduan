@@ -23,7 +23,7 @@ class Cadm_datauser extends BaseController {
 	{
 		$fileName = time().$_FILES['file']['name'];
 
-		$config['upload_path']='./assets/';
+		$config['upload_path']='./assets/user/';
 		$config['file_name']=$fileName;
 		$config['allowed_types']='xls|xlsx|csv';
 		$config['max_size']=10000;
@@ -34,7 +34,7 @@ class Cadm_datauser extends BaseController {
 
 		}else{
 			$media = $this->upload->data();
-			$inputFileName = './assets/'.$media['file_name'];
+			$inputFileName = './assets/user/'.$media['file_name'];
 
 			try {
 				$inputFileType = IOFactory::identify($inputFileName);

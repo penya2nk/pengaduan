@@ -13,14 +13,7 @@ class Madmin_datauser extends CI_Model {
 		return $this->db->get()->result();
 	}
 
-	public function mahasiswa($id_role)
-	{
-		//$this->db->where('u.id_role', $id_role);
-		$this->db->where('id_role','1');
-		return $this->db->get('user')->num_rows();	//hasil
-	}
-
-		// //bikin update password di admin dulu
+	//bikin update password di admin dulu
 	public function save()
 	{
 		$password = password_hash($this->input->post('new'), PASSWORD_BCRYPT);

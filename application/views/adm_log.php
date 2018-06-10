@@ -117,39 +117,39 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                        $i = 1;
+                                    $i = 1;
 
-                                        foreach ($log_activity as $data)
-                                        {
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $i; ?></td>
-                                        <td><?php echo $data->id_pengaduan ?></td>
-                                        <td><?php echo $data->subjek ?></td>
-                                        <td><?php echo $data->role ?></td>
-                                        <td><?php echo $data->kategori ?></td>
-                                        <td>
-                                            <?php
+                                    foreach ($log_activity as $data)
+                                    {
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $i; ?></td>
+                                            <td><?php echo $data->id_pengaduan ?></td>
+                                            <td><?php echo $data->subjek ?></td>
+                                            <td><?php echo $data->role ?></td>
+                                            <td><?php echo $data->kategori ?></td>
+                                            <td>
+                                                <?php
                                                 if ($data->status == 'diterima') {
-                                            ?>
-                                                <span class="badge badge primary"><?php echo $data->status ?></span>
-                                            <?php
+                                                    ?>
+                                                    <span class="badge badge primary"><?php echo $data->status ?></span>
+                                                    <?php
                                                 }elseif($data->status == 'diproses'){
-                                            ?>
-                                                <span class="badge badge warning"><?php echo $data->status ?></span>
-                                            <?php
+                                                    ?>
+                                                    <span class="badge badge warning"><?php echo $data->status ?></span>
+                                                    <?php
                                                 }else{
-                                            ?>
-                                                <span class="badge badge success"><?php echo $data->status ?></span>
-                                            <?php
+                                                    ?>
+                                                    <span class="badge badge success"><?php echo $data->status ?></span>
+                                                    <?php
                                                 }
-                                            ?>
-                                        </td>
-                                        <td><?php echo date('H:i:s', strtotime($data->timestamp)) ?></td>
-                                    </tr>
-                                    <?php
+                                                ?>
+                                            </td>
+                                            <td><?php echo date('H:i:s', strtotime($data->timestamp)) ?></td>
+                                        </tr>
+                                        <?php
                                         $i++;
-                                        }
+                                    }
                                     ?>
                                 </tbody>
                             </table>
@@ -168,20 +168,31 @@
     <!-- /#wrapper -->
 
     <!-- modal setting -->
-        <div class="modal modal-primary fade" id="settingModal" style="margin-top: 5%">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title">JUDUL MODAL</h4>
-              </div>
-
-              <form method="POST" action="<?php echo base_url('#') ?>">
-                  <div class="modal-body">
+    <div class="modal modal-primary fade" id="settingModal" style="margin-top: 5%">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">RESET PASSWORD</h4>
+            </div>
+            
+            <form method="POST" action="<?php echo base_url('admin/ubah_password') ?>">
+                <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
-                            KONTEN MODAL
+                            <div class="form-group">
+                                <label>Password lama :</label>
+                                <input type="password" name="old" class="form-control" placeholder="Password Lama" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Password baru :</label>
+                                <input type="password" name="new" class="form-control" placeholder="Password Baru" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Ulangi password baru :</label>
+                                <input type="password" name="re_new" class="form-control" placeholder="Ulangi Password Baru" required>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -195,21 +206,21 @@
 </div>
 <!-- modal setting -->
 
-    <script src=<?php echo base_url("assets/vendor/jquery/jquery.min.js")?> ></script>
-    <script src=<?php echo base_url("assets/vendor/bootstrap/js/bootstrap.min.js")?> ></script>
-    <script src=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.js")?> ></script>
-    <script src=<?php echo base_url("assets/vendor/datatables/js/jquery.dataTables.min.js")?> ></script>
-    <script src=<?php echo base_url("assets/vendor/datatables-plugins/dataTables.bootstrap.min.js")?> ></script>
-    <script src=<?php echo base_url("assets/vendor/datatables-responsive/dataTables.responsive.js")?> ></script>
-    <script src=<?php echo base_url("assets/dist/js/sb-admin-2.js")?> ></script>
+<script src=<?php echo base_url("assets/vendor/jquery/jquery.min.js")?> ></script>
+<script src=<?php echo base_url("assets/vendor/bootstrap/js/bootstrap.min.js")?> ></script>
+<script src=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.js")?> ></script>
+<script src=<?php echo base_url("assets/vendor/datatables/js/jquery.dataTables.min.js")?> ></script>
+<script src=<?php echo base_url("assets/vendor/datatables-plugins/dataTables.bootstrap.min.js")?> ></script>
+<script src=<?php echo base_url("assets/vendor/datatables-responsive/dataTables.responsive.js")?> ></script>
+<script src=<?php echo base_url("assets/dist/js/sb-admin-2.js")?> ></script>
 
-    <script>
-        $(document).ready(function() {
-            $('#dataTables-example').DataTable({
-                responsive: true
-            });
+<script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
         });
-    </script>
+    });
+</script>
 
 </body>
 
