@@ -91,7 +91,7 @@ class Cadm_datauser extends BaseController {
 	  {
 	   $cek_old = $this->Madmin_datauser->cek_old();
 
-	   if ($cek_old == False){
+	   if (count($cek_old) == 0){
 		    $this->session->set_flashdata('error','Password lama yang Anda masukkan salah' );
 		    
 		    redirect('admin/data_user');

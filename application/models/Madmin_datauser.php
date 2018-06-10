@@ -28,15 +28,22 @@ class Madmin_datauser extends CI_Model {
 				'password' => $password
 			);
 			$this->db->where('id_user', $this->session->userdata('id_user'));
-			$this->db->update('user', $data);
+			return $this->db->update('user', $data);
 		}
 		//fungsi untuk mengecek password lama :
 		public function cek_old()
 		{
-			$old = password_hash($this->input->post('old'), PASSWORD_BCRYPT);
-			$this->db->where('password',$old);
-			$query = $this->db->get('user');
-			return $query->result();
+			$user = $this->db->select('password')->where('id_user', $this->session->userdata('id_user'))->get('user')->result();
+			
+			if(!empty($user)){
+        if(password_verify($this->input->post('old'), $user[0]->password )){
+          return $user;
+        } else {
+          return array();
+        }
+      } else {
+        return array();
+      }
 		}
 		//end
 
