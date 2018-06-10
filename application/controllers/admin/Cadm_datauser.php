@@ -74,6 +74,7 @@ class Cadm_datauser extends BaseController {
 		force_download('file/format_user_data.xlsx',NULL);
 	}
 
+	//function mau cek data user
 	public function save_password()
 	 { 
 	  $this->form_validation->set_rules('new','New','required|alpha_numeric');

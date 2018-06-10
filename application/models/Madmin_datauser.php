@@ -21,24 +21,24 @@ class Madmin_datauser extends CI_Model {
 	}
 
 		// //bikin update password di admin dulu
-		// public function save()
-		// {
-		// 	$password = password_hash($this->input->post('new'), PASSWORD_BCRYPT);
-		// 	$data = array (
-		// 		'password' => $password
-		// 	);
-		// 	$this->db->where('id_user', $this->session->userdata('id_user'));
-		// 	$this->db->update('user', $data);
-		// }
-		// //fungsi untuk mengecek password lama :
-		// public function cek_old()
-		// {
-		// 	$old = password_hash($this->input->post('old'), PASSWORD_BCRYPT);
-		// 	$this->db->where('password',$old);
-		// 	$query = $this->db->get('user');
-		// 	return $query->result();
-		// }
-		// //end
+		public function save()
+		{
+			$password = password_hash($this->input->post('new'), PASSWORD_BCRYPT);
+			$data = array (
+				'password' => $password
+			);
+			$this->db->where('id_user', $this->session->userdata('id_user'));
+			$this->db->update('user', $data);
+		}
+		//fungsi untuk mengecek password lama :
+		public function cek_old()
+		{
+			$old = password_hash($this->input->post('old'), PASSWORD_BCRYPT);
+			$this->db->where('password',$old);
+			$query = $this->db->get('user');
+			return $query->result();
+		}
+		//end
 
 	public function edit_user($data,$id_user)
 	{

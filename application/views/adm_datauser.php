@@ -257,15 +257,15 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Password lama :</label>
-                        <input type="password" name="password" class="form-control">
+                        <input type="password" name="old" class="form-control" value="<?php echo set_value('old') ?>" required>
                     </div>
                     <div class="form-group">
                         <label>Password baru :</label>
-                        <input type="password" name="password" class="form-control">
+                        <input type="password" name="new" class="form-control" value="<?php echo set_value('new') ?>" required>
                     </div>
                     <div class="form-group">
                         <label>Ulangi password baru :</label>
-                        <input type="password" name="password" class="form-control">
+                        <input type="password" name="re_new" class="form-control" value="<?php echo set_value('re_new') ?>" required>
                     </div>
                 </div>
             </div>
