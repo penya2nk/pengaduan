@@ -16,7 +16,7 @@ class Madmin_datauser extends CI_Model {
 	public function mahasiswa($id_role)
 	{
 		//$this->db->where('u.id_role', $id_role);
-		$this->db->where('id_role',1);
+		$this->db->where('id_role','1');
 		return $this->db->get('user')->num_rows();	//hasil
 	}
 
