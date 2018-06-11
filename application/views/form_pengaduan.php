@@ -247,8 +247,8 @@
                       </div>
 
                       <div class="form-group" style="margin-left: 15px; margin-right:15px">
-                        <label>Tambahkan gambar pendukung:</label>
-                        <input type="file" name="berkas" required>
+                        <label>Tambahkan gambar pendukung (maksimal 2 Mb):</label>
+                        <input type="file" name="gambar" required>
                       </div>
 
                       <div style="margin-left: 83%">
@@ -279,7 +279,7 @@
 
 <footer class="footer">
   <div class="container">
-   <strong>Copyright &copy; 2018 <a href="#">Tugas Akhir</a></strong>
+    <strong>Copyright &copy; 2018 <a href="#">Tugas Akhir</a></strong>
  </div>
 </footer>
 

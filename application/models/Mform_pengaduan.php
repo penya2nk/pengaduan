@@ -58,7 +58,7 @@ class Mform_pengaduan extends CI_Model {
 		$deskripsi = $this->input->post('deskripsi');
 		$saran = $this->input->post('saran');
 		$status = $this->input->post('status');
-		$keterangan = $this->input->post('keterangan');
+		$keterangan = $this->input->post('gambar');
 
 		$data1 = array(
 			'tgl_kejadian' => $waktu,
@@ -76,8 +76,10 @@ class Mform_pengaduan extends CI_Model {
 		);
 			
 		$this->db->insert('pengaduan', $data1);
+
+		//insert ke tabel pengaduan_levelnya
 		$lastPengaduan = $this->db->insert_id();
-		// var_dump($lastPengaduan);die;
+		
 		$data2 = array(
 			'id_pengaduan' => $lastPengaduan,
 			'id_kategori' => $kategori,
@@ -89,14 +91,15 @@ class Mform_pengaduan extends CI_Model {
 	}
 
 	//function upload gambar ke db
-	public function upload(){
+	public function upload()
+	{
 	    $config['upload_path'] = '.assets/gambar/';
 	    $config['allowed_types'] = 'gif|jpg|png|jpeg';
 	    $config['max_size']  = '2048';
 	    $config['remove_space'] = TRUE;
 	  
 	    $this->load->library('upload', $config); // Load konfigurasi uploadnya
-	    if($this->upload->do_upload('berkas')){ // Lakukan upload dan Cek jika proses upload berhasil
+	    if($this->upload->do_upload('gambar')){ // Lakukan upload dan Cek jika proses upload berhasil
 	      // Jika berhasil :
 	      $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
 	      return $return;
@@ -105,6 +108,6 @@ class Mform_pengaduan extends CI_Model {
 	      $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
 	      return $return;
 	    }
-	  }
+	}
 
 }

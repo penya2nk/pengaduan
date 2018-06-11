@@ -32,20 +32,9 @@ class Cform extends BaseController {
 		
 		if ($this->input->post('simpan')) {
 			
-		if('result' == "success"){
 		$this->Mform_pengaduan->tambah();
 
-		$this->session->set_flashdata('style','success');
-		$this->session->set_flashdata('alert', 'Terimakasih!');
-		$this->session->set_flashdata('message', 'Laporan pengaduan Anda telah terkirim!');
-
 		redirect('user');
-		}
-		else
-		{
-			$data['message'] = 'error';
-		}
-		$this->load->view('user',$data);
 		}
 	}
     
