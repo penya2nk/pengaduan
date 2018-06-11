@@ -106,7 +106,6 @@
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
                                         <th>ID</th>
                                         <th>Subjek</th>
                                         <th>Pengelola</th>
@@ -117,13 +116,11 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $i = 1;
 
                                     foreach ($log_activity as $data)
                                     {
                                         ?>
                                         <tr>
-                                            <td><?php echo $i; ?></td>
                                             <td><?php echo $data->id_pengaduan ?></td>
                                             <td><?php echo $data->subjek ?></td>
                                             <td><?php echo $data->role ?></td>
@@ -148,7 +145,6 @@
                                             <td><?php echo date('H:i:s', strtotime($data->timestamp)) ?></td>
                                         </tr>
                                         <?php
-                                        $i++;
                                     }
                                     ?>
                                 </tbody>

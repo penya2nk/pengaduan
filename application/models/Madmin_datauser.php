@@ -5,7 +5,7 @@ class Madmin_datauser extends CI_Model {
 
 	public function user()
 	{
-		$this->db->select('u.id_user, u.id_role, u.nama_pengguna, u.email, u.status, l.nama_level, r.role,');
+		$this->db->select('u.id_user, u.id_role, u.nama_pengguna, u.email, u.status, u.username, l.nama_level, r.role,');
 		$this->db->from('user u','level l', 'roles r');
 		$this->db->join('level l','l.id_level = u.id_level');
 		$this->db->join('roles r','r.id_role = u.id_role','left');
@@ -44,7 +44,7 @@ class Madmin_datauser extends CI_Model {
 	public function edit_user($data,$id_user)
 	{
 		$this->db->where('id_user',$id_user);
-		$this->db->update('user',$data);
+		return $this->db->update('user',$data);
 		//return $this->db->get()->result();
 	}
 }

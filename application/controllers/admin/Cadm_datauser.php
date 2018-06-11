@@ -122,8 +122,8 @@ class Cadm_datauser extends BaseController {
 			'id_role' => $id_role,
 			'username' => $username,
 		);
-		$this->Madm_datauser->edit_user($data, $id_user);
-		redirect('admin/edit_user/'.$id_user);
+		$this->Madmin_datauser->edit_user($data, $id_user);
+		redirect('admin/data_user/'.$id_user);
  	}
 
  	public function hapus_user($id_user)
