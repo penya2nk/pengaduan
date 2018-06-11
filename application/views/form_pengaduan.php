@@ -94,7 +94,7 @@
                 <div class="active tab-pane fade in" id="halaman_1">
                  <div class="box-body">
 
-                  <form action="<?php echo base_url('user/insert_data') ?>" method="POST" role="form">
+                  <form action="<?php echo base_url('user/insert_data') ?>" method="POST" role="form" enctype="multipart/form-data">
 
                     <div class="form-group" style="margin-left: 15px">
                       <label>Silahkan isikan tanggal kejadian :</label>
@@ -201,8 +201,8 @@
                         ------------------------------------------ pilih frekuensi ------------------------------------------
                       </option>
                       <option value="pertama">Pertama kali</option>
-                      <option value="beberapa_kali">Beberapa kali</option>
-                      <option value="tidak_tahu">Tidak tahu</option>
+                      <option value="beberapa">Beberapa kali</option>
+                      <option value="tidak tau">Tidak tahu</option>
                     </select>
                   </div>
 
@@ -249,6 +249,7 @@
                       <div class="form-group" style="margin-left: 15px; margin-right:15px">
                         <label>Tambahkan gambar pendukung (maksimal 2 Mb):</label>
                         <input type="file" name="gambar" required>
+                        <input type="hidden" name="nama_pengguna" value="<?php echo $this->session->userdata('nama_pengguna') ?>">
                       </div>
 
                       <div style="margin-left: 83%">
