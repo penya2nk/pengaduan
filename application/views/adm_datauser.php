@@ -192,6 +192,18 @@
 																				<input class="form-control" type="text" name="email" value="<?php echo $data->email ?>">
 																				<input class="form-control" type="hidden" name="id_user" value="<?php echo $data->id_user ?>">
 																			</div>
+
+																			<div class="form-group">
+																				<label>NIM :</label>
+																				<input class="form-control" type="text" name="username" value="<?php echo $data->username ?>">
+																				<input class="form-control" type="hidden" name="id_user" value="<?php echo $data->id_user ?>">
+																			</div>
+
+																			<div class="form-group">
+																				<label>Level :</label>
+																				<input class="form-control" type="text" name="id_level" value="<?php echo $data->nama_level ?>">
+																				<input class="form-control" type="hidden" name="id_user" value="<?php echo $data->id_user ?>">
+																			</div>
 																			
 																		</div>
 																	</div>
@@ -269,7 +281,7 @@
                                                                 <h4 class="modal-title">EDIT DATA USER</h4>
                                                             </div>
                                                             
-                                                            <form method="POST" action="<?php echo base_url('admin/edit_user') ?>">
+                                                            <form method="POST" action="<?php echo base_url('admin/data_user') ?>">
                                                                 <div class="modal-body">
                                                                     <div class="row">
                                                                         <div class="col-md-12">
@@ -283,6 +295,12 @@
                                                                             <div class="form-group">
                                                                                 <label>Email :</label>
                                                                                 <input class="form-control" type="text" name="email" value="<?php echo $data->email ?>">
+                                                                                <input class="form-control" type="hidden" name="id_user" value="<?php echo $data->id_user ?>">
+                                                                            </div>
+
+                                                                            <div class="form-group">
+                                                                                <label>NIP :</label>
+                                                                                <input class="form-control" type="text" name="username" value="<?php echo $data->username ?>">
                                                                                 <input class="form-control" type="hidden" name="id_user" value="<?php echo $data->id_user ?>">
                                                                             </div>
                                                                             
@@ -378,13 +396,19 @@
                                                                                 <input class="form-control" type="text" name="email" value="<?php echo $data->email ?>">
                                                                                 <input class="form-control" type="hidden" name="id_user" value="<?php echo $data->id_user ?>">
                                                                             </div>
+
+                                                                            <div class="form-group">
+                                                                                <label>NIP :</label>
+                                                                                <input class="form-control" type="text" name="username" value="<?php echo $data->username ?>">
+                                                                                <input class="form-control" type="hidden" name="id_user" value="<?php echo $data->id_user ?>">
+                                                                            </div>
                                                                             
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Batal</button>
-                                                                    <input type="submit" class="btn btn-primary" value="Simpan">
+                                                                    <input type="submit" class="btn btn-primary" value="simpan">
                                                                 </div>
                                                                 
                                                             </form>

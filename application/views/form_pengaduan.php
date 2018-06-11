@@ -202,7 +202,7 @@
                       </option>
                       <option value="pertama">Pertama kali</option>
                       <option value="beberapa">Beberapa kali</option>
-                      <option value="tidak tau">Tidak tahu</option>
+                      <option value="tidak tahu">Tidak tahu</option>
                     </select>
                   </div>
 
