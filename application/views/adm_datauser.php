@@ -190,19 +190,20 @@
 																			<div class="form-group">
 																				<label>Email :</label>
 																				<input class="form-control" type="text" name="email" value="<?php echo $data->email ?>">
-																				<input class="form-control" type="hidden" name="id_user" value="<?php echo $data->id_user ?>">
 																			</div>
 
 																			<div class="form-group">
 																				<label>NIM :</label>
 																				<input class="form-control" type="text" name="username" value="<?php echo $data->username ?>">
-																				<input class="form-control" type="hidden" name="id_user" value="<?php echo $data->id_user ?>">
 																			</div>
 
 																			<div class="form-group">
 																				<label>Level :</label>
-																				<input class="form-control" type="text" name="id_level" value="<?php echo $data->nama_level ?>">
-																				<input class="form-control" type="hidden" name="id_user" value="<?php echo $data->id_user ?>">
+																				<select name="id_level" class="form-control">
+																					<?php foreach($level as $l){ ?>
+																					<option <?php echo ($data->id_level == $l->id_level ? 'selected' : ''); ?> value="<?php echo $l->id_level ?>"><?php echo $l->nama_level." ".$l->posisi ?></option>
+																					<?php } ?>
+																				</select>
 																			</div>
 																			
 																		</div>

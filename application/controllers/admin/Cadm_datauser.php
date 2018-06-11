@@ -16,6 +16,7 @@ class Cadm_datauser extends BaseController {
 	public function index()
 	{
 		$data['user']=$this->Madmin_datauser->user();
+		$data['level']=$this->Madmin_datauser->level();
 		$this->load->view('adm_datauser',$data);
 	}
 
@@ -113,17 +114,15 @@ class Cadm_datauser extends BaseController {
 		$nama = $this->input->post('nama');
 		$email = $this->input->post('email');
 		$id_level = $this->input->post('id_level');
-		$id_role = $this->input->post('id_role');
 		$username = $this->input->post('username');
 		$data = array(
 			'nama_pengguna' => $nama,
 			'email' => $email,
 			'id_level' => $id_level,
-			'id_role' => $id_role,
 			'username' => $username,
 		);
 		$this->Madmin_datauser->edit_user($data, $id_user);
-		redirect('admin/data_user/'.$id_user);
+		redirect('admin/data_user');
  	}
 
  	public function hapus_user($id_user)
