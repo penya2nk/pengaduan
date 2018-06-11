@@ -24,6 +24,8 @@ class forgot extends CI_Controller {
 
   // cek email ada atau engga
 		if (!$rs->num_rows() > 0){
+
+			$this->session->set_flashdata('style','danger');
 			$this->session->set_flashdata('alert', 'Email tidak ditemukan!');
 			$this->session->set_flashdata('message', 'Cek kembali email Anda.');
 

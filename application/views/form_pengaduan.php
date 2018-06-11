@@ -73,10 +73,11 @@
         <div class="col-lg-12">
 
           <?php if($this->session->flashdata('message')): ?>
-              <div class="alert alert-success" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Success!</strong> You have been signed in successfully!
-              </div>
+            <div class="alert alert-<?php echo $this->session->flashdata('style'); ?>" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <strong><?php echo $this->session->flashdata('alert'); ?></strong>&nbsp;<br>
+              <?php echo $this->session->flashdata('message'); ?>
+            </div>
           <?php endif; ?>
 
           <div class="alert alert-info" style="margin-top: 20px">
@@ -143,11 +144,45 @@
                       </div>
                     </div>
 
+                    <div class="form-group" style="width: 100%">
+                      <div class="col-md-6" style="margin-bottom: 20px; margin-top: 10px">
+                        <label><b>Pilih kategori kejadian:</b></label>
+                        <select class="form-control" name="kategori"  id="kategori" required="Wajib diisi">
+                          <option value="0">----------------------------------------- pilih tempat ------------------------------------------</option>
+                          <?php
+                          foreach ($kategori as $data)
+                          {
+                            ?>
+                            <option value="<?php echo $data->id_kategori ?>"><?php echo $data->kategori ?></option>
+                            <?php
+                          }
+                          ?>
+                        </select> 
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-md-6" style="margin-bottom: 20px; margin-top: 10px">
+                        <label><b>Pilih jenis kejadian</b></label>
+                        <select class="form-control jenis" name="jenis" id="jenis" required>
+                          <option>----------------------------------------- pilih jenis ------------------------------------------</option>
+                          <?php
+                          foreach ($jenis as $data)
+                          {
+                            ?>
+                            <option value="<?php echo $data->id_jenis ?>"><?php echo $data->nama_jenis ?></option>
+                            <?php
+                          }
+                          ?>
+                        </select>
+                      </div>
+                    </div>
+
                   </div>
 
                   <div class="footer" style="margin-left:92%;">
                     <div class="box-footer with-border">
-                      <a href="#halaman_2" class="btn btn-primary" data-toggle="tab" style="margin-top: 55px">lanjut <i class="fa fa-chevron-right"></i></a>
+                      <a href="#halaman_2" class="btn btn-primary" data-toggle="tab" style="margin-top: 5px">lanjut <i class="fa fa-chevron-right"></i></a>
                     </div>
                   </div>
 
@@ -155,44 +190,10 @@
                 </div>
                 <!-- /.tab-pane -->
 
+
                 <div class="tab-pane fade in" id="halaman_2">
 
                   <!-- kategori dan jenis -->
-                  <div class="form-group" style="width: 100%">
-                    <div class="col-md-6" style="margin-bottom: 20px;">
-                      <label><b>Pilih kategori kejadian:</b></label>
-                      <select class="form-control" name="kategori"  id="kategori" required="Wajib diisi">
-                        <option value="0">----------------------------------------- pilih tempat ------------------------------------------</option>
-                        <?php
-                        foreach ($kategori as $data)
-                        {
-                          ?>
-                          <option value="<?php echo $data->id_kategori ?>"><?php echo $data->kategori ?></option>
-                          <?php
-                        }
-                        ?>
-                      </select> 
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <div class="col-md-6" style="margin-bottom: 20px;">
-                      <label><b>Pilih jenis kejadian</b></label>
-                      <select class="form-control jenis" name="jenis" id="jenis" required>
-                        <option>----------------------------------------- pilih jenis ------------------------------------------</option>
-                        <?php
-                        foreach ($jenis as $data)
-                        {
-                          ?>
-                          <option value="<?php echo $data->id_jenis ?>"><?php echo $data->nama_jenis ?></option>
-                          <?php
-                        }
-                        ?>
-                      </select>
-                    </div>
-                  </div>
-
-
                   <div class="form-group" style="margin-left: 15px">
                     <label>Seberapa sering terjadi:</label>
                     <select class="form-control" name="kejadian" style="width: 50%;">
@@ -210,19 +211,20 @@
                     <input type="text" class="form-control" name="efek" id="efek" placeholder="Silahkan isi efek">
                   </div>
 
-                  <div style="margin-left: 83%">
-                    <a href="#halaman_1" class="btn btn-warning" data-toggle="tab" style="margin-top: 20px"><i class="fa fa-chevron-left"></i> kembali</a>&nbsp;
-                    <a href="#halaman_3" class="btn btn-primary" data-toggle="tab" style="margin-top: 20px">lanjut <i class="fa fa-chevron-right"></i></a>
-                  </div>
-                </div>
-                <!-- /.tab-pane -->
-
-                <div class="tab-pane fade in" id="halaman_3">
-
                   <div class="form-group" style="margin-left: 15px; margin-right:15px">
                     <label>Penyebab</label>
                     <input type="text" class="form-control" name="penyebab" id="penyebab" placeholder="Silahkan isi penyebab">
                   </div>
+
+                  <div style="margin-left: 83%">
+                    <a href="#halaman_1" class="btn btn-warning" data-toggle="tab" style="margin-top: 50px"><i class="fa fa-chevron-left"></i> kembali</a>&nbsp;
+                    <a href="#halaman_3" class="btn btn-primary" data-toggle="tab" style="margin-top: 50px">lanjut <i class="fa fa-chevron-right"></i></a>
+                  </div>
+
+                </div>
+                <!-- /.tab-pane -->
+
+                <div class="tab-pane fade in" id="halaman_3">
 
                     <!-- <div class="field_wrapper" style="margin-left: 15px; margin-right:15px">
                       <label>Tindak Lanjut</label><br>
@@ -242,6 +244,11 @@
                       <div class="form-group" style="margin-left: 15px; margin-right:15px">
                         <label>Saran:</label>
                         <input type="text" class="form-control" name="saran" id="saran" placeholder="Silahkan berikan saran">
+                      </div>
+
+                      <div class="form-group" style="margin-left: 15px; margin-right:15px">
+                        <label>Tambahkan gambar pendukung:</label>
+                        <input type="file" name="berkas" required>
                       </div>
 
                       <div style="margin-left: 83%">
@@ -359,7 +366,7 @@
         $(this).remove(); 
       });
     }, 4000);       
-</script>
+  </script>
 
 </body>
 

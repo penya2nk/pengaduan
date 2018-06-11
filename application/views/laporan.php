@@ -198,7 +198,9 @@
                     <div class="panel-body">
                         <div id="morris-area-chart2">
                             <?php
-                             foreach ($pengaduan as $data) {}
+                             foreach ($pengaduan as $data) {
+                                $
+                             }
                             ?>
                         </div>
                     </div>
