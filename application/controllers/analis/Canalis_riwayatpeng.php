@@ -23,5 +23,38 @@ class Canalis_riwayatpeng extends BaseController {
 		$this->db->update('pengaduan', array('deleted'=> 1));
 		redirect('analis/riwayat_pengaduan');
 	}
+
+	//function mau cek data user
+	public function save_password()
+	 { 
+
+	 	$this->load->library('form_validation');
+
+	  $this->form_validation->set_rules('new','New','required|alpha_numeric');
+	  $this->form_validation->set_rules('re_new', 'Retype New', 'required|matches[new]');
+
+	    if($this->form_validation->run() == FALSE)
+	  {
+			redirect('analis/riwayat_pengaduan');
+	  }
+	  	else
+	  {
+	   $cek_old = $this->Manalis_riwayatpeng->cek_old();
+
+	   if (count($cek_old) == 0){
+		    $this->session->set_flashdata('error','Password lama yang Anda masukkan salah' );
+		    
+		    redirect('analis/riwayat_pengaduan');
+	   }
+	   	else
+	   {
+		    $this->Manalis_riwayatpeng->save();
+		    $this->session->sess_destroy();
+		    $this->session->set_flashdata('error','Password anda telah berhasil diubah' );
+		    
+		    redirect('karyawan');
+	   }//end if valid_user
+	}
+ }
 	
 }

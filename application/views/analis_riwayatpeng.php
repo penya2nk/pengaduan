@@ -166,14 +166,25 @@
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title">JUDUL MODAL</h4>
+                  <h4 class="modal-title">UBAH PASSWORD</h4>
               </div>
 
-              <form method="POST" action="<?php echo base_url('#') ?>">
-                  <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            KONTEN MODAL
+              <form method="POST" action="<?php echo base_url('analis/ubah_password') ?>">
+                        <div class="modal-body">
+                            <div class="row">
+                <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Password lama :</label>
+                                <input type="password" name="old" class="form-control" placeholder="Password Lama" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Password baru :</label>
+                                <input type="password" name="new" class="form-control" placeholder="Password Baru" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Ulangi password baru :</label>
+                                <input type="password" name="re_new" class="form-control" placeholder="Ulangi Password Baru" required>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -200,7 +200,8 @@
 																			<div class="form-group">
 																				<label>Level :</label>
 																				<select name="id_level" class="form-control">
-																					<?php foreach($level as $l){ ?>
+																					<?php
+																					foreach($level as $l){ ?>
 																					<option <?php echo ($data->id_level == $l->id_level ? 'selected' : ''); ?> value="<?php echo $l->id_level ?>"><?php echo $l->nama_level." ".$l->posisi ?></option>
 																					<?php } ?>
 																				</select>
@@ -304,6 +305,15 @@
                                                                                 <input class="form-control" type="text" name="username" value="<?php echo $data->username ?>">
                                                                                 <input class="form-control" type="hidden" name="id_user" value="<?php echo $data->id_user ?>">
                                                                             </div>
+
+                                                                            <label>Level :</label>
+																				<select name="id_level" class="form-control">
+																					<?php
+																					foreach($level as $l){ ?>
+																					<option <?php echo ($data->id_level == $l->id_level ? 'selected' : ''); ?> value="<?php echo $l->id_level ?>"><?php echo $l->nama_level." ".$l->posisi ?></option>
+																					<?php } ?>
+																				</select>
+
                                                                             
                                                                         </div>
                                                                     </div>
@@ -403,6 +413,15 @@
                                                                                 <input class="form-control" type="text" name="username" value="<?php echo $data->username ?>">
                                                                                 <input class="form-control" type="hidden" name="id_user" value="<?php echo $data->id_user ?>">
                                                                             </div>
+
+                                                                            <label>Level :</label>
+																				<select name="id_level" class="form-control">
+																					<?php
+																					foreach($level as $l){ ?>
+																					<option <?php echo ($data->id_level == $l->id_level ? 'selected' : ''); ?> value="<?php echo $l->id_level ?>"><?php echo $l->nama_level." ".$l->posisi ?></option>
+																					<?php } ?>
+																				</select>
+
                                                                             
                                                                         </div>
                                                                     </div>
