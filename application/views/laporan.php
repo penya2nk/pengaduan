@@ -95,6 +95,15 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Dashboard</h1>
+                <?php
+                // var_dump($pengaduan);
+                             foreach ($pengaduan as $data) {
+                                //echo $data->tahun.' '.$data->kategori.' : '.$data->jumlah.'<br>';
+                                // echo "dhsjsjs";
+                                $kategori[] = $data->kategori;
+                                $jumlah[] = (float) $data->jumlah;
+                             }
+                            ?>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -105,33 +114,11 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
-                                <i class="fa fa-comments fa-5x"></i>
+                                <i class="fa fa-inbox fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">26</div>
-                                <div>New Comments!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-green">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-tasks fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">12</div>
-                                <div>New Tasks!</div>
+                                <div class="huge"><!--<?php //echo $data ?>--></div>
+                                <div>Pengaduan Masuk</div>
                             </div>
                         </div>
                     </div>
@@ -149,11 +136,33 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
-                                <i class="fa fa-shopping-cart fa-5x"></i>
+                                <i class="fa fa-gear fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">12</div>
+                                <div>Pengaduan diproses</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-green">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-check fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge">124</div>
-                                <div>New Orders!</div>
+                                <div>Selesai ditangani</div>
                             </div>
                         </div>
                     </div>
@@ -170,7 +179,7 @@
         </div>
         <!-- /.row -->
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
@@ -194,14 +203,13 @@
                             </div>
                         </div>
                     </div>
+
+
                     <!-- /.panel-heading -->
                     <div class="panel-body">
+
                         <div id="morris-area-chart2">
-                            <?php
-                             foreach ($pengaduan as $data) {
-                                $
-                             }
-                            ?>
+
                         </div>
                     </div>
                     <!-- /.panel-body -->
@@ -246,22 +254,7 @@
                 </div>
                 <!-- /.panel -->
             </div>
-            <!-- /.col-lg-8 -->
-            <div class="col-lg-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> Donut Chart Example
-                    </div>
-                    <div class="panel-body">
-                        <div id="morris-donut-chart"></div>
-                        <a href="#" class="btn btn-default btn-block">View Details</a>
-                    </div>
-                    <!-- /.panel-body -->
-                </div>
-                <!-- /.panel -->
-
-            </div>
-            <!-- /.col-lg-4 -->
+            
         </div>
         <!-- /.row -->
     </div>
@@ -296,25 +289,53 @@
     Morris.Area({
         element: 'morris-area-chart2',
 
-        data: [{
-            period: '2010 Q1',
-            iphone: 1500
-        }, {
-            period: '2010 Q2',
-            iphone: 1000
-        }, {
-            period: '2010 Q3',
-            iphone: 1200
-        }, {
-            period: '2010 Q4',
-            iphone: 3767
-        }],
-        xkey: 'period',
-        ykeys: ['iphone'],
-        labels: ['iPhone'],
-        pointSize: 2,
+        data: [
+        <?php foreach ($pengaduan as $data) 
+        {
+        ?>
+        {
+            bulan: '<?php echo $data->tahun ?> <?php echo $data->kategori ?>',
+            jumlah: <?php echo $data->jumlah ?>
+        },
+        <?php
+        }
+        ?> 
+        ],
+        xkey: 'bulan',
+        ykeys: ['jumlah'],
+        labels: ['Jumlah'],
+        pointSize: 1,
         hideHover: 'auto',
         resize: true
+    });
+
+    Morris.Bar({
+        element: 'morris-bar-chart',
+        data: [
+        <?php
+            foreach ($pengaduan as $data) 
+            {
+        ?>
+        {
+            y: '<?php echo $data->kategori ?>',
+            a: <?php echo $data->jumlah ?>,
+        },
+        <?php
+            }
+        ?>
+        ],
+        xkey: 'y',
+        ykeys: ['a'],
+        labels: ['Jumlah'],
+        hideHover: 'auto',
+        resize: true,
+        barColors: function (row, series, type) {
+        console.log("--> "+row.label, series, type);
+        if(row.label == "sarpras") return "#AD1D28";
+        else if(row.label == "dosen") return "#DEBB27";
+        else if(row.label == "mata kuliah") return "#fec04c";
+        else if(row.label == "layanan informasi") return "#1AB244";
+        }
     });
     
 });

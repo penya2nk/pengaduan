@@ -248,7 +248,7 @@
 
                       <div class="form-group" style="margin-left: 15px; margin-right:15px">
                         <label>Tambahkan gambar pendukung (maksimal 2 Mb):</label>
-                        <input type="file" name="gambar" required>
+                        <input type="file" name="gambar">
                         <input type="hidden" name="nama_pengguna" value="<?php echo $this->session->userdata('nama_pengguna') ?>">
                       </div>
 

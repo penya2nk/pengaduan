@@ -12,6 +12,7 @@ class Laporan extends CI_Controller {
 
 	public function index()
 	{
+		$data['rekap']=$this->Mlaporan->rekap_masuk();
 		$data['pengaduan']=$this->Mlaporan->kategori();
 		$this->load->view('laporan',$data);
 	}
