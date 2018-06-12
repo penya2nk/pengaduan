@@ -31,7 +31,7 @@ class Manalis_pengaduanmsk extends CI_Model {
 
 	public function detail_pengaduan($id)
 	{
-		$this->db->select('p.id_pengaduan, p.id_user, p.subjek, p.deskripsi, p.kejadian, p.penyebab, p.tgl_kejadian, p.efek,  r.nama_ruang, k.kategori, u.nama_pengguna, t.nama_tempat');	//select field yang mau ditampilin
+		$this->db->select('p.id_pengaduan, p.id_user, p.subjek, p.deskripsi, p.kejadian, p.penyebab, p.tgl_kejadian, p.efek, p.keterangan, r.nama_ruang, k.kategori, u.nama_pengguna, t.nama_tempat');	//select field yang mau ditampilin
 		$this->db->from('pengaduan p'); //dari dua tabel
 		$this->db->join('ruang r','r.id_ruang = p.id_ruang');
 		$this->db->join('kategori k','k.id_kategori = p.id_kategori');
@@ -75,4 +75,5 @@ class Manalis_pengaduanmsk extends CI_Model {
 	{
 		$this->db->insert('kategori',$data);
 	}
+
 }

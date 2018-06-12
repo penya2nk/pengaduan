@@ -87,6 +87,7 @@ $route['analis/detail_pengaduan/(:num)'] = 'analis/Cpengaduan_masuk/detail/$1';
 $route['analis/riwayat_pengaduan'] = 'analis/Canalis_riwayatpeng';
 $route['analis/kirim_pengaduan'] = 'analis/Cpengaduan_masuk/kirim';
 $route['analis/ubah_pengaduan'] = 'analis/Cpengaduan_masuk/ubah';
+$route['analis/buat_kategori'] = 'analis/Cpengaduan_masuk/tambah_kategori';
 $route['analis/update_status'] = 'analis/Cpengaduan_masuk/update_status';
 $route['analis/riwayat_deleted/(:num)'] = 'analis/Canalis_riwayatpeng/deleted/$1';
 $route['analis/ubah_password'] = 'analis/Canalis_riwayatpeng/save_password';

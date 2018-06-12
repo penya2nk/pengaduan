@@ -16,6 +16,7 @@
     <link href=<?php echo base_url("assets/vendor/datatables-plugins/dataTables.bootstrap.css")?>  rel="stylesheet">
     <link href=<?php echo base_url("assets/vendor/datatables-responsive/dataTables.responsive.css")?>  rel="stylesheet">
     <link href=<?php echo base_url("assets/dist/css/sb-admin-2.css")?> rel="stylesheet">
+    <link href=<?php echo base_url("assets/select2/dist/css/select2.min.css")?> rel="stylesheet">
     <link href=<?php echo base_url("assets/vendor/font-awesome/css/font-awesome.min.css")?>  rel="stylesheet" type="text/css">
 
 </head>
@@ -155,8 +156,13 @@
                                             <a style="margin-left: 10px" data-toggle="modal" data-target="#modalEdit"><span class="fa fa-edit"></span></a>
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td><b>Gambar Pendukung:</b></td>
+                                        <td>:</td>
+                                        <td style="width: 80%"><img src="<?php echo base_url('assets/gambar/'.$data->keterangan) ?>" style="width: 60%; height: auto"></td>
+                                    </tr>
 
-                                    <!-- modal kirim -->
+                                   <!-- modal kirim -->
                                     <div class="modal modal-primary fade" id="modalKirim" style="margin-top: 5%">
                                       <div class="modal-dialog">
                                         <div class="modal-content">
@@ -208,21 +214,19 @@
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span></button>
-                                          <h4 class="modal-title">Ubah Kategori</h4>
+                                          <h4 class="modal-title">Tambah Kategori</h4>
                                     </div>
                                     <div class="modal-body">
 
                                         <div class="form-group">
-                                            <!-- <label>Penyebab</label> -->
-                                                <!-- <input class="form-control" type="text" name="penyebab" value="<?php //echo $data->penyebab ?>">
-                                                <input type="hidden" name="id_pengaduan" value="<?php //echo $data->id_pengaduan ?>"> -->
                                             <label>Kategori Baru:</label>
-                                                <select name="kategori">
-                                                    <option value="<?php echo $data->id_kategori ?>"><?php echo $data->kategori ?>"</option>
+                                                <select class="form-control select2" multiple="multiple" data-placeholder="Select a State"
+                                                style="width: 100%;">
                                                     <?php
-                                                        foreach ($kategori as $data) {
+                                                        foreach ($kategori as $data)
+                                                        {
                                                     ?>
-                                                    <option value="<?php echo $data->id_kategori ?>"><?php echo $data->kategori ?></option>
+                                                        <option value="<?php echo $data->id_kategori ?>"><?php echo $data->kategori ?></option>
                                                     <?php
                                                         }
                                                     ?>
@@ -238,7 +242,7 @@
                                     </form>
 
                             </div>
-                            <!-- /.modal-content
+                            <!-- /.modal-content -->
                         </div>
                         <!-- /.modal-dialog -->
                     </div>
@@ -324,7 +328,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <input type="submit" class="btn btn-primary" value="simpan" href="<?php echo base_url('analis/tambah_kategori/')?>" >
+                    <input type="submit" class="btn btn-primary" value="simpan" href="<?php echo base_url('analis/buat_kategori/')?>" >
                 </div>
             </form>
         </div>
@@ -339,6 +343,7 @@
 <script src=<?php echo base_url("assets/vendor/datatables-plugins/dataTables.bootstrap.min.js")?> ></script>
 <script src=<?php echo base_url("assets/vendor/datatables-responsive/dataTables.responsive.js")?> ></script>
 <script src=<?php echo base_url("assets/dist/js/sb-admin-2.js")?> ></script>
+<script src=<?php echo base_url("assets/select2/dist/js/select2.full.min.js")?> ></script>
 
 <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 <script>
@@ -377,6 +382,13 @@ $(this).find("input[class~='editor']").fadeIn().focus();
 
 
 });
+</script>
+
+<script type="text/javascript">
+    $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+})
 </script>
 
 </body>

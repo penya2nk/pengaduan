@@ -20,6 +20,7 @@ class Cpengaduan_masuk extends BaseController {
 
 	public function detail($id)
 	{
+		$data['kategori']=$this->Manalis_pengaduanmsk->kategori();
 		$data['detail_pengaduan']=$this->Manalis_pengaduanmsk->detail_pengaduan($id);
 		$data['level']=$this->Manalis_pengaduanmsk->level();	//ke level tujuan
 
