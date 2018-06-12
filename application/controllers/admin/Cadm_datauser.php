@@ -52,19 +52,23 @@ class Cadm_datauser extends BaseController {
 
 			for ($row=2; $row <= $highestRow; $row++) { 
 				$rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row, NULL, TRUE, FALSE);
+				//var_dump($rowData[0][1]); exit;
 
+				if($rowData[0][1] == ''){
 				$data = array(
 					"nama_pengguna" => $rowData[0][1],
 					"email" => $rowData[0][2],
 					"password" => password_hash($rowData[0][3], PASSWORD_BCRYPT),
 					"status" => $rowData[0][4],
 					"id_level" => $rowData[0][5],
+					"id_role" => 1,
 					"timestamp" => $rowData[0][6],
 					"username" => $rowData[0][7],
 				);
 
 				$insert = $this->db->insert("user",$data);
 			unlink($inputFileName); //File Deleted After uploading in database .
+			}
 		}
 	}
 	redirect('admin/data_user');
