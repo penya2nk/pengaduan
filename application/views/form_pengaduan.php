@@ -73,15 +73,16 @@
         <div class="col-lg-12">
 
           <?php if($this->session->flashdata('message')): ?>
-            <div class="alert alert-<?php echo $this->session->flashdata('style'); ?>" role="alert">
+            <div class="alert alert-success alert-dismissable fade-in ?>" role="alert">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              <strong><?php echo $this->session->flashdata('alert'); ?></strong>&nbsp;<br>
+              <strong>Berhasil!</strong>&nbsp;
               <?php echo $this->session->flashdata('message'); ?>
             </div>
           <?php endif; ?>
 
-          <div class="alert alert-info" style="margin-top: 20px">
+          <div class="alert alert-info" style="margin-top: 10px">
             <strong>Perhatian!</strong> Informasi <b>data diri Anda tidak akan terlihat</b> pada laporan pengaduan. Mohon berikan informasi sejelas-jelasnya untuk tindak lanjut yang lebih baik. Terimakasih.</a>.
+            keterangan :<b style="color: red"> * = wajib diisi </b>
           </div>
 
           <div class="panel panel-default">
@@ -97,7 +98,7 @@
                   <form action="<?php echo base_url('user/insert_data') ?>" method="POST" role="form" enctype="multipart/form-data">
 
                     <div class="form-group" style="margin-left: 15px">
-                      <label>Silahkan isikan tanggal kejadian :</label>
+                      <label>Silahkan isikan tanggal kejadian <b style="color: red">*</b></label>
                       <div class="input-group col-sm-6">
                         <div class="input-group-addon">
                           <i class="fa fa-calendar"></i>
@@ -107,7 +108,7 @@
                     </div>
 
                     <div class="form-group" style="margin-left: 15px; margin-right:15px">
-                      <label>Silahkan isikan subjek pengaduan :</label>
+                      <label>Silahkan isikan subjek pengaduan <b style="color: red">*</b></label>
                       <div class="input-group col-sm-12">
                         <div class="input-group-addon">
                           <i class="fa fa-edit"></i>
@@ -119,8 +120,8 @@
                     <!-- ruang dan tempat -->
                     <div class="form-group" style="width: 100%; margin-bottom: 10px">
                       <div class="col-md-6">
-                        <label><b>Pilih tempat kejadian:</b></label>
-                        <select class="form-control" name="tempat"  id="tempat" required="Wajib diisi">
+                        <label><b>Pilih tempat kejadian <b style="color: red">*</b></b></label>
+                        <select class="form-control" name="tempat"  id="tempat" required="required">
                           <option value="0">----------------------------------------- pilih tempat ------------------------------------------</option>
                           <?php
                           foreach ($tempat as $data){
@@ -137,7 +138,7 @@
 
                     <div class="form-group">
                       <div class="col-md-6">
-                        <label><b>Pilih ruang kejadian</b></label>
+                        <label><b>Pilih ruang kejadian <b style="color: red">*</b></b></label>
                         <select class="form-control ruang" name="ruang" id="ruang" required>
                           <option>----------------------------------------- pilih ruang ------------------------------------------</option>
                         </select>
@@ -146,8 +147,8 @@
 
                     <div class="form-group" style="width: 100%">
                       <div class="col-md-6" style="margin-bottom: 20px; margin-top: 10px">
-                        <label><b>Pilih kategori kejadian:</b></label>
-                        <select class="form-control" name="kategori"  id="kategori" required="Wajib diisi">
+                        <label><b>Pilih kategori kejadian <b style="color: red">*</b></b></label>
+                        <select class="form-control" name="kategori"  id="kategori" required="required">
                           <option value="0">----------------------------------------- pilih tempat ------------------------------------------</option>
                           <?php
                           foreach ($kategori as $data)
@@ -163,7 +164,7 @@
 
                     <div class="form-group">
                       <div class="col-md-6" style="margin-bottom: 20px; margin-top: 10px">
-                        <label><b>Pilih jenis kejadian</b></label>
+                        <label><b>Pilih jenis kejadian <b style="color: red">*</b></b></label>
                         <select class="form-control jenis" name="jenis" id="jenis" required>
                           <option>----------------------------------------- pilih jenis ------------------------------------------</option>
                           <?php
@@ -182,7 +183,7 @@
 
                   <div class="footer" style="margin-left:92%;">
                     <div class="box-footer with-border">
-                      <a href="#halaman_2" class="btn btn-primary" data-toggle="tab" style="margin-top: 5px">lanjut <i class="fa fa-chevron-right"></i></a>
+                      <a href="#halaman_2" class="btn btn-primary" data-toggle="tab">lanjut <i class="fa fa-chevron-right"></i></a>
                     </div>
                   </div>
 
@@ -195,19 +196,18 @@
 
                   <!-- kategori dan jenis -->
                   <div class="form-group" style="margin-left: 15px">
-                    <label>Seberapa sering terjadi:</label>
+                    <label>Seberapa sering terjadi</label>
                     <select class="form-control" name="kejadian" style="width: 50%;">
                       <option value="0">
                         ------------------------------------------ pilih frekuensi ------------------------------------------
                       </option>
                       <option value="pertama">Pertama kali</option>
-                      <option value="beberapa">Beberapa kali</option>
-                      <option value="tidak tahu">Tidak tahu</option>
+                      <option value="beberapa kali">Beberapa kali</option>
                     </select>
                   </div>
 
                   <div class="form-group" style="margin-left: 15px; margin-right:15px">
-                    <label>Efek kejadian:</label>
+                    <label>Efek kejadian <b style="color: red">*</b></label>
                     <input type="text" class="form-control" name="efek" id="efek" placeholder="Silahkan isi efek">
                   </div>
 
@@ -237,17 +237,17 @@
                       </div> -->
 
                       <div class="form-group" style="margin-left: 15px; margin-right:15px">
-                        <label>Deskripsi</label>
+                        <label>Silahkan deskripsikan kejadian <b style="color: red">*</b></label>
                         <textarea class="form-control" name="deskripsi" rows="3" placeholder="Enter ..." required="required"></textarea>
                       </div>
 
                       <div class="form-group" style="margin-left: 15px; margin-right:15px">
-                        <label>Saran:</label>
+                        <label>Silahkan jika ingin menambahkan saran</label>
                         <input type="text" class="form-control" name="saran" id="saran" placeholder="Silahkan berikan saran">
                       </div>
 
                       <div class="form-group" style="margin-left: 15px; margin-right:15px">
-                        <label>Tambahkan gambar pendukung (maksimal 2 Mb):</label>
+                        <label>Anda boleh menambahkan gambar pendukung (maksimal 2 Mb):</label>
                         <input type="file" name="gambar">
                         <input type="hidden" name="nama_pengguna" value="<?php echo $this->session->userdata('nama_pengguna') ?>">
                       </div>
@@ -357,16 +357,15 @@
 </script>
 
 <script type="text/javascript">
-  $(document).ready (function(){
-    // $("#success-alert").hide();
-    // $("#myWish").click(function showAlert() {
-    //   $("#success-alert").alert();
-
-    window.setTimeout(function() {
-      $(".alert").fadeTo(500, 0).slideUp(500, function(){
-        $(this).remove(); 
-      });
-    }, 4000);       
+  $(function(){
+    $('#myModal').on('show.bs.modal', function(){
+        var myModal = $(this);
+        clearTimeout(myModal.data('hideInterval'));
+        myModal.data('hideInterval', setTimeout(function(){
+            myModal.modal('hide');
+        }, 3000));
+    });
+});     
   </script>
 
 </body>

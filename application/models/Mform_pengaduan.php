@@ -68,10 +68,6 @@ class Mform_pengaduan extends CI_Model {
 	  
 	    $this->load->library('upload', $config); // Load konfigurasi uploadnya
 	    if($this->upload->do_upload('gambar')){ // Lakukan upload dan Cek jika proses upload berhasil
-	      // Jika berhasil :
-	      // $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
-	      // return $return;
-
 
 		$data1 = array(
 			'tgl_kejadian' => $waktu,

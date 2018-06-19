@@ -35,10 +35,6 @@
 				
 				<ul class="nav navbar-top-links navbar-right">
 					
-					<!-- /.dropdown 
-						<li class="dropdown">
-						<a style="color: #ffffff" href=<?php //echo base_url("login")?> ><i class="fa fa-fw fa-sign-out"></i>Isnaini Barochatun</a>
-					</li> -->
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #ffffff">
 						<i class="fa fa-user fa-fw"></i> <?php echo $this->session->userdata('nama_pengguna'); ?></i>
@@ -58,20 +54,20 @@
 		
 		<!--- user panel -->
 		<section class="sidebar">
-			<div class="pull-center image">
-				<img src='<?php echo base_url("img/user2.png")?>' class="img-circle" alt="User Image"  style="margin-left: 24%; margin-right: 24%; margin-top: 10%; width: 50%">
-			</div>
+			<!-- <div class="pull-center image">
+				<img src='<?php //echo base_url("img/user2.png")?>' class="img-circle" alt="User Image"  style="margin-left: 24%; margin-right: 24%; margin-top: 10%; width: 50%">
+			</div> -->
 		</section>
 		
 		<!-- MENU -->
-		<div class="navbar-default sidebar" role="navigation" style="margin-top: 15%;">
+		<div class="navbar-default sidebar" role="navigation">
 			<div class="sidebar-nav navbar-collapse">
 				<ul class="nav" id="side-menu">
 					
 					<li class="sidebar-search" >
-						<div class="input-group custom-search-form" style="margin-left: 20%">
-							<p>Isnaini Barochatun</p>
-						</div>
+						<div class="input-group custom-search-form" >
+                                <b>Menu Sistem</b>
+                            </div>
 						<!-- /input-group -->
 					</li>
 					
@@ -204,6 +200,19 @@
 																					foreach($level as $l){ ?>
 																					<option <?php echo ($data->id_level == $l->id_level ? 'selected' : ''); ?> value="<?php echo $l->id_level ?>"><?php echo $l->nama_level." ".$l->posisi ?></option>
 																					<?php } ?>
+																				</select>
+																			</div>
+
+																			<div class="form-group">
+																				<label>Status :</label>
+																				<select name="status">
+																					<?php 
+																					foreach ($status as $data) {
+																					?>
+																					<option value="<?php echo $data->status ?>"><?php echo $data->status ?></option>
+																					<?php
+																					}
+																					?>
 																				</select>
 																			</div>
 																			

@@ -111,3 +111,10 @@
                 </table>
 
 
+<?php if($this->session->flashdata('message')): ?>
+            <div class="alert alert-<?php echo $this->session->flashdata('style'); ?>" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <strong><?php echo $this->session->flashdata('alert'); ?></strong>&nbsp;<br>
+              <?php echo $this->session->flashdata('message'); ?>
+            </div>
+          <?php endif; ?>

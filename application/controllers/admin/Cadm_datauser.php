@@ -119,11 +119,13 @@ class Cadm_datauser extends BaseController {
 		$email = $this->input->post('email');
 		$id_level = $this->input->post('id_level');
 		$username = $this->input->post('username');
+		$status = $this->input->post('status');
 		$data = array(
 			'nama_pengguna' => $nama,
 			'email' => $email,
 			'id_level' => $id_level,
 			'username' => $username,
+			'status' => 0
 		);
 		$this->Madmin_datauser->edit_user($data, $id_user);
 		redirect('admin/data_user');

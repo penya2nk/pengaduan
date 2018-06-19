@@ -31,8 +31,10 @@ class Cform extends BaseController {
 	{
 		
 		if ($this->input->post('simpan')) {
-			
+		
 		$this->Mform_pengaduan->tambah();
+
+		$this->session->set_flashdata('message','Pengaduan anda telah berhasil direkam');
 
 		redirect('user');
 		}

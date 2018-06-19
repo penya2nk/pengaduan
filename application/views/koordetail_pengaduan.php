@@ -52,19 +52,22 @@
 
             <!--- user panel -->
             <section class="sidebar">
-                <div class="pull-center image">
-                    <img src='<?php echo base_url("img/user2.png")?>' class="img-circle" alt="User Image"  style="margin-left: 24%; margin-right: 24%; margin-top: 10%; width: 50%">
-                </div>
+                    <!-- <div class="pull-center image">
+                        <img src='<?php //echo base_url("img/user2.png")?>' class="img-circle" alt="User Image"  style="margin-left: 24%; margin-right: 24%; margin-top: 10%; width:50%">
+                    </div> -->
             </section>
 
             <!-- MENU -->
-            <div class="navbar-default sidebar" role="navigation" style="margin-top: 15%;">
+            <div class="navbar-default sidebar" role="navigation"> <!-- style="margin-top: 15%;" -->
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
 
                         <li class="sidebar-search" >
-                            <div class="input-group custom-search-form" style="margin-left: 20%">
+                            <!-- <div class="input-group custom-search-form" style="margin-left: 20%">
                                 <p>Isnaini Barochatun</p>
+                            </div> -->
+                            <div class="input-group custom-search-form">
+                                <b>Menu Sistem</b>
                             </div>
                             <!-- /input-group -->
                         </li>
@@ -74,9 +77,6 @@
                         </li>
                         <li>
                             <a href=<?php echo base_url('koordinator/riwayat')?> class="a"><i class="fa fa-table"></i> Riwayat Pengaduan</a>
-                        </li>
-                        <li>
-                            <a href=<?php echo base_url('koordinator/form')?> class="a"><i class="fa fa-edit"></i> Form Pengaduan</a>
                         </li>
                         
                     </ul>
