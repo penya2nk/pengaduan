@@ -153,30 +153,41 @@
 
     <!-- modal setting -->
         <div class="modal modal-primary fade" id="settingModal" style="margin-top: 5%">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title">JUDUL MODAL</h4>
-              </div>
-
-              <form method="POST" action="<?php echo base_url('#') ?>">
-                  <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            KONTEN MODAL
-                        </div>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">RESET PASSWORD</h4>
                     </div>
+                    
+                    <form method="POST" action="<?php echo base_url('analis/ubah_password') ?>">
+                        <div class="modal-body">
+                            <div class="row">
+                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Password lama :</label>
+                                        <input type="password" name="old" class="form-control" placeholder="Password Lama" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password baru :</label>
+                                        <input type="password" name="new" class="form-control" placeholder="Password Baru" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Ulangi password baru :</label>
+                                        <input type="password" name="re_new" class="form-control" placeholder="Ulangi Password Baru" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Batal</button>
+                            <input type="submit" class="btn btn-primary" value="Simpan">
+                        </div>
+                    </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Batal</button>
-                    <input type="submit" class="btn btn-primary" value="Simpan">
-                </div>
-            </form>
+            </div>
         </div>
-    </div>
-</div>
 <!-- modal setting -->
 
     <script src=<?php echo base_url("assets/vendor/jquery/jquery.min.js")?> ></script>

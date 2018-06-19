@@ -54,15 +54,6 @@ class Manalis_pengaduanmsk extends CI_Model {
 	{
 		
 		return $this->db->insert('pengaduan_level',$data);
-
-
-/**		return $this->db->query('DELIMITER $$
-			CREATE TRIGGER `log` AFTER INSERT ON  `pengaduan_level` 
-			FOR EACH ROW BEGIN 
-			UPDATE pengaduan 
-			SET status = `diproses` WHERE status = `diterima` 
-			END$$
-			DELIMITER', $data); **/
 	}
 
 	public function ubah($data,$id_pengaduan)
@@ -75,5 +66,33 @@ class Manalis_pengaduanmsk extends CI_Model {
 	{
 		$this->db->insert('kategori',$data);
 	}
+
+	//bikin update password di admin dulu
+	public function save()
+	{
+		$password = password_hash($this->input->post('new'), PASSWORD_BCRYPT);
+		$data = array (
+			'password' => $password
+		);
+		$this->db->where('id_user', $this->session->userdata('id_user'));
+		return $this->db->update('user', $data);
+	}
+
+	//fungsi untuk mengecek password lama :
+	public function cek_old()
+	{
+		$user = $this->db->select('password')->where('id_user', $this->session->userdata('id_user'))->get('user')->result();
+
+		if(!empty($user)){
+			if(password_verify($this->input->post('old'), $user[0]->password )){
+				return $user;
+			} else {
+				return array();
+			}
+		} else {
+			return array();
+		}
+	}
+		//end
 
 }

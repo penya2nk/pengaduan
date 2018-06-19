@@ -91,6 +91,7 @@ $route['analis/buat_kategori'] = 'analis/Cpengaduan_masuk/tambah_kategori';
 $route['analis/update_status'] = 'analis/Cpengaduan_masuk/update_status';
 $route['analis/riwayat_deleted/(:num)'] = 'analis/Canalis_riwayatpeng/deleted/$1';
 $route['analis/ubah_password'] = 'analis/Canalis_riwayatpeng/save_password';
+$route['analis/ubah_password'] = 'analis/Cpengaduan_masuk/save_password';
 
 //koor
 $route['koordinator'] = 'koor/Ckpengaduan_masuk';
@@ -98,6 +99,8 @@ $route['koordinator/riwayat'] = 'koor/Ck_riwayatpeng';
 $route['koordinator/form'] = 'koor/Ckform_pengaduan';
 $route['koordinator/detail_pengaduan_koor/(:num)'] = 'koor/Ckpengaduan_masuk/detail_koor/$1';
 $route['koordinator/konfirmasi/(:num)'] = 'koor/Ckpengaduan_masuk/konfirmasi/$1';
+$route['koordinator/ubah_password'] = 'analis/Ck_riwayatpeng/save_password';
+$route['koordinator/ubah_password'] = 'analis/Ckpengaduan_masuk/save_password';
 
 $route['laporan'] = 'laporan';
 

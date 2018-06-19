@@ -465,6 +465,7 @@
 			<!-- /.col-lg-12 -->
 		</div>
 		<!-- /.row -->
+		
 		<!-- modal setting -->
 		<div class="modal modal-primary fade" id="settingModal" style="margin-top: 5%">
 			<div class="modal-dialog">

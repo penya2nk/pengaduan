@@ -105,7 +105,7 @@ class Cadm_datauser extends BaseController {
 	   {
 		    $this->Madmin_datauser->save();
 		    $this->session->sess_destroy();
-		    $this->session->set_flashdata('error','Password anda telah berhasil diubah' );
+		    $this->session->set_flashdata('success','Password anda telah berhasil diubah' );
 		    
 		    redirect('karyawan');
 	   }//end if valid_user

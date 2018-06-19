@@ -74,5 +74,37 @@ class Cpengaduan_masuk extends BaseController {
 		redirect('analis/detail_pengaduan/');
 	}
 
+	//function mau cek data user
+	public function save_password()
+	 { 
+
+	 	$this->load->library('form_validation');
+
+	  $this->form_validation->set_rules('new','New','required|alpha_numeric');
+	  $this->form_validation->set_rules('re_new', 'Retype New', 'required|matches[new]');
+
+	    if($this->form_validation->run() == FALSE)
+	  {
+			redirect('analis');
+	  }
+	  	else
+	  {
+	   $cek_old = $this->Manalis_pengaduanmsk->cek_old();
+
+	   if (count($cek_old) == 0){
+		    $this->session->set_flashdata('error','Password lama yang Anda masukkan salah' );
+		    
+		    redirect('analis');
+	   }
+	   	else
+	   {
+		    $this->Manalis_pengaduanmsk->save();
+		    $this->session->sess_destroy();
+		    $this->session->set_flashdata('success','Password anda telah berhasil diubah' );
+		    
+		    redirect('karyawan');
+	   }//end if valid_user
+	}
+ }
 
 }
