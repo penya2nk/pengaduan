@@ -208,17 +208,8 @@
 																			<div class="form-group" style="width:30%;">
 																				<label>Status :</label>
 																				<select name="status" class="form-control" style="margin-bottom: 20px">
-																				<option value="<?php echo $data->status?>" selected>
-																					<?php
-																						if($data->status == 1)
-																						{
-																							echo "aktif";
-																						}else{
-																							echo "tidak aktif";
-																						}
-																					?>
-																				</option>
-																				<option value="status">tidak aktif</option>
+																				<option <?php if($data->status == 1){echo "selected";} ?> value="1" >Aktif</option>
+																				<option <?php if($data->status == 0){echo "selected";} ?> value="0">Tidak Aktif</option>
 																			</div>
 																			
 																		</div>
