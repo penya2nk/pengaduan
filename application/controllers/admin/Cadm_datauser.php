@@ -125,7 +125,7 @@ class Cadm_datauser extends BaseController {
 			'email' => $email,
 			'id_level' => $id_level,
 			'username' => $username,
-			'status' => 0
+			'status' => $status
 		);
 		$this->Madmin_datauser->edit_user($data, $id_user);
 		redirect('admin/data_user');
