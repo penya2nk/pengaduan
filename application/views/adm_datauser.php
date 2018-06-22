@@ -126,6 +126,7 @@
 											<th>No</th>
 											<th style="width: 35%">Nama Pengguna</th>
 											<th>Email</th>
+											<th>NIM</th>
 											<th>Role</th>
 											<th>Status</th>
 											<th style="width: 40px;">aksi</th>
@@ -142,6 +143,7 @@
 													<td><?php echo $i; ?></td>
 													<td><?php echo $data->nama_pengguna ?></td>
 													<td><?php echo $data->email ?></td>
+													<td><?php echo $data->username ?></td>
 													<td><?php echo $data->role ?></td>
 													<td>
 														<?php
@@ -249,6 +251,7 @@
                                             <th>No</th>
                                             <th style="width: 35%">Nama Pengguna</th>
                                             <th>Email</th>
+                                            <th>NIP</th>
                                             <th>Role</th>
                                             <th>Status</th>
                                             <th style="width: 50px;">aksi</th>
@@ -264,6 +267,7 @@
                                                 <tr>
                                                     <td><?php echo $i; ?></td>
                                                     <td><?php echo $data->nama_pengguna ?></td>
+                                                    <td><?php echo $data->username ?></td>
                                                     <td><?php echo $data->email ?></td>
                                                     <td><?php echo $data->role ?></td>
                                                     <td>
@@ -357,6 +361,7 @@
                                             <th>No</th>
                                             <th style="width: 35%">Nama Pengguna</th>
                                             <th>Email</th>
+                                            <th>NIP</th>
                                             <th>Role</th>
                                             <th>Status</th>
                                             <th style="width: 50px;">aksi</th>
@@ -373,6 +378,7 @@
                                                     <td><?php echo $i; ?></td>
                                                     <td><?php echo $data->nama_pengguna ?></td>
                                                     <td><?php echo $data->email ?></td>
+                                                    <td><?php echo $data->username ?></td>
                                                     <td><?php echo $data->role ?></td>
                                                     <td>
                                                         <?php
