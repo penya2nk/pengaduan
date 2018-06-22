@@ -203,17 +203,20 @@
 																				</select>
 																			</div>
 
-																			<div class="form-group">
+																			<div class="form-group" style="width:30%;">
 																				<label>Status :</label>
-																				<select name="status">
-																					<?php 
-																					foreach ($status as $data) {
-																					?>
-																					<option value="<?php echo $data->status ?>"><?php echo $data->status ?></option>
+																				<select name="status" class="form-control" style="margin-bottom: 20px">
+																				<option value="<?php echo $data->status?>" selected>
 																					<?php
-																					}
+																						if($data->status == 1)
+																						{
+																							echo "aktif";
+																						}else{
+																							echo "tidak aktif";
+																						}
 																					?>
-																				</select>
+																				</option>
+																				<option value="status">tidak aktif</option>
 																			</div>
 																			
 																		</div>
