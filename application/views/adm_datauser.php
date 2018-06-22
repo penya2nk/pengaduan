@@ -267,8 +267,8 @@
                                                 <tr>
                                                     <td><?php echo $i; ?></td>
                                                     <td><?php echo $data->nama_pengguna ?></td>
-                                                    <td><?php echo $data->username ?></td>
                                                     <td><?php echo $data->email ?></td>
+                                                    <td><?php echo $data->username ?></td>
                                                     <td><?php echo $data->role ?></td>
                                                     <td>
                                                         <?php
