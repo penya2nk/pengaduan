@@ -53,7 +53,7 @@ class Cadm_dataruangtempat extends BaseController {
 			'nama_ruang' => $nama_ruang
 		);
 		$this->Madm_ruangtempat->edit_ruang($data, $id_ruang);
-		redirect('admin/data_lokasi/'.$id_ruang);
+		redirect('admin/data_lokasi');
 	}
 
 	public function edit_tempat()
