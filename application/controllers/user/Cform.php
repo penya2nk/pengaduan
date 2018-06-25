@@ -29,11 +29,14 @@ class Cform extends BaseController {
 
 	public function tambah()
 	{
-		
 		if ($this->input->post('simpan')) {
-		
-		$this->Mform_pengaduan->tambah();
-		redirect('user');
+			$this->Mform_pengaduan->tambah();
+			
+			$this->session->set_flashdata('style', 'success');
+			$this->session->set_flashdata('alert', 'Berhasil!');
+			$this->session->set_flashdata('message', 'Pengaduan berhasil direkam.');
+			
+			redirect('user');
 		}
 	}
     

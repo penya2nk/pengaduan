@@ -72,21 +72,18 @@
       <div class="row">
         <div class="col-lg-12">
 
-          <?php
-
-            if($this->session->flashdata('message')): ?>
-              <div class="alert alert-<?php echo $this->session->flashdata('style'); ?> alert-dismissable fade-in">
-                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                  <strong><?php echo $this->session->flashdata('alert'); ?></strong>&nbsp;<br>
-                  <?php echo $this->session->flashdata('message'); ?>
-            </div>
-          <?php endif; ?>
 
           <div class="alert alert-info alert-dismissable" style="margin-top: 10px">
             <strong>Perhatian!</strong> Informasi <b>data diri Anda tidak akan terlihat</b> pada laporan pengaduan. Mohon berikan informasi sejelas-jelasnya untuk tindak lanjut yang lebih baik. Terimakasih.</a>.
             keterangan :<b style="color: red"> * = wajib diisi </b>
           </div>
-
+					<?php if($this->session->flashdata('message')): ?>
+              <div id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  <strong><?php echo $this->session->flashdata('alert') ?></strong>&nbsp;<br>
+                  <?php echo $this->session->flashdata('message') ?>
+            </div>
+					<?php endif; ?>
           <div class="panel panel-default">
             <div class="panel-heading">
               <center><h3><strong>FORM PENGADUAN</strong></h3></center>
@@ -105,7 +102,7 @@
                         <div class="input-group-addon">
                           <i class="fa fa-calendar"></i>
                         </div>
-                        <input type="date" name="waktu" class="form-control" datapicker required="required">
+                        <input type="date" name="waktu" class="form-control" datapicker required="required" value="<?php echo date('Y-m-d') ?>" >
                       </div>
                     </div>
 
@@ -355,11 +352,13 @@
         $(this).parent('div').remove(); //Remove field html
         x--; //Decrement field counter
       });
+		
+		$("#hilang").show().delay(2000).slideUp(800);
   });
 </script>
 
 <script type="text/javascript">
-  $("#hilang").show().delay(3000).fadeOut(3000);
+  
   </script>
 
 </body>
