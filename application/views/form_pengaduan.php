@@ -72,15 +72,17 @@
       <div class="row">
         <div class="col-lg-12">
 
-          <?php if($this->session->flashdata('message')): ?>
-            <div class="alert alert-success alert-dismissable fade-in ?>" role="alert">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              <strong>Berhasil!</strong>&nbsp;
-              <?php echo $this->session->flashdata('message'); ?>
+          <?php
+
+            if($this->session->flashdata('message')): ?>
+              <div class="alert alert-<?php echo $this->session->flashdata('style'); ?> alert-dismissable fade-in">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  <strong><?php echo $this->session->flashdata('alert'); ?></strong>&nbsp;<br>
+                  <?php echo $this->session->flashdata('message'); ?>
             </div>
           <?php endif; ?>
 
-          <div class="alert alert-info" style="margin-top: 10px">
+          <div class="alert alert-info alert-dismissable" style="margin-top: 10px">
             <strong>Perhatian!</strong> Informasi <b>data diri Anda tidak akan terlihat</b> pada laporan pengaduan. Mohon berikan informasi sejelas-jelasnya untuk tindak lanjut yang lebih baik. Terimakasih.</a>.
             keterangan :<b style="color: red"> * = wajib diisi </b>
           </div>
@@ -357,15 +359,7 @@
 </script>
 
 <script type="text/javascript">
-  $(function(){
-    $('#myModal').on('show.bs.modal', function(){
-        var myModal = $(this);
-        clearTimeout(myModal.data('hideInterval'));
-        myModal.data('hideInterval', setTimeout(function(){
-            myModal.modal('hide');
-        }, 3000));
-    });
-});     
+  $("#hilang").show().delay(3000).fadeOut(3000);
   </script>
 
 </body>

@@ -125,7 +125,7 @@
                                             <td><?php echo $data->kategori ?></td>
                                             <td>
                                                 <?php
-                                                if ($data->status == 'diterima') {
+                                                if ($data->status == 'masuk') {
                                                     ?>
                                                     <span class="badge badge primary"><?php echo $data->status ?></span>
                                                     <?php

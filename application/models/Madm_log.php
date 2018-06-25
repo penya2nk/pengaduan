@@ -23,7 +23,7 @@ class Madm_log extends CI_Model {
 		$this->db->join('pengaduan p','p.id_pengaduan = pl.id_pengaduan');
 		$this->db->join('kategori k','k.id_kategori = pl.id_kategori');
 		$this->db->join('roles r','r.id_role = u.id_role');
-		$this->db->order_by('timestamp','ASC');
+		$this->db->order_by('timestamp','DESC');
 		return $this->db->get()->result();
 	}
 

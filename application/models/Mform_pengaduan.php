@@ -128,7 +128,7 @@ class Mform_pengaduan extends CI_Model {
 			'id_pengaduan' => $lastPengaduan,
 			'id_kategori' => $kategori,
 			'id_user' => $user,
-			'status' => 'diterima'
+			'status' => "masuk"
 		);
 		$this->db->insert('pengaduan_level', $data2);
 

@@ -17,7 +17,7 @@ class Manalis_pengaduanmsk extends CI_Model {
 		$this->db->join('ruang r','r.id_ruang = p.id_ruang');
 		$this->db->join('kategori k','p.id_kategori = k.id_kategori');
 		$this->db->join('pengaduan_level pl','pl.id_pengaduan = p.id_pengaduan','left');
-		$this->db->where('pl.status',"diterima");
+		$this->db->where('pl.status',"masuk");
 		$this->db->order_by('wkt_pengaduan','ASC');
 		return $this->db->get()->result();	//hasil
 	}
