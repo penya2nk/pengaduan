@@ -15,7 +15,6 @@ class Cadm_dataruangtempat extends BaseController {
 	{
 		$data['tempat']=$this->Madm_ruangtempat->tempat();
 		$data['ruang']=$this->Madm_ruangtempat->ruang();
-
 		$this->load->view('adm_dataruangtempat',$data);
 	}
 
