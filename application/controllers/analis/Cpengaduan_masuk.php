@@ -45,11 +45,9 @@ class Cpengaduan_masuk extends BaseController {
 	public function ubah()
 	{
 		$id_pengaduan = $this->input->post('id_pengaduan');
-		$penyebab = $this->input->post('penyebab');
-		$deskripsi = $this->input->post('deskripsi');
+		
 		$data = array(
-			'penyebab' => $penyebab,
-			'deskripsi' => $deskripsi
+			'id_kategori' => $this->input->post('id_kategori'),
 		);
 		$this->Manalis_pengaduanmsk->ubah($data,$id_pengaduan);
 

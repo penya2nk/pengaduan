@@ -214,19 +214,19 @@
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span></button>
-                                          <h4 class="modal-title">Tambah Kategori</h4>
+                                          <h4 class="modal-title">Ubah Kategori</h4>
                                     </div>
                                     <div class="modal-body">
-
+																				<input name="id_pengaduan" type="hidden" value="<?php echo $data->id_pengaduan ?>">
                                         <div class="form-group">
-                                            <label>Kategori Baru:</label>
-                                                <select class="form-control select2" multiple="multiple" data-placeholder="Select a State"
+                                            <label>Kategori:</label>
+                                                <select name="id_kategori" class="form-control" data-placeholder="Pilih Kategori"
                                                 style="width: 100%;">
                                                     <?php
-                                                        foreach ($kategori as $data)
+                                                        foreach ($kategori as $k)
                                                         {
                                                     ?>
-                                                        <option value="<?php echo $data->id_kategori ?>"><?php echo $data->kategori ?></option>
+                                                        <option <?php echo ($k->kategori == $data->kategori ? 'selected' : ''); ?> value="<?php echo $k->id_kategori ?>"><?php echo $k->kategori ?></option>
                                                     <?php
                                                         }
                                                     ?>
