@@ -62,14 +62,14 @@ class Cpengaduan_masuk extends BaseController {
 
 	public function tambah_kategori()
 	{
-		$id_kategori = $this->input->post('id_kategori');
 		$kategori = $this->input->post('kategori');
+		$id_pengaduan = $this->input->post('id_pengaduan');
 
 		$data = array(
-			'kategori' => $kategori
+			'kategori' => strtolower($kategori)
 		);
-		$this->Manalis_pengaduanmsk->simpan('$data');
-		redirect('analis/detail_pengaduan/');
+		$this->Manalis_pengaduanmsk->simpan($data);
+		redirect('analis/detail_pengaduan/'.$id_pengaduan);
 	}
 
 	//function mau cek data user
