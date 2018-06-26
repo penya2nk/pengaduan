@@ -105,6 +105,7 @@
                                             <th>No</th>
                                             <th>Subjek</th>
                                             <th>Kategori</th>
+                                            <th>Koordinator Tujuan</th>
                                             <th>Tempat</th>
                                             <th>Jam</th>
                                             <th>Tanggal</th>
@@ -124,6 +125,7 @@
                                             <td><?php echo $i; ?></td>
                                             <td><?php echo $data->subjek ?></td>
                                             <td><?php echo $data->kategori ?></td>
+                                            <td></td>
                                             <td><?php echo $data->nama_ruang ?></td>
                                             <td><?php echo date('H:i:s', strtotime($data->wkt_pengaduan)) ?></td>
                                             <td><?php echo date('d-F-Y', strtotime($data->wkt_pengaduan)) ?></td>
@@ -139,6 +141,37 @@
                                             <td>
                                                 <a class="btn btn-primary" data-toggle="modal" data-target="#detailModal"><i class="fa fa-eye"></i></a></td>
                                         </tr>
+                                        <!-- modal tambah ruang -->
+                                            <div>
+                                                <div class="modal modal-primary fade" id="detailModal" style="margin-top: 5%">
+                                                  <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                      <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                          <span aria-hidden="true">&times;</span></button>
+                                                          <h4 class="modal-title">TAMBAH TEMPAT</h4>
+                                                      </div>
+
+                                                      <form method="POST" action="<?php echo base_url('admin/tambah_tempat') ?>">
+                                                          <div class="modal-body">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+
+                                                                    <div class="form-group">
+                                                                        <label>Tambah tempat</label>
+                                                                        <input class="form-control" type="text" name="nama_tempat">
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Batal</button>
+                                                            <input type="submit" class="btn btn-primary" value="simpan">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <!-- /.modal-content -->
                                         <?php
                                             $i++;
                                             }
