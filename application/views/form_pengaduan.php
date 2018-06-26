@@ -353,7 +353,7 @@
         x--; //Decrement field counter
       });
 		
-		$("#hilang").show().delay(2000).slideUp(800);
+		$("#hilang").show().delay(1000).slideUp(400);
   });
 </script>
 

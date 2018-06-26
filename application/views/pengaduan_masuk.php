@@ -90,7 +90,14 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Data Pengaduan Masuk</h1>
+                    <?php if($this->session->flashdata('message')): ?>
+                      <div style="margin-top: 10px" id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
+                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                          <strong><?php echo $this->session->flashdata('alert') ?></strong>&nbsp;<br>
+                          <?php echo $this->session->flashdata('message') ?>
+                        </div>
+                    <?php endif; ?>
+                    <h1 class="page-header">Pengaduan Masuk Analis</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -99,7 +106,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Basic Form Elements
+                            Data Pengaduan Masuk
                         </div>
                             <div class="panel-body">
                                 <table width="100%" class="table table-striped table-hover" id="dataTables-example" class="text-center">
@@ -126,7 +133,6 @@
                                             <td><?php echo date('H:i:s', strtotime($data->wkt_pengaduan)) ?></td>
                                             <td><?php echo date('d-F-Y', strtotime($data->wkt_pengaduan)) ?></td>
                                             <td>
-                                                
                                                 <a href="<?php echo base_url('analis/detail_pengaduan/'.$data->id_pengaduan) ?>" class="btn btn-primary" style="margin-left: 10px"><span class="fa fa-eye"></span> Detail </a>
                                             </td>
                                         </tr>
@@ -204,6 +210,8 @@
         $('#dataTables-example').DataTable({
             responsive: true
         });
+
+        $("#hilang").show().delay(1000).slideUp(400);
     });
     </script>
 

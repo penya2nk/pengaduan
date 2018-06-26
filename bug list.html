@@ -1,0 +1,75 @@
+list bug:
+
+1. Analis
+	- bagian detail pengaduan masuk.
+		> button buat kategori belum bisa insert karena eror querynya, setelah klik simpan harusnya kembali ke halaman
+		  detail yang tadi.
+	- perlu dibuatin halaman khusus buat kelola kategori dan jenis karena analis yang bisa mengelola.
+	- di button kirim pengaduan(modalnya), ada link ke route update status.. nggak menyebabkan eror atau masalah
+		sama sistemnya-cuma semua data yang ngarah pengaduan_level itu harusnya prosesnya insert bukan update jadi log status lama tidak akan berubah-nggak tahu menyebabkan masalah atau tidak ke depannya.
+	- Riwayatnya lupa dibuatin detail pengaduan-baru mau dibuatin modal-skip aja.
+
+
+
+2. HASIL DISKUSI SAMA KLIEN(26/6/2018)
+
+- Alur fix : 
+1. Pengadu mengisi form pengaduan
+2. Pengaduan masuk ke halaman verifikator(alias kepala ruang). Verifikator dibagi jadi 2 jenis saja:
+	- verifikator akademik
+	- verifikator lab
+	Tugas verifikator:
+	1. Verifikator mengelompokkan pengaduan berdasarkan frekuensi kejadian(pertama,beberapa kali) dan
+	verifikator mengelompokkan pengaduan berdasarkan dampak(efek) kejadian.
+	2. Verifikator membaca detail laporan pengaduan dan langsung dieksekusi di lapangan.
+	- bila masalah selesai beri langsung konfirmasi "selesai"+tambahin deskripsi laporan.
+	- bila masalah tidak sesuai dengan bidangnya(misal akademik menerima pengaduan soal keluhan kebersihan)
+		maka pengaduan dikirimkan ke tim analis.
+	3. melihat riwayat pengaduan.
+2. Pengaduan masuk ke tim analis. Tim analis adalah satu kesatuan, jadi satu tim menangani semua pengaduan scr random 	   dan bebas. Tidak ada "satu orang spesifik satu kategori".
+   Tugas tim analis:
+   1. Setiap orang boleh melakukan booking pengaduan yang ingin dianalisis, bersifat bebas dan boleh milih mana saja.
+   2. melihat riwayat pengaduan.
+   2. Melihat laporan data pengaduan.
+3. Manajemen
+   Melihat laporan, laporan dibagi jadi 5 macem:
+   1. diagram berdasarkan kategori
+   2. diagram b'dsrkan jenis kejadian
+   3. Count data b'dsrkan ruang (lab dan akademik) mana yang paling menerima banyak pengaduan.
+   4. rekap jumlah pengaduan masing2 b'dasarkan status yang masuk, diproses, dan selesai.
+   5. trend mana kategori yang paling banyak muncul, ruang mana yang paling sering bermasalah.
+   6. prediksi(saya menyerah).
+
+
+DATA YANG BERUBAH:
+- alurnya dibalik dari koordinator(yang diubah namanya jadi verifikator) ke analis.
+- level user tidak terikat dengan siapa verifikatornya.
+- verifikator cuma ada 2 jenis: lab dan akademik. jadi lab bisa menerima pengaduan dari beragam kategori asalkan ruangnya di lab, dan akademik bisa menerima pengaduan dari beragam kategori asal lingkungan akademik(kelas, ruang dosen, ruang akademik).
+- data ruang dan tempat akademik sudah dapat.
+- data dosen sudah dapat.
+- form dibuat biasa aja, full satu halaman dengan field subjek dan saran yang dihilangkan.
+- membuat fill "deskripsi tindakan yang sudah dilakukan".
+- susunan fill isian(wajib):
+	1. tgl kejadian
+	2. ruang dan tempat
+	3. kategori
+	5. deskripsi kejadian
+	6. deskripsi tindakan
+	7. efek
+	8. penyebab
+  susunan fill isian opsional(tidak wajib), dibuat tab fadeout aja.
+	1. jenis kejadian
+	2. frekuensi
+	3. foto
+
+
+
+
+
+
+
+
+
+
+
+

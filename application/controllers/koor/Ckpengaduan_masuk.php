@@ -25,8 +25,6 @@ class Ckpengaduan_masuk extends BaseController
 
 	public function konfirmasi($id_pengaduan)
 	{
-		// $this->db->where('id_pengaduan',$id_pengaduan);
-		// $this->db->update('pengaduan_level',array('status'=>'selesai'));
 		$id_user = $this->session->userdata('id_user');
 		$pengaduan = $this->db->where('id_pengaduan',$id_pengaduan)->where('status','diproses')->get('pengaduan_level')->row();
 		$data = array(

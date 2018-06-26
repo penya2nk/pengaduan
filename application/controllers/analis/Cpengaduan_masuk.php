@@ -39,6 +39,11 @@ class Cpengaduan_masuk extends BaseController {
 			'status'=>'diproses'
 		);
 		$this->Manalis_pengaduanmsk->kirim($data);
+
+		$this->session->set_flashdata('style', 'success');
+		$this->session->set_flashdata('alert', 'Berhasil!');
+		$this->session->set_flashdata('message', 'Pengaduan telah terkirim.');
+
 		redirect('analis');
 	}
 

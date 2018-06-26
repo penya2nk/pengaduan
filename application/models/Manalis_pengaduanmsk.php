@@ -52,7 +52,6 @@ class Manalis_pengaduanmsk extends CI_Model {
 	
 	public function kirim($data)
 	{
-		
 		return $this->db->insert('pengaduan_level',$data);
 	}
 
