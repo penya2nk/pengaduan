@@ -164,6 +164,11 @@
                                             <span></span>
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td><b>Gambar Pendukung:</b></td>
+                                        <td>:</td>
+                                        <td style="width: 80%"><img src="<?php echo base_url('assets/gambar/'.$data->keterangan) ?>" style="width: 60%; height: auto"></td>
+                                    </tr>
 
                                     <!-- modal kirim -->
                                     <div class="modal modal-primary fade" id="modalKirim" style="margin-top: 5%">

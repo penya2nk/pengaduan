@@ -23,14 +23,14 @@ class Mkoor_masuk extends CI_Model
 
 	public function detail_koor($id)
 	{
-		$this->db->select('p.id_pengaduan, p.subjek, p.deskripsi, p.kejadian, p.penyebab, p.tgl_kejadian, p.efek,  r.nama_ruang, k.kategori, u.nama_pengguna, t.nama_tempat');	//select field yang mau ditampilin
-		$this->db->from('pengaduan p','ruang r'); //dari dua tabel
+		$this->db->select('p.id_pengaduan, p.subjek, p.deskripsi, p.kejadian, p.penyebab, p.tgl_kejadian, p.efek,  r.nama_ruang, p.keterangan, k.kategori, u.nama_pengguna, t.nama_tempat');	
+		$this->db->from('pengaduan p','ruang r'); 
 		$this->db->join('ruang r','r.id_ruang = p.id_ruang');
 		$this->db->join('kategori k','k.id_kategori = p.id_kategori');
 		$this->db->join('user u','u.id_user = p.id_user');
 		$this->db->join('tempat t','t.id_tempat = r.id_tempat');
 		$this->db->where('p.id_pengaduan',$id);
-		return $this->db->get()->result();	//hasil
+		return $this->db->get()->result();	
 	}
 
 	//bikin update password di admin dulu
