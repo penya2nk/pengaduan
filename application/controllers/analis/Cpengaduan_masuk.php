@@ -39,6 +39,11 @@ class Cpengaduan_masuk extends BaseController {
 			'status'=>'diproses'
 		);
 		$this->Manalis_pengaduanmsk->kirim($data);
+
+		$this->session->set_flashdata('style', 'success');
+		$this->session->set_flashdata('alert', 'Berhasil!');
+		$this->session->set_flashdata('message', 'Pengaduan telah terkirim.');
+
 		redirect('analis');
 	}
 
@@ -68,7 +73,7 @@ class Cpengaduan_masuk extends BaseController {
 		$id_kategori = $this->input->post('id_kategori');
 		$kategori = $this->input->post('kategori');
 		$id_level = $this->input->post('id_level');
-		
+
 		$data = array(
 			'kategori' => $kategori,
 			'id_level' => $id_level

@@ -139,8 +139,8 @@
                                                 <span class="badge success">Selesai</span>
                                             <?php }?>
                                             </td>
-                                            <td><a class="btn btn-danger" href="<?php echo base_url('analis/riwayat_deleted/'.$data->id_pengaduan) ?>"><i class="fa fa-trash"></i></a>&nbsp;
-                                                <a class="btn btn-primary" href="#"><i class="fa fa-eye"></i></a></td>
+                                            <td>
+                                                <a class="btn btn-primary" data-toggle="modal" data-target="#detailModal"><i class="fa fa-eye"></i></a></td>
                                         </tr>
                                         <?php
                                             $i++;
