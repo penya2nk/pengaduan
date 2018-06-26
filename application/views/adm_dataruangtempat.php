@@ -305,7 +305,7 @@
 
                             <div class="form-group">
                                 <label>Pilih Tempat untuk ruang baru:</label>
-                                <select class="form-control" name="id_tempat">
+                                <select class="form-control" name="id_tempat" required>
                                     <option value="0">-------------------------------- pilih tempat ----------------------------------</option>
                                     <?php
                                     foreach ($tempat as $data) 
@@ -320,7 +320,7 @@
 
                             <div class="form-group">
                                 <label>Tambah ruang</label>
-                                <input class="form-control" type="text" name="nama_ruang">
+                                <input class="form-control" type="text" name="nama_ruang" required>
 
                             </div>
 
@@ -355,7 +355,7 @@
 
                         <div class="form-group">
                             <label>Tambah tempat</label>
-                            <input class="form-control" type="text" name="nama_tempat">
+                            <input class="form-control" type="text" name="nama_tempat" required>
                         </div>
 
                     </div>
