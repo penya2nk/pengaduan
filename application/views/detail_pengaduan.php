@@ -226,7 +226,7 @@
                                                         foreach ($kategori as $data)
                                                         {
                                                     ?>
-                                                        <option value="<?php echo $data->id_kategori ?>"><?php echo $data->kategori ?></option>
+                                                        <option value="<?php echo $data->id_level ?>"><?php echo $data->kategori ?></option>
                                                     <?php
                                                         }
                                                     ?>
@@ -316,19 +316,33 @@
                   <h4 class="modal-title">BUAT KATEGORI BARU</h4>
               </div>
 
-              <form method="POST" action="<?php echo base_url('analis/detail_pengaduan') ?>">
+              <form method="POST" action="<?php echo base_url('analis/buat_kategori') ?>">
                   <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <form action="#" method="POST">
+
                                 <label>Kategori Baru :</label>
                                 <input class="form-control" type="text" name="kategori">
-                            </form>
+
+                                <div class="form-group">
+                                <label>Pilih level kategori :</label>
+                                <select class="form-control" name="id_tempat">
+                                    <option value="0">-------------------------------- pilih level ----------------------------------</option>
+                                    <?php
+                                        foreach ($level as $l) {
+                                            ?>
+                                            <option value="<?php echo $l->id_level ?>"><?php echo $l->nama_level.' '.$l->posisi ?></option>
+                                            <?php
+                                        }
+                                    ?>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <input type="submit" class="btn btn-primary" value="simpan" href="<?php echo base_url('analis/buat_kategori/')?>" >
+                    <!-- <input class="btn btn-primary" value="simpan" href="<?php //echo base_url('analis/buat_kategori/')?>" > -->
+                    <button class="btn btn-success" name="simpan" value="simpan">simpan</button>
                 </div>
             </form>
         </div>
