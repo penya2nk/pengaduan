@@ -3,7 +3,6 @@
 	
 	class Mform_pengaduan extends CI_Model {
 		
-		
 		public function kategori()
 		{
 			$this->db->select('id_kategori, kategori');
@@ -13,12 +12,12 @@
 		
 		public function tempat()
 		{
-			
 			$this->db->select('id_tempat, nama_tempat');
 			$this->db->from('tempat');
 			$this->db->order_by('nama_tempat','ASC');
 			return $this->db->get()->result();
 		}
+
 		public function ruang($id)
 		{
 			$this->db->select('id_ruang,nama_ruang');
@@ -123,8 +122,17 @@
 				'id_user' => $user,
 				'status' => "masuk"
 				);
-				
 				return $this->db->insert('pengaduan_level', $data2);
 			}
+		}
+
+		public function riwayat($id_user)
+		{
+			$this->db->select('p.id_pengaduan, k.kategori, pl.id_user , p.status, p.wkt_pengaduan');
+			$this->db->from('pengaduan p');
+			$this->db->join('pengaduan_level pl','p.id_pengaduan = pl.id_pengaduan');
+			$this->db->join('kategori k','p.id_kategori = k.id_kategori');
+			$this->db->where('p.id_user',$id_user);
+			return $this->db->get()->result();
 		}
 	}

@@ -28,6 +28,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color: #00004d">
       <div class="container">
+
         <ul class="nav navbar-top-links navbar-left">
           <!-- /.dropdown -->
           <li class="dropdown">
@@ -38,30 +39,28 @@
             <a href="<?php echo base_url('user/riwayat_pengaduan')?>" style="color: #ffffff"><i class="fa fa-history"></i> Riwayat
             </a>
           </li>
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #ffffff">
-              <i class="fa fa-user fa-fw"></i> Isnaini barochatun</i>
-            </a>
-            <ul class="dropdown-menu dropdown-user">
-              <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-              </li>
-              <li class="divider"></li>
-              <li><a href="<?php echo base_url('logout') ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-              </li>
-            </ul>
-            <!-- /.dropdown-user -->
-          </li>
-          <!-- /.dropdown -->
 
         </ul>
         <!-- /.navbar-top-links -->
 
         <ul class="nav navbar-top-links navbar-right">
 
-          <!-- /.dropdown -->
-          
-        </ul>
-        <!-- /.navbar-top-links -->
+         <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #ffffff">
+            <i class="fa fa-user fa-fw"></i> <?php echo $this->session->userdata('nama_pengguna'); ?></i>
+          </a>
+          <ul class="dropdown-menu dropdown-user">
+            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+            </li>
+            <li class="divider"></li>
+            <li><a href="<?php echo base_url('logout') ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+            </li>
+          </ul>
+          <!-- /.dropdown-user -->
+        </li>
+        <!-- /.dropdown -->
+      </ul>
+      <!-- /.navbar-top-links -->
 
         <div class="navbar-default sidebar" role="navigation">
 
@@ -86,35 +85,46 @@
                 <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                   <thead>
                     <tr>
-                      <th>ID Pengaduan</th>
+                      <th>No</th>
                       <th>Pengelola</th>
-                      <th>Level</th>
+                      <th>Kategori</th>
                       <th>Status</th>
                       <th>Waktu</th>
                     </tr>
                   </thead>
                   <tbody>
+                    <?php
+                      $i = 1;
+                        foreach ($pengaduan as $data)
+                        {
+                      ?>
                     <tr>
-                      <td>1</td>
-                      <td>Isnaini Barochatun</td>
-                      <td>Analis</td>
-                      <td><span class="badge primary">diterima</span></td>
-                      <td>12:30:30 22/05/2018</td>
+                      <td><?php echo $i; ?></td>
+                      <td><?php echo $data->nama_pengguna ?></td>
+                      <td><?php echo $data->kategori?></td>
+                      <td>
+                        <?php
+                          if($data->status == "masuk"){
+                        ?>
+                        <span class="badge primary"><?php echo $data->status ?></span>
+                        <?php
+                          }elseif($data->status == "diproses"){
+                        ?>
+                        <span class="badge warning"><?php echo $data->status ?></span>
+                        <?php
+                          }else{
+                        ?>
+                        <span class="badge success"><?php echo $data->status ?></span>
+                        <?php
+                      }
+                      ?>
+                      </td>
+                      <td><?php echo $data->wkt_pengaduan?></td>
                     </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Muhammad Fakhurrifqi</td>
-                      <td>Koordinator</td>
-                      <td><a href="#"><span class="badge warning">diproses</span></a></td>
-                      <td>15:35:35 25/05/2018</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>Isnaini Barochatun</td>
-                      <td>Koordinator</td>
-                      <td><a href="#"><span class="badge success">selesai</span></a></td>
-                      <td>15:35:35 25/05/2018</td>
-                    </tr>
+                    <?php
+                      $i++;
+                      }
+                    ?>
                   </tbody>
                 </table>
 

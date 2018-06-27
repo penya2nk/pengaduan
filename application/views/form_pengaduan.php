@@ -99,8 +99,8 @@
 
                   <form action="<?php echo base_url('user/insert_data') ?>" method="POST" role="form" enctype="multipart/form-data">
 
-                    <div class="form-group" style="margin-left: 30px">
-                      <label>Silahkan isikan tanggal kejadian <b style="color: red">*</b></label>
+                    <div class="form-group" style="margin-left: 15px">
+                      <label>Silahkan isikan tanggal kejadian (Anda dapat mengubahnya) <b style="color: red">*</b></label>
                       <div class="input-group col-sm-6" style="width: 10%">
                         <div class="input-group-addon">
                           <i class="fa fa-calendar"></i>
