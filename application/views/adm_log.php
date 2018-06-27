@@ -106,7 +106,6 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Pengelola</th>
-                                        <th>Kategori</th>
                                         <th>Status</th>
                                         <th>Waktu</th>
                                         <th>Masuk</th>
@@ -121,7 +120,6 @@
                                         <tr>
                                             <td><?php echo $data->id_pengaduan ?></td>
                                             <td><?php echo $data->role ?></td>
-                                            <td><?php echo $data->kategori ?></td>
                                             <td>
                                                 <?php
                                                 if ($data->status == 'masuk') {

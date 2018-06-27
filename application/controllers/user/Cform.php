@@ -34,7 +34,7 @@ class Cform extends BaseController {
 			
 			$this->session->set_flashdata('style', 'success');
 			$this->session->set_flashdata('alert', 'Berhasil!');
-			$this->session->set_flashdata('message', 'Pengaduan berhasil direkam.');
+			$this->session->set_flashdata('message', 'Pengaduan telah direkam.');
 			
 			redirect('user');
 		}

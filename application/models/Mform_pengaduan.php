@@ -55,7 +55,7 @@
 			$efek = $this->input->post('efek');
 			$penyebab = $this->input->post('penyebab');
 			$deskripsi = $this->input->post('deskripsi');
-			$saran = $this->input->post('saran');
+			$tindaklanjut = $this->input->post('tindaklanjut');
 			$status = $this->input->post('status');
 			$nama_pengguna = $this->input->post('nama_pengguna');
 			
@@ -77,7 +77,7 @@
 				'efek' => $efek,
 				'penyebab' => $penyebab,
 				'deskripsi' => $deskripsi,
-				'saran' => $saran,
+				'tindaklanjut' => $tindaklanjut,
 				'keterangan' => $this->upload->data()['file_name']
 				);
 				
@@ -109,7 +109,7 @@
 				'efek' => $efek,
 				'penyebab' => $penyebab,
 				'deskripsi' => $deskripsi,
-				'saran' => $saran,
+				'tindaklanjut' => $tindaklanjut,
 				//'keterangan' => $this->upload->data()['file_name']
 				);
 				

@@ -86,7 +86,7 @@ class forgot extends CI_Controller {
 
  			if($cekLevel->id_role == '1' || $cekLevel->id_role == '2')
  			{
-			 redirect('login');
+			 redirect('login_pengaduan');
 			}
 			else
 			{
@@ -158,7 +158,7 @@ class forgot extends CI_Controller {
 			
 			if($cekLevel->id_role == '1' || $cekLevel->id_role == '2')
  			{
-			 redirect('login');
+			 redirect('login_pengaduan');
 			}
 			else
 			{
