@@ -158,13 +158,16 @@
                                                             <div class="modal-body">
                                                                     <div class="row">
                                                                         <div class="col-md-12">
-                                                                            <table>
-                                                                                <thead>
-                                                                                    <th>Pengelola</th>
-                                                                                    <th>Status</th>
-                                                                                    <tr>timestamp</tr>
-                                                                                </thead>
-                                                                            </table>
+                                                                            <?php foreach ($log_activity as $data)
+                                                                            {
+                                                                            ?>
+                                                                            <label>waktu :</label><?php echo $data->timestamp ?>
+                                                                            <input class="form-control" type="hidden" name="id_pengaduan" value="<?php echo $data->id_pengaduan ?>">
+                                                                            <?php
+                                                                            }
+                                                                            ?>
+                                                                            
+                                                                            
                                                                         </div>
                                                                     </div>
                                                                 </div>

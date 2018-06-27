@@ -1,6 +1,6 @@
 <?php
 require APPPATH . '/libraries/BaseController.php';
-class Grouping extends BaseController 
+class Ck_grupdata extends BaseController 
 {
 	function __construct()
 	{

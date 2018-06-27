@@ -86,7 +86,6 @@
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>Pengelola</th>
                       <th>Kategori</th>
                       <th>Status</th>
                       <th>Waktu</th>
@@ -100,7 +99,6 @@
                       ?>
                     <tr>
                       <td><?php echo $i; ?></td>
-                      <td><?php echo $data->nama_pengguna ?></td>
                       <td><?php echo $data->kategori?></td>
                       <td>
                         <?php
