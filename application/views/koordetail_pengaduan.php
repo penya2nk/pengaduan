@@ -37,7 +37,7 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #ffffff">
-                        <i class="fa fa-user fa-fw"></i> Isnaini barochatun</i>
+                        <i class="fa fa-user fa-fw"></i> <?php echo $this->session->userdata['nama_pengguna'] ?></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a data-toggle="modal" data-target="#settingModal"><i class="fa fa-gear fa-fw"></i> Settings</a>
@@ -101,6 +101,9 @@
                         <div class="panel-heading">
                             <div>
                                 <a href="<?php echo base_url('koordinator/konfirmasi/'.$detail_pengaduan[0]->id_pengaduan); ?>" class="btn btn-success btn-md"><span class="fa fa-check-square-o"></span> Konfirmasi </a>
+
+                                <!-- <a  href="<?php //echo base_url('koordinator/kirim_pengaduan') ?>" class="btn btn-warning btn-md" class="btn btn-warning" style="margin-left: 20px"><span class="fa fa-send"></span> Kirim ke Analis</a> -->
+                                <a style="margin-left: 20px" href="#" class="btn btn-warning btn-md" data-toggle="modal" data-target="#modalKirim"><span class="fa fa-send"></span> Kirim </a>
                             </div>
 
                         </div>
@@ -115,11 +118,11 @@
                                         <td>:</td>
                                         <td><?php echo $data->tgl_kejadian ?></td>
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                         <td><b>Subjek</b></td>
                                         <td>:</td>
-                                        <td><?php echo $data->subjek ?></td>
-                                    </tr>
+                                        <td><?php //echo $data->subjek ?></td>
+                                    </tr> -->
                                     <tr>
                                         <td><b>Nama Pengadu</b></td>
                                         <td>:</td>
@@ -144,7 +147,6 @@
                                         <td><b>Penyebab</b></td>
                                         <td>:</td>
                                         <td><?php echo $data->penyebab ?>
-                                            <a style="margin-left: 10px" data-toggle="modal" data-target="#modalEdit"><span class="fa fa-edit"></span></a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -167,7 +169,7 @@
                                     <tr>
                                         <td><b>Gambar Pendukung:</b></td>
                                         <td>:</td>
-                                        <td style="width: 80%"><img src="<?php echo base_url('assets/gambar/'.$data->keterangan) ?>" style="width: 60%; height: auto"></td>
+                                        <td style="width: 80%"><img src="<?php echo base_url('assets/gambar/'.$data->gambar) ?>" style="width: 60%; height: auto"></td>
                                     </tr>
 
                                     <!-- modal kirim -->
@@ -180,22 +182,15 @@
                                               <h4 class="modal-title">KIRIM PENGADUAN</h4>
                                           </div>
 
-                                          <form method="POST" action="<?php echo base_url('analis/kirim_pengaduan') ?>">
+                                          <form method="POST" action="<?php echo base_url('koordinator/kirim_pengaduan') ?>">
                                               <div class="modal-body">
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <label>Kepada :</label>
-                                                        <select class="form-control" name="id_level">
-                                                            <option value="0">------ pilih -------</option>
-                                                            <?php
-                                                            foreach ($level as $l) {
-                                                                ?>
-                                                                <option value="<?php echo $l->id_level ?>"><?php echo $l->nama_level.' '.$l->posisi ?></option>
-                                                                <?php
-                                                            }
-                                                            ?>
-                                                        </select>
-                                                        <input type="hidden" name="id_pengaduan" value="<?php echo $data->id_pengaduan ?>">
+                                                        <div >
+                                                            <label>Laporan :</label>
+                                                            <textarea class="form-control" type="text" name="keterangan"></textarea>
+                                                            <input type="hidden" name="id_pengaduan" value="<?php echo $data->id_pengaduan ?>">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -211,50 +206,45 @@
                             </div>
                             <!-- /.modal -->
 
-
-                            <!-- modal tambah -->
-                            <div class="modal modal-primary fade" id="modalEdit" style="margin-top: 5%">
-                              <div class="modal-dialog">
-                                <div class="modal-content">
-
-                                    <form method="POST" action="<?php echo base_url('analis/ubah_pengaduan') ?>">
-
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                          <span aria-hidden="true">&times;</span></button>
-                                          <h4 class="modal-title">Ubah atau Isi Penyebab</h4>
-                                    </div>
-                                    <div class="modal-body">
-
-                                        <div class="form-group">
-                                            <label>Penyebab</label>
-                                                <input class="form-control" type="text" name="penyebab" value="<?php echo $data->penyebab ?>">
-                                                <input type="hidden" name="id_pengaduan" value="<?php echo $data->id_pengaduan ?>">
+                            <!-- modal kirim -->
+                                    <div class="modal modal-primary fade" id="modalKirim" style="margin-top: 5%">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title">KIRIM PENGADUAN</h4>
+                                                </div>
+                                                
+                                                <form method="POST" action="<?php echo base_url('koordinator/kirim_pengaduan') ?>">
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label>laporan :</label>
+                                                                <input type="text" name="keterangan">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                                                        <input type="submit" class="btn btn-primary" value="kirim" href="<?php echo base_url('analis/update_status/'.$data->id_pengaduan)?>" >
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <!-- /.modal-content -->
                                         </div>
-
+                                        <!-- /.modal-dialog -->
                                     </div>
-
-                                <div class="modal-footer">
-                                    <input class="btn btn-primary" type="submit" value="Simpan">
-                                </div>
-
-                                    </form>
-
-                            </div>
-                            <!-- /.modal-content -->
-                        </div>
-                        <!-- /.modal-dialog -->
-                    </div>
-                    <!-- /.modal -->
+                                    <!-- /.modal -->
 
                     <?php
                 }
                 ?>
             </table>
 
-            <div class="footer">
+            <!-- <div class="footer">
                 <a href="#" class="btn btn-outline btn-md" data-toggle="modal" data-target="#modalTambah" style="color: blue"><span class="fa fa-plus-circle"></span> Tambah Kategori </a>
-            </div>
+            </div> -->
             <!-- /.row (nested) -->
         </div>
         <!-- /.panel-body -->

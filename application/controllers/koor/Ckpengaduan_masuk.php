@@ -26,18 +26,23 @@ class Ckpengaduan_masuk extends BaseController
 	public function konfirmasi($id_pengaduan)
 	{
 		$id_user = $this->session->userdata('id_user');
-		$pengaduan = $this->db->where('id_pengaduan',$id_pengaduan)->where('status','diproses')->get('pengaduan_level')->row();
+		
 		$data = array(
 			'id_pengaduan'=>$id_pengaduan,
-			'id_kategori'=>$pengaduan->id_kategori,
 			'id_user'=>$id_user,
 			'status'=>'selesai'
 			);
 		$this->db->insert('pengaduan_level',$data);
+
+		$data2 = array(
+			'status'=>'selesai'
+		);
+		$this->db->where('id_pengaduan',$id_pengaduan)->update('pengaduan',$data2);
+
 		redirect('koordinator');
 	}
 
-		//function mau cek data user
+	//function mau cek data user
 	public function save_password()
 	 { 
 
@@ -69,6 +74,32 @@ class Ckpengaduan_masuk extends BaseController
 	   }//end if valid_user
 	}
  }
+
+public function kirim()
+	{
+		$keterangan = $this->input->post('keterangan');
+		$id_pengaduan = $this->input->post('id_pengaduan');
+		$id_user = $this->session->userdata('id_user');
+		$data = array(
+			'id_pengaduan'=>$id_pengaduan,
+			'keterangan'=>$keterangan,
+			'id_user'=>$id_user,
+			'status'=>'diproses'
+		);
+		$this->Mkoor_masuk->kirim($data);
+
+		$data2 = array(
+			'status'=>'diproses'
+		);
+		$this->db->where('id_pengaduan',$id_pengaduan)->update('pengaduan',$data2);
+
+		$this->session->set_flashdata('style', 'success');
+		$this->session->set_flashdata('alert', 'Berhasil!');
+		$this->session->set_flashdata('message', 'Pengaduan telah terkirim.');
+
+		redirect('koordinator');
+	}
+
 }
 
 ?>

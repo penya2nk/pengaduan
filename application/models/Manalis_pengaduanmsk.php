@@ -16,8 +16,8 @@ class Manalis_pengaduanmsk extends CI_Model {
 		$this->db->from('pengaduan p'); //tabel
 		$this->db->join('ruang r','r.id_ruang = p.id_ruang');
 		$this->db->join('kategori k','p.id_kategori = k.id_kategori');
-		$this->db->join('pengaduan_level pl','pl.id_pengaduan = p.id_pengaduan','left');
-		$this->db->where('pl.status',"masuk");
+		//$this->db->join('pengaduan_level pl','pl.id_pengaduan = p.id_pengaduan','left');
+		$this->db->where('p.status',"diproses");
 		$this->db->order_by('wkt_pengaduan','ASC');
 		return $this->db->get()->result();	//hasil
 	}
@@ -31,7 +31,7 @@ class Manalis_pengaduanmsk extends CI_Model {
 
 	public function detail_pengaduan($id)
 	{
-		$this->db->select('p.id_pengaduan, p.id_user, p.deskripsi, p.kejadian, p.penyebab, p.tgl_kejadian, p.efek, p.keterangan, r.nama_ruang, k.kategori, u.nama_pengguna, t.nama_tempat');	//select field yang mau ditampilin
+		$this->db->select('p.id_pengaduan, p.id_user, p.deskripsi, p.kejadian, p.penyebab, p.tgl_kejadian, p.efek, p.gambar, r.nama_ruang, k.kategori, u.nama_pengguna, t.nama_tempat');	//select field yang mau ditampilin
 		$this->db->from('pengaduan p'); //dari dua tabel
 		$this->db->join('ruang r','r.id_ruang = p.id_ruang');
 		$this->db->join('kategori k','k.id_kategori = p.id_kategori');
@@ -45,7 +45,7 @@ class Manalis_pengaduanmsk extends CI_Model {
 	{
 		$this->db->select('*');	//select field yang mau ditampilin
 		$this->db->from('level l'); //tabel
-		$this->db->join('kategori k','k.id_level = l.id_level'); //tabel
+		//$this->db->join('kategori k','k.id_level = l.id_level'); //tabel
 		$this->db->where('nama_level','koordinator'); //tabel
 		return $this->db->get()->result();	//hasil
 	}

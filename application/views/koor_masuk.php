@@ -77,11 +77,11 @@
                             <a href=<?php echo base_url('koordinator')?> style="color: #000000"><i class="fa fa-envelope"></i><b>&nbsp; Pengaduan Masuk</b></a>
                         </li>
                         <li>
-                            <a href=<?php echo base_url('koordinator/riwayat')?> class="a"><i class="fa fa-table"></i> &nbsp;Riwayat Pengaduan</a>
+                            <a href=<?php echo base_url('koordinator/riwayat')?> ><i class="fa fa-table"></i> &nbsp;Riwayat Pengaduan</a>
                         </li>
-                        <!-- <li>
-                            <a href=<?php //echo base_url('koordinator/form')?> class="a"><i class="fa fa-edit"></i> Form Pengaduan</a>
-                        </li> -->
+                        <li>
+                        <a href=<?php echo base_url('koordinator/grouping')?> ><i class="fa fa-edit"></i>&nbsp; Dampak dan Frekuensi</a>
+                    </li>
                         
                     </ul>
                 </div>
@@ -109,8 +109,6 @@
                                 <table width="100%" class="table table-striped table-hover" id="dataTables-example" class="text-center">
                                     <thead>
                                         <tr class="text-center">
-                                            <th>Pilih</th>
-                                            <th>Subjek</th>
                                             <th>Kategori</th>
                                             <th>Tempat</th>
                                             <th>Jam</th>
@@ -120,13 +118,11 @@
                                     </thead>
                                     <tbody>
                                         <?php 
-                                            $this->load->model('Mkoor_masuk');
+                                            
                                             foreach ($masuk as $data) {
-                                                if($this->Mkoor_masuk->pengaduan_selesai($data->id_pengaduan) == 0){
+                                                
                                         ?>
                                         <tr>
-                                            <td><input type="checkbox"></td>
-                                            <td><?php echo $data->subjek ?></td>
                                             <td><?php echo $data->kategori ?></td>
                                             <td><?php echo $data->nama_ruang ?></td>
                                             <td><?php echo date('H:i:s', strtotime($data->wkt_pengaduan)) ?></td>
@@ -137,7 +133,7 @@
                                             </td>
                                         </tr>
                                         <?php 
-                                    }}
+                                    }
                                     ?>
                                         
                                     </tbody>
@@ -166,7 +162,7 @@
                         <h4 class="modal-title">RESET PASSWORD</h4>
                     </div>
                     
-                    <form method="POST" action="<?php echo base_url('koordinator/ubah_password') ?>">
+                    <form method="POST" action="<?php echo base_url('koordinator/ubah_password_masuk') ?>">
                         <div class="modal-body">
                             <div class="row">
                 <div class="col-md-12">

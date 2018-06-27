@@ -5,13 +5,12 @@ class Manalis_riwayatpeng extends CI_Model {
 
 	public function pengaduan_proses()
 	{
-		$this->db->select('p.id_pengaduan,   p.wkt_pengaduan, pl.status, r.nama_ruang, k.kategori');	//select field yang mau ditampilin
-		$this->db->from('pengaduan p'); //tabel
+		$this->db->select('p.id_pengaduan,   p.wkt_pengaduan, p.status, r.nama_ruang, k.kategori');	//select field yang mau ditampilin
+		$this->db->from('pengaduan p');
 		$this->db->join('ruang r','r.id_ruang = p.id_ruang');
 		$this->db->join('kategori k','k.id_kategori = p.id_kategori');
-		$this->db->join('pengaduan_level pl','pl.id_pengaduan = p.id_pengaduan');
-		$this->db->where('pl.status','diproses');
-		$this->db->where('p.deleted',0);
+		//$this->db->join('pengaduan_level pl','pl.id_pengaduan = p.id_pengaduan');
+		$this->db->where('p.status','selesai');
 		return $this->db->get()->result();	//hasil
 	}
 

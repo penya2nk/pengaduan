@@ -78,7 +78,7 @@
 				'penyebab' => $penyebab,
 				'deskripsi' => $deskripsi,
 				'tindaklanjut' => $tindaklanjut,
-				'keterangan' => $this->upload->data()['file_name']
+				'gambar' => $this->upload->data()['file_name']
 				);
 				
 				$this->db->insert('pengaduan', $data1);
@@ -110,7 +110,6 @@
 				'penyebab' => $penyebab,
 				'deskripsi' => $deskripsi,
 				'tindaklanjut' => $tindaklanjut,
-				//'keterangan' => $this->upload->data()['file_name']
 				);
 				
 				$this->db->insert('pengaduan', $data1);

@@ -103,9 +103,7 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Subjek</th>
                                             <th>Kategori</th>
-                                            <th>Koordinator Tujuan</th>
                                             <th>Tempat</th>
                                             <th>Jam</th>
                                             <th>Tanggal</th>
@@ -123,15 +121,13 @@
                                         ?>
                                         <tr>
                                             <td><?php echo $i; ?></td>
-                                            <td><?php echo $data->subjek ?></td>
                                             <td><?php echo $data->kategori ?></td>
-                                            <td></td>
                                             <td><?php echo $data->nama_ruang ?></td>
                                             <td><?php echo date('H:i:s', strtotime($data->wkt_pengaduan)) ?></td>
                                             <td><?php echo date('d-F-Y', strtotime($data->wkt_pengaduan)) ?></td>
                                             <td>
                                             <?php
-                                                if($this->Manalis_riwayatpeng->pengaduan_selesai($data->id_pengaduan) == 0){
+                                                // if($this->Manalis_riwayatpeng->pengaduan_selesai($data->id_pengaduan) == 0){
                                             ?>
                                                 <span class="badge warning"><?php echo $data->status ?></span>
                                             <?php }else{ ?>
@@ -139,7 +135,8 @@
                                             <?php }?>
                                             </td>
                                             <td>
-                                                <a class="btn btn-primary" data-toggle="modal" data-target="#detailModal"><i class="fa fa-eye"></i></a></td>
+                                                <a class="btn btn-primary" data-toggle="modal" data-target="#detailModal"><i class="fa fa-eye"></i> Detail</a>
+                                            </td>
                                         </tr>
                                         <!-- modal tambah ruang -->
                                             <div>

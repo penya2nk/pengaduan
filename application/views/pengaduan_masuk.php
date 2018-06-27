@@ -112,7 +112,6 @@
                                 <table width="100%" class="table table-striped table-hover" id="dataTables-example" class="text-center">
                                     <thead>
                                         <tr class="text-center">
-                                            <th>Subjek</th>
                                             <th>Kategori</th>
                                             <th>Tempat</th>
                                             <th>Jam</th>
@@ -122,12 +121,11 @@
                                     </thead>
                                     <tbody>
                                         <?php 
-                                        $this->load->model('Manalis_pengaduanmsk');
+                                        // $this->load->model('Manalis_pengaduanmsk');
                                             foreach ($pengaduan as $data) {
-                                                if($this->Manalis_pengaduanmsk->pengaduan_diproses($data->id_pengaduan) == 0){
+                                                // if($this->Manalis_pengaduanmsk->pengaduan_diproses($data->id_pengaduan) == 0){
                                         ?>
                                         <tr>
-                                            <td><?php echo $data->subjek ?></td>
                                             <td><?php echo $data->kategori ?></td>
                                             <td><?php echo $data->nama_ruang ?></td>
                                             <td><?php echo date('H:i:s', strtotime($data->wkt_pengaduan)) ?></td>
@@ -137,7 +135,7 @@
                                             </td>
                                         </tr>
                                         <?php 
-                                    }
+                                    
                                     }
                                     ?>
                                         

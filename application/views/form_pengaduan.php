@@ -99,13 +99,13 @@
 
                   <form action="<?php echo base_url('user/insert_data') ?>" method="POST" role="form" enctype="multipart/form-data">
 
-                    <div class="form-group" style="margin-left: 15px">
+                    <div class="form-group" style="margin-left: 30px">
                       <label>Silahkan isikan tanggal kejadian <b style="color: red">*</b></label>
-                      <div class="input-group col-sm-6">
+                      <div class="input-group col-sm-6" style="width: 10%">
                         <div class="input-group-addon">
                           <i class="fa fa-calendar"></i>
                         </div>
-                        <input type="date" name="waktu" class="form-control" datapicker required="required" value="<?php echo date('Y-m-d') ?>" >
+                        <input type="date" name="waktu" class="form-control" datapicker required="required" value="<?php echo date('Y-m-d') ?>" required>
                       </div>
                     </div>
 
@@ -113,7 +113,7 @@
                     <div class="form-group" style="width: 100%; margin-bottom: 10px">
                       <div class="col-md-6">
                         <label><b>Pilih tempat kejadian <b style="color: red">*</b></b></label>
-                        <select class="form-control" name="tempat"  id="tempat" required="required">
+                        <select class="form-control" name="tempat"  id="tempat" required>
                           <option value="0">----------------------------------------- pilih tempat ------------------------------------------</option>
                           <?php
                           foreach ($tempat as $data){
@@ -140,8 +140,8 @@
                     <div class="form-group" style="width: 100%">
                       <div class="col-md-6" style="margin-bottom: 20px; margin-top: 10px">
                         <label><b>Pilih kategori kejadian <b style="color: red">*</b></b></label>
-                        <select class="form-control" name="kategori"  id="kategori" required="required">
-                          <option value="0">----------------------------------------- pilih tempat ------------------------------------------</option>
+                        <select class="form-control" name="kategori"  id="kategori" required>
+                          <option value="0">----------------------------------------- pilih kategori ------------------------------------------</option>
                           <?php
                           foreach ($kategori as $data)
                           {
@@ -189,9 +189,9 @@
                   <!-- kategori dan jenis -->
                   <div class="form-group" style="margin-left: 15px">
                     <label>Seberapa sering terjadi</label>
-                    <select class="form-control" name="kejadian" style="width: 50%;">
+                    <select class="form-control" name="kejadian" style="width: 48%;">
                       <option value="0">
-                        ------------------------------------------ pilih frekuensi ------------------------------------------
+                        -------------------------------------- pilih frekuensi ----------------------------------------
                       </option>
                       <option value="pertama">Pertama kali</option>
                       <option value="beberapa kali">Beberapa kali</option>
@@ -205,12 +205,12 @@
 
                   <div class="form-group" style="margin-left: 15px; margin-right:15px">
                     <label>Efek kejadian <b style="color: red">*</b></label>
-                    <input type="text" class="form-control" name="efek" id="efek" placeholder="Silahkan isi efek">
+                    <input type="text" class="form-control" name="efek" id="efek" placeholder="Silahkan isi efek" required>
                   </div>
 
                       <div class="form-group" style="margin-left: 15px; margin-right:15px">
                         <label>Silahkan deskripsikan kejadian <b style="color: red">*</b></label>
-                        <textarea class="form-control" name="deskripsi" rows="3" placeholder="text..." required="required"></textarea>
+                        <textarea class="form-control" name="deskripsi" rows="3" placeholder="text..." required></textarea>
                       </div>
 
                       <div class="form-group" style="margin-left: 15px; margin-right:15px">

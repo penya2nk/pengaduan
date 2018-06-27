@@ -110,4 +110,18 @@ class Cpengaduan_masuk extends BaseController {
 	}
  }
 
+ public function konfirmasi($id_pengaduan)
+	{
+		$id_user = $this->session->userdata('id_user');
+		$pengaduan = $this->db->where('id_pengaduan',$id_pengaduan)->where('status','diproses')->get('pengaduan_level')->row();
+		$data = array(
+			'id_pengaduan'=>$id_pengaduan,
+			'id_kategori'=>$pengaduan->id_kategori,
+			'id_user'=>$id_user,
+			'status'=>'selesai'
+			);
+		$this->db->insert('pengaduan_level',$data);
+		redirect('analis');
+	}
+
 }

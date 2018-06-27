@@ -53,22 +53,24 @@
 			
 			<!--- user panel -->
 			<section class="sidebar">
-				<div class="pull-center image">
-					<img src='<?php echo base_url("img/user2.png")?>' class="img-circle" alt="User Image"  style="margin-left: 24%; margin-right: 24%; margin-top: 10%; width: 50%">
-				</div>
-			</section>
-			
-			<!-- MENU -->
-			<div class="navbar-default sidebar" role="navigation" style="margin-top: 15%;">
-				<div class="sidebar-nav navbar-collapse">
-					<ul class="nav" id="side-menu">
-						
-						<li class="sidebar-search" >
-							<div class="input-group custom-search-form" style="margin-left: 20%">
-								<p>Isnaini Barochatun</p>
-							</div>
-							<!-- /input-group -->
-						</li>
+                    <!-- <div class="pull-center image">
+                        <img src='<?php //echo base_url("img/user2.png")?>' class="img-circle" alt="User Image"  style="margin-left: 24%; margin-right: 24%; margin-top: 10%; width: 50%">
+                    </div> -->
+            </section>
+
+            <div class="navbar-default sidebar" role="navigation"> <!--style="margin-top: 15%;"-->
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+
+                        <li class="sidebar-search" >
+                            <!-- <div class="input-group custom-search-form" style="margin-left: 20%">
+                                <p>Isnaini Barochatun</p>
+                            </div> -->
+                            <div class="input-group custom-search-form" >
+                                <b>Menu Sistem</b>
+                            </div>
+                            <!--  input-group -->
+                        </li>
 						
 						<li>
 							<a href=<?php echo base_url('analis')?> style="color: #000000"><i class="fa fa-envelope"></i><b>&nbsp; Pengaduan Masuk</b></a>
@@ -98,7 +100,12 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<div>
-								<a href="#" class="btn btn-warning btn-md" data-toggle="modal" data-target="#modalKirim"><span class="fa fa-send"></span> Kirim </a>
+								<!-- <a href="#" class="btn btn-warning btn-md" data-toggle="modal" data-target="#modalKirim"><span class="fa fa-send"></span> Kirim </a>
+ -->
+								<a href="<?php echo base_url('analis/konfirmasi'.$detail_pengaduan[0]->id_pengaduan); ?>" class="btn btn-success btn-md"><span class="fa fa-check-square-o"></span> Konfirmasi </a>
+
+								<a style="margin-left: 20px" href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalKategori"><span class="fa fa-plus"></span> Buat Kategori </a>
+
 							</div>
 							
 						</div>
@@ -113,11 +120,11 @@
 										<td>:</td>
 										<td><?php echo $data->tgl_kejadian ?></td>
 									</tr>
-									<tr>
+									<!-- <tr>
 										<td><b>Subjek</b></td>
 										<td>:</td>
-										<td><?php echo $data->subjek ?></td>
-									</tr>
+										<td><?php //echo $data->subjek ?></td>
+									</tr> -->
 									<tr>
 										<td><b>ID Pengadu</b></td>
 										<td>:</td>
@@ -153,13 +160,13 @@
 										<td><b>Kategori</b></td>
 										<td>:</td>
 										<td><?php echo $data->kategori ?>
-											<a style="margin-left: 10px" data-toggle="modal" data-target="#modalEdit"><span class="fa fa-edit"></span></a>
+											<!-- <a style="margin-left: 10px" data-toggle="modal" data-target="#modalEdit"><span class="fa fa-edit"></span></a> -->
 										</td>
 									</tr>
 									<tr>
 										<td><b>Gambar Pendukung:</b></td>
 										<td>:</td>
-										<td style="width: 80%"><img src="<?php echo base_url('assets/gambar/'.$data->keterangan) ?>" style="width: 60%; height: auto"></td>
+										<td style="width: 80%"><img src="<?php echo base_url('assets/gambar/'.$data->gambar) ?>" style="width: 60%; height: auto"></td>
 									</tr>
 									
 									<!-- modal kirim -->
@@ -281,10 +288,7 @@
 									}
 								?>
 							</table>
-							
-							<div class="footer">
-                <a href="#" class="btn btn-outline btn-md" data-toggle="modal" data-target="#modalKategori" style="color: blue"><span class="fa fa-plus-circle"></span> Buat Kategori </a>
-							</div>
+						
 							<!-- /.row (nested) -->
 						</div>
 						<!-- /.panel-body -->
