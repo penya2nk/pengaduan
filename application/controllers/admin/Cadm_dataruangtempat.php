@@ -29,6 +29,11 @@ class Cadm_dataruangtempat extends BaseController {
 			'nama_ruang' => $nama_ruang
 		);
 		$this->Madm_ruangtempat->tambah_ruang($data);
+
+		$this->session->set_flashdata('style', 'success');
+		$this->session->set_flashdata('alert', 'Berhasil!');
+		$this->session->set_flashdata('ruang_msg', 'Data ruang telah ditambahkan!');
+
 		redirect('admin/data_lokasi');
 	}
 
@@ -41,6 +46,11 @@ class Cadm_dataruangtempat extends BaseController {
 			'nama_tempat' => $nama_tempat
 		);
 		$this->Madm_ruangtempat->tambah_tempat($data);
+
+		$this->session->set_flashdata('style', 'success');
+		$this->session->set_flashdata('alert', 'Berhasil!');
+		$this->session->set_flashdata('tempat_msg', 'Data tempat telah ditambahkan!');
+
 		redirect('admin/data_lokasi');
 	}
 

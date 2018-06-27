@@ -105,11 +105,11 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Subjek</th>
                                         <th>Pengelola</th>
                                         <th>Kategori</th>
                                         <th>Status</th>
                                         <th>Waktu</th>
+                                        <th>Masuk</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -120,7 +120,6 @@
                                         ?>
                                         <tr>
                                             <td><?php echo $data->id_pengaduan ?></td>
-                                            <td><?php echo $data->subjek ?></td>
                                             <td><?php echo $data->role ?></td>
                                             <td><?php echo $data->kategori ?></td>
                                             <td>
@@ -141,6 +140,7 @@
                                                 ?>
                                             </td>
                                             <td><?php echo date('H:i:s', strtotime($data->timestamp)) ?></td>
+                                            <td><?php echo date('d-F-Y', strtotime($data->timestamp)) ?></td>
                                         </tr>
                                         <?php
                                     }

@@ -18,7 +18,7 @@
 
 </head>
 
-<body style="background-color: #e7e7e7">
+<body>
 
   <div id="wrapper">
 
@@ -72,26 +72,29 @@
       <div class="row">
         <div class="col-lg-12">
 
+          <center>
+          <?php if($this->session->flashdata('message')): ?>
+              <div style="margin-top: 10px; width: 50%" id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  <strong><?php echo $this->session->flashdata('alert') ?></strong>&nbsp;<br>
+                  <?php echo $this->session->flashdata('message') ?>
+            </div>
+          <?php endif; ?>
+        </center>
 
           <div class="alert alert-info alert-dismissable" style="margin-top: 10px">
             <strong>Perhatian!</strong> Informasi <b>data diri Anda tidak akan terlihat</b> pada laporan pengaduan. Mohon berikan informasi sejelas-jelasnya untuk tindak lanjut yang lebih baik. Terimakasih.</a>.
             keterangan :<b style="color: red"> * = wajib diisi </b>
           </div>
-					<?php if($this->session->flashdata('message')): ?>
-              <div id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
-                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                  <strong><?php echo $this->session->flashdata('alert') ?></strong>&nbsp;<br>
-                  <?php echo $this->session->flashdata('message') ?>
-            </div>
-					<?php endif; ?>
+
           <div class="panel panel-default">
             <div class="panel-heading">
               <center><h3><strong>FORM PENGADUAN</strong></h3></center>
             </div>
             <div class="panel-body">
               <!-- Tab Pane Draft -->
-              <div class="tab-content">
-                <div class="active tab-pane fade in" id="halaman_1">
+              <div class="tab-content"><!-- 
+                <div class="active tab-pane fade in" id="halaman_1"> -->
                  <div class="box-body">
 
                   <form action="<?php echo base_url('user/insert_data') ?>" method="POST" role="form" enctype="multipart/form-data">
@@ -103,16 +106,6 @@
                           <i class="fa fa-calendar"></i>
                         </div>
                         <input type="date" name="waktu" class="form-control" datapicker required="required" value="<?php echo date('Y-m-d') ?>" >
-                      </div>
-                    </div>
-
-                    <div class="form-group" style="margin-left: 15px; margin-right:15px">
-                      <label>Silahkan isikan subjek pengaduan <b style="color: red">*</b></label>
-                      <div class="input-group col-sm-12">
-                        <div class="input-group-addon">
-                          <i class="fa fa-edit"></i>
-                        </div>
-                        <input type="text" name="subjek" class="form-control" required="required">
                       </div>
                     </div>
 
@@ -180,7 +173,7 @@
 
                   </div>
 
-                  <div class="footer" style="margin-left:92%;">
+                  <!-- <div class="footer" style="margin-left:92%;">
                     <div class="box-footer with-border">
                       <a href="#halaman_2" class="btn btn-primary" data-toggle="tab">lanjut <i class="fa fa-chevron-right"></i></a>
                     </div>
@@ -188,10 +181,10 @@
 
 
                 </div>
-                <!-- /.tab-pane -->
+                 
 
 
-                <div class="tab-pane fade in" id="halaman_2">
+                <div class="tab-pane fade in" id="halaman_2"> -->
 
                   <!-- kategori dan jenis -->
                   <div class="form-group" style="margin-left: 15px">
@@ -206,43 +199,23 @@
                   </div>
 
                   <div class="form-group" style="margin-left: 15px; margin-right:15px">
-                    <label>Efek kejadian <b style="color: red">*</b></label>
-                    <input type="text" class="form-control" name="efek" id="efek" placeholder="Silahkan isi efek">
-                  </div>
-
-                  <div class="form-group" style="margin-left: 15px; margin-right:15px">
                     <label>Penyebab</label>
                     <input type="text" class="form-control" name="penyebab" id="penyebab" placeholder="Silahkan isi penyebab">
                   </div>
 
-                  <div style="margin-left: 83%">
-                    <a href="#halaman_1" class="btn btn-warning" data-toggle="tab" style="margin-top: 50px"><i class="fa fa-chevron-left"></i> kembali</a>&nbsp;
-                    <a href="#halaman_3" class="btn btn-primary" data-toggle="tab" style="margin-top: 50px">lanjut <i class="fa fa-chevron-right"></i></a>
+                  <div class="form-group" style="margin-left: 15px; margin-right:15px">
+                    <label>Efek kejadian <b style="color: red">*</b></label>
+                    <input type="text" class="form-control" name="efek" id="efek" placeholder="Silahkan isi efek">
                   </div>
-
-                </div>
-                <!-- /.tab-pane -->
-
-                <div class="tab-pane fade in" id="halaman_3">
-
-                    <!-- <div class="field_wrapper" style="margin-left: 15px; margin-right:15px">
-                      <label>Tindak Lanjut</label><br>
-                        <div class="input-group" style="width: 50%; margin-bottom: 5px">
-                            <input type="text" name="field_name[]" value="" class="form-control">
-                            <div class="input-group-btn">
-                            <a href="javascript:void(0);" class="btn btn-success add_button" title="Add field"><i class="fa fa-plus"></i></a>
-                          </div>
-                        </div>
-                      </div> -->
 
                       <div class="form-group" style="margin-left: 15px; margin-right:15px">
                         <label>Silahkan deskripsikan kejadian <b style="color: red">*</b></label>
-                        <textarea class="form-control" name="deskripsi" rows="3" placeholder="Enter ..." required="required"></textarea>
+                        <textarea class="form-control" name="deskripsi" rows="3" placeholder="text..." required="required"></textarea>
                       </div>
 
                       <div class="form-group" style="margin-left: 15px; margin-right:15px">
-                        <label>Silahkan jika ingin menambahkan saran</label>
-                        <input type="text" class="form-control" name="saran" id="saran" placeholder="Silahkan berikan saran">
+                        <label>Silahkan deskripsikan tindaklanjut yang telah Anda lakukan sendiri</label>
+                        <textarea class="form-control" name="tindaklanjut" rows="3" placeholder="text ..."></textarea>
                       </div>
 
                       <div class="form-group" style="margin-left: 15px; margin-right:15px">
@@ -251,8 +224,7 @@
                         <input type="hidden" name="nama_pengguna" value="<?php echo $this->session->userdata('nama_pengguna') ?>">
                       </div>
 
-                      <div style="margin-left: 83%">
-                        <a href="#halaman_2" class="btn btn-warning" data-toggle="tab" style="margin-top: 20px"><i class="fa fa-chevron-left"></i> kembali</a>&nbsp;
+                      <div style="margin-left: 90%">
                         <button class="btn btn-success" name="simpan" value="simpan" style="margin-top: 20px; width:80px">simpan</button>
                       </div>
                     </div>

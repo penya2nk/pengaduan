@@ -90,6 +90,21 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
+
+                    <?php if($this->session->flashdata('ruang_msg')): ?>
+                      <div style="margin-top: 10px; width: 50%" id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
+                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                          <strong><?php echo $this->session->flashdata('alert') ?></strong>&nbsp;<br>
+                          <?php echo $this->session->flashdata('ruang_msg') ?>
+                    </div>
+                  <?php elseif($this->session->flashdata('tempat_msg')): ?>
+                      <div style="margin-top: 10px; width: 50%" id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
+                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                          <strong><?php echo $this->session->flashdata('alert') ?></strong>&nbsp;<br>
+                          <?php echo $this->session->flashdata('tempat_msg') ?>
+                    </div>
+                  <?php endif; ?>
+
                     <h1 class="page-header">Data Ruang dan Tempat</h1>
                 </div>
                 <!-- /.col-lg-12 -->
@@ -492,6 +507,10 @@ for (var i=0; i<colNumber; i++)
       else
           $("#scroll").find("td:eq("+i+")").width(thWidth);           
   }  
+</script>
+
+<script type="text/javascript">
+    $("#hilang").show().delay(2000).slideUp(400);
 </script>
 
 </body>

@@ -46,7 +46,6 @@
 			$id_pengaduan = $this->input->post('id_pengaduan');
 			$id_pengaduan_level = $this->input->post('id_pengaduan_level');
 			$waktu = $this->input->post('waktu');
-			$subjek = $this->input->post('subjek');
 			$user = $this->session->userdata('id_user');
 			$tempat = $this->input->post('tempat');
 			$ruang = $this->input->post('ruang');
@@ -70,7 +69,6 @@
 				
 				$data1 = array(
 				'tgl_kejadian' => $waktu,
-				'subjek' => $subjek,
 				'id_user' => $user,
 				'id_ruang' => $ruang,
 				'id_kategori' => $kategori,
@@ -103,7 +101,6 @@
 				
 				$data1 = array(
 				'tgl_kejadian' => $waktu,
-				'subjek' => $subjek,
 				'id_user' => $user,
 				'id_ruang' => $ruang,
 				'id_kategori' => $kategori,

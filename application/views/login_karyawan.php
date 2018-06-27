@@ -39,8 +39,8 @@
                 <?php endif; ?>
 
                 <div class="panel-heading" style="align-items: center;">
-                  <img src=<?php echo base_url("img/ugm.gif")?> style="width: auto; height: 100px; margin-bottom: 30px">
-                  <h3 class="panel-title"><b>LOGIN SISTEM INFORMASI PENGADUAN</b></h3>
+                  <img src=<?php echo base_url("img/ugm.gif")?> style="width: auto; height: 100px; margin-bottom: 10px">
+                  <h3 class="panel-title"><b>LOGIN PENGELOLA <br><br>SISTEM INFORMASI PENGADUAN</b></h3>
                 </div>
               </center>
 
