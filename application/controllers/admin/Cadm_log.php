@@ -14,6 +14,7 @@ class Cadm_log extends BaseController {
 	public function index()
 	{
 		$data['log_activity']=$this->Madm_log->log_activity();
+		$data['detail']=$this->Madm_log->detail_log();
 		$this->load->view('adm_log',$data);
 	}
 

@@ -94,9 +94,6 @@
 				return $this->db->insert('pengaduan_level', $data2);
 				
 			}else{
-	      // Jika gagal :
-	      // $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
-	      // return $return;
 				
 				$data1 = array(
 				'tgl_kejadian' => $waktu,

@@ -65,6 +65,15 @@ class Mkoor_masuk extends CI_Model
 		return $this->db->insert('pengaduan_level',$data);
 	}
 
+	public function kejadian()
+	{
+		$this->db->select('p.id_pengaduan, p.penyebab, p.efek, p.kejadian, k.kategori');
+		$this->db->from('pengaduan p');
+		$this->db->join('kategori k','p.id_kategori = k.id_kategori');
+		//$this->db->where('p.kejadian',"pertama");
+		return $this->db->get()->result();
+	}
+
 }
 
 ?>

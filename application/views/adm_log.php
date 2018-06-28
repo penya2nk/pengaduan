@@ -104,8 +104,8 @@
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Pengelola</th>
+                                        <th>ID Pengaduan</th>
+                                        <th>Ruang</th>
                                         <th>Status</th>
                                         <th>Waktu</th>
                                         <th>Masuk</th>
@@ -120,7 +120,7 @@
                                         ?>
                                         <tr>
                                             <td><?php echo $data->id_pengaduan ?></td>
-                                            <td><?php echo $data->role ?></td>
+                                            <td><?php echo $data->nama_ruang ?></td>
                                             <td>
                                                 <?php
                                                 if ($data->status == 'masuk') {
@@ -138,8 +138,8 @@
                                                 }
                                                 ?>
                                             </td>
-                                            <td><?php echo date('H:i:s', strtotime($data->timestamp)) ?></td>
-                                            <td><?php echo date('d-F-Y', strtotime($data->timestamp)) ?></td>
+                                            <td><?php echo date('H:i:s', strtotime($data->wkt_pengaduan)) ?></td>
+                                            <td><?php echo date('d-F-Y', strtotime($data->wkt_pengaduan)) ?></td>
                                             <td>
                                                 <i class="btn btn-primary fa fa-eye" data-toggle="modal" data-target="#detail<?php echo $data->id_pengaduan; ?>">&nbsp;Detail</i>
                                             </td>
@@ -158,16 +158,11 @@
                                                             <div class="modal-body">
                                                                     <div class="row">
                                                                         <div class="col-md-12">
-                                                                            <?php foreach ($log_activity as $data)
-                                                                            {
-                                                                            ?>
-                                                                            <label>waktu :</label><?php echo $data->timestamp ?>
+                                                                            <label>Waktu 1</label>
+                                                                            <?php foreach ($detail as $data) { ?>
+                                                                            <input type="text" value="<?php echo $data->timestamp ?>">
                                                                             <input class="form-control" type="hidden" name="id_pengaduan" value="<?php echo $data->id_pengaduan ?>">
-                                                                            <?php
-                                                                            }
-                                                                            ?>
-                                                                            
-                                                                            
+                                                                            <?php } ?>
                                                                         </div>
                                                                     </div>
                                                                 </div>
