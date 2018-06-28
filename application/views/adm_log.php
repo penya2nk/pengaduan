@@ -158,14 +158,43 @@
                                                             <div class="modal-body">
                                                                     <div class="row">
                                                                         <div class="col-md-12">
-                                                                            <label>Waktu 1</label>
+                                                                            <label>Waktu Pengaduan:</label>
                                                                             <?php 
                                                                                 $this->load->model('Madm_log');
                                                                                 $log_activity = $this->Madm_log->detail_log($data->id_pengaduan);
 
                                                                             foreach ($log_activity as $data) { 
+                                                                                ?>  
+                                                                            <input style="margin-bottom: 5px; width: 40%" type="text" class="form-control" value="<?php echo $data->timestamp ?>" disabled>
+                                                                            <input class="form-control" type="hidden" name="id_pengaduan" value="<?php echo $data->id_pengaduan ?>">
+                                                                            <?php } ?>
+
+                                                                            <label>Id_pengelola :</label>
+                                                                            <?php 
+                                                                                $this->load->model('Madm_log');
+                                                                                $log_activity = $this->Madm_log->detail_log($data->id_pengaduan);
+
+                                                                            foreach ($log_activity as $data) { 
+                                                                                ?>  
+                                                                            <input style="margin-bottom: 5px; width: 40%" type="text" class="form-control" value="<?php echo $data->id_user ?>" disabled>
+                                                                            <input class="form-control" type="hidden" name="id_pengaduan" value="<?php echo $data->id_pengaduan ?>">
+                                                                            <?php } ?>
+
+                                                                            <label>status :</label><br>
+                                                                            <?php 
+                                                                                $this->load->model('Madm_log');
+                                                                                $log_activity = $this->Madm_log->detail_log($data->id_pengaduan);
+
+                                                                            foreach ($log_activity as $data) { 
+                                                                                if($data->status == 'masuk') {
                                                                                 ?>
-                                                                            <input type="text" value="<?php echo $data->timestamp ?>">
+                                                                            <span class="badge primary"><?php echo $data->status ?></span><br>
+                                                                            <?php }elseif($data->status == 'diproses'){
+                                                                            ?>
+                                                                            <span class="badge primary"><?php echo $data->status ?></span><br>
+                                                                            <?php }else{ ?>
+                                                                            <span class="badge primary"><?php echo $data->status ?></span><br>
+                                                                            <?php } ?>
                                                                             <input class="form-control" type="hidden" name="id_pengaduan" value="<?php echo $data->id_pengaduan ?>">
                                                                             <?php } ?>
                                                                         </div>
