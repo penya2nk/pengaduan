@@ -32,7 +32,7 @@ class Ckpengaduan_masuk extends BaseController
 			'id_user'=>$id_user,
 			'status'=>'selesai'
 			);
-		$this->db->insert('pengaduan_level',$data);
+		$this->db->insert('log',$data);
 
 		$data2 = array(
 			'status'=>'selesai'

@@ -74,11 +74,14 @@
                         </li>
                         
                         <li>
-                            <a href=<?php echo base_url('koordinator')?> ><i class="fa fa-envelope"></i> &nbsp;Pengaduan Masuk</a>
+                            <a href=<?php echo base_url('koordinator')?>><i class="fa fa-envelope"></i>&nbsp; Pengaduan Masuk</a>
                         </li>
-                        <li class="active">
-                            <a href=<?php echo base_url('koordinator/riwayat')?> style="color: #000000"><i class="fa fa-table"></i><b>&nbsp; Riwayat Pengaduan</b></a>
+                        <li>
+                            <a href=<?php echo base_url('koordinator/riwayat')?> style="color: #000000"><i class="fa fa-table"></i> &nbsp;<b>Riwayat Pengaduan</b></a>
                         </li>
+                        <li>
+                        <a href=<?php echo base_url('koordinator/grouping')?> ><i class="fa fa-edit"></i>&nbsp; Pengaduan Kejadian</a>
+                    </li>
                         
                     </ul>
                 </div>
@@ -125,7 +128,13 @@
                                             <td><?php echo $data->nama_ruang ?></td>
                                             <td><?php echo date('H:i:s', strtotime($data->wkt_pengaduan)) ?></td>
                                             <td><?php echo date('d-F-Y', strtotime($data->wkt_pengaduan)) ?></td>
-                                            <td><span class="badge success"><?php echo $data->status ?></span></td>
+                                            <td>
+                                                <?php if($data->status == "selesai"){ ?>
+                                                <span class="badge success"><?php echo $data->status ?></span>
+                                                <?php }else{ ?>
+                                                <span class="badge warning"><?php echo $data->status ?></span>
+                                                <?php } ?>
+                                            </td>
                                         </tr>
                                         <?php
                                             $i++;

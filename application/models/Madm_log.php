@@ -11,11 +11,11 @@ class Madm_log extends CI_Model {
 		return $this->db->get()->result();
 	}
 
-	public function detail_log()
+	public function detail_log($id_pengaduan)
 	{
 		$this->db->select('id_pengaduan, status, id_user, timestamp');
-		$this->db->from('pengaduan_level');
-		$this->db->where('id_pengaduan','pengaduan.id_pengaduan');
+		$this->db->from('log');
+		$this->db->where('id_pengaduan',$id_pengaduan);
 		return $this->db->get()->result();
 	}
 

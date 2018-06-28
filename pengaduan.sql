@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2018 at 08:10 AM
+-- Generation Time: Jun 28, 2018 at 10:28 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `level` (
 `id_level` int(11) NOT NULL,
   `nama_level` varchar(20) NOT NULL,
   `posisi` varchar(20) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `level`
@@ -83,6 +83,31 @@ INSERT INTO `level` (`id_level`, `nama_level`, `posisi`) VALUES
 (2, 'analis', ''),
 (3, 'koordinator', 'lab'),
 (4, 'koordinator', 'akademik');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `log`
+--
+
+CREATE TABLE IF NOT EXISTS `log` (
+`id_log` int(11) NOT NULL,
+  `id_pengaduan` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `status` enum('masuk','diproses','selesai') NOT NULL DEFAULT 'masuk',
+  `keterangan` varchar(255) DEFAULT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `log`
+--
+
+INSERT INTO `log` (`id_log`, `id_pengaduan`, `id_user`, `status`, `keterangan`, `timestamp`) VALUES
+(1, 1, 2, '', NULL, '2018-06-28 07:39:26'),
+(2, 1, 2, 'selesai', NULL, '2018-06-28 07:40:04'),
+(3, 2, 2, 'masuk', NULL, '2018-06-28 07:40:55'),
+(4, 2, 2, 'diproses', 'tidak sesuai dananya', '2018-06-28 07:41:21');
 
 -- --------------------------------------------------------
 
@@ -104,51 +129,17 @@ CREATE TABLE IF NOT EXISTS `pengaduan` (
   `tindaklanjut` varchar(255) DEFAULT NULL,
   `kejadian` enum('pertama','beberapa kali') DEFAULT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
-  `keterangan` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+  `gambar` varchar(255) DEFAULT NULL,
+  `status` enum('masuk','diproses','selesai') NOT NULL DEFAULT 'masuk'
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `pengaduan`
 --
 
-INSERT INTO `pengaduan` (`id_pengaduan`, `id_user`, `id_jenis`, `id_ruang`, `id_kategori`, `wkt_pengaduan`, `tgl_kejadian`, `penyebab`, `efek`, `deskripsi`, `tindaklanjut`, `kejadian`, `deleted`, `keterangan`) VALUES
-(1, 1, 3, 13, 0, '2018-06-25 17:09:46', '2018-05-08', 'adanya orang tidak bertanggung jawab yang corat-coret di dalam toilet', 'tidak nyaman dilihat', '', NULL, 'pertama', 0, 'admin_1_1529946586.jpg'),
-(2, 1, 2, 12, 0, '2018-06-25 17:13:45', '2018-06-04', 'karena dosen jarang datang', 'jadi banyak jam pengganti, dan susah mencari waktunya', '', NULL, 'beberapa kali', 0, NULL),
-(3, 1, 1, 8, 0, '2018-06-25 17:17:37', '2018-06-05', 'karena software tidak update, komputer speknya tidak sesuai kebutuhan', 'harus pindah-pindah meja, kesulitan mau pakai aplikasi Android Studio', '', NULL, 'beberapa kali', 0, NULL),
-(4, 1, 1, 6, 0, '2018-06-25 17:20:36', '2018-06-04', 'asprak telat datang ke kelas', 'kadang kunci dibawa sama asprak dan dosen juga harus menunggu lama kalau mau membuka kelas', '', NULL, 'beberapa kali', 0, NULL),
-(5, 1, 2, 3, 0, '2018-06-25 17:22:06', '2018-06-06', '', 'tidak bisa presentasi', '', NULL, 'pertama', 0, NULL),
-(6, 1, 1, 5, 0, '2018-06-26 23:34:32', '2018-06-04', 'mungkin rusak', 'harus pindah meja', '', NULL, 'beberapa kali', 0, 'admin_1_1530056071.jpg'),
-(7, 3, 1, 17, 0, '2018-06-27 05:04:04', '2018-06-27', '', 'ddsdadada', '', NULL, 'beberapa kali', 0, NULL),
-(8, 3, 2, 4, 0, '2018-06-27 05:04:33', '2018-06-27', '', 'dsasdadas', '', NULL, '', 0, NULL),
-(9, 3, 3, 21, 0, '2018-06-27 05:13:02', '2018-06-27', '', 'jhhbh', '', NULL, '', 0, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pengaduan_level`
---
-
-CREATE TABLE IF NOT EXISTS `pengaduan_level` (
-`id_pengaduan_level` int(11) NOT NULL,
-  `id_pengaduan` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `status` enum('diproses','selesai','masuk') NOT NULL DEFAULT 'masuk',
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
-
---
--- Dumping data for table `pengaduan_level`
---
-
-INSERT INTO `pengaduan_level` (`id_pengaduan_level`, `id_pengaduan`, `id_user`, `status`, `timestamp`) VALUES
-(1, 1, 1, 'masuk', '2018-06-25 17:18:33'),
-(2, 2, 1, 'masuk', '2018-06-25 17:13:45'),
-(3, 3, 1, 'masuk', '2018-06-25 17:17:37'),
-(4, 4, 1, 'masuk', '2018-06-25 17:20:36'),
-(5, 5, 1, 'masuk', '2018-06-25 17:22:06'),
-(6, 7, 3, 'masuk', '2018-06-27 05:04:04'),
-(7, 8, 3, 'masuk', '2018-06-27 05:04:33'),
-(8, 9, 3, 'masuk', '2018-06-27 05:13:02');
+INSERT INTO `pengaduan` (`id_pengaduan`, `id_user`, `id_jenis`, `id_ruang`, `id_kategori`, `wkt_pengaduan`, `tgl_kejadian`, `penyebab`, `efek`, `deskripsi`, `tindaklanjut`, `kejadian`, `deleted`, `gambar`, `status`) VALUES
+(1, 2, 2, 10, 3, '2018-06-28 07:35:04', '2018-06-28', 'karena kabel di belakang monitor kendor', 'lorem ipsum dolor sit amet', 'sdfff', '', 'beberapa kali', 0, 'lorem_ipsum_3_1530171304.jpg', 'selesai'),
+(2, 2, 1, 1, 5, '2018-06-28 07:40:55', '2018-06-28', 'cc', 'ccc', 'cccc', '', 'pertama', 0, NULL, 'diproses');
 
 -- --------------------------------------------------------
 
@@ -248,7 +239,7 @@ CREATE TABLE IF NOT EXISTS `token` (
   `id_user` int(11) NOT NULL,
   `created` timestamp NULL DEFAULT NULL,
   `expired` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `token`
@@ -265,7 +256,8 @@ INSERT INTO `token` (`id_token`, `token`, `id_user`, `created`, `expired`) VALUE
 (8, 'a5fb44daecc6c0e33cfe7c243138bc4e', 2, '2018-06-27 02:03:00', '2018-06-27 11:03:00'),
 (9, '36c0ce06602cba4994dbe9ac6e5f2d9c', 3, '2018-06-27 04:34:00', '2018-06-27 13:34:00'),
 (10, '00304811ce4f2c7bcb6abe8cdda98ffe', 3, '2018-06-27 04:40:00', '2018-06-27 13:40:00'),
-(11, '16438cab531cfe5832cd1b8533bb0cbd', 3, '2018-06-27 04:49:00', '2018-06-27 13:49:00');
+(11, '16438cab531cfe5832cd1b8533bb0cbd', 3, '2018-06-27 04:49:00', '2018-06-27 13:49:00'),
+(12, '5fcc1f240fd5ae4e7008023e29c52517', 3, '2018-06-28 02:43:00', '2018-06-28 11:43:00');
 
 -- --------------------------------------------------------
 
@@ -284,22 +276,18 @@ CREATE TABLE IF NOT EXISTS `user` (
   `deleted` tinyint(1) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `username` varchar(20) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `nama_pengguna`, `email`, `password`, `status`, `id_level`, `id_role`, `deleted`, `timestamp`, `username`) VALUES
-(1, 'admin', 'halodunia1980@gmail.com', '$2y$10$JT1F21208n4VciLNQhW6SO7UTvQ60DXK..xfT.hfmGNxOWrddqjEe', 1, 1, 4, 0, '2018-06-11 15:37:52', 'admin'),
-(2, 'lorem ipsum', 'lorem.ipsum@mail.ugm.ac.id', '$2y$10$o5CP81qeFMBiRaY0VQiQK.lBOSwlGHGd3UqDkKel06PGqJldUG.RG', 1, 1, 1, 0, '2018-06-27 05:00:49', 'analis'),
-(3, 'isnaini', 'isnaini2012@gmail.com', '$2y$10$pfId9GFNEtQqosJnj4RM5e1gS9hYkwBOX/Bo8bOQvu/hcO1vJBVp2', 1, 1, 1, 0, '2018-06-27 05:00:58', '384475'),
-(4, 'abdurrahman', 'abdurrahman@gmail.com', '$2y$10$o5CP81qeFMBiRaY0VQiQK.lBOSwlGHGd3UqDkKel06PGqJldUG.RG', 1, 3, 3, 0, '2018-06-11 15:50:34', '12345'),
-(5, 'aisyah', 'aisyah123@gmail.com', '$2y$10$bptw2HcQIAn1JQ79/67K1uIcaTqv95spdPQ/9qc3BOkicuzfIWtUy', 1, 4, 3, 0, '2018-06-06 05:47:51', '67890'),
-(6, 'nurrahmah', 'yayan90@gmail.com', '$2y$10$ByvNaDeW2tUsN7V74SWlleO4SSedqgORJTQ9WFNlaElnYEq8ccjYu', 1, 1, 2, 0, '2018-06-10 14:24:03', '8832'),
-(7, 'syarifah shofi', 'syarifahshofi@gmail.com', '$2y$10$epToi2s1nk9.fnt5uA7AO.ZTtZKI8CFyfMmNif/BfZSlLV970Ue7y', 1, 2, 0, 0, '2018-06-12 07:51:10', '8834'),
-(8, 'syarifah shofi', 'syarifahshofi@gmail.com', '$2y$10$NAVrpql3PVjTVOJuhLIgLus8D6bO2JhaZw/foNeIr/7TxaX5W8Ota', 1, 2, 0, 0, '2018-06-12 07:59:52', '8834'),
-(9, 'syarifah shofi', 'syarifahshofi@gmail.com', '$2y$10$9dZLOCi1QFXTzQ0pLLOYl.JnY4XEDkCY9uUnGD0i0w47HG/TkYPAu', 1, 2, 0, 0, '2018-06-12 08:02:51', '8834');
+(1, 'admin', 'halodunia1980@gmail.com', '$2y$10$LNp4lPX5N1A8VymNUdkIFuJ1M5aMv3cUOYEyqDsdx5iy/aROht2Nm', 1, 1, 4, 0, '2018-06-27 07:40:28', 'admin'),
+(2, 'lorem ipsum', 'lorem.ipsum@mail.ugm.ac.id', '$2y$10$LNp4lPX5N1A8VymNUdkIFuJ1M5aMv3cUOYEyqDsdx5iy/aROht2Nm', 1, 1, 1, 0, '2018-06-27 22:56:16', '384475'),
+(3, 'isnaini', 'isnaini2012@gmail.com', '$2y$10$LNp4lPX5N1A8VymNUdkIFuJ1M5aMv3cUOYEyqDsdx5iy/aROht2Nm', 1, 2, 3, 0, '2018-06-27 22:56:56', '1234'),
+(4, 'abdurrahman', 'isnaini2012@gmail.com', '$2y$10$LNp4lPX5N1A8VymNUdkIFuJ1M5aMv3cUOYEyqDsdx5iy/aROht2Nm', 1, 3, 3, 0, '2018-06-28 02:42:09', '12345'),
+(5, 'aisyah', 'isnaini2012@gmail.com', '$2y$10$LNp4lPX5N1A8VymNUdkIFuJ1M5aMv3cUOYEyqDsdx5iy/aROht2Nm', 1, 4, 3, 0, '2018-06-28 02:42:18', '67891');
 
 --
 -- Indexes for dumped tables
@@ -324,16 +312,16 @@ ALTER TABLE `level`
  ADD PRIMARY KEY (`id_level`);
 
 --
+-- Indexes for table `log`
+--
+ALTER TABLE `log`
+ ADD PRIMARY KEY (`id_log`);
+
+--
 -- Indexes for table `pengaduan`
 --
 ALTER TABLE `pengaduan`
  ADD PRIMARY KEY (`id_pengaduan`);
-
---
--- Indexes for table `pengaduan_level`
---
-ALTER TABLE `pengaduan_level`
- ADD PRIMARY KEY (`id_pengaduan_level`);
 
 --
 -- Indexes for table `roles`
@@ -383,17 +371,17 @@ MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT for table `level`
 --
 ALTER TABLE `level`
-MODIFY `id_level` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+MODIFY `id_level` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `log`
+--
+ALTER TABLE `log`
+MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `pengaduan`
 --
 ALTER TABLE `pengaduan`
-MODIFY `id_pengaduan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
---
--- AUTO_INCREMENT for table `pengaduan_level`
---
-ALTER TABLE `pengaduan_level`
-MODIFY `id_pengaduan_level` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+MODIFY `id_pengaduan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `roles`
 --
@@ -413,12 +401,12 @@ MODIFY `id_tempat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT for table `token`
 --
 ALTER TABLE `token`
-MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

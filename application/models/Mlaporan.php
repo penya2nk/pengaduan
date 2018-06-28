@@ -16,7 +16,7 @@ class Mlaporan extends CI_Model {
 	public function rekap_masuk()
 	{
 		$this->db->select('count(*)');
-		$this->db->from('pengaduan_level');
+		$this->db->from('log');
 		//$this->where
 		return $this->db->get()->result();
 	}

@@ -128,6 +128,7 @@
                                             <td>
                                             <?php
                                                 // if($this->Manalis_riwayatpeng->pengaduan_selesai($data->id_pengaduan) == 0){
+                                                if($data->status == "diproses"){
                                             ?>
                                                 <span class="badge warning"><?php echo $data->status ?></span>
                                             <?php }else{ ?>

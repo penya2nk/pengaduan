@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 		
-    <title>Admin</title>
+    <title>Koordinator</title>
 		
     <link href=<?php echo base_url("assets/vendor/bootstrap/css/bootstrap.min.css")?> rel="stylesheet">
     <link href=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.css")?>  rel="stylesheet">
@@ -116,7 +116,7 @@
 						
 						<div class="tab-content">
 							<div id="mahasiswa" class="tab-pane fade in active">
-								<!-- data mahasiswa -->
+								<!-- data pertama -->
 								<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
 									<thead>
 										<tr>

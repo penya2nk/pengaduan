@@ -124,9 +124,9 @@
                                         <td><?php //echo $data->subjek ?></td>
                                     </tr> -->
                                     <tr>
-                                        <td><b>Nama Pengadu</b></td>
+                                        <td><b>ID User</b></td>
                                         <td>:</td>
-                                        <td><?php echo $data->nama_pengguna ?></td>
+                                        <td><?php echo $data->id_user ?></td>
                                     </tr>
                                     <tr>
                                         <td><b>Tempat</b></td>
@@ -158,6 +158,11 @@
                                         <td><b>Deskripsi</b></td>
                                         <td>:</td>
                                         <td style="width: 80%"><?php echo $data->deskripsi ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Tindakan Pelapor</b></td>
+                                        <td>:</td>
+                                        <td style="width: 80%"><?php echo $data->tindaklanjut ?></td>
                                     </tr>
                                     <tr>
                                         <td><b>Kategori</b></td>

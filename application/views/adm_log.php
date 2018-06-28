@@ -159,7 +159,12 @@
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <label>Waktu 1</label>
-                                                                            <?php foreach ($detail as $data) { ?>
+                                                                            <?php 
+                                                                                $this->load->model('Madm_log');
+                                                                                $log_activity = $this->Madm_log->detail_log($data->id_pengaduan);
+
+                                                                            foreach ($log_activity as $data) { 
+                                                                                ?>
                                                                             <input type="text" value="<?php echo $data->timestamp ?>">
                                                                             <input class="form-control" type="hidden" name="id_pengaduan" value="<?php echo $data->id_pengaduan ?>">
                                                                             <?php } ?>
