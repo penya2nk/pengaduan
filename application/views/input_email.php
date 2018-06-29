@@ -41,7 +41,7 @@
      
               <div class="panel-heading" style="align-items: center;">
                 <img src=<?php echo base_url("img/ugm.gif")?> style="width: auto; height: 100px; margin-bottom: 30px">
-                <h3 class="panel-title"><b>MASUKKAN EMAIL UGM ANDA</b></h3>
+                <h3 class="panel-title"><b>MASUKKAN EMAIL ANDA</b></h3>
             </div>
         </center>
 
@@ -54,7 +54,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-envelope"></i>
               </div>
-              <input class="form-control" type="email" name="email" placeholder="Isi email ugm Anda">
+              <input class="form-control" type="email" name="email" placeholder="Isi email Anda">
           </div>
       </div>
 
