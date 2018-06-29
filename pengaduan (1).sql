@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2018 at 10:28 AM
+-- Generation Time: Jun 30, 2018 at 01:48 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -97,17 +97,24 @@ CREATE TABLE IF NOT EXISTS `log` (
   `status` enum('masuk','diproses','selesai') NOT NULL DEFAULT 'masuk',
   `keterangan` varchar(255) DEFAULT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `log`
 --
 
 INSERT INTO `log` (`id_log`, `id_pengaduan`, `id_user`, `status`, `keterangan`, `timestamp`) VALUES
-(1, 1, 2, '', NULL, '2018-06-28 07:39:26'),
-(2, 1, 2, 'selesai', NULL, '2018-06-28 07:40:04'),
+(1, 1, 2, 'masuk', NULL, '2018-06-28 08:39:58'),
 (3, 2, 2, 'masuk', NULL, '2018-06-28 07:40:55'),
-(4, 2, 2, 'diproses', 'tidak sesuai dananya', '2018-06-28 07:41:21');
+(5, 3, 2, 'masuk', NULL, '2018-06-28 09:43:23'),
+(6, 4, 2, 'masuk', NULL, '2018-06-28 09:43:33'),
+(7, 5, 1, 'masuk', NULL, '2018-06-28 13:07:15'),
+(8, 6, 1, 'masuk', NULL, '2018-06-28 13:13:15'),
+(9, 3, 1, 'diproses', 'Tukang servis sudah ditelpon sejak dua minggu yang lalu tapi belum didatang juga', '2018-06-28 13:16:53'),
+(10, 2, 1, 'selesai', NULL, '2018-06-29 04:50:43'),
+(11, 7, 1, 'masuk', NULL, '2018-06-29 06:46:28'),
+(12, 8, 1, 'masuk', NULL, '2018-06-29 06:47:36'),
+(13, 9, 1, 'masuk', NULL, '2018-06-29 06:48:36');
 
 -- --------------------------------------------------------
 
@@ -131,15 +138,22 @@ CREATE TABLE IF NOT EXISTS `pengaduan` (
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
   `gambar` varchar(255) DEFAULT NULL,
   `status` enum('masuk','diproses','selesai') NOT NULL DEFAULT 'masuk'
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `pengaduan`
 --
 
 INSERT INTO `pengaduan` (`id_pengaduan`, `id_user`, `id_jenis`, `id_ruang`, `id_kategori`, `wkt_pengaduan`, `tgl_kejadian`, `penyebab`, `efek`, `deskripsi`, `tindaklanjut`, `kejadian`, `deleted`, `gambar`, `status`) VALUES
-(1, 2, 2, 10, 3, '2018-06-28 07:35:04', '2018-06-28', 'karena kabel di belakang monitor kendor', 'lorem ipsum dolor sit amet', 'sdfff', '', 'beberapa kali', 0, 'lorem_ipsum_3_1530171304.jpg', 'selesai'),
-(2, 2, 1, 1, 5, '2018-06-28 07:40:55', '2018-06-28', 'cc', 'ccc', 'cccc', '', 'pertama', 0, NULL, 'diproses');
+(1, 2, 2, 10, 3, '2018-06-28 07:35:04', '2018-01-28', 'karena kabel di belakang monitor kendor', 'lorem ipsum dolor sit amet', 'sdfff', '', 'beberapa kali', 0, 'lorem_ipsum_3_1530171304.jpg', 'masuk'),
+(2, 2, 1, 1, 5, '2018-06-28 07:40:55', '2018-02-28', 'cc', 'ccc', 'cccc', '', 'pertama', 0, NULL, 'selesai'),
+(3, 2, 1, 1, 2, '2018-06-28 09:37:55', '2018-03-28', '', 'Kepanasan di lab', 'Pagi-pagi AC mati dan kepanasan', '', 'beberapa kali', 0, 'lorem_ipsum_2_1530178675.jpg', 'diproses'),
+(4, 2, 3, 20, 5, '2018-06-28 09:42:15', '2018-06-04', 'Ada coretan-coretan di dinding', 'tidak nyaman dilihat', 'pagi-pagi ngelihat ada coretan di dalem kamar mandi', '', 'pertama', 0, 'lorem_ipsum_5_1530178935.jpg', 'masuk'),
+(5, 1, 3, 17, 5, '2018-06-28 13:07:15', '2018-06-04', 'tidak ada lampu', 'tempat wudhu gelap jadi nggak nyaman kalau ngaca, takut ada hewan-hewan kecil', 'tempat wudhu putri di mushola DTS karena tempatnya sempit dan lampunya mati jadi wudhunya gelap-gelapan, tidak nyaman buat wudhu takut ada hewan-hewan kecil, tidak bisa ngaca dengan baik', '', 'beberapa kali', 0, NULL, 'masuk'),
+(6, 1, 0, 5, 2, '2018-06-28 13:13:15', '2017-06-15', '', 'harus pindah meja dan ganti-ganti komputer', 'komputer nomer tiba-tiba 15 mati, lalu tidak bisa nyala sama sekali', 'coba tekan tombol power dan lepas pasang kabelnya tetap tidak nyala', '', 0, NULL, 'masuk'),
+(7, 1, 3, 2, 1, '2018-06-29 06:46:28', '2018-04-11', '', 'uidhsaudhasjdhas', 'dhdakudhakduhadushauda', '', '', 0, NULL, 'masuk'),
+(8, 1, 3, 16, 4, '2018-06-29 06:47:36', '2018-05-29', '', 'hsuhSIUHLSAJDHASD', 'DSDADHADJADJhdahjhhs', '', 'pertama', 0, NULL, 'masuk'),
+(9, 1, 3, 21, 5, '2018-06-29 06:48:36', '2018-05-25', 'mbhbhjbjbhjavhgsvx', 'dhasdnahdauidha', 'DJSADIOAJNAIOJoisdjsjdsk', '', 'pertama', 0, NULL, 'masuk');
 
 -- --------------------------------------------------------
 
@@ -239,7 +253,7 @@ CREATE TABLE IF NOT EXISTS `token` (
   `id_user` int(11) NOT NULL,
   `created` timestamp NULL DEFAULT NULL,
   `expired` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `token`
@@ -257,7 +271,9 @@ INSERT INTO `token` (`id_token`, `token`, `id_user`, `created`, `expired`) VALUE
 (9, '36c0ce06602cba4994dbe9ac6e5f2d9c', 3, '2018-06-27 04:34:00', '2018-06-27 13:34:00'),
 (10, '00304811ce4f2c7bcb6abe8cdda98ffe', 3, '2018-06-27 04:40:00', '2018-06-27 13:40:00'),
 (11, '16438cab531cfe5832cd1b8533bb0cbd', 3, '2018-06-27 04:49:00', '2018-06-27 13:49:00'),
-(12, '5fcc1f240fd5ae4e7008023e29c52517', 3, '2018-06-28 02:43:00', '2018-06-28 11:43:00');
+(12, '5fcc1f240fd5ae4e7008023e29c52517', 3, '2018-06-28 02:43:00', '2018-06-28 11:43:00'),
+(13, 'dae7b2b81e09d8e35ee2d8eee3d589a5', 3, '2018-06-28 09:51:00', '2018-06-28 18:51:00'),
+(14, 'c990437f22b6420a970e48ebc0265eae', 3, '2018-06-28 09:56:00', '2018-06-28 18:56:00');
 
 -- --------------------------------------------------------
 
@@ -270,24 +286,13 @@ CREATE TABLE IF NOT EXISTS `user` (
   `nama_pengguna` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `status` tinyint(1) NOT NULL,
-  `id_level` int(11) NOT NULL,
   `id_role` tinyint(4) NOT NULL,
+  `id_level` tinyint(4) NOT NULL DEFAULT '1',
+  `status` tinyint(1) NOT NULL DEFAULT '1',
   `deleted` tinyint(1) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `username` varchar(20) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id_user`, `nama_pengguna`, `email`, `password`, `status`, `id_level`, `id_role`, `deleted`, `timestamp`, `username`) VALUES
-(1, 'admin', 'halodunia1980@gmail.com', '$2y$10$LNp4lPX5N1A8VymNUdkIFuJ1M5aMv3cUOYEyqDsdx5iy/aROht2Nm', 1, 1, 4, 0, '2018-06-27 07:40:28', 'admin'),
-(2, 'lorem ipsum', 'lorem.ipsum@mail.ugm.ac.id', '$2y$10$LNp4lPX5N1A8VymNUdkIFuJ1M5aMv3cUOYEyqDsdx5iy/aROht2Nm', 1, 1, 1, 0, '2018-06-27 22:56:16', '384475'),
-(3, 'isnaini', 'isnaini2012@gmail.com', '$2y$10$LNp4lPX5N1A8VymNUdkIFuJ1M5aMv3cUOYEyqDsdx5iy/aROht2Nm', 1, 2, 3, 0, '2018-06-27 22:56:56', '1234'),
-(4, 'abdurrahman', 'isnaini2012@gmail.com', '$2y$10$LNp4lPX5N1A8VymNUdkIFuJ1M5aMv3cUOYEyqDsdx5iy/aROht2Nm', 1, 3, 3, 0, '2018-06-28 02:42:09', '12345'),
-(5, 'aisyah', 'isnaini2012@gmail.com', '$2y$10$LNp4lPX5N1A8VymNUdkIFuJ1M5aMv3cUOYEyqDsdx5iy/aROht2Nm', 1, 4, 3, 0, '2018-06-28 02:42:18', '67891');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Indexes for dumped tables
@@ -376,12 +381,12 @@ MODIFY `id_level` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT for table `log`
 --
 ALTER TABLE `log`
-MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `pengaduan`
 --
 ALTER TABLE `pengaduan`
-MODIFY `id_pengaduan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id_pengaduan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `roles`
 --
@@ -401,12 +406,12 @@ MODIFY `id_tempat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT for table `token`
 --
 ALTER TABLE `token`
-MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
