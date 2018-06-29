@@ -141,41 +141,11 @@
                                             <td><?php echo date('H:i:s', strtotime($data->timestamp)) ?></td>
                                             <td><?php echo date('d-F-Y', strtotime($data->timestamp)) ?></td>
                                             <td>
-                                                <i class="btn btn-primary fa fa-eye" data-toggle="modal" data-target="#detail<?php echo $data->id_pengaduan; ?>">&nbsp;Detail</i>
+                                                <i class="btn btn-primary fa fa-eye" data-toggle="modal" data-target="#detail1">&nbsp;Detail</i>
                                             </td>
-                                        </tr>
 
-                                        <!-- modal edit user -->
-                                                <div class="modal modal-primary fade" id="detail<?php echo $data->id_pengaduan ?>" style="margin-top: 5%">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span></button>
-                                                                <h4 class="modal-title">DETAIL LOG PENGADUAN</h4>
-                                                            </div>
-                                                            
-                                                            <div class="modal-body">
-                                                                    <div class="row">
-                                                                        <div class="col-md-12">
-                                                                            <table>
-                                                                                <thead>
-                                                                                    <th>Pengelola</th>
-                                                                                    <th>Status</th>
-                                                                                    <tr>timestamp</tr>
-                                                                                </thead>
-                                                                            </table>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">selesai
-                                                                    </button>
-                                                                </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- modal edit user -->
+                                        
+                                        </tr>
                                         <?php
                                     }
                                     ?>
