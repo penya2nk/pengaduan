@@ -82,7 +82,7 @@
                     <!-- menu -->
 
                     <li>
-                        <a href=<?php echo base_url('laporan')?> ><i class="fa fa-archive"></i>&nbsp; Laporan</a>
+                        <a href=<?php echo base_url('laporan')?> ><i class="fa fa-dashboard"></i>&nbsp; Laporan</a>
                     </li>
                     <!-- menu -->
 
@@ -97,14 +97,6 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <?php 
-                                    foreach ($pengaduan as $data) {
-                                //echo $data->tahun.' '.$data->kategori.' : '.$data->jumlah.'<br>';
-                                // echo "dhsjsjs";
-                            $masuk = $data->status;
-                            echo $masuk;
-                             }
-                                    ?>
                 <h1 class="page-header">Dashboard</h1>
                 <?php
                 // var_dump($pengaduan);
@@ -128,8 +120,11 @@
                                 <i class="fa fa-inbox fa-5x"></i>
                             </div>
                             <div class="col-xs-7 text-right">
-                                <div class="huge">
-                                    </div>
+                                <div class="huge" style="font-size: 55px">
+                                    <?php
+                                    echo sizeof($masuk);
+                                    ?>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -149,7 +144,13 @@
                                 <i class="fa fa-gear fa-5x"></i>
                             </div>
                             <div class="col-xs-7 text-right">
-                                <div class="huge"></div>
+                                <div class="huge">
+                                    <div class="huge" style="font-size: 55px">
+                                    <?php
+                                    echo sizeof($diproses);
+                                    ?>
+                                </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -169,7 +170,11 @@
                                 <i class="fa fa-check fa-5x"></i>
                             </div>
                             <div class="col-xs-7 text-right">
-                                <div class="huge"></div>
+                                <div class="huge" style="font-size: 55px">
+                                    <?php
+                                    echo sizeof($selesai);
+                                    ?>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -341,7 +346,7 @@
         else if(row.label == "dosen") return "#DEBB27";
         else if(row.label == "mata kuliah") return "#fec04c";
         else if(row.label == "layanan informasi") return "#1AB244";
-        else if(row.label == "lingkungan") return "#33cc33";
+        else if(row.label == "lingkungan") return "#3385ff";
         }
     });
     
