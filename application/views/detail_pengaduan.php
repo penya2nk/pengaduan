@@ -150,6 +150,11 @@
 										<td style="width: 80%"><?php echo $data->deskripsi ?></td>
 									</tr>
 									<tr>
+										<td><b>Tindakan Pelapor</b></td>
+										<td>:</td>
+										<td style="width: 80%"><?php echo $data->tindaklanjut ?></td>
+									</tr>
+									<tr>
 										<td><b>Kategori</b></td>
 										<td>:</td>
 										<td><?php echo $data->kategori ?>

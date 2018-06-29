@@ -79,9 +79,6 @@
                         <li>
                             <a href=<?php echo base_url('koordinator/riwayat')?> style="color: #000000"><i class="fa fa-table"></i> &nbsp;<b>Riwayat Pengaduan</b></a>
                         </li>
-                        <li>
-                        <a href=<?php echo base_url('koordinator/grouping')?> ><i class="fa fa-edit"></i>&nbsp; Pengaduan Kejadian</a>
-                    </li>
                         
                     </ul>
                 </div>

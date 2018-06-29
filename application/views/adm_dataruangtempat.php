@@ -122,16 +122,13 @@
                             <!-- search -->
                             <div class="form-group" style="margin-bottom: 10px; width: 50%">
                               <div class="input-group">
-                                <div class="input-group-addon">
-                                  <i class="fa fa-search"></i>
-                                </div>
-                                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cari nama ruang.." class="form-control">
+                                
                               </div>
                             </div>
                             <!-- end search -->
 
-                            <div class="table-responsive" style="overflow-x: auto">
-                                <table class="table table-striped table-bordered table-hover" id="myTable">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover"" id="example1">
                                     <thead>
                                         <tr>
                                             <th style="width: 20px">No</th>
@@ -450,28 +447,6 @@
     });
 </script>
 
-<script>
-function myFunction() {
-    //deklarasi variabelnya
-  var input, filter, table, tr, td, i;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1];
-    if (td) {
-      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
-}
-</script>
-
 <script type="text/javascript">
     function myFunction2() {
     //deklarasi variabelnya
@@ -511,6 +486,20 @@ for (var i=0; i<colNumber; i++)
 
 <script type="text/javascript">
     $("#hilang").show().delay(2000).slideUp(400);
+</script>
+
+<script type="text/javascript">
+    $(function () {
+    $('#example1').DataTable({
+    //$('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
 </script>
 
 </body>

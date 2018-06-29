@@ -92,6 +92,7 @@ $route['analis/update_status'] = 'analis/Cpengaduan_masuk/update_status';
 $route['analis/riwayat_deleted/(:num)'] = 'analis/Canalis_riwayatpeng/deleted/$1';
 $route['analis/ubah_password'] = 'analis/Canalis_riwayatpeng/save_password';
 $route['analis/ubah_password'] = 'analis/Cpengaduan_masuk/save_password';
+$route['analis/laporan'] = 'analis/Claporan_analis/laporan';
 
 //koor
 $route['koordinator'] = 'koor/Ckpengaduan_masuk';
