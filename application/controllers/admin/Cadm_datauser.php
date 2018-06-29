@@ -60,7 +60,7 @@ class Cadm_datauser extends BaseController {
 					"email" => $rowData[0][2],
 					"password" => password_hash($rowData[0][3], PASSWORD_BCRYPT),
 					"id_role" => $rowData[0][4],
-					"username" => $rowData[0][5]
+					"username" => int($rowData[0][5]),
 				);
 
 				$insert = $this->db->insert("user",$data);
