@@ -197,7 +197,7 @@
 
 																			<div class="form-group" style="width: 30%;">
                                                                             <label>Level :</label>
-																				<select name="id_level" class="form-control">
+																				<select name="id_level" class="form-control" disabled>
 																					<?php
 																					foreach($level as $l){ ?>
 																					<option <?php echo ($data->id_level == $l->id_level ? 'selected' : ''); ?> value="<?php echo $l->id_level ?>"><?php echo $l->nama_level." ".$l->posisi ?></option>
