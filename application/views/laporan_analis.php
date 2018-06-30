@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Analis</title>
+    <title>Admin</title>
 
     <link href=<?php echo base_url("assets/vendor/bootstrap/css/bootstrap.min.css")?> rel="stylesheet">
     <link href=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.css")?>  rel="stylesheet">
@@ -29,7 +29,6 @@
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="background-color: #005580">
             <div class="navbar-header">
-
                 <a class="navbar-brand" style="color: #ffffff" >SI PENGADUAN</a>
             </div>
             <!-- /.navbar-header -->
@@ -81,18 +80,18 @@
 
                     <!-- menu -->
 
-                    <li>
-                        <a href=<?php echo base_url('analis')?> ><i class="fa fa-envelope"></i>&nbsp; Pengaduan Masuk</a>
-                    </li>
-                    <li>
-                        <a href=<?php echo base_url('analis/riwayat_pengaduan')?> ><i class="fa fa-table"></i>&nbsp; Riwayat Pengaduan</a>
-                    </li>
-                    <li>
-                        <a href=<?php echo base_url('analis/kelola')?>><i class="fa fa-gears"></i>&nbsp; Kategori dan Jenis</a>
-                    </li>
-                    <li class="active">
-                        <a href=<?php echo base_url('analis/laporan')?> style="color: #000000"><i class="fa fa-dashboard"></i><b>&nbsp; Laporan Pengaduan</b></a>
-                    </li>
+                        <li class="active">
+                            <a href=<?php echo base_url('analis')?>><i class="fa fa-envelope"></i>&nbsp; Pengaduan Masuk</a>
+                        </li>
+                        <li>
+                            <a href=<?php echo base_url('analis/riwayat_pengaduan')?> ><i class="fa fa-table"></i>&nbsp; Riwayat Pengaduan</a>
+                        </li>
+                        <li>
+                            <a href=<?php echo base_url('analis/kelola')?>><i class="fa fa-gears"></i>&nbsp; Kategori dan Jenis</a>
+                        </li>
+                        <li>
+                            <a href=<?php echo base_url('analis/laporan')?> style="color: #000000"><i class="fa fa-dashboard"></i><b>&nbsp; Laporan Pengaduan</b></a>
+                        </li>
                     <!-- menu -->
 
                 </ul>
@@ -107,88 +106,50 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Dashboard</h1>
-                <?php
-                // var_dump($pengaduan);
-                             foreach ($pengaduan as $data) {
-                                //echo $data->tahun.' '.$data->kategori.' : '.$data->jumlah.'<br>';
-                                // echo "dhsjsjs";
-                                $kategori[] = $data->kategori;
-                                $jumlah[] = (float) $data->jumlah;
-                             }
-                            ?>
             </div>
             <!-- /.col-lg-12 -->
         </div>
+
         <!-- /.row -->
         <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-inbox fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge"><!--<?php //echo $data ?>--></div>
-                                <div>Pengaduan Masuk</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-yellow">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-gear fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">12</div>
-                                <div>Pengaduan diproses</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-green">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-check fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">124</div>
-                                <div>Selesai ditangani</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            
             
         </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Rekap Pengaduan
+                        <div class="pull-right">
+                        </div>
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <thead>
+                                <tr>
+                                    <th>Rendering engine</th>
+                                    <th>Browser</th>
+                                    <th>Platform(s)</th>
+                                    <th>Engine version</th>
+                                    <th>CSS grade</th>
+                                </tr>
+                            </thead>
+                                <tbody>
+                                    <tr class="odd gradeX">
+                                        <td>Trident</td>
+                                        <td>Internet Explorer 4.0</td>
+                                        <td>Win 95+</td>
+                                        <td class="center">4</td>
+                                        <td class="center">X</td>
+                                    </tr>
+                                </tbody>
+                        </table>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+
         <!-- /.row -->
         <div class="row">
             <div class="col-lg-12">
@@ -226,44 +187,9 @@
                     </div>
                     <!-- /.panel-body -->
                 </div>
+
                 <!-- /.panel -->
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
-                        <div class="pull-right">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    Actions
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu pull-right" role="menu">
-                                    <li><a href="#">Action</a>
-                                    </li>
-                                    <li><a href="#">Another action</a>
-                                    </li>
-                                    <li><a href="#">Something else here</a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Separated link</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.panel-heading -->
-                    <div class="panel-body">
-                        <div class="row">
-                            
-                            <!-- /.col-lg-4 (nested) -->
-                            <div class="col-lg-10">
-                                <div id="morris-bar-chart"></div>
-                            </div>
-                            <!-- /.col-lg-8 (nested) -->
-                        </div>
-                        <!-- /.row -->
-                    </div>
-                    <!-- /.panel-body -->
-                </div>
+                
                 <!-- /.panel -->
             </div>
             
@@ -347,6 +273,7 @@
         else if(row.label == "dosen") return "#DEBB27";
         else if(row.label == "mata kuliah") return "#fec04c";
         else if(row.label == "layanan informasi") return "#1AB244";
+        else if(row.label == "lingkungan") return "#3385ff";
         }
     });
     

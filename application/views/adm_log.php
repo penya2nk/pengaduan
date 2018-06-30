@@ -53,7 +53,7 @@
 
             <!--- user panel -->
             <section class="sidebar">
-                
+
             </section>
 
             <!-- MENU -->
@@ -144,154 +144,154 @@
                                                 <i class="btn btn-primary fa fa-eye" data-toggle="modal" data-target="#detail<?php echo $data->id_pengaduan ?>">&nbsp;Detail</i>
                                             </td>
 
-                                        
+
                                         </tr>
                                         <!-- modal edit user -->
-                                                <div class="modal modal-primary fade" id="detail<?php echo $data->id_pengaduan ?>" style="margin-top: 5%">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span></button>
-                                                                <h4 class="modal-title">DETAIL LOG PENGADUAN</h4>
-                                                            </div>
-                                                            
-                                                            <div class="modal-body">
-																															<div class="row text-center">
-																																<div class="col-md-1">
-																																	<label>No.</label>
-																																</div>
-																																<div class="col-md-3">
-																																	<label>Tanggal</label>
-																																</div>
-																																<div class="col-md-2">
-																																	<label>Jam</label>
-																																</div>
-																																<div class="col-md-3">
-																																	<label>Pengelola</label>
-																																</div>
-																																<div class="col-md-3">
-																																	<label>Status</label>
-																																</div>
-																															</div>
-																															<?php 
-																																$this->load->model('Madm_log');
-																																$log_activity = $this->Madm_log->detail_log($data->id_pengaduan);
-																																$j = 1;
-																																foreach ($log_activity as $log) { 
-																															?> 
-																															<div class="row text-center">
-																																<div class="col-md-1">
-																																	<p><?php echo $j ?></p>
-																																</div>
-																																<div class="col-md-3">
-																																	<p><?php echo date("d F Y", strtotime($log->timestamp)) ?></p>
-																																</div>
-																																<div class="col-md-2">
-																																	<p><?php echo date("H:i:s", strtotime($log->timestamp)) ?></p>
-																																</div>
-																																<div class="col-md-3">
-																																	<p><?php echo $log->nama_pengguna ?></p>
-																																</div>
-																																<div class="col-md-3">
-																																	<p>
-																																		<?php
-																																			if($log->status == 'masuk') {
-																																		?>
-																																		<span class="badge primary"><?php echo $log->status ?></span><br>
-																																		<?php }elseif($log->status == 'diproses'){
-																																		?>
-																																		<span class="badge warning"><?php echo $log->status ?></span><br>
-																																		<?php }else{ ?>
-																																		<span class="badge success"><?php echo $log->status ?></span><br>
-																																		<?php } ?>
-																																	</p>
-																																</div>
-																															</div>
-																															<?php $j++;} ?>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">selesai
-                                                                    </button>
-                                                                </div>
+                                        <div class="modal modal-primary fade" id="detail<?php echo $data->id_pengaduan ?>" style="margin-top: 5%">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span></button>
+                                                            <h4 class="modal-title">DETAIL LOG PENGADUAN</h4>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <!-- modal edit user -->
-                                        <?php
-                                    }
-                                    ?>
-                                </tbody>
-                            </table>
-                            <!-- /.row (nested) -->
+                                                        <div class="modal-body">
+                                                            <div class="row text-center">
+
+                                                                <div class="col-md-1">
+                                                                    <label>No.</label>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label>Tanggal</label>
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <label>Jam</label>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label>Pengelola</label>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label>Status</label>
+                                                                </div>
+                                                            </div>
+                                                            <?php 
+                                                            $this->load->model('Madm_log');
+                                                            $log_activity = $this->Madm_log->detail_log($data->id_pengaduan);
+                                                            $j = 1;
+                                                            foreach ($log_activity as $log) { 
+                                                                ?> 
+                                                                <div class="row text-center">
+                                                                    <div class="col-md-1">
+                                                                        <p><?php echo $j ?></p>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <p><?php echo date("d F Y", strtotime($log->timestamp)) ?></p>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <p><?php echo date("H:i:s", strtotime($log->timestamp)) ?></p>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <p><?php echo $log->nama_pengguna ?></p>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <p>
+                                                                            <?php
+                                                                            if($log->status == 'masuk') {
+                                                                                ?>
+                                                                                <span class="badge primary"><?php echo $log->status ?></span><br>
+                                                                                <?php }elseif($log->status == 'diproses'){
+                                                                                    ?>
+                                                                                    <span class="badge warning"><?php echo $log->status ?></span><br>
+                                                                                    <?php }else{ ?>
+                                                                                    <span class="badge success"><?php echo $log->status ?></span><br>
+                                                                                    <?php } ?>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <?php $j++;} ?>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">selesai
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- modal edit user -->
+                                                        <?php
+                                                        }
+                                                    ?>
+                                                </tbody>
+                                            </table>
+                                            <!-- /.row (nested) -->
+                                        </div>
+                                        <!-- /.panel-body -->
+                                    </div>
+                                    <!-- /.panel -->
+                                </div>
+                                <!-- /.col-lg-12 -->
+                            </div>
+                            <!-- /.row -->
                         </div>
-                        <!-- /.panel-body -->
+                        <!-- /#page-wrapper -->
                     </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /#page-wrapper -->
-    </div>
-    <!-- /#wrapper -->
+                    <!-- /#wrapper -->
 
-    <!-- modal setting -->
-    <div class="modal modal-primary fade" id="settingModal" style="margin-top: 5%">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">RESET PASSWORD</h4>
-            </div>
-            
-            <form method="POST" action="<?php echo base_url('admin/ubah_password') ?>">
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Password lama :</label>
-                                <input type="password" name="old" class="form-control" placeholder="Password Lama" required>
+                    <!-- modal setting -->
+                    <div class="modal modal-primary fade" id="settingModal" style="margin-top: 5%">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">RESET PASSWORD</h4>
                             </div>
-                            <div class="form-group">
-                                <label>Password baru :</label>
-                                <input type="password" name="new" class="form-control" placeholder="Password Baru" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Ulangi password baru :</label>
-                                <input type="password" name="re_new" class="form-control" placeholder="Ulangi Password Baru" required>
-                            </div>
+
+                            <form method="POST" action="<?php echo base_url('admin/ubah_password') ?>">
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Password lama :</label>
+                                                <input type="password" name="old" class="form-control" placeholder="Password Lama" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Password baru :</label>
+                                                <input type="password" name="new" class="form-control" placeholder="Password Baru" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Ulangi password baru :</label>
+                                                <input type="password" name="re_new" class="form-control" placeholder="Ulangi Password Baru" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Batal</button>
+                                    <input type="submit" class="btn btn-primary" value="Simpan">
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Batal</button>
-                    <input type="submit" class="btn btn-primary" value="Simpan">
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- modal setting -->
+                <!-- modal setting -->
 
-<script src=<?php echo base_url("assets/vendor/jquery/jquery.min.js")?> ></script>
-<script src=<?php echo base_url("assets/vendor/bootstrap/js/bootstrap.min.js")?> ></script>
-<script src=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.js")?> ></script>
-<script src=<?php echo base_url("assets/vendor/datatables/js/jquery.dataTables.min.js")?> ></script>
-<script src=<?php echo base_url("assets/vendor/datatables-plugins/dataTables.bootstrap.min.js")?> ></script>
-<script src=<?php echo base_url("assets/vendor/datatables-responsive/dataTables.responsive.js")?> ></script>
-<script src=<?php echo base_url("assets/dist/js/sb-admin-2.js")?> ></script>
+                <script src=<?php echo base_url("assets/vendor/jquery/jquery.min.js")?> ></script>
+                <script src=<?php echo base_url("assets/vendor/bootstrap/js/bootstrap.min.js")?> ></script>
+                <script src=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.js")?> ></script>
+                <script src=<?php echo base_url("assets/vendor/datatables/js/jquery.dataTables.min.js")?> ></script>
+                <script src=<?php echo base_url("assets/vendor/datatables-plugins/dataTables.bootstrap.min.js")?> ></script>
+                <script src=<?php echo base_url("assets/vendor/datatables-responsive/dataTables.responsive.js")?> ></script>
+                <script src=<?php echo base_url("assets/dist/js/sb-admin-2.js")?> ></script>
 
-<script>
-    $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-            responsive: true
-        });
-    });
-</script>
+                <script>
+                    $(document).ready(function() {
+                        $('#dataTables-example').DataTable({
+                            responsive: true
+                        });
+                    });
+                </script>
 
-</body>
+            </body>
 
-</html>
+            </html>

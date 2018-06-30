@@ -6,14 +6,14 @@ class Claporan_analis extends BaseController {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('Mlaporan');
+		$this->load->model('Mlaporan_analis');
 		$this->load->helper('url','form');
 		$this->load->library('pdf');
 		$this->isLoggedIn();
 	}
 
-	public function laporan()
+	public function index()
 	{
-		$this->load->view('Laporan_analis');
+		$this->load->view('laporan_analis');
 	}
 }

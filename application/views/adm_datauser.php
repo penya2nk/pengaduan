@@ -195,8 +195,8 @@
 																				<input class="form-control" type="text" name="username" value="<?php echo $data->username ?>">
 																			</div>
 
-																			<div class="form-group">
-																				<label>Level :</label>
+																			<div class="form-group" style="width: 30%;">
+                                                                            <label>Level :</label>
 																				<select name="id_level" class="form-control">
 																					<?php
 																					foreach($level as $l){ ?>
@@ -205,12 +205,14 @@
 																				</select>
 																			</div>
 
-																			<div class="form-group" style="width:30%;">
+                                                                            <div class="form-group" style="width:30%;">
 																				<label>Status :</label>
 																				<select name="status" class="form-control" style="margin-bottom: 20px">
 																				<option <?php if($data->status == 1){echo "selected";} ?> value="1" >Aktif</option>
 																				<option <?php if($data->status == 0){echo "selected";} ?> value="0">Tidak Aktif</option>
+																			</select>
 																			</div>
+
 																			
 																		</div>
 																	</div>
@@ -313,6 +315,7 @@
                                                                                 <input class="form-control" type="hidden" name="id_user" value="<?php echo $data->id_user ?>">
                                                                             </div>
 
+                                                                            <div class="form-group" style="width: 30%;">
                                                                             <label>Level :</label>
 																				<select name="id_level" class="form-control">
 																					<?php
@@ -320,6 +323,15 @@
 																					<option <?php echo ($data->id_level == $l->id_level ? 'selected' : ''); ?> value="<?php echo $l->id_level ?>"><?php echo $l->nama_level." ".$l->posisi ?></option>
 																					<?php } ?>
 																				</select>
+																			</div>
+
+                                                                            <div class="form-group" style="width:30%;">
+																				<label>Status :</label>
+																				<select name="status" class="form-control" style="margin-bottom: 20px">
+																				<option <?php if($data->status == 1){echo "selected";} ?> value="1" >Aktif</option>
+																				<option <?php if($data->status == 0){echo "selected";} ?> value="0">Tidak Aktif</option>
+																			</select>
+																			</div>
 
                                                                             
                                                                         </div>
@@ -423,6 +435,7 @@
                                                                                 <input class="form-control" type="hidden" name="id_user" value="<?php echo $data->id_user ?>">
                                                                             </div>
 
+                                                                            <div class="form-group" style="width: 30%;">
                                                                             <label>Level :</label>
 																				<select name="id_level" class="form-control">
 																					<?php
@@ -430,8 +443,16 @@
 																					<option <?php echo ($data->id_level == $l->id_level ? 'selected' : ''); ?> value="<?php echo $l->id_level ?>"><?php echo $l->nama_level." ".$l->posisi ?></option>
 																					<?php } ?>
 																				</select>
+																			</div>
 
-                                                                            
+                                                                            <div class="form-group" style="width:30%;">
+																				<label>Status :</label>
+																				<select name="status" class="form-control" style="margin-bottom: 20px">
+																				<option <?php if($data->status == 1){echo "selected";} ?> value="1" >Aktif</option>
+																				<option <?php if($data->status == 0){echo "selected";} ?> value="0">Tidak Aktif</option>
+																			</select>
+																			</div>
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
