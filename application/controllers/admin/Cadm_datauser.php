@@ -32,19 +32,18 @@ class Cadm_datauser extends BaseController {
 		$this->load->library('upload',$config);
 		if (! $this->upload->do_upload('file')) {
 			$this->upload->display_errors();
-
 		}else{
 			$media = $this->upload->data();
 			$inputFileName = './assets/user/'.$media['file_name'];
-
+			
 			try {
 				$inputFileType = IOFactory::identify($inputFileName);
 				$objReader = IOFactory::createReader($inputFileType);
 				$objPHPExcel = $objReader->load($inputFileName);
 			} catch(Exception $e) {
 				die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
+				var_dump("error lol");exit;
 			}
-
 			
 			$sheet = $objPHPExcel->getSheet(0);
 			$highestRow = $sheet->getHighestRow();
@@ -54,19 +53,19 @@ class Cadm_datauser extends BaseController {
 				$rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row, NULL, TRUE, FALSE);
 				//var_dump($rowData[0][0],$rowData[0][1],$rowData[0][2],$rowData[0][3],$rowData[0][4]); exit;
 
-				if($rowData[0][1] == ''){
-				$data = array(
-					"nama_pengguna" => $rowData[0][1],
-					"email" => $rowData[0][2],
-					"password" => password_hash($rowData[0][3], PASSWORD_BCRYPT),
-					"id_role" => $rowData[0][4],
-					"username" => int($rowData[0][5]),
-				);
+				if($rowData[0][1] != ''){
+					$data = array(
+						"nama_pengguna" => $rowData[0][1],
+						"email" => $rowData[0][2],
+						"password" => password_hash($rowData[0][3], PASSWORD_BCRYPT),
+						"id_role" => $rowData[0][4],
+						"username" => $rowData[0][5]
+					);
 
-				$insert = $this->db->insert("user",$data);
-			unlink($inputFileName); //File Deleted After uploading in database .
+					$this->db->insert("user",$data);
+				}
 			}
-		}
+			unlink($inputFileName); //File Deleted After uploading in database .
 	}
 	redirect('admin/data_user');
 }
