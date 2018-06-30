@@ -84,10 +84,13 @@
                     <li>
                         <a href=<?php echo base_url('analis')?> ><i class="fa fa-envelope"></i>&nbsp; Pengaduan Masuk</a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href=<?php echo base_url('analis/riwayat_pengaduan')?> ><i class="fa fa-table"></i>&nbsp; Riwayat Pengaduan</a>
                     </li>
                     <li>
+                        <a href=<?php echo base_url('analis/kelola')?>><i class="fa fa-gears"></i>&nbsp; Kategori dan Jenis</a>
+                    </li>
+                    <li class="active">
                         <a href=<?php echo base_url('analis/laporan')?> style="color: #000000"><i class="fa fa-dashboard"></i><b>&nbsp; Laporan Pengaduan</b></a>
                     </li>
                     <!-- menu -->
