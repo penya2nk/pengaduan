@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin</title>
+    <title>Analis</title>
 
     <link href=<?php echo base_url("assets/vendor/bootstrap/css/bootstrap.min.css")?> rel="stylesheet">
     <link href=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.css")?>  rel="stylesheet">
@@ -90,7 +90,7 @@
                             <a href=<?php echo base_url('analis/kelola')?>><i class="fa fa-gears"></i>&nbsp; Kategori dan Jenis</a>
                         </li>
                         <li>
-                            <a href=<?php echo base_url('analis/laporan')?> style="color: #000000"><i class="fa fa-dashboard"></i><b>&nbsp; Laporan Pengaduan</b></a>
+                            <a href=<?php echo base_url('analis/laporan')?> style="color: #000000"><i class="fa fa-dashboard"></i><b>&nbsp; Rekap Data</b></a>
                         </li>
                     <!-- menu -->
 
@@ -117,7 +117,7 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Rekap Pengaduan
@@ -126,29 +126,75 @@
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
-                        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <table width="100%" class="table table-striped table-bordered table-hover" id="example1">
                             <thead>
                                 <tr>
-                                    <th>Rendering engine</th>
-                                    <th>Browser</th>
-                                    <th>Platform(s)</th>
-                                    <th>Engine version</th>
-                                    <th>CSS grade</th>
+                                    <th>Bulan</th>
+                                    <!-- <th>Kategori</th>
+                                    <th style="width: 40%">Ruang</th> -->
+                                    <th>Jumlah Pengaduan</th>
                                 </tr>
                             </thead>
                                 <tbody>
-                                    <tr class="odd gradeX">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 4.0</td>
-                                        <td>Win 95+</td>
-                                        <td class="center">4</td>
-                                        <td class="center">X</td>
+                                    <?php 
+                                        foreach ($bulan as $data)
+                                        {
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $data->bulan ?></td>
+                                        <!-- <td><?php// echo $data->kategori ?></td>
+                                        <td><?php //echo $data->nama_ruang ?></td> -->
+                                        <td><?php echo $data->jumlah ?></td>
                                     </tr>
+                                    <?php
+                                        }
+                                    ?>
                                 </tbody>
                         </table>
                     </div>
                     <!-- /.panel-body -->
                 </div>
+            </div>
+
+
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Rekap Pengaduan Berdasarkan Ruang
+                        <div class="pull-right">
+                        </div>
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <table width="100%" class="table table-striped table-bordered table-hover" id="example2">
+                            <thead>
+                                <tr>
+                                    <th>Bulan</th>
+                                    <!-- <th>Kategori</th>
+                                    <th style="width: 40%">Ruang</th> -->
+                                    <th>Jumlah Pengaduan</th>
+                                </tr>
+                            </thead>
+                                <tbody>
+                                    <?php 
+                                        foreach ($ruang as $data)
+                                        {
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $data->nama_ruang ?></td>
+                                        <!-- <td><?php// echo $data->kategori ?></td>
+                                        <td><?php //echo $data->nama_ruang ?></td> -->
+                                        <td><?php echo $data->jumlah ?></td>
+                                    </tr>
+                                    <?php
+                                        }
+                                    ?>
+                                </tbody>
+                        </table>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+            </div>
 
         <!-- /.row -->
         <div class="row">
@@ -279,6 +325,34 @@
     
 });
 
+</script>
+
+<script>
+  $(function () {
+    $('#example1').DataTable({
+    //$('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+     // 'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
+
+<script>
+  $(function () {
+    $('#example2').DataTable({
+    //$('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+     // 'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
 </script>
 
 </body>

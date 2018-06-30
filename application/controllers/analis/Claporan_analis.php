@@ -14,6 +14,8 @@ class Claporan_analis extends BaseController {
 
 	public function index()
 	{
-		$this->load->view('laporan_analis');
+		$data['bulan']=$this->Mlaporan_analis->bulan();
+		$data['ruang']=$this->Mlaporan_analis->ruang();
+		$this->load->view('laporan_analis',$data);
 	}
 }
