@@ -93,6 +93,13 @@ $route['analis/riwayat_deleted/(:num)'] = 'analis/Canalis_riwayatpeng/deleted/$1
 $route['analis/ubah_password'] = 'analis/Canalis_riwayatpeng/save_password';
 $route['analis/ubah_password'] = 'analis/Cpengaduan_masuk/save_password';
 $route['analis/laporan'] = 'analis/Claporan_analis/laporan';
+$route['analis/kelola'] = 'analis/Ckategori_jenis';
+$route['analis/tambah_kategori'] = 'analis/Ckategori_jenis/tambah_kategori';
+$route['analis/edit_kategori'] = 'analis/Ckategori_jenis/edit_kategori';
+$route['analis/tambah_jenis'] = 'analis/Ckategori_jenis/tambah_jenis';
+$route['analis/edit_jenis'] = 'analis/Ckategori_jenis/edit_jenis';
+$route['analis/hapus_kategori/(:num)'] = 'analis/Ckategori_jenis/hapus_kategorig/$1';
+$route['analis/hapus_jenis/(:num)'] = 'analis/Ckategori_jenis/hapus_jenis/$1';
 
 //koor
 $route['koordinator'] = 'koor/Ckpengaduan_masuk';

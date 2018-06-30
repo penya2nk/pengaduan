@@ -185,7 +185,7 @@
                                                                                 $this->load->model('Madm_log');
                                                                                 $log_activity = $this->Madm_log->detail_log($data->id_pengaduan);
 
-                                                                            foreach ($log_activity as $data) { 
+                                                                           foreach ($log_activity as $data) { 
                                                                                 if($data->status == 'masuk') {
                                                                                 ?>
                                                                             <span class="badge primary"><?php echo $data->status ?></span><br>
