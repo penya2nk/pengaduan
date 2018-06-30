@@ -120,11 +120,6 @@
 								{
 									?>
 									<tr>
-										<td><b>Status</b></td>
-										<td>:</td>
-										<td><?php echo $data->status ?></td>
-									</tr>
-									<tr>
 										<td><b>Tanggal Kejadian</b></td>
 										<td>:</td>
 										<td><?php echo $data->tgl_kejadian ?></td>
