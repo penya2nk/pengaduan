@@ -92,11 +92,12 @@ $route['analis/update_status'] = 'analis/Cpengaduan_masuk/update_status';
 $route['analis/riwayat_deleted/(:num)'] = 'analis/Canalis_riwayatpeng/deleted/$1';
 $route['analis/ubah_password'] = 'analis/Canalis_riwayatpeng/save_password';
 $route['analis/ubah_password'] = 'analis/Cpengaduan_masuk/save_password';
+$route['analis/laporan'] = 'analis/Claporan_analis/laporan';
 
 //koor
 $route['koordinator'] = 'koor/Ckpengaduan_masuk';
 $route['koordinator/riwayat'] = 'koor/Ck_riwayatpeng';
-$route['koordinator/grouping'] = 'koor/Grouping';
+$route['koordinator/grouping'] = 'koor/CK_grupdata';
 $route['koordinator/detail_pengaduan_koor/(:num)'] = 'koor/Ckpengaduan_masuk/detail_koor/$1';
 $route['koordinator/konfirmasi/(:num)'] = 'koor/Ckpengaduan_masuk/konfirmasi/$1';
 $route['koordinator/ubah_password_riwayat'] = 'analis/Ck_riwayatpeng/save_password';

@@ -100,8 +100,6 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<div>
-								<!-- <a href="#" class="btn btn-warning btn-md" data-toggle="modal" data-target="#modalKirim"><span class="fa fa-send"></span> Kirim </a>
- -->
 								<a href="<?php echo base_url('analis/konfirmasi'.$detail_pengaduan[0]->id_pengaduan); ?>" class="btn btn-success btn-md"><span class="fa fa-check-square-o"></span> Konfirmasi </a>
 
 								<a style="margin-left: 20px" href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalKategori"><span class="fa fa-plus"></span> Buat Kategori </a>
@@ -120,11 +118,6 @@
 										<td>:</td>
 										<td><?php echo $data->tgl_kejadian ?></td>
 									</tr>
-									<!-- <tr>
-										<td><b>Subjek</b></td>
-										<td>:</td>
-										<td><?php //echo $data->subjek ?></td>
-									</tr> -->
 									<tr>
 										<td><b>ID Pengadu</b></td>
 										<td>:</td>
@@ -155,6 +148,11 @@
 										<td><b>Deskripsi</b></td>
 										<td>:</td>
 										<td style="width: 80%"><?php echo $data->deskripsi ?></td>
+									</tr>
+									<tr>
+										<td><b>Tindakan Pelapor</b></td>
+										<td>:</td>
+										<td style="width: 80%"><?php echo $data->tindaklanjut ?></td>
 									</tr>
 									<tr>
 										<td><b>Kategori</b></td>

@@ -82,7 +82,7 @@
           <?php endif; ?>
         </center>
 
-          <div class="alert alert-info alert-dismissable" style="margin-top: 10px">
+          <div class="alert alert-warning alert-dismissable" style="margin-top: 10px">
             <strong>Perhatian!</strong> Informasi <b>data diri Anda tidak akan terlihat</b> pada laporan pengaduan. Mohon berikan informasi sejelas-jelasnya untuk tindak lanjut yang lebih baik. Terimakasih.</a>.
             keterangan :<b style="color: red"> * = wajib diisi </b>
           </div>
@@ -305,28 +305,7 @@
 </script>
 
 <script type="text/javascript">
-  $(document).ready(function(){
-    var maxField = 5; //Input fields increment limitation
-    var addButton = $('.add_button'); //Add button selector
-    var wrapper = $('.field_wrapper'); //Input field wrapper
-    var fieldHTML = '<div style="width:100%; margin-bottom:5px"><input type="text" name="field_name[]" value=""/><a href="javascript:void(0);" class="remove_button" title="Remove field"><i style="color:red" class="fa fa-remove"><i/></a></div>';
-
-    //New input field html 
-    var x = 1; //Initial field counter is 1
-    $(addButton).click(function(){ //Once add button is clicked
-        if(x < maxField){ //Check maximum number of input fields
-            x++; //Increment field counter
-            $(wrapper).append(fieldHTML); // Add field html
-          }
-        });
-    $(wrapper).on('click', '.remove_button', function(e){ //Once remove button is clicked
-      e.preventDefault();
-        $(this).parent('div').remove(); //Remove field html
-        x--; //Decrement field counter
-      });
-		
 		$("#hilang").show().delay(1000).slideUp(400);
-  });
 </script>
 
 <script type="text/javascript">

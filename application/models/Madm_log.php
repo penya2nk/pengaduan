@@ -5,25 +5,18 @@ class Madm_log extends CI_Model {
 
 	public function log_activity()
 	{
-		// $this->db->select('p.id_pengaduan, l.nama_level, l.posisi, p.status, pl.timestamp,');
-		// $this->db->from('pengaduan p');
-		// $this->db->join('pengaduan p','id_pengaduan.p = id_pengaduan.pl');
-		// $this->db->join('level l','id_level.l = id_level.pl');
-		//$this->db->where('');
+		$this->db->select('p.id_pengaduan, p.status, r.nama_ruang, p.wkt_pengaduan');
+		$this->db->from('pengaduan p');
+		$this->db->join('ruang r','r.id_ruang = p.id_ruang');
+		return $this->db->get()->result();
+	}
 
-		// $this->db->select('u.id_user, u.nama_pengguna, u.email, u.status, l.nama_level, r.role');
-		// $this->db->from('user u','level l', 'roles r');
-		// $this->db->join('level l','l.id_level = u.id_level');
-		// $this->db->join('roles r','r.id_role = u.id_role','left');
-		// return $this->db->get()->result();
-		
-		$this->db->select('p.id_pengaduan, p.wkt_pengaduan, pl.id_user, pl.status, r.role, pl.timestamp');
-		$this->db->from('pengaduan_level pl');
-		$this->db->join('user u','u.id_user = pl.id_user');
-		$this->db->join('pengaduan p','p.id_pengaduan = pl.id_pengaduan');
-//		$this->db->join('kategori k','k.id_kategori = pl.id_kategori');
-		$this->db->join('roles r','r.id_role = u.id_role');
-		$this->db->order_by('timestamp','DESC');
+	public function detail_log($id_pengaduan)
+	{
+		$this->db->select('log.id_pengaduan, log.status, user.nama_pengguna, log.timestamp');
+		$this->db->from('log');
+		$this->db->join('user', 'user.id_user = log.id_user');
+		$this->db->where('id_pengaduan',$id_pengaduan);
 		return $this->db->get()->result();
 	}
 

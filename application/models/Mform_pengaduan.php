@@ -43,7 +43,7 @@
 		public function tambah()
 		{
 			$id_pengaduan = $this->input->post('id_pengaduan');
-			$id_pengaduan_level = $this->input->post('id_pengaduan_level');
+			$id_log = $this->input->post('id_log');
 			$waktu = $this->input->post('waktu');
 			$user = $this->session->userdata('id_user');
 			$tempat = $this->input->post('tempat');
@@ -82,21 +82,18 @@
 				
 				$this->db->insert('pengaduan', $data1);
 				
-				//insert ke tabel pengaduan_levelnya
+				//insert ke tabel log nya
 				$lastPengaduan = $this->db->insert_id();
 				
 				$data2 = array(
 				'id_pengaduan' => $lastPengaduan,
-				'id_kategori' => $kategori,
+				//'id_kategori' => $kategori,
 				'id_user' => $user,
 				'status' => 'diterima'
 				);
-				return $this->db->insert('pengaduan_level', $data2);
+				return $this->db->insert('log', $data2);
 				
 			}else{
-	      // Jika gagal :
-	      // $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
-	      // return $return;
 				
 				$data1 = array(
 				'tgl_kejadian' => $waktu,
@@ -113,24 +110,24 @@
 				
 				$this->db->insert('pengaduan', $data1);
 				
-				//insert ke tabel pengaduan_levelnya
+				//insert ke tabel log
 				$lastPengaduan = $this->db->insert_id();
 				
 				$data2 = array(
 				'id_pengaduan' => $lastPengaduan,
-				'id_kategori' => $kategori,
+				//'id_kategori' => $kategori,
 				'id_user' => $user,
 				'status' => "masuk"
 				);
-				return $this->db->insert('pengaduan_level', $data2);
+				return $this->db->insert('log', $data2);
 			}
 		}
 
 		public function riwayat($id_user)
 		{
-			$this->db->select('p.id_pengaduan, k.kategori, pl.id_user , p.status, p.wkt_pengaduan');
+			$this->db->select('p.id_pengaduan, k.kategori, l.id_user , p.status, p.wkt_pengaduan');
 			$this->db->from('pengaduan p');
-			$this->db->join('pengaduan_level pl','p.id_pengaduan = pl.id_pengaduan');
+			$this->db->join('log l','p.id_pengaduan = l.id_pengaduan');
 			$this->db->join('kategori k','p.id_kategori = k.id_kategori');
 			$this->db->where('p.id_user',$id_user);
 			return $this->db->get()->result();

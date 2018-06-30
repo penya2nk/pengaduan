@@ -15,14 +15,14 @@ class Mkoor_masuk extends CI_Model
 
 	public function pengaduan_selesai($id_pengaduan)
 	{
-		$this->db->where('pl.id_pengaduan', $id_pengaduan);
-		$this->db->where('pl.status',"selesai");
-		return $this->db->get('pengaduan_level pl')->num_rows();	//hasil
+		$this->db->where('l.id_pengaduan', $id_pengaduan);
+		$this->db->where('l.status',"selesai");
+		return $this->db->get('log l')->num_rows();	//hasil
 	}
 
 	public function detail_koor($id)
 	{
-		$this->db->select('p.id_pengaduan, p.deskripsi, p.kejadian, p.penyebab, p.tgl_kejadian, p.efek,  r.nama_ruang, p.gambar, k.kategori, u.nama_pengguna, t.nama_tempat');	
+		$this->db->select('p.id_pengaduan, p.id_user, p.deskripsi, p.kejadian, p.penyebab, p.tindaklanjut, p.tgl_kejadian, p.efek,  r.nama_ruang, p.gambar, k.kategori, u.nama_pengguna, t.nama_tempat');	
 		$this->db->from('pengaduan p','ruang r'); 
 		$this->db->join('ruang r','r.id_ruang = p.id_ruang');
 		$this->db->join('kategori k','k.id_kategori = p.id_kategori');
@@ -62,7 +62,16 @@ class Mkoor_masuk extends CI_Model
 
 	public function kirim($data)
 	{
-		return $this->db->insert('pengaduan_level',$data);
+		return $this->db->insert('log',$data);
+	}
+
+	public function kejadian()
+	{
+		$this->db->select('p.id_pengaduan, p.penyebab, p.efek, p.kejadian, k.kategori');
+		$this->db->from('pengaduan p');
+		$this->db->join('kategori k','p.id_kategori = k.id_kategori');
+		//$this->db->where('p.kejadian',"pertama");
+		return $this->db->get()->result();
 	}
 
 }

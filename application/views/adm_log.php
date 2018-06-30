@@ -104,8 +104,8 @@
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Pengelola</th>
+                                        <th>ID Pengaduan</th>
+                                        <th>Ruang</th>
                                         <th>Status</th>
                                         <th>Waktu</th>
                                         <th>Masuk</th>
@@ -120,7 +120,7 @@
                                         ?>
                                         <tr>
                                             <td><?php echo $data->id_pengaduan ?></td>
-                                            <td><?php echo $data->role ?></td>
+                                            <td><?php echo $data->nama_ruang ?></td>
                                             <td>
                                                 <?php
                                                 if ($data->status == 'masuk') {
@@ -138,14 +138,86 @@
                                                 }
                                                 ?>
                                             </td>
-                                            <td><?php echo date('H:i:s', strtotime($data->timestamp)) ?></td>
-                                            <td><?php echo date('d-F-Y', strtotime($data->timestamp)) ?></td>
+                                            <td><?php echo date('H:i:s', strtotime($data->wkt_pengaduan)) ?></td>
+                                            <td><?php echo date('d-F-Y', strtotime($data->wkt_pengaduan)) ?></td>
                                             <td>
-                                                <i class="btn btn-primary fa fa-eye" data-toggle="modal" data-target="#detail1">&nbsp;Detail</i>
+                                                <i class="btn btn-primary fa fa-eye" data-toggle="modal" data-target="#detail<?php echo $data->id_pengaduan ?>">&nbsp;Detail</i>
                                             </td>
 
                                         
                                         </tr>
+                                        <!-- modal edit user -->
+                                                <div class="modal modal-primary fade" id="detail<?php echo $data->id_pengaduan ?>" style="margin-top: 5%">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span></button>
+                                                                <h4 class="modal-title">DETAIL LOG PENGADUAN</h4>
+                                                            </div>
+                                                            
+                                                            <div class="modal-body">
+																															<div class="row text-center">
+																																<div class="col-md-1">
+																																	<label>No.</label>
+																																</div>
+																																<div class="col-md-3">
+																																	<label>Tanggal</label>
+																																</div>
+																																<div class="col-md-2">
+																																	<label>Jam</label>
+																																</div>
+																																<div class="col-md-3">
+																																	<label>Pengelola</label>
+																																</div>
+																																<div class="col-md-3">
+																																	<label>Status</label>
+																																</div>
+																															</div>
+																															<?php 
+																																$this->load->model('Madm_log');
+																																$log_activity = $this->Madm_log->detail_log($data->id_pengaduan);
+																																$j = 1;
+																																foreach ($log_activity as $log) { 
+																															?> 
+																															<div class="row text-center">
+																																<div class="col-md-1">
+																																	<p><?php echo $j ?></p>
+																																</div>
+																																<div class="col-md-3">
+																																	<p><?php echo date("d F Y", strtotime($log->timestamp)) ?></p>
+																																</div>
+																																<div class="col-md-2">
+																																	<p><?php echo date("H:i:s", strtotime($log->timestamp)) ?></p>
+																																</div>
+																																<div class="col-md-3">
+																																	<p><?php echo $log->nama_pengguna ?></p>
+																																</div>
+																																<div class="col-md-3">
+																																	<p>
+																																		<?php
+																																			if($log->status == 'masuk') {
+																																		?>
+																																		<span class="badge primary"><?php echo $log->status ?></span><br>
+																																		<?php }elseif($log->status == 'diproses'){
+																																		?>
+																																		<span class="badge warning"><?php echo $log->status ?></span><br>
+																																		<?php }else{ ?>
+																																		<span class="badge success"><?php echo $log->status ?></span><br>
+																																		<?php } ?>
+																																	</p>
+																																</div>
+																															</div>
+																															<?php $j++;} ?>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">selesai
+                                                                    </button>
+                                                                </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- modal edit user -->
                                         <?php
                                     }
                                     ?>

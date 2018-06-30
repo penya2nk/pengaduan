@@ -82,7 +82,7 @@
                     <!-- menu -->
 
                     <li>
-                        <a href=<?php echo base_url('laporan')?> ><i class="fa fa-archive"></i>&nbsp; Laporan</a>
+                        <a href=<?php echo base_url('laporan')?> ><i class="fa fa-dashboard"></i>&nbsp; Laporan</a>
                     </li>
                     <!-- menu -->
 
@@ -119,16 +119,18 @@
                             <div class="col-xs-3">
                                 <i class="fa fa-inbox fa-5x"></i>
                             </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge"><!--<?php //echo $data ?>--></div>
-                                <div>Pengaduan Masuk</div>
+                            <div class="col-xs-7 text-right">
+                                <div class="huge" style="font-size: 55px">
+                                    <?php
+                                    echo sizeof($masuk);
+                                    ?>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <a href="#">
                         <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <span class="pull-left">Pengaduan Masuk</span>
                             <div class="clearfix"></div>
                         </div>
                     </a>
@@ -141,16 +143,20 @@
                             <div class="col-xs-3">
                                 <i class="fa fa-gear fa-5x"></i>
                             </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">12</div>
-                                <div>Pengaduan diproses</div>
+                            <div class="col-xs-7 text-right">
+                                <div class="huge">
+                                    <div class="huge" style="font-size: 55px">
+                                    <?php
+                                    echo sizeof($diproses);
+                                    ?>
+                                </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <a href="#">
                         <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <span class="pull-left">Pengaduan diproses</span>
                             <div class="clearfix"></div>
                         </div>
                     </a>
@@ -163,16 +169,18 @@
                             <div class="col-xs-3">
                                 <i class="fa fa-check fa-5x"></i>
                             </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">124</div>
-                                <div>Selesai ditangani</div>
+                            <div class="col-xs-7 text-right">
+                                <div class="huge" style="font-size: 55px">
+                                    <?php
+                                    echo sizeof($selesai);
+                                    ?>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <a href="#">
                         <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <span class="pull-left">Selesai ditangani</span>
                             <div class="clearfix"></div>
                         </div>
                     </a>
@@ -338,6 +346,7 @@
         else if(row.label == "dosen") return "#DEBB27";
         else if(row.label == "mata kuliah") return "#fec04c";
         else if(row.label == "layanan informasi") return "#1AB244";
+        else if(row.label == "lingkungan") return "#3385ff";
         }
     });
     

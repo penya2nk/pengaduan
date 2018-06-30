@@ -523,8 +523,9 @@
 									<b>Perhatian!</b> Jika Anda ingin mengunggah data excel, pastikan data Anda sudah sesuai dengan syarat upload di bawah:
 								</div>
                 1. Data yang dapat diunggah dalam format <b>xls, xlsx, dan csv</b>.<br>
-                2. Ukuran file maksimum 10 mb.<br>
-                3. Untuk menghindari kegagalan, Anda dapat mengunduh contoh format file di bawah:<br>
+                2. Pastikan tidak ada data yang <b>terlewat</b> atau <b>kosong!</b><br>
+                3. Ukuran file maksimum 10 mb.<br>
+                4. Untuk menghindari kegagalan, Anda dapat mengunduh contoh format file di bawah:<br>
                 <a href="<?php echo base_url('admin/download') ?>" class="btn btn-sm btn-success" style="margin-top: 10px"><i class="fa fa-download"></i> Unduh</a><br><br>
                 4. Jika telah memenuhi syarat, silahkan unggah data Anda.
 							</div>

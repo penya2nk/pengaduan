@@ -9,16 +9,15 @@ class Manalis_riwayatpeng extends CI_Model {
 		$this->db->from('pengaduan p');
 		$this->db->join('ruang r','r.id_ruang = p.id_ruang');
 		$this->db->join('kategori k','k.id_kategori = p.id_kategori');
-		//$this->db->join('pengaduan_level pl','pl.id_pengaduan = p.id_pengaduan');
 		$this->db->where('p.status','selesai');
 		return $this->db->get()->result();	//hasil
 	}
 
 	public function pengaduan_selesai($id_pengaduan)
 	{
-		$this->db->where('pl.id_pengaduan', $id_pengaduan);
-		$this->db->where('pl.status',"selesai");
-		return $this->db->get('pengaduan_level pl')->num_rows();	//hasil
+		$this->db->where('l.id_pengaduan', $id_pengaduan);
+		$this->db->where('l.status',"selesai");
+		return $this->db->get('log l')->num_rows();	//hasil
 	}
 
 	//bikin update password di admin dulu

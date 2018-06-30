@@ -75,7 +75,9 @@
                         <li class="active">
                             <a href=<?php echo base_url('analis/riwayat_pengaduan')?> style="color: #000000" ><i class="fa fa-table"></i><b>&nbsp; Riwayat Pengaduan</b></a>
                         </li>
-                        
+                        <li>
+                            <a href=<?php echo base_url('analis/laporan')?>><i class="fa fa-dashboard"></i>&nbsp; Laporan Pengaduan</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -128,6 +130,7 @@
                                             <td>
                                             <?php
                                                 // if($this->Manalis_riwayatpeng->pengaduan_selesai($data->id_pengaduan) == 0){
+                                                if($data->status == "diproses"){
                                             ?>
                                                 <span class="badge warning"><?php echo $data->status ?></span>
                                             <?php }else{ ?>
