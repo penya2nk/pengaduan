@@ -113,7 +113,6 @@
                                             <th>Jam</th>
                                             <th>Tanggal</th>
                                             <th>Status</th>
-                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -140,41 +139,7 @@
                                                 <span class="badge success">Selesai</span>
                                             <?php }?>
                                             </td>
-                                            <td>
-                                                <a class="btn btn-primary" data-toggle="modal" data-target="#detailModal"><i class="fa fa-eye"></i> Detail</a>
-                                            </td>
                                         </tr>
-                                        <!-- modal tambah ruang -->
-                                            <div>
-                                                <div class="modal modal-primary fade" id="detailModal" style="margin-top: 5%">
-                                                  <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                      <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                          <span aria-hidden="true">&times;</span></button>
-                                                          <h4 class="modal-title">TAMBAH TEMPAT</h4>
-                                                      </div>
-
-                                                      <form method="POST" action="<?php echo base_url('admin/tambah_tempat') ?>">
-                                                          <div class="modal-body">
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-
-                                                                    <div class="form-group">
-                                                                        <label>Tambah tempat</label>
-                                                                        <input class="form-control" type="text" name="nama_tempat">
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Batal</button>
-                                                            <input type="submit" class="btn btn-primary" value="simpan">
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <!-- /.modal-content -->
                                         <?php
                                             $i++;
                                             }

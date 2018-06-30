@@ -120,6 +120,11 @@
 								{
 									?>
 									<tr>
+										<td><b>Status</b></td>
+										<td>:</td>
+										<td><?php echo $data->status ?></td>
+									</tr>
+									<tr>
 										<td><b>Tanggal Kejadian</b></td>
 										<td>:</td>
 										<td><?php echo $data->tgl_kejadian ?></td>
@@ -171,6 +176,11 @@
 										<td><b>Gambar Pendukung:</b></td>
 										<td>:</td>
 										<td style="width: 80%"><img src="<?php echo base_url('assets/gambar/'.$data->gambar) ?>" style="width: 60%; height: auto"></td>
+									</tr>
+									<tr>
+										<td><b>Keterangan</b></td>
+										<td>:</td>
+										<td><?php echo $data->keterangan ?></td>
 									</tr>
 									
 									<!-- modal kirim -->
