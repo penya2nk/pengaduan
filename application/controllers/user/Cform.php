@@ -11,6 +11,10 @@ class Cform extends BaseController {
 		$this->isLoggedIn();
 	}
 
+public function home()
+	{
+		$this->load->view('user_home');
+	}
 	public function index()
 	{
 		$data['kategori']= $this->Mform_pengaduan->kategori();
@@ -19,6 +23,7 @@ class Cform extends BaseController {
 		$data['kejadian']= $this->Mform_pengaduan->jml_kejadian();
 		$this->load->view('form_pengaduan',$data);
 	}
+
 
 	public function ruang()
 	{

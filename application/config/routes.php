@@ -78,6 +78,7 @@ $route['admin/ubah_password'] = 'admin/Cadm_datauser/save_password';
 
 //user
 $route['user'] = 'user/Cform';
+$route['user/home'] = 'user/Cform/home';
 $route['user/riwayat_pengaduan'] = 'user/Criwayat_pengaduanuser';
 $route['user/insert_data'] = 'user/Cform/tambah';
 
