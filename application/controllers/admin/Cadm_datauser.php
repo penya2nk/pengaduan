@@ -64,8 +64,8 @@ class Cadm_datauser extends BaseController {
 
 					$this->db->insert("user",$data);
 				}
+				unlink($inputFileName); //File Deleted After uploading in database .
 			}
-			unlink($inputFileName); //File Deleted After uploading in database .
 	}
 	redirect('admin/data_user');
 }
