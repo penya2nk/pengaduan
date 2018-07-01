@@ -129,6 +129,7 @@
                         <table width="100%" class="table table-striped table-bordered table-hover" id="example1">
                             <thead>
                                 <tr>
+                                    <th>No.</th>
                                     <th>Bulan</th>
                                     <!-- <th>Kategori</th>
                                     <th style="width: 40%">Ruang</th> -->
@@ -137,16 +138,19 @@
                             </thead>
                                 <tbody>
                                     <?php 
+                                        $i = 1;
                                         foreach ($bulan as $data)
                                         {
                                     ?>
                                     <tr>
+                                        <td><?php echo $i; ?></td>
                                         <td><?php echo date("F", strtotime($data->bulan)) ?></td>
                                         <!-- <td><?php// echo $data->kategori ?></td>
                                         <td><?php //echo $data->nama_ruang ?></td> -->
                                         <td><?php echo $data->jumlah ?></td>
                                     </tr>
                                     <?php
+                                    $i++;
                                         }
                                     ?>
                                 </tbody>
@@ -169,6 +173,7 @@
                         <table width="100%" class="table table-striped table-bordered table-hover" id="example2">
                             <thead>
                                 <tr>
+                                    <th>No.</th>
                                     <th>Ruang</th>
                                     <!-- <th>Kategori</th>
                                     <th style="width: 40%">Ruang</th> -->
@@ -177,16 +182,19 @@
                             </thead>
                                 <tbody>
                                     <?php 
+                                        $x = 1;
                                         foreach ($ruang as $data)
                                         {
                                     ?>
                                     <tr>
+                                        <td><?php $x; ?></td>
                                         <td><?php echo $data->nama_ruang ?></td>
                                         <!-- <td><?php// echo $data->kategori ?></td>
                                         <td><?php //echo $data->nama_ruang ?></td> -->
                                         <td><?php echo $data->jumlah ?></td>
                                     </tr>
                                     <?php
+                                    $x++;
                                         }
                                     ?>
                                 </tbody>
