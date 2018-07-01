@@ -106,7 +106,7 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<div>
-								<a href="<?php echo base_url('analis/konfirmasi'.$detail_pengaduan[0]->id_pengaduan); ?>" class="btn btn-success btn-md"><span class="fa fa-check-square-o"></span> Konfirmasi </a>
+								<a href="<?php echo base_url('analis/konfirmasi/'.$detail_pengaduan[0]->id_pengaduan); ?>" class="btn btn-success btn-md"><span class="fa fa-check-square-o"></span> Konfirmasi </a>
 
 								<a style="margin-left: 20px" href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalKategori"><span class="fa fa-plus"></span> Buat Kategori </a>
 

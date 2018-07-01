@@ -36,10 +36,7 @@
 
             <ul class="nav navbar-top-links navbar-right">
 
-                <!-- /.dropdown 
-                <li class="dropdown">
-                    <a style="color: #ffffff" href=<?php //echo base_url("login")?> ><i class="fa fa-fw fa-sign-out"></i>Isnaini Barochatun</a>
-                </li> -->
+                </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #ffffff">
                         <i class="fa fa-user fa-fw"></i> Isnaini barochatun</i>
@@ -59,9 +56,6 @@
 
         <!--- user panel -->
         <section class="sidebar">
-                    <!-- <div class="pull-center image">
-                        <img src='<?php //echo base_url("img/user2.png")?>' class="img-circle" alt="User Image"  style="margin-left: 24%; margin-right: 24%; margin-top: 10%; width:50%">
-                    </div> -->
             </section>
 
             <!-- MENU -->

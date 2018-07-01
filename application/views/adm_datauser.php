@@ -197,22 +197,17 @@
 
 																			<div class="form-group" style="width: 30%;">
                                                                             <label>Level :</label>
-																				<select name="id_level" class="form-control">
-																					<?php
-																					foreach($level as $l){ ?>
-																					<option <?php echo ($data->id_level == $l->id_level ? 'selected' : ''); ?> value="<?php echo $l->id_level ?>"><?php echo $l->nama_level." ".$l->posisi ?></option>
-																					<?php } ?>
-																				</select>
+	                                                                            <input type="text" class="form-control" value="<?php echo $data->nama_level.' '.$data->posisi ?>" readonly>
+	                                                                            <input type="hidden" class="form-control" name="id_level" value="<?php echo $data->id_level ?>">
 																			</div>
 
-                                                                            <div class="form-group" style="width:30%;">
+																			<div class="form-group" style="width:30%;">
 																				<label>Status :</label>
 																				<select name="status" class="form-control" style="margin-bottom: 20px">
 																				<option <?php if($data->status == 1){echo "selected";} ?> value="1" >Aktif</option>
 																				<option <?php if($data->status == 0){echo "selected";} ?> value="0">Tidak Aktif</option>
 																			</select>
 																			</div>
-
 																			
 																		</div>
 																	</div>
@@ -293,7 +288,7 @@
                                                                 <h4 class="modal-title">EDIT DATA USER</h4>
                                                             </div>
                                                             
-                                                            <form method="POST" action="<?php echo base_url('admin/data_user') ?>">
+                                                            <form method="POST" action="<?php echo base_url('admin/edit_user') ?>">
                                                                 <div class="modal-body">
                                                                     <div class="row">
                                                                         <div class="col-md-12">
@@ -307,33 +302,26 @@
                                                                             <div class="form-group">
                                                                                 <label>Email :</label>
                                                                                 <input class="form-control" type="text" name="email" value="<?php echo $data->email ?>">
-                                                                                <input class="form-control" type="hidden" name="id_user" value="<?php echo $data->id_user ?>">
                                                                             </div>
 
                                                                             <div class="form-group">
                                                                                 <label>NIP :</label>
                                                                                 <input class="form-control" type="text" name="username" value="<?php echo $data->username ?>">
-                                                                                <input class="form-control" type="hidden" name="id_user" value="<?php echo $data->id_user ?>">
                                                                             </div>
 
                                                                             <div class="form-group" style="width: 30%;">
                                                                             <label>Level :</label>
-																				<select name="id_level" class="form-control">
-																					<?php
-																					foreach($level as $l){ ?>
-																					<option <?php echo ($data->id_level == $l->id_level ? 'selected' : ''); ?> value="<?php echo $l->id_level ?>"><?php echo $l->nama_level." ".$l->posisi ?></option>
-																					<?php } ?>
-																				</select>
+	                                                                            <input type="text" class="form-control" value="<?php echo $data->nama_level.' '.$data->posisi ?>" readonly>
+	                                                                            <input type="hidden" class="form-control" name="id_level" value="<?php echo $data->id_level ?>">
 																			</div>
 
-                                                                            <div class="form-group" style="width:30%;">
+																			<div class="form-group" style="width:30%;">
 																				<label>Status :</label>
 																				<select name="status" class="form-control" style="margin-bottom: 20px">
 																				<option <?php if($data->status == 1){echo "selected";} ?> value="1" >Aktif</option>
 																				<option <?php if($data->status == 0){echo "selected";} ?> value="0">Tidak Aktif</option>
-																			</select>
+																				</select>
 																			</div>
-
                                                                             
                                                                         </div>
                                                                     </div>
@@ -427,13 +415,11 @@
                                                                             <div class="form-group">
                                                                                 <label>Email :</label>
                                                                                 <input class="form-control" type="text" name="email" value="<?php echo $data->email ?>">
-                                                                                <input class="form-control" type="hidden" name="id_user" value="<?php echo $data->id_user ?>">
                                                                             </div>
 
                                                                             <div class="form-group">
                                                                                 <label>NIP :</label>
                                                                                 <input class="form-control" type="text" name="username" value="<?php echo $data->username ?>">
-                                                                                <input class="form-control" type="hidden" name="id_user" value="<?php echo $data->id_user ?>">
                                                                             </div>
 
                                                                             <div class="form-group" style="width: 30%;">

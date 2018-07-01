@@ -4,7 +4,6 @@ class Mkoor_masuk extends CI_Model
 {
 	public function pengaduan_masuk()
 	{
-
 		$this->db->select('p.id_pengaduan, p.wkt_pengaduan, k.kategori, r.nama_ruang, p.status');
 		$this->db->from('pengaduan p');
 		$this->db->join('kategori k','k.id_kategori = p.id_kategori');

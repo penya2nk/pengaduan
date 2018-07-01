@@ -51,7 +51,6 @@ class Cadm_datauser extends BaseController {
 
 			for ($row=2; $row <= $highestRow; $row++) { 
 				$rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row, NULL, TRUE, FALSE);
-				//var_dump($rowData[0][0],$rowData[0][1],$rowData[0][2],$rowData[0][3],$rowData[0][4]); exit;
 
 				if($rowData[0][1] != ''){
 					$data = array(
@@ -64,7 +63,7 @@ class Cadm_datauser extends BaseController {
 
 					$this->db->insert("user",$data);
 				}
-				unlink($inputFileName); //File Deleted After uploading in database .
+				unlink($inputFileName);
 			}
 	}
 	redirect('admin/data_user');
@@ -110,7 +109,9 @@ class Cadm_datauser extends BaseController {
  
  	public function edit_user()
  	{
+
  		$id_user = $this->input->post('id_user');
+ 		//var_dump($id_user); exit;
 		$nama = $this->input->post('nama');
 		$email = $this->input->post('email');
 		$id_level = $this->input->post('id_level');

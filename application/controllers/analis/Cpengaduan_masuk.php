@@ -114,13 +114,14 @@ class Cpengaduan_masuk extends BaseController {
 	{
 		$id_user = $this->session->userdata('id_user');
 		$pengaduan = $this->db->where('id_pengaduan',$id_pengaduan)->where('status','diproses')->get('log')->row();
+
 		$data = array(
 			'id_pengaduan'=>$id_pengaduan,
-			'id_kategori'=>$pengaduan->id_kategori,
 			'id_user'=>$id_user,
 			'status'=>'selesai'
 			);
 		$this->db->insert('log',$data);
+		$this->db->where('id_pengaduan',$id_pengaduan)->update('pengaduan',array('status'=>'sleesai'));
 		redirect('analis');
 	}
 

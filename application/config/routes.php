@@ -101,6 +101,7 @@ $route['analis/tambah_jenis'] = 'analis/Ckategori_jenis/tambah_jenis';
 $route['analis/edit_jenis'] = 'analis/Ckategori_jenis/edit_jenis';
 $route['analis/hapus_kategori/(:num)'] = 'analis/Ckategori_jenis/hapus_kategorig/$1';
 $route['analis/hapus_jenis/(:num)'] = 'analis/Ckategori_jenis/hapus_jenis/$1';
+$route['analis/konfirmasi/(:num)'] = 'analis/Cpengaduan_masuk/konfirmasi/$1';
 
 //koor
 $route['koordinator'] = 'koor/Ckpengaduan_masuk';
