@@ -110,7 +110,7 @@
                                             <th>Kategori</th>
                                             <th>Tempat</th>
                                             <th>Jam</th>
-                                            <th>Tanggal</th>
+                                            <th>Tanggal Masuk</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
@@ -121,7 +121,7 @@
                                         ?>
                                         <tr>
                                             <td><?php echo $i; ?></td>
-                                            <td><?php echo $data->id_pengaduan ?></td>
+                                            <td><?php echo $data->kategori ?></td>
                                             <td><?php echo $data->nama_ruang ?></td>
                                             <td><?php echo date('H:i:s', strtotime($data->wkt_pengaduan)) ?></td>
                                             <td><?php echo date('d-F-Y', strtotime($data->wkt_pengaduan)) ?></td>

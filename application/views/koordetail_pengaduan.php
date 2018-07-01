@@ -242,14 +242,11 @@
                                     </div>
                                     <!-- /.modal -->
 
-                    <?php
-                }
-                ?>
-            </table>
+                                <?php
+                            }
+                            ?>
+                        </table>
 
-            <!-- <div class="footer">
-                <a href="#" class="btn btn-outline btn-md" data-toggle="modal" data-target="#modalTambah" style="color: blue"><span class="fa fa-plus-circle"></span> Tambah Kategori </a>
-            </div> -->
             <!-- /.row (nested) -->
         </div>
         <!-- /.panel-body -->

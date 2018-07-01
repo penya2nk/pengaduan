@@ -13,12 +13,12 @@ class Mkoor_masuk extends CI_Model
 		return $this->db->get()->result();
 	}
 
-	public function pengaduan_selesai($id_pengaduan)
-	{
-		$this->db->where('l.id_pengaduan', $id_pengaduan);
-		$this->db->where('l.status',"selesai");
-		return $this->db->get('log l')->num_rows();	//hasil
-	}
+	// public function pengaduan_selesai($id_pengaduan)
+	// {
+	// 	$this->db->where('l.id_pengaduan', $id_pengaduan);
+	// 	$this->db->where('l.status',"selesai");
+	// 	return $this->db->get('log l')->num_rows();	//hasil
+	// }
 
 	public function detail_koor($id)
 	{
@@ -63,15 +63,6 @@ class Mkoor_masuk extends CI_Model
 	public function kirim($data)
 	{
 		return $this->db->insert('log',$data);
-	}
-
-	public function kejadian()
-	{
-		$this->db->select('p.id_pengaduan, p.penyebab, p.efek, p.kejadian, k.kategori');
-		$this->db->from('pengaduan p');
-		$this->db->join('kategori k','p.id_kategori = k.id_kategori');
-		//$this->db->where('p.kejadian',"pertama");
-		return $this->db->get()->result();
 	}
 
 }

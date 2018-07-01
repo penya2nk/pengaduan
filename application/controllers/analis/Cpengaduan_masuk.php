@@ -62,7 +62,7 @@ class Cpengaduan_masuk extends BaseController {
 	public function update_status($id_pengaduan,$status)
 	{
 		$this->db->where('id_pengaduan',$id_pengaduan);
-		$this->db->update('log',array('status'=>"diproses"));
+		$this->db->update('pengaduan',array('status'=>"diproses"));
 	}
 
 	public function tambah_kategori()

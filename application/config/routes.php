@@ -105,7 +105,6 @@ $route['analis/hapus_jenis/(:num)'] = 'analis/Ckategori_jenis/hapus_jenis/$1';
 //koor
 $route['koordinator'] = 'koor/Ckpengaduan_masuk';
 $route['koordinator/riwayat'] = 'koor/Ck_riwayatpeng';
-$route['koordinator/grouping'] = 'koor/CK_grupdata';
 $route['koordinator/detail_pengaduan_koor/(:num)'] = 'koor/Ckpengaduan_masuk/detail_koor/$1';
 $route['koordinator/konfirmasi/(:num)'] = 'koor/Ckpengaduan_masuk/konfirmasi/$1';
 $route['koordinator/ubah_password_riwayat'] = 'analis/Ck_riwayatpeng/save_password';
