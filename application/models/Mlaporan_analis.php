@@ -5,7 +5,7 @@ class Mlaporan_analis extends CI_Model {
 
 	public function bulan()
 	{
-		$this->db->select('MONTH(p.wkt_pengaduan) AS bulan, COUNT(*) AS jumlah');
+		$this->db->select('p.wkt_pengaduan AS bulan, COUNT(*) AS jumlah');
 		$this->db->from('pengaduan p');
 		$this->db->group_by('MONTH(wkt_pengaduan)');
 		return $this->db->get()->result();
