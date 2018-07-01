@@ -121,7 +121,7 @@ class Cpengaduan_masuk extends BaseController {
 			'status'=>'selesai'
 			);
 		$this->db->insert('log',$data);
-		$this->db->where('id_pengaduan',$id_pengaduan)->update('pengaduan',array('status'=>'sleesai'));
+		$this->db->where('id_pengaduan',$id_pengaduan)->update('pengaduan',array('status'=>'selesai'));
 		redirect('analis');
 	}
 
