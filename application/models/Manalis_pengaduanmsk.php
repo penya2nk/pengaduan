@@ -39,6 +39,7 @@ class Manalis_pengaduanmsk extends CI_Model {
 		$this->db->join('log l','p.id_pengaduan = l.id_pengaduan');
 		$this->db->where('p.status',"diproses");
 		$this->db->where('p.id_pengaduan',$id);
+		$this->db->order_by('l.id_log', 'desc');
 		return $this->db->get()->result();	//hasil
 	}
 

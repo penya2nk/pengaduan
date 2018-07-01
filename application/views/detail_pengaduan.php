@@ -115,154 +115,72 @@
 						</div>
 						<div class="panel-body">
 							<table class="table no border" cellpadding="0" cellspacing="0"" >
-							<?php
-								foreach ($detail_pengaduan as $data) 
-								{
-									?>
+							
 									<tr>
 										<td><b>Tanggal Kejadian</b></td>
 										<td>:</td>
-										<td><?php echo $data->tgl_kejadian ?></td>
+										<td><?php echo $detail_pengaduan[0]->tgl_kejadian ?></td>
 									</tr>
 									<tr>
 										<td><b>ID Pengadu</b></td>
 										<td>:</td>
-										<td><?php echo $data->id_user ?></td>
+										<td><?php echo $detail_pengaduan[0]->id_user ?></td>
 									</tr>
 									<tr>
 										<td><b>Ruang</b></td>
 										<td>:</td>
-										<td><?php echo $data->nama_ruang ?></td>
+										<td><?php echo $detail_pengaduan[0]->nama_ruang ?></td>
 									</tr>
 									<tr>
 										<td><b>Jumlah kejadian</b></td>
 										<td>:</td>
-										<td><?php echo $data->kejadian ?></td>
+										<td><?php echo $detail_pengaduan[0]->kejadian ?></td>
 									</tr>
 									<tr>
 										<td><b>Penyebab</b></td>
 										<td>:</td>
-										<td><?php echo $data->penyebab ?>
+										<td><?php echo $detail_pengaduan[0]->penyebab ?>
 										</td>
 									</tr>
 									<tr>
 										<td><b>Efek kejadian</b></td>
 										<td>:</td>
-										<td><?php echo $data->efek ?></td>
+										<td><?php echo $detail_pengaduan[0]->efek ?></td>
 									</tr>
 									<tr>
 										<td><b>Deskripsi</b></td>
 										<td>:</td>
-										<td style="width: 80%"><?php echo $data->deskripsi ?></td>
+										<td style="width: 80%"><?php echo $detail_pengaduan[0]->deskripsi ?></td>
 									</tr>
 									<tr>
 										<td><b>Tindakan Pelapor</b></td>
 										<td>:</td>
-										<td style="width: 80%"><?php echo $data->tindaklanjut ?></td>
+										<td style="width: 80%"><?php echo $detail_pengaduan[0]->tindaklanjut ?></td>
 									</tr>
 									<tr>
 										<td><b>Kategori</b></td>
 										<td>:</td>
-										<td><?php echo $data->kategori ?>
+										<td><?php echo $detail_pengaduan[0]->kategori ?>
 											<!-- <a style="margin-left: 10px" data-toggle="modal" data-target="#modalEdit"><span class="fa fa-edit"></span></a> -->
 										</td>
 									</tr>
 									<tr>
 										<td><b>Gambar Pendukung:</b></td>
 										<td>:</td>
-										<td style="width: 80%"><img src="<?php echo base_url('assets/gambar/'.$data->gambar) ?>" style="width: 60%; height: auto"></td>
+										<td style="width: 80%"><img src="<?php echo base_url('assets/gambar/'.$detail_pengaduan[0]->gambar) ?>" style="width: 60%; height: auto"></td>
 									</tr>
 									<tr>
 										<td><b>Keterangan</b></td>
 										<td>:</td>
-										<td><?php echo $data->keterangan ?></td>
+										<td>
+										<?php
+								foreach ($detail_pengaduan as $data) 
+								{
+									echo $data->keterangan . ", ";
+								}
+									?>
+									</td>
 									</tr>
-									
-									<!-- modal kirim -->
-									<div class="modal modal-primary fade" id="modalKirim" style="margin-top: 5%">
-										<div class="modal-dialog">
-											<div class="modal-content">
-												<div class="modal-header">
-													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-													<span aria-hidden="true">&times;</span></button>
-													<h4 class="modal-title">KIRIM PENGADUAN</h4>
-												</div>
-												
-												<form method="POST" action="<?php echo base_url('analis/kirim_pengaduan') ?>">
-													<div class="modal-body">
-														<div class="row">
-															<div class="col-md-12">
-																<label>Kepada :</label>
-																<select class="form-control" name="id_level">
-																	<option value="0">------ pilih -------</option>
-																	<?php
-																		foreach ($level as $l) {
-																		?>
-																		<option value="<?php echo $l->id_kategori ?>"><?php echo $l->nama_level.' '.$l->posisi ?></option>
-																		<?php
-																		}
-																	?>
-																</select>
-																<input type="hidden" name="id_pengaduan" value="<?php echo $data->id_pengaduan ?>">
-															</div>
-														</div>
-													</div>
-													<div class="modal-footer">
-														<button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
-														<input type="submit" class="btn btn-primary" value="kirim" href="<?php echo base_url('analis/update_status/'.$data->id_pengaduan)?>" >
-													</div>
-												</form>
-											</div>
-											<!-- /.modal-content -->
-										</div>
-										<!-- /.modal-dialog -->
-									</div>
-									<!-- /.modal -->
-									
-									
-									<!-- modal tambah -->
-									<div class="modal modal-primary fade" id="modalEdit" style="margin-top: 5%">
-										<div class="modal-dialog">
-											<div class="modal-content">
-												
-												<form method="POST" action="<?php echo base_url('analis/ubah_pengaduan') ?>">
-													
-													<div class="modal-header">
-														<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-														<span aria-hidden="true">&times;</span></button>
-														<h4 class="modal-title">Ubah Kategori</h4>
-													</div>
-													<div class="modal-body">
-														<input name="id_pengaduan" type="hidden" value="<?php echo $data->id_pengaduan ?>">
-														<div class="form-group">
-															<label>Kategori:</label>
-															<select name="id_kategori" class="form-control" data-placeholder="Pilih Kategori"
-															style="width: 100%;">
-																<?php
-																	foreach ($kategori as $k)
-																	{
-																	?>
-																	<option <?php echo ($k->kategori == $data->kategori ? 'selected' : ''); ?> value="<?php echo $k->id_kategori ?>"><?php echo $k->kategori ?></option>
-																	<?php
-																	}
-																?>
-															</select>
-														</div>
-														
-													</div>
-													
-													<div class="modal-footer">
-														<input class="btn btn-primary" type="submit" value="Simpan">
-													</div>
-													
-												</form>
-												
-											</div>
-											<!-- /.modal-content -->
-										</div>
-										<!-- /.modal-dialog -->
-									</div>
-									<!-- /.modal -->
 									
 									<!-- modal tambah -->
 									<div class="modal modal-primary fade" id="modalKategori" style="margin-top: 5%">
@@ -279,7 +197,7 @@
 														<div class="row">
 															<div class="col-md-12">
 																<label>Kategori Baru :</label>
-																<input type="hidden" name="id_pengaduan" value="<?php echo $data->id_pengaduan ?>">
+																<input type="hidden" name="id_pengaduan" value="<?php echo $detail_pengaduan[0]->id_pengaduan ?>">
 																<input class="form-control" type="text" name="kategori">
 															</div>
 														</div>
@@ -292,10 +210,6 @@
 										</div>
 									</div>
 									<!-- modal setting -->
-									
-									<?php
-									}
-								?>
 							</table>
 						
 							<!-- /.row (nested) -->
