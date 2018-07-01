@@ -30,7 +30,7 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="background-color: #005580">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="background-color: #005580; margin-bottom: 0">
             <div class="navbar-header">
                 <a class="navbar-brand" style="color: #ffffff" >SI PENGADUAN</a>
             </div>
@@ -108,7 +108,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Dashboard</h1>
+                    <h1 class="page-header" style="margin-bottom:">Dashboard</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
