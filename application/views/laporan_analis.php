@@ -141,7 +141,7 @@
                                         {
                                     ?>
                                     <tr>
-                                        <td><?php echo $data->bulan ?></td>
+                                        <td><?php echo date("F", strtotime($data->bulan)) ?></td>
                                         <!-- <td><?php// echo $data->kategori ?></td>
                                         <td><?php //echo $data->nama_ruang ?></td> -->
                                         <td><?php echo $data->jumlah ?></td>
@@ -169,7 +169,7 @@
                         <table width="100%" class="table table-striped table-bordered table-hover" id="example2">
                             <thead>
                                 <tr>
-                                    <th>Bulan</th>
+                                    <th>Ruang</th>
                                     <!-- <th>Kategori</th>
                                     <th style="width: 40%">Ruang</th> -->
                                     <th>Jumlah Pengaduan</th>
