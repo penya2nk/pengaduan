@@ -27,7 +27,7 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="background-color: #005580">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="background-color: #204060">
             <div class="navbar-header">
 
                 <a class="navbar-brand" style="color: #ffffff" >SI PENGADUAN</a>

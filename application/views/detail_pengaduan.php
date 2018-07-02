@@ -26,7 +26,7 @@
     <div id="wrapper">
 			
 			<!-- Navigation -->
-			<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color: #005580">
+			<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color: #204060">
 				<div class="navbar-header">
 					
 					<a class="navbar-brand" style="color: #ffffff" >SI PENGADUAN</a>
@@ -110,7 +110,7 @@
 							<table class="table no border" cellpadding="0" cellspacing="0"" >
 									<tr>
 										<div class="alert alert-warning" style="background-color: #ffe0b3">
-												<label>Laporan Koordinator :</label>
+												<label>Laporan Koordinator :</label><br>
 												<?php
 													foreach ($detail_pengaduan as $data) 
 													{
