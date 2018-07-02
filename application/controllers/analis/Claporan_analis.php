@@ -18,4 +18,11 @@ class Claporan_analis extends BaseController {
 		$data['ruang']=$this->Mlaporan_analis->ruang();
 		$this->load->view('laporan_analis',$data);
 	}
+
+	public function print_laporan()
+	{
+		$data['bulan']=$this->Mlaporan_analis->bulan();
+		$data['ruang']=$this->Mlaporan_analis->ruang();
+		$this->load->view('cetak_laporan',$data);
+	}
 }

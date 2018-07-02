@@ -23,7 +23,8 @@ class Login extends CI_Controller {
 	function isLoggedIn()
     {
         $isLoggedIn = $this->session->userdata('isLoggedIn');
-        $username = $this->session->userdata('username');
+        $role = $this->session->userdata('id_role');
+        $level = $this->session->userdata('id_level');
         
         if(!isset($isLoggedIn) || $isLoggedIn != TRUE)
         {
@@ -31,18 +32,20 @@ class Login extends CI_Controller {
         }
         else
         {
-        	if ($username == 'admin') { //nyamain val opt
+        	if ($role == 4) {
                 	redirect('admin');
                 }
-                elseif ($username == 'analis') {
+                elseif ($level == 2) {
                 	redirect('analis');
                 }
-                elseif ($username == 'koordinator') {
+                elseif ($level == 3 || $level == 4) {
                 	redirect('koordinator');
-                }
+                }else{
+                    $this->session->sess_destroy();
+                    redirect('karyawan');
+            }
         }
     }
-    
     
     /**
      * This function used to logged in user

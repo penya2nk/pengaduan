@@ -38,10 +38,6 @@
 
             <ul class="nav navbar-top-links navbar-right">
 
-                <!-- /.dropdown 
-                <li class="dropdown">
-                    <a style="color: #ffffff" href=<?php //echo base_url("login")?> ><i class="fa fa-fw fa-sign-out"></i>Isnaini Barochatun</a>
-                </li> -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #ffffff">
                         <i class="fa fa-user fa-fw"></i> Isnaini barochatun</i>
@@ -61,9 +57,7 @@
 
         <!--- user panel -->
         <section class="sidebar">
-                    <!-- <div class="pull-center image">
-                        <img src='<?php //echo base_url("img/user2.png")?>' class="img-circle" alt="User Image"  style="margin-left: 24%; margin-right: 24%; margin-top: 10%; width:50%">
-                    </div> -->
+                    
                 </section>
 
                 <!-- MENU -->
@@ -72,9 +66,7 @@
                         <ul class="nav" id="side-menu">
 
                             <li class="sidebar-search" >
-                            <!-- <div class="input-group custom-search-form" style="margin-left: 20%">
-                                <p>Isnaini Barochatun</p>
-                            </div> -->
+
                             <div class="input-group custom-search-form">
                                 <b>Menu Sistem</b>
                             </div>
@@ -114,16 +106,52 @@
             </div>
 
             <!-- /.row -->
+            
+            <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12" style="margin-bottom: 10px; margin-left: 90%">
+                        <a class="btn btn-success" onclick="window.print(<?php echo base_url('analis/cetak') ?>);"><i class="fa fa-print"></i> cetak</a>
+                    </div>
+
+                    <div class="col-lg-12" style="width: 100%">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
+                                <div class="pull-right">
+                                    <div class="btn-group">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+
+                                <div class="box box-info">
+                                    <div class="box-body chart-responsive">
+                                      <canvas id="myChart" width="300" height="100"></canvas>
+                                  </div>
+                                  <!-- /.box-body -->
+                              </div>
+
+                          </div>
+                          <!-- /.panel-body -->
+                      </div>
+                      <!-- /.panel -->
+
+                      <!-- /.panel -->
+                  </div>
+
+              </div>
+              <!-- /.row -->
+
             <div class="row">
 
-                <a class="btn btn-primary" onclick="window.print();">cetak</a>
-            </div>
-
-            <div class="row">
                 <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Rekap Pengaduan
+                            Rekap Pengaduan Perbulan
                             <div class="pull-right">
                             </div>
                         </div>
@@ -201,54 +229,7 @@
                     </div>
                 </div>
 
-                <!-- /.row -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
-                                <div class="pull-right">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                            Actions
-                                            <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu pull-right" role="menu">
-                                            <li><a href="#">Action</a>
-                                            </li>
-                                            <li><a href="#">Another action</a>
-                                            </li>
-                                            <li><a href="#">Something else here</a>
-                                            </li>
-                                            <li class="divider"></li>
-                                            <li><a href="#">Separated link</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <!-- /.panel-heading -->
-                            <div class="panel-body">
-
-                                <div class="box box-info">
-                                    <div class="box-body chart-responsive">
-                                      <canvas id="myChart" width="400" height="130"></canvas>
-                                  </div>
-                                  <!-- /.box-body -->
-                              </div>
-
-                          </div>
-                          <!-- /.panel-body -->
-                      </div>
-                      <!-- /.panel -->
-
-                      <!-- /.panel -->
-                  </div>
-
-              </div>
-              <!-- /.row -->
+                
           </div>
           <!-- /#page-wrapper -->
 
