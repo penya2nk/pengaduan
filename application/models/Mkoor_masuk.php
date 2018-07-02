@@ -9,6 +9,15 @@ class Mkoor_masuk extends CI_Model
 		$this->db->join('kategori k','k.id_kategori = p.id_kategori');
 		$this->db->join('ruang r','r.id_ruang = p.id_ruang');
 		$this->db->where('p.status', "masuk");
+		
+		if($this->session->userdata('level' == 3))
+		{
+			$this->db->where('r.id_tempat',1);
+		}
+		elseif($this->session->userdata('level' == 4))
+		{
+			$this->db->where('r.id_tempat !=',1);
+		}
 		return $this->db->get()->result();
 	}
 
