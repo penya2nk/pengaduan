@@ -21,12 +21,17 @@
     <link rel="stylesheet" type="text/css" href=<?php echo base_url("assets/badge.css")?> >
     <script src=<?php echo base_url("assets/vendor/jquery/jquery.min.js")?> ></script>
     <script src=<?php echo base_url("assets/vendor/bootstrap/js/bootstrap.min.js")?> ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js" ></script>
+    <script src=<?php echo base_url("assets/chartjs/Chart.bundle.min.js")?> ></script>
+    
 </head>
 
+<div class="container">
+<div class="row">
+    <a onclick="$('#printsekarang').printArea();" class="btn btn-success btn-lg">CETAK SEKARANG</a>
+</div>
+</div>
 <body>
-
-<div class="container" style="margin-top: 50px">
+<div class="container" id="printsekarang" style="margin-top: 50px">
 
     <div class="row">
                     <div class="col-lg-12" style="width: 97%; margin-left: 18px">
@@ -63,8 +68,8 @@
               <!-- /.row -->
 
     <div class="col-lg-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
+        <div class="panel panel-default" style="border:0;">
+            <div class="panel-heading" style="border:0; border-color: #ffffff;  background-color: #ffffff">
                 Rekap Pengaduan Perbulan
                 <div class="pull-right">
                 </div>
@@ -74,9 +79,9 @@
                 <table width="100%" class="table table-striped table-bordered table-hover" id="example1">
                     <thead>
                         <tr>
-                            <th>No.</th>
-                            <th>Bulan</th>
-                            <th>Jumlah Pengaduan</th>
+                            <th style="width: 20px">No.</th>
+                            <th style="width: 50px">Bulan</th>
+                            <th style="width: 30px">Jumlah Pengaduan</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -105,8 +110,8 @@
                 </div>
 
     <div class="col-lg-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
+        <div class="panel panel-default" style="border:0;">
+            <div class="panel-heading" style="border:0; border-color: #ffffff;  background-color: #ffffff">
                 Rekap Pengaduan Perbulan
                 <div class="pull-right">
                 </div>
@@ -116,20 +121,20 @@
                 <table width="100%" class="table table-striped table-bordered table-hover" id="example2">
                     <thead>
                         <tr>
-                            <th>No.</th>
-                            <th>Bulan</th>
-                            <th>Jumlah Pengaduan</th>
+                            <th style="width: 20px">No.</th>
+                            <th style="width: 50px">Ruang</th>
+                            <th style="width: 30px">Jumlah Pengaduan</th>
                         </tr>
                     </thead>
                     <tbody>
                                     <?php 
                                     $i = 1;
-                                    foreach ($bulan as $data)
+                                    foreach ($ruang as $data)
                                     {
                                         ?>
                                         <tr>
                                             <td><?php echo $i; ?></td>
-                                            <td><?php echo date("F", strtotime($data->bulan)) ?></td>
+                                            <td><?php echo $data->nama_ruang ?></td>
                                             <td><?php echo $data->jumlah ?></td>
                                         </tr>
                                         <?php
@@ -215,6 +220,13 @@ var myChart = new Chart(ctx, {
 });   
 
 </script>
+
+<script type="text/javascript">
+        function loadPrint() {
+        //window.print();
+            setTimeout(function () { window.print(); }, 6000);
+    }
+    </script>
 
 </body>
 </html>

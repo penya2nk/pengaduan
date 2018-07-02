@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +21,7 @@
     <link rel="stylesheet" type="text/css" href=<?php echo base_url("assets/badge.css")?> >
     <script src=<?php echo base_url("assets/vendor/jquery/jquery.min.js")?> ></script>
     <script src=<?php echo base_url("assets/vendor/bootstrap/js/bootstrap.min.js")?> ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js" ></script>
+    <script src=<?php echo base_url("assets/chartjs/Chart.bundle.min.js")?> ></script>
 </head>
 
 <body>
@@ -108,9 +107,10 @@
             <!-- /.row -->
             
             <!-- /.row -->
+                
                 <div class="row">
                     <div class="col-lg-12" style="margin-bottom: 10px; margin-left: 90%">
-                        <a class="btn btn-success" onclick="window.print(<?php echo base_url('analis/cetak') ?>);"><i class="fa fa-print"></i> cetak</a>
+                        <a href="<?php echo base_url('analis/cetak')?>" class="btn btn-success"><i class="fa fa-print"></i> cetak</a>
                     </div>
 
                     <div class="col-lg-12" style="width: 100%">

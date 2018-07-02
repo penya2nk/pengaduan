@@ -176,7 +176,7 @@
 										<?php
 								foreach ($detail_pengaduan as $data) 
 								{
-									echo $data->keterangan . ", ";
+									echo $data->keterangan . "";
 								}
 									?>
 									</td>

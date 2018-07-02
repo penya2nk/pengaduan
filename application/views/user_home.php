@@ -25,12 +25,11 @@
       <div class="card">
         <div class="card-body">
 
-          <div class="col-md-4 col-md-offset-4" style="margin-top: 50px">
-                
-                <center>
-                  <button class="btn btn-primary">MASUK</button>
+          <div class="col-md-6 col-md-offset-3" style="margin-top: 50px">
+                <center><b>
+                <h1>SELAMAT DATANG</h1><br>
+                <h1>DI SISTEM INFORMASI PENGADUAN REKAM MEDIS</h1></b>
                 </center>
-
               
           </div>
 

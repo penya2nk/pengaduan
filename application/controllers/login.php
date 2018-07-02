@@ -63,7 +63,10 @@ class Login extends CI_Controller {
         }
         else
         {
-            $username = $this->input->post('username');
+
+             $username = $this->input->post('username');
+            // $role = $this->input->post('id_role');
+            
             $password = $this->input->post('password');
             
             $result = $this->Mlogin->loginMe($username, $password);
@@ -77,20 +80,23 @@ class Login extends CI_Controller {
                                             'role'=>$res->role,
                                             'nama_pengguna'=>$res->nama_pengguna,
                                             'username'=>$username,
+                                            'id_level'=>$res->id_level,
                                             'isLoggedIn' => TRUE
                                     );
-                           
+                    // var_dump($res->id_level); exit;
                     $this->session->set_userdata($sessionArray);
-                    if ($username == 'admin') { //nyamain val opt
-                    	redirect('admin');
+                    if ($res->id_role == 4) {
+                        redirect('admin');
                     }
-                    elseif ($username == 'analis') {
-                    	redirect('analis');
+                    elseif ($res->id_level == 2) {
+                        redirect('analis');
                     }
-                    elseif ($username == 'koordinator') {
-                    	redirect('koordinator');
+                    elseif ($res->id_level == 3 || $res->id_level == 4) {
+                        redirect('koordinator');
+                    }else{
+                        $this->session->sess_destroy();
+                        redirect('karyawan');
                     }
-                    
                 }
             }
             else

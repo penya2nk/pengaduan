@@ -335,12 +335,7 @@
         hideHover: 'auto',
         resize: true,
         barColors: function (row, series, type) {
-        console.log("--> "+row.label, series, type);
-        if(row.label == "sarpras") return "#AD1D28";
-        else if(row.label == "dosen") return "#DEBB27";
-        else if(row.label == "mata kuliah") return "#fec04c";
-        else if(row.label == "layanan informasi") return "#1AB244";
-        else if(row.label == "lingkungan") return "#3385ff";
+        return "#3385ff";
         }
     });
     

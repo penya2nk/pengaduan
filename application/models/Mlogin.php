@@ -5,7 +5,7 @@ class Mlogin extends CI_Model {
 
 	function loginMe($user, $password)
     {
-        $this->db->select('u.id_user, u.password, u.nama_pengguna, u.username, u.id_role, r.role');
+        $this->db->select('u.id_user, u.password, u.nama_pengguna, u.username, u.id_role, u.id_level, r.role');
         $this->db->from('user u');
         $this->db->join('roles r','r.id_role = u.id_role');
         $this->db->where('u.username',$user);

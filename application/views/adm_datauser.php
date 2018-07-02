@@ -195,6 +195,11 @@
 																				<input class="form-control" type="text" name="username" value="<?php echo $data->username ?>">
 																			</div>
 
+																			<div class="form-group">
+																				<label>Ubah Password :</label>
+																				<input class="form-control" type="password" name="password">
+																			</div>
+
 																			<div class="form-group" style="width: 30%;">
                                                                             <label>Level :</label>
 	                                                                            <input type="text" class="form-control" value="<?php echo $data->nama_level.' '.$data->posisi ?>" readonly>
@@ -308,6 +313,11 @@
                                                                                 <label>NIP :</label>
                                                                                 <input class="form-control" type="text" name="username" value="<?php echo $data->username ?>">
                                                                             </div>
+
+                                                                            <div class="form-group">
+																				<label>Ubah Password :</label>
+																				<input class="form-control" type="password" name="password">
+																			</div>
 
                                                                             <div class="form-group" style="width: 30%;">
                                                                             <label>Level :</label>
@@ -535,7 +545,7 @@
                 3. Ukuran file maksimum 10 mb.<br>
                 4. Untuk menghindari kegagalan, Anda dapat mengunduh contoh format file di bawah:<br>
                 <a href="<?php echo base_url('admin/download') ?>" class="btn btn-sm btn-success" style="margin-top: 10px"><i class="fa fa-download"></i> Unduh</a><br><br>
-                4. Jika telah memenuhi syarat, silahkan unggah data Anda.
+                5. Jika telah memenuhi syarat, silahkan unggah data Anda.
 							</div>
 						</div>
 					</div>
