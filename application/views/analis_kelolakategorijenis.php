@@ -134,7 +134,7 @@
                                 <table class="table table-bordered table-hover"" id="example1">
                                     <thead>
                                         <tr>
-                                            <th style="width: 20px">No</th>
+                                            <th style="width: 40px">No</th>
                                             <th>Nama Kategori</th>
                                             <th style="width: 50px">Aksi</th>
                                         </tr>
@@ -146,9 +146,9 @@
                                         {
                                             ?>
                                             <tr>
-                                                <td><?php echo $i; ?></td>
+                                                <td style="text-align: center;"><?php echo $i; ?></td>
                                                 <td><?php echo $data->kategori ?></td>
-                                                <td>
+                                                <td style="text-align: center;">
                                                     <span><i class="fa fa-edit" style="color: blue" data-toggle="modal" data-target="#editKategori<?php echo $data->id_kategori; ?>"></i></span>&nbsp;
                                                     
                                                     <a href="<?php echo base_url('analis/hapus_kategori/'.$data->id_kategori) ?>"><i class="fa fa-trash-o" style="color: red"></i></a>
@@ -221,7 +221,7 @@
                             <table class="table table-striped table-bordered table-hover" id="example2">
                                 <thead>
                                     <tr>
-                                        <th style="width: 20px">No</th>
+                                        <th style="width: 40px">No</th>
                                         <th>Nama Jenis</th>
                                         <th style="width: 50px">Aksi</th>
                                     </tr>
@@ -233,9 +233,9 @@
                                     {
                                         ?>
                                         <tr>
-                                            <td><?php echo $x; ?></td>
+                                            <td style="text-align: center;"><?php echo $x; ?></td>
                                             <td><?php echo $data->nama_jenis ?></td>
-                                            <td>
+                                            <td style="text-align: center;">
                                                 <span><i class="fa fa-edit" style="color: blue" data-toggle="modal" data-target="#editJenis<?php echo $data->id_jenis; ?>"></i></span>&nbsp;
                                                 <a href="<?php echo base_url('analis/hapus_jenis/'.$data->id_jenis) ?>"><i class="fa fa-trash-o" style="color: red"></i></a>
                                             </td>
