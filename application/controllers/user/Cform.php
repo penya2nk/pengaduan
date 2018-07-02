@@ -11,11 +11,12 @@ class Cform extends BaseController {
 		$this->isLoggedIn();
 	}
 
-public function home()
-	{
-		$this->load->view('user_home');
-	}
 	public function index()
+	{
+		$this->load->view('pengadu_home');
+	}
+	
+	public function home()
 	{
 		$data['kategori']= $this->Mform_pengaduan->kategori();
 		$data['tempat']= $this->Mform_pengaduan->tempat();

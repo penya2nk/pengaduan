@@ -19,16 +19,19 @@
 </head>
 
 <!--<body style="background-image: url('<?php //echo base_url("img/dn.jpg")?>'); width: auto; height: 100%" > -->
-  <body style="background-image: url('<?php echo base_url("img/home.jpg")?>'); background-repeat: no-repeat; background-size: 1370px 670px;">
+  <body style="background-image: url('<?php echo base_url("img/ugm.png")?>'); background-size: 1370px 750px;">
     <div class="container">
 
       <div class="card">
         <div class="card-body">
 
-          <div class="col-md-6 col-md-offset-3" style="margin-top: 50px">
+          <div class="col-md-12" style="margin-top: 60px; font-family: Aharoni; color: #fff;">
                 <center><b>
-                <h1>SELAMAT DATANG</h1><br>
-                <h1>DI SISTEM INFORMASI PENGADUAN REKAM MEDIS</h1></b>
+                  <img style="width: 10%" src="<?php echo base_url('img/ugm.gif') ?>">
+                <h1 style="font-size: 500%">Selamat Datang</h1>
+                <h1 style="font-size: 300%">di Sistem Informasi Pengaduan</h1>
+                <h1 style="font-size: 300%">Program Studi Rekam Medis</h1></b><br>
+                <a href="<?php echo base_url('user/home') ?>" class="btn btn-warning btn-lg" >Mulai Pengaduan!</a>
                 </center>
               
           </div>
