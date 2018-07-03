@@ -53,12 +53,7 @@
                         <div class="input-group-addon">
                           <i class="fa fa-user"></i>
                         </div>
-                        <select name="username" class="form-control">
-                          <option value="0">-------------- Masuk sebagai -------------</option>
-                          <option value="admin">admin</option>
-                          <option value="analis">analis</option>
-                          <option value="koordinator">koordinator</option>
-                        </select>
+                        <input type="text" name="username" class="form-control"  placeholder="username">
                       </div>
                     </div>
 

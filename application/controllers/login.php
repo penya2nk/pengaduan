@@ -23,7 +23,8 @@ class Login extends CI_Controller {
 	function isLoggedIn()
     {
         $isLoggedIn = $this->session->userdata('isLoggedIn');
-        $username = $this->session->userdata('username');
+        $role = $this->session->userdata('id_role');
+        $level = $this->session->userdata('id_level');
         
         if(!isset($isLoggedIn) || $isLoggedIn != TRUE)
         {
@@ -31,15 +32,18 @@ class Login extends CI_Controller {
         }
         else
         {
-        	if ($username == 'admin') { //nyamain val opt
-                	redirect('admin');
-                }
-                elseif ($username == 'analis') {
-                	redirect('analis');
-                }
-                elseif ($username == 'koordinator') {
-                	redirect('koordinator');
-                }
+        	if ($role == 4) { //nyamain val opt
+						redirect('admin');
+					}
+					elseif ($level == 2) {
+						redirect('analis');
+					}
+					elseif ($level == 3 || $level == 4) {
+						redirect('koordinator');
+					}else{
+						$this->session->sess_destroy();
+						redirect('karyawan');
+					}
         }
     }
     
@@ -73,21 +77,24 @@ class Login extends CI_Controller {
                                             'id_role'=>$res->id_role,
                                             'role'=>$res->role,
                                             'nama_pengguna'=>$res->nama_pengguna,
+                                            'id_level'=>$res->id_level,
                                             'username'=>$username,
                                             'isLoggedIn' => TRUE
                                     );
                            
                     $this->session->set_userdata($sessionArray);
-                    if ($username == 'admin') { //nyamain val opt
+                    if ($res->id_role == 4) { //nyamain val opt
                     	redirect('admin');
                     }
-                    elseif ($username == 'analis') {
+                    elseif ($res->id_level == 2) {
                     	redirect('analis');
                     }
-                    elseif ($username == 'koordinator') {
+                    elseif ($res->id_level == 3 || $res->id_level == 4) {
                     	redirect('koordinator');
-                    }
-                    
+                    }else{
+											$this->session->sess_destroy();
+											redirect('karyawan');
+										}
                 }
             }
             else

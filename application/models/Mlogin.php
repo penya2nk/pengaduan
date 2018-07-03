@@ -10,6 +10,7 @@ class Mlogin extends CI_Model {
         $this->db->join('roles r','r.id_role = u.id_role');
         $this->db->where('u.username',$user);
         $this->db->where('u.deleted', 0);
+        $this->db->where('status',1);
         $query = $this->db->get();
         
         $user = $query->result();
