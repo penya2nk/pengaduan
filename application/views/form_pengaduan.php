@@ -113,7 +113,7 @@
                     <div class="form-group" style="width: 100%; margin-bottom: 10px">
                       <div class="col-md-6">
                         <label><b>Pilih tempat kejadian <b style="color: red">*</b></b></label>
-                        <select class="form-control" name="tempat"  id="tempat" required>
+                        <select required="Wajib diisi!" class="form-control" name="tempat"  id="tempat">
                           <option value="0">----------------------------------------- pilih tempat ------------------------------------------</option>
                           <?php
                           foreach ($tempat as $data){
@@ -131,7 +131,7 @@
                     <div class="form-group">
                       <div class="col-md-6">
                         <label><b>Pilih ruang kejadian <b style="color: red">*</b></b></label>
-                        <select class="form-control ruang" name="ruang" id="ruang" required>
+                        <select required="Wajib diisi!" class="form-control ruang" name="ruang" id="ruang">
                           <option>----------------------------------------- pilih ruang ------------------------------------------</option>
                         </select>
                       </div>
@@ -140,7 +140,7 @@
                     <div class="form-group" style="width: 100%">
                       <div class="col-md-6" style="margin-bottom: 20px; margin-top: 10px">
                         <label><b>Pilih kategori kejadian <b style="color: red">*</b></b></label>
-                        <select class="form-control" name="kategori"  id="kategori" required>
+                        <select required="Wajib diisi!" class="form-control" name="kategori"  id="kategori">
                           <option value="0">----------------------------------------- pilih kategori ------------------------------------------</option>
                           <?php
                           foreach ($kategori as $data)
@@ -157,7 +157,7 @@
                     <div class="form-group">
                       <div class="col-md-6" style="margin-bottom: 20px; margin-top: 10px">
                         <label><b>Pilih jenis kejadian <b style="color: red">*</b></b></label>
-                        <select class="form-control jenis" name="jenis" id="jenis" required>
+                        <select required="Wajib diisi!" class="form-control jenis" name="jenis" id="jenis">
                           <option>----------------------------------------- pilih jenis ------------------------------------------</option>
                           <?php
                           foreach ($jenis as $data)
@@ -172,19 +172,6 @@
                     </div>
 
                   </div>
-
-                  <!-- <div class="footer" style="margin-left:92%;">
-                    <div class="box-footer with-border">
-                      <a href="#halaman_2" class="btn btn-primary" data-toggle="tab">lanjut <i class="fa fa-chevron-right"></i></a>
-                    </div>
-                  </div>
-
-
-                </div>
-                 
-
-
-                <div class="tab-pane fade in" id="halaman_2"> -->
 
                   <!-- kategori dan jenis -->
                   <div class="form-group" style="margin-left: 15px">

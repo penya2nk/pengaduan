@@ -297,7 +297,7 @@
     <div>
         <div class="modal modal-primary fade" id="kategori" style="margin-top: 5%">
           <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content" style="width: 70%; margin-left: 15%">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
@@ -311,7 +311,7 @@
 
                             <div class="form-group">
                                 <label>Kategori Baru :</label>
-                                <input type="text" name="kategori" required>
+                                <input type="text" name="kategori" class="form-control" required>
                             </div>
 
                         </div>

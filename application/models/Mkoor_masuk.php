@@ -4,12 +4,11 @@ class Mkoor_masuk extends CI_Model
 {
 	public function pengaduan_masuk()
 	{
-		$this->db->select('p.id_pengaduan, p.wkt_pengaduan, k.kategori, r.nama_ruang, p.status');
+		$this->db->select('p.id_pengaduan, p.wkt_pengaduan, k.kategori, r.id_tempat, r.nama_ruang, p.status');
 		$this->db->from('pengaduan p');
 		$this->db->join('kategori k','k.id_kategori = p.id_kategori');
 		$this->db->join('ruang r','r.id_ruang = p.id_ruang');
 		$this->db->where('p.status', "masuk");
-		
 		if($this->session->userdata('level' == 3))
 		{
 			$this->db->where('r.id_tempat',1);
