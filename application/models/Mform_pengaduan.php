@@ -125,9 +125,9 @@
 
 		public function riwayat($id_user)
 		{
-			$this->db->select('p.id_pengaduan, k.kategori, l.id_user , p.status, p.wkt_pengaduan');
+			$this->db->select('p.id_pengaduan, k.kategori, p.id_user, p.status, p.wkt_pengaduan');
 			$this->db->from('pengaduan p');
-			$this->db->join('log l','p.id_pengaduan = l.id_pengaduan');
+			//$this->db->join('log l','p.id_pengaduan = l.id_pengaduan');
 			$this->db->join('kategori k','p.id_kategori = k.id_kategori');
 			$this->db->where('p.id_user',$id_user);
 			return $this->db->get()->result();
