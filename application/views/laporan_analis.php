@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,15 +21,14 @@
     <link rel="stylesheet" type="text/css" href=<?php echo base_url("assets/badge.css")?> >
     <script src=<?php echo base_url("assets/vendor/jquery/jquery.min.js")?> ></script>
     <script src=<?php echo base_url("assets/vendor/bootstrap/js/bootstrap.min.js")?> ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js" ></script>
+    <script src=<?php echo base_url("assets/chartjs/Chart.bundle.min.js")?> ></script>
 </head>
-
 <body>
 
     <div id="wrapper">
 
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="background-color: #005580; margin-bottom: 0">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="background-color: #204060; margin-bottom: 0">
             <div class="navbar-header">
                 <a class="navbar-brand" style="color: #ffffff" >SI PENGADUAN</a>
             </div>
@@ -38,10 +36,6 @@
 
             <ul class="nav navbar-top-links navbar-right">
 
-                <!-- /.dropdown 
-                <li class="dropdown">
-                    <a style="color: #ffffff" href=<?php //echo base_url("login")?> ><i class="fa fa-fw fa-sign-out"></i>Isnaini Barochatun</a>
-                </li> -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #ffffff">
                         <i class="fa fa-user fa-fw"></i> Isnaini barochatun</i>
@@ -61,119 +55,153 @@
 
         <!--- user panel -->
         <section class="sidebar">
-                    <!-- <div class="pull-center image">
-                        <img src='<?php //echo base_url("img/user2.png")?>' class="img-circle" alt="User Image"  style="margin-left: 24%; margin-right: 24%; margin-top: 10%; width:50%">
-                    </div> -->
-                </section>
 
-                <!-- MENU -->
-                <div class="navbar-default sidebar" role="navigation"> <!-- style="margin-top: 15%;" -->
-                    <div class="sidebar-nav navbar-collapse">
-                        <ul class="nav" id="side-menu">
+        </section>
 
-                            <li class="sidebar-search" >
-                            <!-- <div class="input-group custom-search-form" style="margin-left: 20%">
-                                <p>Isnaini Barochatun</p>
-                            </div> -->
-                            <div class="input-group custom-search-form">
-                                <b>Menu Sistem</b>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
+        <!-- MENU -->
+        <div class="navbar-default sidebar" role="navigation"> <!-- style="margin-top: 15%;" -->
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
 
-                        <!-- menu -->
+                    <li class="sidebar-search" >
 
-                        <li class="active">
-                            <a href=<?php echo base_url('analis')?>><i class="fa fa-envelope"></i>&nbsp; Pengaduan Masuk</a>
-                        </li>
-                        <li>
-                            <a href=<?php echo base_url('analis/riwayat_pengaduan')?> ><i class="fa fa-table"></i>&nbsp; Riwayat Pengaduan</a>
-                        </li>
-                        <li>
-                            <a href=<?php echo base_url('analis/kelola')?>><i class="fa fa-gears"></i>&nbsp; Kategori dan Jenis</a>
-                        </li>
-                        <li>
-                            <a href=<?php echo base_url('analis/laporan')?> style="color: #000000"><i class="fa fa-dashboard"></i><b>&nbsp; Rekap Data</b></a>
-                        </li>
-                        <!-- menu -->
+                        <div class="input-group custom-search-form">
+                            <b>Menu Sistem</b>
+                        </div>
+                        <!-- /input-group -->
+                    </li>
 
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
+                    <!-- menu -->
+
+                    <li class="active">
+                        <a href=<?php echo base_url('analis')?>><i class="fa fa-envelope"></i>&nbsp; Pengaduan Masuk</a>
+                    </li>
+                    <li>
+                        <a href=<?php echo base_url('analis/riwayat_pengaduan')?> ><i class="fa fa-table"></i>&nbsp; Riwayat Pengaduan</a>
+                    </li>
+                    <li>
+                        <a href=<?php echo base_url('analis/kelola')?>><i class="fa fa-gears"></i>&nbsp; Kategori dan Jenis</a>
+                    </li>
+                    <li>
+                        <a href=<?php echo base_url('analis/laporan')?> style="color: #000000"><i class="fa fa-dashboard"></i><b>&nbsp; Laporan Pengaduan</b></a>
+                    </li>
+                    <!-- menu -->
+
+                </ul>
             </div>
-            <!-- /.navbar-static-side -->
-        </nav>
+            <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+    </nav>
 
-        <!-- Page Content -->
-        <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header" style="margin-bottom:">Dashboard</h1>
-                </div>
-                <!-- /.col-lg-12 -->
+    <!-- Page Content -->
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header" style="margin-bottom:">Laporan Pengaduan</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+
+        <!-- /.row -->
+
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-12" style="margin-bottom: 10px; margin-left: 90%">
+                <!-- <a href="<?php //echo base_url('analis/cetak')?>" class="btn btn-success"><i class="fa fa-print"></i> cetak</a> -->
+                 <a class="btn btn-success" onclick="window.print()"><i class="fa fa-print"></i> cetak</a>
             </div>
 
-            <!-- /.row -->
-            <div class="row">
+            <div class="col-lg-12" style="width: 100%">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
+                        <div class="pull-right">
+                            <div class="btn-group">
 
-                <a class="btn btn-primary" onclick="window.print();">cetak</a>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Rekap Pengaduan
-                            <div class="pull-right">
                             </div>
                         </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="example1">
-                                <thead>
-                                    <tr>
-                                        <th>No.</th>
-                                        <th>Bulan</th>
-                                        <th>Jumlah Pengaduan</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php 
-                                    $i = 1;
-                                    foreach ($bulan as $data)
-                                    {
-                                        ?>
-                                        <tr>
-                                            <td><?php echo $i; ?></td>
-                                            <td><?php echo date("F", strtotime($data->bulan)) ?></td>
-                                            <td><?php echo $data->jumlah ?></td>
-                                        </tr>
-                                        <?php
-                                        $i++;
-                                    }
-                                    ?>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- /.panel-body -->
+                    </div>
+
+
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+
+                        <div class="box box-info">
+                            <div class="box-body chart-responsive">
+                              <canvas id="myChart" width="300" height="100"></canvas>
+                          </div>
+                          <!-- /.box-body -->
+                      </div>
+
+                  </div>
+                  <!-- /.panel-body -->
+              </div>
+              <!-- /.panel -->
+
+              <!-- /.panel -->
+          </div>
+
+      </div>
+      <!-- /.row -->
+
+      <div class="row">
+
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Rekap Pengaduan Perbulan
+                    <div class="pull-right">
                     </div>
                 </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="example1">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Bulan</th>
+                                <th>Jumlah Pengaduan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php 
+                            $i = 1;
+                            foreach ($bulan as $data)
+                            {
+                                ?>
+                                <tr>
+                                    <td><?php echo $i; ?></td>
+                                    <td><?php echo date("F", strtotime($data->bulan)) ?></td>
+                                    <td><?php echo $data->jumlah ?></td>
+                                </tr>
+                                <?php
+                                $i++;
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+        </div>
 
 
-                <div class="col-lg-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Rekap Pengaduan Berdasarkan Ruang
-                            <div class="pull-right">
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="example2">
-                                <thead>
-                                    <tr>
-                                        <th>No.</th>
-                                        <th>Ruang</th>
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Rekap Pengaduan Berdasarkan Ruang
+                    <div class="pull-right">
+                    </div>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="example2">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Ruang</th>
                                     <!-- <th>Kategori</th>
                                         <th style="width: 40%">Ruang</th> -->
                                         <th>Jumlah Pengaduan</th>
@@ -190,7 +218,7 @@
                                             <td><?php echo $data->nama_ruang ?></td>
                                             <td><?php echo $data->jumlah ?></td>
                                         </tr>
-                                       <?php
+                                        <?php
                                         $x++;
                                     }
                                     ?>
@@ -201,154 +229,107 @@
                     </div>
                 </div>
 
-                <!-- /.row -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
-                                <div class="pull-right">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                            Actions
-                                            <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu pull-right" role="menu">
-                                            <li><a href="#">Action</a>
-                                            </li>
-                                            <li><a href="#">Another action</a>
-                                            </li>
-                                            <li><a href="#">Something else here</a>
-                                            </li>
-                                            <li class="divider"></li>
-                                            <li><a href="#">Separated link</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                
+            </div>
+            <!-- /#page-wrapper -->
+
+        </div>
+        <!-- /#wrapper -->
 
 
-                            <!-- /.panel-heading -->
-                            <div class="panel-body">
+        <script src=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.js")?> ></script>
+        <script src=<?php echo base_url("assets/vendor/datatables/js/jquery.dataTables.min.js")?> ></script>
+        <script src=<?php echo base_url("assets/vendor/datatables-plugins/dataTables.bootstrap.min.js")?> ></script>
+        <script src=<?php echo base_url("assets/vendor/datatables-responsive/dataTables.responsive.js")?> ></script>
+        <script src=<?php echo base_url("assets/vendor/raphael/raphael.min.js")?> ></script>
+        <script src=<?php echo base_url("assets/vendor/morrisjs/morris.min.js")?> ></script>
+        <script src=<?php echo base_url("assets/data/morris-data.js")?> ></script>
+        <script src=<?php echo base_url("assets/dist/js/sb-admin-2.js")?> ></script>
 
-                                <div class="box box-info">
-                                    <div class="box-body chart-responsive">
-                                      <canvas id="myChart" width="400" height="130"></canvas>
-                                  </div>
-                                  <!-- /.box-body -->
-                              </div>
-
-                          </div>
-                          <!-- /.panel-body -->
-                      </div>
-                      <!-- /.panel -->
-
-                      <!-- /.panel -->
-                  </div>
-
-              </div>
-              <!-- /.row -->
-          </div>
-          <!-- /#page-wrapper -->
-
-      </div>
-      <!-- /#wrapper -->
-
-      
-      <script src=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.js")?> ></script>
-      <script src=<?php echo base_url("assets/vendor/datatables/js/jquery.dataTables.min.js")?> ></script>
-      <script src=<?php echo base_url("assets/vendor/datatables-plugins/dataTables.bootstrap.min.js")?> ></script>
-      <script src=<?php echo base_url("assets/vendor/datatables-responsive/dataTables.responsive.js")?> ></script>
-      <script src=<?php echo base_url("assets/vendor/raphael/raphael.min.js")?> ></script>
-      <script src=<?php echo base_url("assets/vendor/morrisjs/morris.min.js")?> ></script>
-      <script src=<?php echo base_url("assets/data/morris-data.js")?> ></script>
-      <script src=<?php echo base_url("assets/dist/js/sb-admin-2.js")?> ></script>
-
-      <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-      <script>
-        $(document).ready(function() {
-            $('#dataTables-example').DataTable({
-                responsive: true
+        <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+        <script>
+            $(document).ready(function() {
+                $('#dataTables-example').DataTable({
+                    responsive: true
+                });
             });
-        });
+        </script>
+
+        <script>
+          $(function () {
+            $('#example1').DataTable({
+            //$('#example2').DataTable({
+            'paging'      : false,
+            'lengthChange': false,
+            'searching'   : false,
+            'ordering'    : true,
+            'info'        : false,
+            'autoWidth'   : false
+ })
+        })
     </script>
 
     <script>
       $(function () {
-        $('#example1').DataTable({
+        $('#example2').DataTable({
     //$('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-     // 'searching'   : false,
-     'ordering'    : true,
-     'info'        : true,
-     'autoWidth'   : false
+        'paging'      : false,
+        'lengthChange': false,
+        'searching'   : false,
+        'ordering'    : true,
+        'info'        : false,
+        'autoWidth'   : false
  })
     })
 </script>
 
-<script>
-  $(function () {
-    $('#example2').DataTable({
-    //$('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-     // 'searching'   : false,
-     'ordering'    : true,
-     'info'        : true,
-     'autoWidth'   : false
- })
-})
-</script>
-
 <script type="text/javascript">
-var ctx = document.getElementById("myChart");
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        
-        labels: [
-        <?php for ($i=0; $i < count($ruang) ; $i++) 
-        { 
-            if (!empty($ruang[$i]->nama_ruang)) 
+    var ctx = document.getElementById("myChart");
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+
+            labels: [
+            <?php for ($i=0; $i < count($ruang) ; $i++) 
+            { 
+                if (!empty($ruang[$i]->nama_ruang)) 
                 {
                     echo '"'.$ruang[$i]->nama_ruang.'",';
                 } 
             } 
-        ?>
-        ],
-        datasets: [{
-            label: '# nama ruang',
-            data: [
-            <?php for ($i=0; $i < count($ruang) ; $i++) 
-            { 
-                if (!empty($ruang[$i]->jumlah)) 
+            ?>
+            ],
+            datasets: [{
+                label: '# nama ruang',
+                data: [
+                <?php for ($i=0; $i < count($ruang) ; $i++) 
+                { 
+                    if (!empty($ruang[$i]->jumlah)) 
                     { 
                         echo ''.$ruang[$i]->jumlah.',';
                     }
                 } 
-            ?>
-            ],
-            backgroundColor: [
+                ?>
+                ],
+                backgroundColor: [
                 'rgba(54, 162, 235, 0)',
-            ],
-            borderColor: [
+                ],
+                borderColor: [
                 'rgba(54, 162, 235, 2)',
-            ],
-            borderWidth: 0
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
+                ],
+                borderWidth: 0
             }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
         }
-    }
-});   
+    });   
 
 </script>
 </body>

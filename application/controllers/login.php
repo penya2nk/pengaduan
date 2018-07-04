@@ -32,6 +32,7 @@ class Login extends CI_Controller {
         }
         else
         {
+<<<<<<< HEAD
         	if ($role == 4) { //nyamain val opt
 						redirect('admin');
 					}
@@ -44,9 +45,22 @@ class Login extends CI_Controller {
 						$this->session->sess_destroy();
 						redirect('karyawan');
 					}
+=======
+        	if ($role == 4) {
+                	redirect('admin');
+                }
+                elseif ($level == 2) {
+                	redirect('analis');
+                }
+                elseif ($level == 3 || $level == 4) {
+                	redirect('koordinator');
+                }else{
+                    $this->session->sess_destroy();
+                    redirect('karyawan');
+            }
+>>>>>>> 5d926e76901d5e7c79f13ce711c5c49cb01b2fbc
         }
     }
-    
     
     /**
      * This function used to logged in user
@@ -64,7 +78,10 @@ class Login extends CI_Controller {
         }
         else
         {
-            $username = $this->input->post('username');
+
+             $username = $this->input->post('username');
+            // $role = $this->input->post('id_role');
+            
             $password = $this->input->post('password');
             
             $result = $this->Mlogin->loginMe($username, $password);
@@ -79,10 +96,12 @@ class Login extends CI_Controller {
                                             'nama_pengguna'=>$res->nama_pengguna,
                                             'id_level'=>$res->id_level,
                                             'username'=>$username,
+                                            'id_level'=>$res->id_level,
                                             'isLoggedIn' => TRUE
                                     );
-                           
+                    // var_dump($res->id_level); exit;
                     $this->session->set_userdata($sessionArray);
+<<<<<<< HEAD
                     if ($res->id_role == 4) { //nyamain val opt
                     	redirect('admin');
                     }
@@ -95,6 +114,20 @@ class Login extends CI_Controller {
 											$this->session->sess_destroy();
 											redirect('karyawan');
 										}
+=======
+                    if ($res->id_role == 4) {
+                        redirect('admin');
+                    }
+                    elseif ($res->id_level == 2) {
+                        redirect('analis');
+                    }
+                    elseif ($res->id_level == 3 || $res->id_level == 4) {
+                        redirect('koordinator');
+                    }else{
+                        $this->session->sess_destroy();
+                        redirect('karyawan');
+                    }
+>>>>>>> 5d926e76901d5e7c79f13ce711c5c49cb01b2fbc
                 }
             }
             else

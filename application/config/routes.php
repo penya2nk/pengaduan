@@ -94,6 +94,7 @@ $route['analis/riwayat_deleted/(:num)'] = 'analis/Canalis_riwayatpeng/deleted/$1
 $route['analis/ubah_password'] = 'analis/Canalis_riwayatpeng/save_password';
 $route['analis/ubah_password'] = 'analis/Cpengaduan_masuk/save_password';
 $route['analis/laporan'] = 'analis/Claporan_analis';
+$route['analis/cetak'] = 'analis/Claporan_analis/print_laporan';
 $route['analis/kelola'] = 'analis/Ckategori_jenis';
 $route['analis/tambah_kategori'] = 'analis/Ckategori_jenis/tambah_kategori';
 $route['analis/edit_kategori'] = 'analis/Ckategori_jenis/edit_kategori';

@@ -23,13 +23,13 @@
   <div id="wrapper">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color: #00004d">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color: #204060">
       <div class="container">
 
         <ul class="nav navbar-top-links navbar-left">
           <!-- /.dropdown -->
           <li class="dropdown">
-            <a href="<?php echo base_url('user')?>" style="color: #ffffff"><i class="fa fa-send"></i> Form
+            <a href="<?php echo base_url('user/home')?>" style="color: #ffffff"><i class="fa fa-send"></i> Form
             </a>
           </li>
           <li>

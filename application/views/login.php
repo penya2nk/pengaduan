@@ -76,7 +76,7 @@
                   </fieldset>
                 </form>
                 <center style="margin-top: 10px">
-                  <a class="d-block small" href=<?php echo base_url("forgot")?> >Lupa Password?</a>
+                  <h6>Jika anda lupa password hubungi Admin!</h6>
                 </center>
 
               </div>

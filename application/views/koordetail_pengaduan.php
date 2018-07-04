@@ -25,7 +25,7 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color: #005580">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color: #204060">
             <div class="navbar-header">
 
                 <a class="navbar-brand" style="color: #ffffff" >SI PENGADUAN</a>
@@ -40,8 +40,6 @@
                         <i class="fa fa-user fa-fw"></i> <?php echo $this->session->userdata['nama_pengguna'] ?></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a data-toggle="modal" data-target="#settingModal"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
                         <li><a href="<?php echo base_url('logout_karyawan')?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
@@ -100,9 +98,10 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div>
-                                <a href="<?php echo base_url('koordinator/konfirmasi/'.$detail_pengaduan[0]->id_pengaduan); ?>" class="btn btn-success btn-md"><span class="fa fa-check-square-o"></span> Konfirmasi </a>
+                                <!-- <a href="<?php //echo base_url('koordinator/konfirmasi/'.$detail_pengaduan[0]->id_pengaduan); ?>" class="btn btn-success btn-md"><span class="fa fa-check-square-o"></span> Konfirmasi </a> -->
 
-                                <!-- <a  href="<?php //echo base_url('koordinator/kirim_pengaduan') ?>" class="btn btn-warning btn-md" class="btn btn-warning" style="margin-left: 20px"><span class="fa fa-send"></span> Kirim ke Analis</a> -->
+                                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#modalKonfirmasi"><span class="fa fa-check"></span> Konfirmasi </a>
+
                                 <a style="margin-left: 20px" href="#" class="btn btn-warning btn-md" data-toggle="modal" data-target="#modalKirim"><span class="fa fa-send"></span> Kirim </a>
                             </div>
 
@@ -177,6 +176,34 @@
                                         <td style="width: 80%"><img src="<?php echo base_url('assets/gambar/'.$data->gambar) ?>" style="width: 60%; height: auto"></td>
                                     </tr>
 
+                                    <!-- modal konfirm -->
+                                    <div class="modal modal-primary fade" id="modalKonfirmasi" style="margin-top: 5%; margin-left: 25%">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content" style="width: 50%">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span></button>
+                                                    <center>
+                                                        <h4 class="modal-title">Anda yakin akan konfirmasi pengaduan?</h4>
+                                                    </center>
+                                                </div>
+                                                
+                                                <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <center>
+                                                                    <button class="btn btn-danger btn-md" data-dismiss="modal">BATAL</button>
+
+                                                                    <a style="margin-left: 40px;" href="<?php echo base_url('koordinator/konfirmasi/'.$detail_pengaduan[0]->id_pengaduan); ?>" class="btn btn-success btn-md">&nbsp;&nbsp;&nbsp;YA&nbsp;&nbsp;&nbsp;</a>
+                                                                </center>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- modal setting -->
+
                                     <!-- modal kirim -->
                                     <div class="modal modal-primary fade" id="modalKirim" style="margin-top: 5%">
                                       <div class="modal-dialog">
@@ -211,37 +238,6 @@
                             </div>
                             <!-- /.modal -->
 
-                            <!-- modal kirim -->
-                                    <div class="modal modal-primary fade" id="modalKirim" style="margin-top: 5%">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span></button>
-                                                    <h4 class="modal-title">KIRIM PENGADUAN</h4>
-                                                </div>
-                                                
-                                                <form method="POST" action="<?php echo base_url('koordinator/kirim_pengaduan') ?>">
-                                                    <div class="modal-body">
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <label>laporan :</label>
-                                                                <input type="text" name="keterangan">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
-                                                        <input type="submit" class="btn btn-primary" value="kirim" href="<?php echo base_url('analis/update_status/'.$data->id_pengaduan)?>" >
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <!-- /.modal-content -->
-                                        </div>
-                                        <!-- /.modal-dialog -->
-                                    </div>
-                                    <!-- /.modal -->
-
                                 <?php
                             }
                             ?>
@@ -269,33 +265,6 @@
 
 <!-- /#wrapper -->
 
-<!-- modal setting -->
-        <div class="modal modal-primary fade" id="settingModal" style="margin-top: 5%">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title">JUDUL MODAL</h4>
-              </div>
-
-              <form method="POST" action="<?php echo base_url('#') ?>">
-                  <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            KONTEN MODAL
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Batal</button>
-                    <input type="submit" class="btn btn-primary" value="Simpan">
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- modal setting -->
 
 <script src=<?php echo base_url("assets/vendor/jquery/jquery.min.js")?> ></script>
 <script src=<?php echo base_url("assets/vendor/bootstrap/js/bootstrap.min.js")?> ></script>

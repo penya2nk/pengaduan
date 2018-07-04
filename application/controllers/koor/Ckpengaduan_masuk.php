@@ -39,6 +39,10 @@ class Ckpengaduan_masuk extends BaseController
 		);
 		$this->db->where('id_pengaduan',$id_pengaduan)->update('pengaduan',$data2);
 
+		$this->session->set_flashdata('alert','success');
+		$this->session->set_flashdata('success','Berhasil');
+		$this->session->set_flashdata('message','Pengaduan telah dikonfirmasi!');
+		
 		redirect('koordinator');
 	}
 
