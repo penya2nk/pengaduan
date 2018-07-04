@@ -151,7 +151,7 @@
                                                 <td style="text-align: center;">
                                                     <span><i class="fa fa-edit" style="color: blue" data-toggle="modal" data-target="#editKategori<?php echo $data->id_kategori; ?>"></i></span>&nbsp;
                                                     
-                                                    <a href="<?php echo base_url('analis/hapus_kategori/'.$data->id_kategori) ?>"><i class="fa fa-trash-o" style="color: red"></i></a>
+                                                    <a onclick="return confirm('Apakah Anda yakin ingin menghapus kategori ini?');" href="<?php echo base_url('analis/hapus_kategori/'.$data->id_kategori) ?>"><i class="fa fa-trash-o" style="color: red"></i></a>
                                                 </td>
                                             </tr>
 
@@ -237,7 +237,7 @@
                                             <td><?php echo $data->nama_jenis ?></td>
                                             <td style="text-align: center;">
                                                 <span><i class="fa fa-edit" style="color: blue" data-toggle="modal" data-target="#editJenis<?php echo $data->id_jenis; ?>"></i></span>&nbsp;
-                                                <a href="<?php echo base_url('analis/hapus_jenis/'.$data->id_jenis) ?>"><i class="fa fa-trash-o" style="color: red"></i></a>
+                                                <a onclick="return confirm('Apakah Anda yakin ingin menghapus jenis ini?');" href="<?php echo base_url('analis/hapus_jenis/'.$data->id_jenis) ?>"><i class="fa fa-trash-o" style="color: red"></i></a>
                                             </td>
                                         </tr>
 
