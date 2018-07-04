@@ -5,10 +5,10 @@ class Madm_log extends CI_Model {
 
 	public function log_activity()
 	{
-		$this->db->select('p.id_pengaduan, p.status, r.nama_ruang, p.wkt_pengaduan');
+		$this->db->select('p.id_pengaduan, p.status, p.timestamp, r.nama_ruang, p.wkt_pengaduan');
 		$this->db->from('pengaduan p');
 		$this->db->join('ruang r','r.id_ruang = p.id_ruang');
-		//$this->db->order_by('p.status',"limit 1");
+		$this->db->order_by('p.timestamp','DESC');
 		return $this->db->get()->result();
 	}
 

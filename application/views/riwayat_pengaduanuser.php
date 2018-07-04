@@ -12,11 +12,12 @@
   <title>Form Pengaduan Pengguna</title>
 
   <link href=<?php echo base_url("assets/vendor/bootstrap/css/bootstrap.min.css")?> rel="stylesheet">
-  <link href=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.css")?> rel="stylesheet">
-  <link href=<?php echo base_url("assets/dist/css/sb-admin-2.css")?> rel="stylesheet">
-  <link href=<?php echo base_url("assets/vendor/font-awesome/css/font-awesome.min.css")?> rel="stylesheet" type="text/css">
-  <link href=<?php echo base_url("assets/vendor/datatables-plugins/dataTables.bootstrap.css")?> rel="stylesheet">
-  <link href=<?php echo base_url("assets/vendor/datatables-responsive/dataTables.responsive.css")?>  rel="stylesheet">
+    <link href=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.css")?>  rel="stylesheet">
+    <link href=<?php echo base_url("assets/vendor/datatables-plugins/dataTables.bootstrap.css")?>  rel="stylesheet">
+    <link href=<?php echo base_url("assets/vendor/datatables-responsive/dataTables.responsive.css")?>  rel="stylesheet">
+    <link href=<?php echo base_url("assets/dist/css/sb-admin-2.css")?> rel="stylesheet">
+    <link href=<?php echo base_url("assets/select2/dist/css/select2.min.css")?> rel="stylesheet">
+    <link href=<?php echo base_url("assets/vendor/font-awesome/css/font-awesome.min.css")?>  rel="stylesheet" type="text/css">
   <link rel="stylesheet" type="text/css" href=<?php echo base_url("assets/badge.css")?> >
 
 </head>
@@ -128,7 +129,7 @@
 
               </div>
               <div class="panel-footer">
-                Panel Footer
+                <strong>Copyright &copy; 2018 <a href="#">Tugas Akhir</a></strong>
               </div>
             </div>
           </div>
@@ -147,15 +148,27 @@
 
 <!-- jQuery -->
 <script src=<?php echo base_url("assets/vendor/jquery/jquery.min.js")?> ></script>
-
-<!-- Bootstrap Core JavaScript -->
 <script src=<?php echo base_url("assets/vendor/bootstrap/js/bootstrap.min.js")?> ></script>
-
-<!-- Metis Menu Plugin JavaScript -->
 <script src=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.js")?> ></script>
-
-<!-- Custom Theme JavaScript -->
+<script src=<?php echo base_url("assets/vendor/datatables/js/jquery.dataTables.min.js")?> ></script>
+<script src=<?php echo base_url("assets/vendor/datatables-plugins/dataTables.bootstrap.min.js")?> ></script>
+<script src=<?php echo base_url("assets/vendor/datatables-responsive/dataTables.responsive.js")?> ></script>
 <script src=<?php echo base_url("assets/dist/js/sb-admin-2.js")?> ></script>
+
+
+<script>
+          $(function () {
+            $('#example1').DataTable({
+            //$('#example2').DataTable({
+            'paging'      : false,
+            'lengthChange': false,
+            'searching'   : false,
+            'ordering'    : true,
+            'info'        : false,
+            'autoWidth'   : false
+ })
+        })
+    </script>
 
 <script>
     $(document).ready(function() {

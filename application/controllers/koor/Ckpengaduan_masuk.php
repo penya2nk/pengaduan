@@ -12,6 +12,7 @@ class Ckpengaduan_masuk extends BaseController
 
 	public function index()
 	{
+		//var_dump($this->session->userdata('level'));exit;
 		$data['masuk']= $this->Mkoor_masuk->pengaduan_masuk();
 		$this->load->view('koor_masuk',$data);
 	}

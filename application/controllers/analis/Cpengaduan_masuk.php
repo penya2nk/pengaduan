@@ -74,6 +74,11 @@ class Cpengaduan_masuk extends BaseController {
 			'kategori' => strtolower($kategori)
 		);
 		$this->Manalis_pengaduanmsk->simpan($data);
+
+		$this->session->set_flashdata('style', 'success');
+		$this->session->set_flashdata('alert', 'Berhasil!');
+		$this->session->set_flashdata('message', 'Kategori baru telah ditambahkan.');
+
 		redirect('analis/detail_pengaduan/'.$id_pengaduan);
 	}
 

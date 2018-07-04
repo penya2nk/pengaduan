@@ -84,11 +84,23 @@
 			<!-- /.navbar-static-side -->
 		</nav>
 		
+
 		<!-- Page Content -->
 		<div id="page-wrapper">
 			<div class="row">
+
+				<center>
+		          <?php if($this->session->flashdata('message')): ?>
+		              <div style="margin-top: 10px; width: 50%" id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
+		                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		                  <strong><?php echo $this->session->flashdata('alert') ?></strong>&nbsp;<br>
+		                  <?php echo $this->session->flashdata('message') ?>
+		            </div>
+		          <?php endif; ?>
+		        </center>
+
 				<div class="col-lg-12">
-					<h1 class="page-header">Detail Pengaduan Pengguna</h1>
+					<h1 class="page-header">Detail Pengaduan</h1>
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>
@@ -98,7 +110,6 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<div>
-								<!-- <a href="<?php // echo base_url('analis/konfirmasi/'.$detail_pengaduan[0]->id_pengaduan); ?>" class="btn btn-success btn-md"><span class="fa fa-check-square-o"></span> Konfirmasi </a> -->
 								<a href="#" class="btn btn-success" data-toggle="modal" data-target="#modalKonfirmasi"><span class="fa fa-check"></span> Konfirmasi </a>
 
 								<a style="margin-left: 20px" href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalKategori"><span class="fa fa-plus"></span> Buat Kategori </a>
@@ -302,10 +313,7 @@
 </script>
 
 <script type="text/javascript">
-	$(function () {
-    //Initialize Select2 Elements
-    $('.select2').select2()
-	})
+		$("#hilang").show().delay(2000).slideUp(400);
 </script>
 
 </body>
