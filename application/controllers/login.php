@@ -64,9 +64,7 @@ class Login extends CI_Controller {
         else
         {
 
-             $username = $this->input->post('username');
-            // $role = $this->input->post('id_role');
-            
+            $username = $this->input->post('username');
             $password = $this->input->post('password');
             
             $result = $this->Mlogin->loginMe($username, $password);
@@ -85,7 +83,6 @@ class Login extends CI_Controller {
                                     );
                     // var_dump($res->id_level); exit;
                     $this->session->set_userdata($sessionArray);
-                    // var_dump($res->id_level); exit;
                     if ($res->id_level == 5) {
                         redirect('admin');
                     }

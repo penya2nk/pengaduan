@@ -105,7 +105,7 @@
                         <div class="input-group-addon">
                           <i class="fa fa-calendar"></i>
                         </div>
-                        <input type="date" name="waktu" class="form-control" datapicker required="required" value="<?php echo date('Y-m-d') ?>" required>
+                        <input type="date" name="waktu" class="form-control" datapicker value="<?php echo date('Y-m-d') ?>" required>
                       </div>
                     </div>
 
@@ -113,8 +113,8 @@
                     <div class="form-group" style="width: 100%; margin-bottom: 10px">
                       <div class="col-md-6">
                         <label><b>Pilih tempat kejadian <b style="color: red">*</b></b></label>
-                        <select required="Wajib diisi!" class="form-control" name="tempat"  id="tempat">
-                          <option value="0">----------------------------------------- pilih tempat ------------------------------------------</option>
+                        <select  class="form-control" name="tempat"  id="tempat" required>
+                          <option value="">----------------------------------------- pilih tempat ------------------------------------------</option>
                           <?php
                           foreach ($tempat as $data){
                             ?>
@@ -131,8 +131,8 @@
                     <div class="form-group">
                       <div class="col-md-6">
                         <label><b>Pilih ruang kejadian <b style="color: red">*</b></b></label>
-                        <select required="Wajib diisi!" class="form-control ruang" name="ruang" id="ruang">
-                          <option>----------------------------------------- pilih ruang ------------------------------------------</option>
+                        <select class="form-control ruang" name="ruang" id="ruang" required>
+                          <option value="">----------------------------------------- pilih ruang ------------------------------------------</option>
                         </select>
                       </div>
                     </div>
@@ -140,8 +140,8 @@
                     <div class="form-group" style="width: 100%">
                       <div class="col-md-6" style="margin-bottom: 20px; margin-top: 10px">
                         <label><b>Pilih kategori kejadian <b style="color: red">*</b></b></label>
-                        <select required="Wajib diisi!" class="form-control" name="kategori"  id="kategori">
-                          <option value="0">----------------------------------------- pilih kategori ------------------------------------------</option>
+                        <select class="form-control" name="kategori"  id="kategori" required>
+                          <option value="">----------------------------------------- pilih kategori ------------------------------------------</option>
                           <?php
                           foreach ($kategori as $data)
                           {
@@ -157,8 +157,8 @@
                     <div class="form-group">
                       <div class="col-md-6" style="margin-bottom: 20px; margin-top: 10px">
                         <label><b>Pilih jenis kejadian <b style="color: red">*</b></b></label>
-                        <select required="Wajib diisi!" class="form-control jenis" name="jenis" id="jenis">
-                          <option>----------------------------------------- pilih jenis ------------------------------------------</option>
+                        <select class="form-control jenis" name="jenis" id="jenis" required>
+                          <option value="">----------------------------------------- pilih jenis ------------------------------------------</option>
                           <?php
                           foreach ($jenis as $data)
                           {
@@ -177,7 +177,7 @@
                   <div class="form-group" style="margin-left: 15px">
                     <label>Seberapa sering terjadi</label>
                     <select class="form-control" name="kejadian" style="width: 48%;">
-                      <option value="0">
+                      <option>
                         -------------------------------------- pilih frekuensi ----------------------------------------
                       </option>
                       <option value="pertama">Pertama kali</option>
