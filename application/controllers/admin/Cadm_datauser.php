@@ -60,95 +60,94 @@ class Cadm_datauser extends BaseController {
 						"id_role" => $rowData[0][3],
 						"username" => $rowData[0][4]
 					);
-
 					$this->db->insert("user",$data);
+					unlink($inputFileName);
 				}
-				unlink($inputFileName);
 			}
+		}
+		$this->session->set_flashdata('style','success');
+		$this->session->set_flashdata('alert','Berhasil!');
+		$this->session->set_flashdata('message','Data sukses diimport!');
+
+		redirect('admin/data_user');
+}
+
+public function download()
+{
+	force_download('file/format_user_data.xlsx',NULL);
+}
+
+	//function mau cek data user
+public function save_password()
+{ 
+
+	$this->load->library('form_validation');
+
+	$this->form_validation->set_rules('new','New','required|alpha_numeric');
+	$this->form_validation->set_rules('re_new', 'Retype New', 'required|matches[new]');
+
+	if($this->form_validation->run() == FALSE)
+	{
+		redirect('admin/data_user');
 	}
+	else
+	{
+		$cek_old = $this->Madmin_datauser->cek_old();
+
+		if (count($cek_old) == 0){
+			$this->session->set_flashdata('style','danger');
+			$this->session->set_flashdata('alert','Gagal!');
+			$this->session->set_flashdata('message','Password lama yang Anda masukkan salah!');
+
+			redirect('admin/data_user');
+		}
+		else
+		{
+			$this->Madmin_datauser->save();
+			$this->session->sess_destroy();
+
+			redirect('karyawan');
+	   }//end if valid_user
+	}
+}
+
+public function edit_user()
+{
+
+	$id_user = $this->input->post('id_user');
+ 		//var_dump($id_user); exit;
+	$nama = $this->input->post('nama');
+	$email = $this->input->post('email');
+	$id_level = $this->input->post('id_level');
+	$username = $this->input->post('username');
+	$password = $this->input->post('password');
+	$status = $this->input->post('status');
+	$data = array(
+		'nama_pengguna' => $nama,
+		'email' => $email,
+		'id_level' => $id_level,
+		'username' => $username,
+		'password' => password_hash($password, PASSWORD_BCRYPT),
+		'status' => $status
+	);
+	$this->Madmin_datauser->edit_user($data, $id_user);
+
 	$this->session->set_flashdata('style','success');
-	$this->session->set_flashdata('alert','Berhasil!');
-	$this->session->set_flashdata('message','Data sukses diimport!');
+	$this->session->set_flashdata('alert','Selesai!');
+	$this->session->set_flashdata('message','Data pengguna berhasil diubah!');
 
 	redirect('admin/data_user');
 }
 
-	public function download()
-	{
-		force_download('file/format_user_data.xlsx',NULL);
-	}
+public function hapus_user($id_user)
+{
+	$this->db->where('id_user',$id_user);
+	$this->db->update('user',array('deleted' => '1'));
 
-	//function mau cek data user
-	public function save_password()
-	 { 
+	$this->session->set_flashdata('style','warning');
+	$this->session->set_flashdata('alert','Selesai!');
+	$this->session->set_flashdata('message','Data pengguna telah dihapus!');
 
-	 	$this->load->library('form_validation');
-
-	  $this->form_validation->set_rules('new','New','required|alpha_numeric');
-	  $this->form_validation->set_rules('re_new', 'Retype New', 'required|matches[new]');
-
-	    if($this->form_validation->run() == FALSE)
-	  {
-			redirect('admin/data_user');
-	  }
-	  	else
-	  {
-	   $cek_old = $this->Madmin_datauser->cek_old();
-
-	   if (count($cek_old) == 0){
-		    $this->session->set_flashdata('style','danger');
-			$this->session->set_flashdata('alert','Gagal!');
-			$this->session->set_flashdata('message','Password lama yang Anda masukkan salah!');
-		    
-		    redirect('admin/data_user');
-	   }
-	   	else
-	   {
-		    $this->Madmin_datauser->save();
-		    $this->session->sess_destroy();
-		    
-		    redirect('karyawan');
-	   }//end if valid_user
-	}
- }
- 
- 	public function edit_user()
- 	{
-
- 		$id_user = $this->input->post('id_user');
- 		//var_dump($id_user); exit;
-		$nama = $this->input->post('nama');
-		$email = $this->input->post('email');
-		$id_level = $this->input->post('id_level');
-		$username = $this->input->post('username');
-		$password = $this->input->post('password');
-		$status = $this->input->post('status');
-		$data = array(
-			'nama_pengguna' => $nama,
-			'email' => $email,
-			'id_level' => $id_level,
-			'username' => $username,
-			'password' => password_hash($password, PASSWORD_BCRYPT),
-			'status' => $status
-		);
-		$this->Madmin_datauser->edit_user($data, $id_user);
-
-		$this->session->set_flashdata('style','success');
-		$this->session->set_flashdata('alert','Selesai!');
-		$this->session->set_flashdata('message','Data pengguna berhasil diubah!');
-
-		redirect('admin/data_user');
- 	}
-
- 	public function hapus_user($id_user)
- 	{
- 		$this->db->where('id_user',$id_user);
-		$this->db->update('user',array('deleted' => '1'));
-
-		$this->session->set_flashdata('style','warning');
-		$this->session->set_flashdata('alert','Selesai!');
-		$this->session->set_flashdata('message','Data pengguna telah dihapus!');
-
-		redirect('admin/data_user');
- 	}
+	redirect('admin/data_user');
+}
 }

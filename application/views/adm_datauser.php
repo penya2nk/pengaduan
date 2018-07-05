@@ -169,8 +169,9 @@
 														?></td>
 														<td>
 															<span><i class="fa fa-edit" style="color: blue" data-toggle="modal" data-target="#editUser<?php echo $data->id_user; ?>"></i></span>&nbsp;
-															
-															<a href="<?php echo base_url('admin/hapus_user/'.$data->id_user) ?>"><i class="fa fa-trash-o" style="color: red"></i></a>
+
+															<a onclick="return confirm('Apakah Anda yakin ingin menghapus pengguna ini?');" href="<?php echo base_url('admin/hapus_user/'.$data->id_user) ?>"><i class="fa fa-trash-o" style="color: red"></i>
+															</a>
 														</td>
 												</tr>
 												
@@ -289,7 +290,8 @@
                                                         <td>
                                                             <span><i class="fa fa-edit" style="color: blue" data-toggle="modal" data-target="#editUser<?php echo $data->id_user; ?>"></i></span>&nbsp;
                                                             
-                                                            <a href="<?php echo base_url('admin/hapus_user/'.$data->id_user) ?>"><i class="fa fa-trash-o" style="color: red"></i></a>
+                                                            <a onclick="return confirm('Apakah Anda yakin ingin menghapus pengguna ini?');" href="<?php echo base_url('admin/hapus_user/'.$data->id_user) ?>"><i class="fa fa-trash-o" style="color: red"></i>
+															</a>
                                                         </td>
                                                 </tr>
                                                 
@@ -407,7 +409,8 @@
                                                         <td>
                                                             <span><i class="fa fa-edit" style="color: blue" data-toggle="modal" data-target="#editUser<?php echo $data->id_user; ?>"></i></span>&nbsp;
                                                             
-                                                            <a href="<?php echo base_url('admin/hapus_user/'.$data->id_user) ?>"><i class="fa fa-trash-o" style="color: red"></i></a>
+                                                            <a onclick="return confirm('Apakah Anda yakin ingin menghapus pengguna ini?');" href="<?php echo base_url('admin/hapus_user/'.$data->id_user) ?>"><i class="fa fa-trash-o" style="color: red"></i>
+															</a>
                                                         </td>
                                                 </tr>
                                                 
