@@ -25,12 +25,7 @@
     
 </head>
 
-<div class="container">
-<div class="row">
-    <a onclick="$('#printsekarang').printArea();" class="btn btn-success btn-lg">CETAK SEKARANG</a>
-</div>
-</div>
-<body>
+<body onload="window.print()">
 <div class="container" id="printsekarang" style="margin-top: 50px">
 
     <div class="row">
@@ -112,7 +107,7 @@
     <div class="col-lg-6">
         <div class="panel panel-default" style="border:0;">
             <div class="panel-heading" style="border:0; border-color: #ffffff;  background-color: #ffffff">
-                Rekap Pengaduan Perbulan
+                Rekap Pengaduan Ruangan
                 <div class="pull-right">
                 </div>
             </div>

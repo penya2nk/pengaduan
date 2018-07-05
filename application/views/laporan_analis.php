@@ -23,6 +23,16 @@
     <script src=<?php echo base_url("assets/vendor/bootstrap/js/bootstrap.min.js")?> ></script>
     <script src=<?php echo base_url("assets/chartjs/Chart.bundle.min.js")?> ></script>
 </head>
+
+<style type="text/css">
+    @media print
+{    
+    .btn-print, .btn-print *
+    {
+        display: none !important;
+    }
+}
+</style>
 <body>
 
     <div id="wrapper">
@@ -110,7 +120,7 @@
         <div class="row">
             <div class="col-lg-12" style="margin-bottom: 10px; margin-left: 90%">
                 <!-- <a href="<?php //echo base_url('analis/cetak')?>" class="btn btn-success"><i class="fa fa-print"></i> cetak</a> -->
-                 <a class="btn btn-success" onclick="window.print()"><i class="fa fa-print"></i> cetak</a>
+                 <a class="btn btn-success btn-print" onclick="window.print()"><i class="fa fa-print"></i> cetak</a>
             </div>
 
             <div class="col-lg-12" style="width: 100%">

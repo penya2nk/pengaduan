@@ -5,9 +5,10 @@ class Madm_log extends CI_Model {
 
 	public function log_activity()
 	{
-		$this->db->select('p.id_pengaduan, p.status, r.nama_ruang, p.wkt_pengaduan');
+		$this->db->select('p.id_pengaduan, p.status, p.timestamp, r.nama_ruang, p.wkt_pengaduan');
 		$this->db->from('pengaduan p');
 		$this->db->join('ruang r','r.id_ruang = p.id_ruang');
+		$this->db->order_by('p.timestamp','DESC');
 		return $this->db->get()->result();
 	}
 
@@ -16,6 +17,7 @@ class Madm_log extends CI_Model {
 		$this->db->select('log.id_pengaduan, log.status, user.nama_pengguna, log.timestamp');
 		$this->db->from('log');
 		$this->db->join('user', 'user.id_user = log.id_user');
+		// $this->db->join('level', 'level.id_level = user.id_level');
 		$this->db->where('id_pengaduan',$id_pengaduan);
 		return $this->db->get()->result();
 	}

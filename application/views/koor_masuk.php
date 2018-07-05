@@ -93,7 +93,7 @@
 
                 <center>
                   <?php if($this->session->flashdata('message')): ?>
-                      <div style="margin-top: 10px; width: 50%" id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
+                      <div style="margin-top: 10px;" id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
                           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                           <strong><?php echo $this->session->flashdata('alert') ?></strong>&nbsp;<br>
                           <?php echo $this->session->flashdata('message') ?>
@@ -215,7 +215,7 @@
         });
     });
 
-    $("#hilang").show().delay(1000).slideUp(400);
+    $("#hilang").show().delay(2000).slideUp(400);
     </script>
 
 </body>

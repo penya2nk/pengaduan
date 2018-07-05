@@ -53,11 +53,7 @@
                         <div class="input-group-addon">
                           <i class="fa fa-user"></i>
                         </div>
-<<<<<<< HEAD
-                        <input type="text" name="username" class="form-control"  placeholder="username">
-=======
                         <input name="username" class="form-control" placeholder="username" type="text" required="required">
->>>>>>> 5d926e76901d5e7c79f13ce711c5c49cb01b2fbc
                       </div>
                     </div>
 
