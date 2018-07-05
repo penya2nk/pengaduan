@@ -65,7 +65,6 @@ class Ckategori_jenis extends BaseController {
 		$this->session->set_flashdata('style','success');
 		$this->session->set_flashdata('alert','Berhasil!');
 		$this->session->set_flashdata('kategori_msg','Data kategori telah berhasil diubah');
-
 		redirect('analis/kelola');
 	}
 
