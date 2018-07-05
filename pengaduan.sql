@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2018 at 02:28 AM
+-- Generation Time: Jul 04, 2018 at 04:39 PM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `jenis` (
 `id_jenis` int(11) NOT NULL,
   `nama_jenis` varchar(50) NOT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `jenis`
@@ -39,7 +39,8 @@ CREATE TABLE IF NOT EXISTS `jenis` (
 INSERT INTO `jenis` (`id_jenis`, `nama_jenis`, `deleted`) VALUES
 (1, 'praktikum', 0),
 (2, 'teori', 0),
-(3, 'ekstra', 0);
+(3, 'ekstra', 1),
+(4, 'ekstra', 0);
 
 -- --------------------------------------------------------
 
@@ -51,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `kategori` (
 `id_kategori` int(11) NOT NULL,
   `kategori` varchar(50) NOT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `kategori`
@@ -62,7 +63,8 @@ INSERT INTO `kategori` (`id_kategori`, `kategori`, `deleted`) VALUES
 (2, 'dosen', 0),
 (3, 'mata kuliah', 0),
 (4, 'layanan informasi', 0),
-(5, 'lingkungan', 0);
+(5, 'lingkungan', 0),
+(6, 'toiletg', 0);
 
 -- --------------------------------------------------------
 
@@ -74,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `level` (
 `id_level` int(11) NOT NULL,
   `nama_level` varchar(20) NOT NULL,
   `posisi` varchar(20) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `level`
@@ -84,7 +86,8 @@ INSERT INTO `level` (`id_level`, `nama_level`, `posisi`) VALUES
 (1, 'anggota', ''),
 (2, 'analis', ''),
 (3, 'koordinator', 'lab'),
-(4, 'koordinator', 'akademik');
+(4, 'koordinator', 'akademik'),
+(5, 'admin', '');
 
 -- --------------------------------------------------------
 
@@ -99,25 +102,34 @@ CREATE TABLE IF NOT EXISTS `log` (
   `status` enum('masuk','diproses','selesai') NOT NULL DEFAULT 'masuk',
   `keterangan` varchar(255) DEFAULT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `log`
 --
 
 INSERT INTO `log` (`id_log`, `id_pengaduan`, `id_user`, `status`, `keterangan`, `timestamp`) VALUES
-(1, 1, 2, 'masuk', NULL, '2018-06-28 08:39:58'),
-(3, 2, 2, 'masuk', NULL, '2018-06-28 07:40:55'),
-(5, 3, 2, 'masuk', NULL, '2018-06-28 09:43:23'),
-(6, 4, 2, 'masuk', NULL, '2018-06-28 09:43:33'),
-(7, 5, 1, 'masuk', NULL, '2018-06-28 13:07:15'),
-(8, 6, 1, 'masuk', NULL, '2018-06-28 13:13:15'),
-(9, 3, 1, 'diproses', 'Tukang servis sudah ditelpon sejak dua minggu yang lalu tapi belum didatang juga', '2018-06-28 13:16:53'),
-(10, 2, 1, 'selesai', NULL, '2018-06-29 04:50:43'),
-(11, 7, 1, 'masuk', NULL, '2018-06-29 06:46:28'),
-(12, 8, 1, 'masuk', NULL, '2018-06-29 06:47:36'),
-(13, 9, 1, 'masuk', NULL, '2018-06-29 06:48:36'),
-(14, 10, 2, 'masuk', NULL, '2018-06-30 15:36:04');
+(1, 1, 4, 'masuk', NULL, '2018-07-03 18:41:42'),
+(2, 2, 4, 'masuk', NULL, '2018-07-03 18:42:42'),
+(3, 2, 3, 'diproses', 'butuh beli peralatan baru', '2018-07-03 18:44:41'),
+(4, 3, 3, 'masuk', NULL, '2018-07-03 18:46:19'),
+(5, 4, 2, 'masuk', NULL, '2018-07-03 18:47:33'),
+(6, 3, 11, 'selesai', NULL, '2018-07-03 18:48:51'),
+(7, 5, 2, 'masuk', NULL, '2018-07-03 23:32:13'),
+(8, 6, 2, 'masuk', NULL, '2018-07-03 23:35:18'),
+(9, 7, 9, 'masuk', NULL, '2018-07-03 23:41:36'),
+(10, 8, 9, 'masuk', NULL, '2018-07-03 23:44:33'),
+(11, 1, 9, 'diproses', 'butuh dana untuk mengundang tukang servis', '2018-07-03 23:56:18'),
+(12, 9, 11, 'masuk', NULL, '2018-07-04 01:54:25'),
+(13, 10, 11, 'masuk', NULL, '2018-07-04 01:56:33'),
+(14, 9, 6, 'masuk', NULL, '2018-07-04 09:05:24'),
+(15, 10, 6, 'masuk', NULL, '2018-07-04 09:06:22'),
+(16, 10, 11, 'diproses', 'ga tau', '2018-07-04 09:10:42'),
+(17, 4, 11, 'selesai', NULL, '2018-07-04 09:10:51'),
+(18, 9, 11, 'selesai', NULL, '2018-07-04 09:11:56'),
+(19, 10, 2, 'selesai', NULL, '2018-07-04 09:15:00'),
+(20, 11, 3, 'masuk', NULL, '2018-07-04 12:56:43'),
+(21, 11, 3, 'selesai', NULL, '2018-07-04 14:38:30');
 
 -- --------------------------------------------------------
 
@@ -140,24 +152,26 @@ CREATE TABLE IF NOT EXISTS `pengaduan` (
   `kejadian` enum('pertama','beberapa kali') DEFAULT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
   `gambar` varchar(255) DEFAULT NULL,
-  `status` enum('masuk','diproses','selesai') NOT NULL DEFAULT 'masuk'
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+  `status` enum('masuk','diproses','selesai') NOT NULL DEFAULT 'masuk',
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `pengaduan`
 --
 
-INSERT INTO `pengaduan` (`id_pengaduan`, `id_user`, `id_jenis`, `id_ruang`, `id_kategori`, `wkt_pengaduan`, `tgl_kejadian`, `penyebab`, `efek`, `deskripsi`, `tindaklanjut`, `kejadian`, `deleted`, `gambar`, `status`) VALUES
-(1, 2, 2, 10, 3, '2018-01-18 07:35:04', '2018-01-28', 'karena kabel di belakang monitor kendor', 'lorem ipsum dolor sit amet', 'sdfff', '', 'beberapa kali', 0, 'lorem_ipsum_3_1530171304.jpg', 'masuk'),
-(2, 2, 1, 1, 5, '2018-02-20 07:40:55', '2018-02-28', 'cc', 'ccc', 'cccc', '', 'pertama', 0, NULL, 'selesai'),
-(3, 2, 1, 1, 2, '2018-03-28 09:37:55', '2018-03-28', '', 'Kepanasan di lab', 'Pagi-pagi AC mati dan kepanasan', '', 'beberapa kali', 0, 'lorem_ipsum_2_1530178675.jpg', 'diproses'),
-(4, 2, 3, 20, 5, '2018-04-05 09:42:15', '2018-06-04', 'Ada coretan-coretan di dinding', 'tidak nyaman dilihat', 'pagi-pagi ngelihat ada coretan di dalem kamar mandi', '', 'pertama', 0, 'lorem_ipsum_5_1530178935.jpg', 'masuk'),
-(5, 1, 3, 17, 5, '2018-05-11 13:07:15', '2018-06-04', 'tidak ada lampu', 'tempat wudhu gelap jadi nggak nyaman kalau ngaca, takut ada hewan-hewan kecil', 'tempat wudhu putri di mushola DTS karena tempatnya sempit dan lampunya mati jadi wudhunya gelap-gelapan, tidak nyaman buat wudhu takut ada hewan-hewan kecil, tidak bisa ngaca dengan baik', '', 'beberapa kali', 0, NULL, 'masuk'),
-(6, 1, 0, 5, 2, '2018-06-19 13:13:15', '2017-06-15', '', 'harus pindah meja dan ganti-ganti komputer', 'komputer nomer tiba-tiba 15 mati, lalu tidak bisa nyala sama sekali', 'coba tekan tombol power dan lepas pasang kabelnya tetap tidak nyala', '', 0, NULL, 'masuk'),
-(7, 1, 3, 2, 1, '2018-03-17 06:46:28', '2018-04-11', '', 'uidhsaudhasjdhas', 'dhdakudhakduhadushauda', '', '', 0, NULL, 'masuk'),
-(8, 1, 3, 16, 4, '2018-01-26 06:47:36', '2018-05-29', '', 'hsuhSIUHLSAJDHASD', 'DSDADHADJADJhdahjhhs', '', 'pertama', 0, NULL, 'masuk'),
-(9, 1, 3, 21, 5, '2018-02-24 06:48:36', '2018-05-25', 'mbhbhjbjbhjavhgsvx', 'dhasdnahdauidha', 'DJSADIOAJNAIOJoisdjsjdsk', '', 'pertama', 0, NULL, 'masuk'),
-(10, 2, 3, 16, 5, '2018-01-26 15:36:04', '2018-01-26', 'ada pencuri', 'pulang nggak pakai sepatu', 'sewaktu sholat ashar jam 4, saya letakkan sepatu dekat pilar luar tapi pas selesai sholat dan keluar, sepatu hilang', 'sudah berusaha melapor ke ob dan satpam tapi belum nemu', 'pertama', 0, NULL, 'masuk');
+INSERT INTO `pengaduan` (`id_pengaduan`, `id_user`, `id_jenis`, `id_ruang`, `id_kategori`, `wkt_pengaduan`, `tgl_kejadian`, `penyebab`, `efek`, `deskripsi`, `tindaklanjut`, `kejadian`, `deleted`, `gambar`, `status`, `timestamp`) VALUES
+(1, 4, 1, 3, 1, '2018-07-03 18:41:42', '2018-07-03', 'tidak tersedianya sarana yang memadahi', 'sdasdaa', 'daddas', 'dsdsds', 'beberapa kali', 0, NULL, 'diproses', '2018-07-03 23:56:18'),
+(2, 4, 3, 19, 5, '2018-07-03 18:42:42', '2018-06-20', 'tidak bersih', 'terpeleset', 'czxcxzccxcxccsAS', '', 'beberapa kali', 0, NULL, 'diproses', '2018-07-03 18:44:41'),
+(3, 3, 3, 17, 5, '2018-07-03 18:46:19', '2018-05-15', 'ada pencuri', 'pulang tanpa sepatu', 'dhddhdhqwerrttyuaoapaa', 'dssaff', 'pertama', 0, NULL, 'selesai', '2018-07-03 18:48:51'),
+(4, 2, 2, 10, 4, '2018-07-03 18:47:33', '2018-07-03', 'telat memberitahu kalau kelas jadinya kosong', 'fdfdsfsfdsf', 'fsfffsff', '', 'beberapa kali', 0, NULL, 'selesai', '2018-07-04 09:10:52'),
+(5, 2, 1, 1, 3, '2018-07-03 23:32:13', '2018-07-04', '', 'tidak bisa mengerjakan soal ujian dengan baik', 'mata kuliah statistika terapan yang sulit dan cara ngajar dosen terlalu cepat', '', '', 0, NULL, 'masuk', '2018-07-03 23:32:13'),
+(6, 2, 3, 17, 5, '2018-07-03 23:35:18', '2018-07-04', '', 'hape hilang, jadi tidak bisa komunikasi', 'selasa pukul 15.00 saat sholat ashar ponsel saya masukkan ke dalam tas, kemudian saat selesai sholat diperiksa.. hape saya hilang', 'sudah lapor ke ob dan yang biasa bersih-bersih mushola', 'pertama', 0, NULL, 'masuk', '2018-07-03 23:35:18'),
+(7, 9, 3, 3, 1, '2018-07-03 23:41:36', '2018-05-17', 'tidak tahu', 'kelas seperti baru saja kebanjiran', 'acnya bocor di salah satu sudut ruangan. Bahaya jika kena kabel atau motherboard komputer..', '', '', 0, NULL, 'masuk', '2018-07-03 23:41:36'),
+(8, 9, 3, 17, 5, '2018-07-03 23:44:33', '2018-06-22', 'lantai terlalu licin, lampu remang-remang, ruangan tempat wudhu yang kecil', 'terpeleset', 'salah seorang teman saya kemarin terpeleset di tempat wudhu mushola DTS, tolong diberi lampu yang lebih terang dan juga rajin dibersihkan', '', 'beberapa kali', 0, NULL, 'masuk', '2018-07-03 23:44:33'),
+(9, 6, 1, 23, 3, '2018-07-04 09:05:24', '2018-11-04', 'air habis', 'ga jadi ke toilet', 'nn', 'belom ada', '', 0, NULL, 'selesai', '2018-07-04 09:11:56'),
+(10, 6, 1, 9, 2, '2018-07-04 09:06:22', '2018-07-06', '', 'pusing kepala', 'pusing', '', 'beberapa kali', 0, NULL, 'selesai', '2018-07-04 09:15:00'),
+(11, 3, 2, 2, 2, '2018-07-04 12:56:43', '2018-07-04', 'jarang datang', 'banyak kelas pengganti', 'dosen jarang datang dan sulit dihubungi', '', 'beberapa kali', 0, NULL, 'selesai', '2018-07-04 14:38:30');
 
 -- --------------------------------------------------------
 
@@ -168,7 +182,7 @@ INSERT INTO `pengaduan` (`id_pengaduan`, `id_user`, `id_jenis`, `id_ruang`, `id_
 CREATE TABLE IF NOT EXISTS `roles` (
 `id_role` tinyint(4) NOT NULL,
   `role` varchar(10) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `roles`
@@ -178,8 +192,7 @@ INSERT INTO `roles` (`id_role`, `role`) VALUES
 (1, 'mahasiswa'),
 (2, 'dosen'),
 (3, 'karyawan'),
-(4, 'admin'),
-(5, 'kaprodi');
+(4, 'kaprodi');
 
 -- --------------------------------------------------------
 
@@ -192,7 +205,7 @@ CREATE TABLE IF NOT EXISTS `ruang` (
   `id_tempat` int(11) NOT NULL,
   `nama_ruang` varchar(100) NOT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
 
 --
 -- Dumping data for table `ruang`
@@ -205,9 +218,9 @@ INSERT INTO `ruang` (`id_ruang`, `id_tempat`, `nama_ruang`, `deleted`) VALUES
 (4, 1, 'Laboratorium koding', 0),
 (5, 1, 'Laboratorium RPL 1', 0),
 (6, 1, 'Laboratorium RPL 5', 0),
-(7, 2, '204 A', 0),
-(8, 2, '204 KH', 0),
-(9, 2, '205 KH', 0),
+(7, 2, '204 A', 1),
+(8, 2, '204 KH', 1),
+(9, 2, '205 K', 0),
 (10, 2, '402', 0),
 (11, 2, '412 A', 0),
 (12, 2, '413 A', 0),
@@ -221,7 +234,8 @@ INSERT INTO `ruang` (`id_ruang`, `id_tempat`, `nama_ruang`, `deleted`) VALUES
 (20, 4, 'Toilet putra DTS', 0),
 (21, 4, 'Toilet putri DTS', 0),
 (22, 4, 'Toilet putra GP', 0),
-(23, 4, 'Toilet putri GP', 0);
+(23, 4, 'Toilet putri GP', 0),
+(24, 2, '204 KH', 0);
 
 -- --------------------------------------------------------
 
@@ -233,7 +247,7 @@ CREATE TABLE IF NOT EXISTS `tempat` (
 `id_tempat` int(11) NOT NULL,
   `nama_tempat` varchar(100) NOT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `tempat`
@@ -241,9 +255,11 @@ CREATE TABLE IF NOT EXISTS `tempat` (
 
 INSERT INTO `tempat` (`id_tempat`, `nama_tempat`, `deleted`) VALUES
 (1, 'laboratorium', 0),
-(2, 'kelas', 0),
+(2, 'kelas', 1),
 (3, 'tempat ibadah', 0),
-(4, 'toilet', 0);
+(4, 'toilet', 0),
+(5, 'toilet', 0),
+(6, 'laboratoriumm', 0);
 
 -- --------------------------------------------------------
 
@@ -303,17 +319,16 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id_user`, `nama_pengguna`, `email`, `password`, `id_role`, `id_level`, `status`, `deleted`, `timestamp`, `username`) VALUES
-(1, 'admin', 'sinfo.pengaduan@gmail.com', '$2y$10$JT1F21208n4VciLNQhW6SO7UTvQ60DXK..xfT.hfmGNxOWrddqjEe', 3, 1, 1, 0, '2018-06-30 00:01:22', 'admin'),
-(2, 'Savitri Citra Budi', 'savitri.citra@gmail.com', '$2y$10$t1pN35ejkDLNusB0c8CLQeSLfrsKjNO1phuG8p6KblwLWrvShQyFC', 2, 1, 1, 0, '2018-06-30 13:23:58', '12345'),
-(3, 'Isnaini Barochatun', 'isnaini.barochatun@mail.ugm.ac.id', '$2y$10$oT0dqVuSR.sTbgBWQmJPh./OTo9MZ7ln9vGfRqTJdn3IilJJ985wy', 3, 3, 1, 0, '2018-06-30 13:41:58', '384475'),
-(4, 'Nurfillaeli', 'nurfillaeli@mail.ugm.ac.id', '$2y$10$n7huoYp5tIAgco7xHRlWfOHeEDPNSx26LphgZAsKI.X4uTCYFrmnu', 1, 1, 1, 0, '2018-06-30 13:44:53', '384474'),
-(5, 'Abdurrahman', 'abdur@gmail.com', '$2y$10$awIJzYSJd1vLqKI7SDuYAueGawrMznYbN5Hopbi9aDC3OQ5KXbw9C', 3, 4, 1, 0, '2018-06-30 13:26:47', '384473'),
-(6, 'Nitha Huwaida', 'hafizhahuwaida@gmail.com', '$2y$10$0cN3Se5QZ8u8OgwvZU9uce2s97umMtRpnJPH8uD8DqFso2weB6ThG', 2, 1, 1, 0, '2018-06-30 13:32:25', '384473'),
-(7, 'Nurrahmah Sriwijayanti', 'Nurrahmah@gmail.com', '$2y$10$lSMSIePOxCpzj7m/LrlNJ.fGRpS0vBapdcH.7QQnXJoMlitalWt/q', 1, 1, 1, 0, '2018-06-30 14:17:23', '384472'),
-(8, 'Lutfi Fitriainsani', 'Lutfifitriainsani@gmail.com', '$2y$10$prx34cYkFmeOy3mdW.5RE.4Usg673xtKG7UP/qshTcJShtFXyoU0q', 1, 1, 1, 0, '2018-06-30 14:05:51', '384471'),
-(9, 'Narlysta Layus', 'Narlystalp@gmail.com', '$2y$10$3wST0ro/zpiJ5vdxJKpmxuXcDGFxGix8yXtfWEyd3cjVP1lrTZrde', 1, 1, 1, 0, '2018-06-30 14:05:52', '384469'),
-(10, 'lele', 'lele@gmail.com', '$2y$10$7A6PAjjEmChZaymm0Eu8feuXWPYkAnlumHCPTQedJlc3w/KYTNcKW', 3, 1, 0, 0, '2018-06-30 14:15:13', '384468'),
-(11, 'Muhammad Fakhurrifqi', 'm.rifqi@gmail.com', '$2y$10$iPwRxSqB0SRb3FSZlO1IMuNf..1DAjP7U5iKb5egS6gqE89V/HhyC', 3, 2, 1, 0, '2018-06-30 14:20:55', '384467');
+(1, 'admin', 'sinfo.pengaduan@gmail.com', '$2y$10$JT1F21208n4VciLNQhW6SO7UTvQ60DXK..xfT.hfmGNxOWrddqjEe', 3, 5, 1, 0, '2018-07-04 01:43:04', 'admin'),
+(2, 'Savitri Citra Budi', 'savitri.citra@gmail.com', '$2y$10$t1pN35ejkDLNusB0c8CLQeSLfrsKjNO1phuG8p6KblwLWrvShQyFC', 3, 2, 1, 0, '2018-07-01 05:37:28', 'analis'),
+(3, 'Isnaini Barochatun', 'isnaini.barochatun@mail.ugm.ac.id', '$2y$10$oT0dqVuSR.sTbgBWQmJPh./OTo9MZ7ln9vGfRqTJdn3IilJJ985wy', 3, 3, 1, 0, '2018-07-02 01:12:57', 'lab'),
+(4, 'loremipsum', 'loremipsum@mail.ugm.ac.id', '$2y$10$.U/CwUSgzcp6e87SeyD.KeWSjQDAK8waJwRW9sxFmypDQexsV243q', 1, 1, 1, 1, '2018-07-04 09:21:57', '384475'),
+(6, 'Nitha Huwaida', 'hafizhahuwaida@gmail.com', '$2y$10$0cN3Se5QZ8u8OgwvZU9uce2s97umMtRpnJPH8uD8DqFso2weB6ThG', 2, 1, 1, 0, '2018-07-01 07:49:30', '384476'),
+(7, 'Nurrahmah Sriwijayanti', 'nurrahmah@gmail.com', '$2y$10$lSMSIePOxCpzj7m/LrlNJ.fGRpS0vBapdcH.7QQnXJoMlitalWt/q', 2, 1, 1, 0, '2018-07-02 16:18:15', '384472'),
+(8, 'Lutfi Fitriainsani', 'lutfifitriainsani@gmail.com', '$2y$10$VmNA/4XYNsicPyhWrx9FOOSJmfQhzhCRVkSvcNCv0Ty15aKIQOe8u', 1, 1, 0, 0, '2018-07-04 09:22:14', '384471'),
+(9, 'Narlysta Layus Pitaloka', 'narlystalp@gmail.com', '$2y$10$3wST0ro/zpiJ5vdxJKpmxuXcDGFxGix8yXtfWEyd3cjVP1lrTZrde', 1, 1, 1, 0, '2018-07-02 00:31:39', '384469'),
+(10, 'lele', 'lele@gmail.com', '$2y$10$7A6PAjjEmChZaymm0Eu8feuXWPYkAnlumHCPTQedJlc3w/KYTNcKW', 3, 1, 0, 0, '2018-07-02 05:56:04', '384468'),
+(11, 'Abdurrahman', 'abdur@gmail.com', '$2y$10$UBXDj8MjElzneRh4Z7euJ.rKIqcHxyAoBMd4OqZSD0R3XV2k/x.J6', 3, 4, 1, 0, '2018-07-02 01:13:03', 'akademik');
 
 --
 -- Indexes for dumped tables
@@ -387,42 +402,42 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `jenis`
 --
 ALTER TABLE `jenis`
-MODIFY `id_jenis` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id_jenis` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `level`
 --
 ALTER TABLE `level`
-MODIFY `id_level` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id_level` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `log`
 --
 ALTER TABLE `log`
-MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `pengaduan`
 --
 ALTER TABLE `pengaduan`
-MODIFY `id_pengaduan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+MODIFY `id_pengaduan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-MODIFY `id_role` tinyint(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id_role` tinyint(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `ruang`
 --
 ALTER TABLE `ruang`
-MODIFY `id_ruang` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
+MODIFY `id_ruang` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `tempat`
 --
 ALTER TABLE `tempat`
-MODIFY `id_tempat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id_tempat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `token`
 --
