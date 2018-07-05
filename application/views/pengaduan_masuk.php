@@ -95,13 +95,17 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <?php if($this->session->flashdata('message')): ?>
-                      <div style="margin-top: 10px" id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
-                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                          <strong><?php echo $this->session->flashdata('alert') ?></strong>&nbsp;<br>
-                          <?php echo $this->session->flashdata('message') ?>
+
+                    <center>
+                      <?php if($this->session->flashdata('message')): ?>
+                          <div style="margin-top: 10px;" id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
+                              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                              <strong><?php echo $this->session->flashdata('alert') ?></strong>&nbsp;<br>
+                              <?php echo $this->session->flashdata('message') ?>
                         </div>
-                    <?php endif; ?>
+                      <?php endif; ?>
+                    </center>
+
                     <h1 class="page-header">Pengaduan Masuk Analis</h1>
                 </div>
                 <!-- /.col-lg-12 -->
@@ -213,7 +217,7 @@
             responsive: true
         });
 
-        $("#hilang").show().delay(1000).slideUp(400);
+        $("#hilang").show().delay(2000).slideUp(400);
     });
     </script>
 

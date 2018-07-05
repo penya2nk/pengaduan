@@ -128,8 +128,8 @@ class Cpengaduan_masuk extends BaseController {
 		$this->db->insert('log',$data);
 		$this->db->where('id_pengaduan',$id_pengaduan)->update('pengaduan',array('status'=>'selesai'));
 
-		$this->session->set_flashdata('alert','success');
-		$this->session->set_flashdata('success','Berhasil');
+		$this->session->set_flashdata('style','success');
+		$this->session->set_flashdata('alert','Berhasil');
 		$this->session->set_flashdata('message','Pengaduan telah dikonfirmasi!');
 		
 		redirect('analis');

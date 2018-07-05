@@ -17,6 +17,7 @@ class Madm_log extends CI_Model {
 		$this->db->select('log.id_pengaduan, log.status, user.nama_pengguna, log.timestamp');
 		$this->db->from('log');
 		$this->db->join('user', 'user.id_user = log.id_user');
+		// $this->db->join('level', 'level.id_level = user.id_level');
 		$this->db->where('id_pengaduan',$id_pengaduan);
 		return $this->db->get()->result();
 	}

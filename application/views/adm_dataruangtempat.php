@@ -447,7 +447,7 @@
     });
 </script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     function myFunction2() {
     //deklarasi variabelnya
   var input, filter, table, tr, td, i;
@@ -467,7 +467,7 @@
     }       
   }
 }
-</script>
+</script> -->
 
 <script type="text/javascript">
     $("#hilang").show().delay(2000).slideUp(400);

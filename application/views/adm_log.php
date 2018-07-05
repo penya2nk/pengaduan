@@ -190,6 +190,9 @@
                                                                         <div class="col-md-2">
                                                                             <p><?php echo date("H:i:s", strtotime($log->timestamp)) ?></p>
                                                                         </div>
+                                                                        <!-- <div class="col-md-3">
+                                                                            <p><?php //echo $log->nama_level ?></p>
+                                                                        </div> -->
                                                                         <div class="col-md-3">
                                                                             <p><?php echo $log->nama_pengguna ?></p>
                                                                         </div>

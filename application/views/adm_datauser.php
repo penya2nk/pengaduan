@@ -95,6 +95,16 @@
 	<div id="page-wrapper">
 		<div class="row">
 			<div class="col-lg-12">
+				<center>
+	          <?php if($this->session->flashdata('message')): ?>
+	              <div style="margin-top: 10px;" id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
+	                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	                  <strong><?php echo $this->session->flashdata('alert') ?></strong>&nbsp;<br>
+	                  <?php echo $this->session->flashdata('message') ?>
+	            </div>
+	          <?php endif; ?>
+	        </center>
+	        
 				<h1 class="page-header">Data Pengguna</h1>
 			</div>
 			<!-- /.col-lg-12 -->
@@ -541,7 +551,7 @@
 									<b>Perhatian!</b> Jika Anda ingin mengunggah data excel, pastikan data Anda sudah sesuai dengan syarat upload di bawah:
 								</div>
                 1. Data yang dapat diunggah dalam format <b>xls, xlsx, dan csv</b>.<br>
-                2. Pastikan tidak ada data yang <b>terlewat</b> atau <b>kosong!</b><br>
+                2. Pastikan <b>tidak ada</b> data yang <b>terlewat</b> atau <b>kosong!</b><br>
                 3. Ukuran file maksimum 10 mb.<br>
                 4. Untuk menghindari kegagalan, Anda dapat mengunduh contoh format file di bawah:<br>
                 <a href="<?php echo base_url('admin/download') ?>" class="btn btn-sm btn-success" style="margin-top: 10px"><i class="fa fa-download"></i> Unduh</a><br><br>
@@ -581,6 +591,8 @@
 			responsive: true
 		});
 	});
+
+	$("#hilang").show().delay(1500).slideUp(400);
 </script>
 
 </body>
