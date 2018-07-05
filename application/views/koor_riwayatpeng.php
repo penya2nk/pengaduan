@@ -103,7 +103,7 @@
                             Basic Form Elements
                         </div>
                             <div class="panel-body">
-                                <table width="100%" class="table table-striped table-hover" id="dataTables-example" class="text-center">
+                                <table width="100%" class="table table-striped table-hover" id="example2" class="text-center">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -202,12 +202,17 @@
     <script src=<?php echo base_url("assets/dist/js/sb-admin-2.js")?> ></script>
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-    <script>
-    $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-            responsive: true
-        });
-    });
+    <script type="text/javascript">
+        $(function () {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+              'paging'      : true,
+              'lengthChange': false,
+              'ordering'    : false,
+              'info'        : true,
+              'autoWidth'   : false
+          })
+        })
     </script>
 
 </body>

@@ -292,7 +292,7 @@
 </script>
 
 <script type="text/javascript">
-		$("#hilang").show().delay(1000).slideUp(400);
+		$("#hilang").show().delay(1500).slideUp(400);
 </script>
 
 <script type="text/javascript">

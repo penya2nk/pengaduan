@@ -128,7 +128,7 @@
                             <!-- end search -->
 
                             <div class="table-responsive">
-                                <table class="table table-bordered table-hover"" id="example1">
+                                <table class="table table-bordered table-hover"" id="example2">
                                     <thead>
                                         <tr>
                                             <th style="width: 20px">No</th>
@@ -211,16 +211,16 @@
                     <div class="panel-body">
                         <!-- search -->
                             <div class="form-group" style="margin-bottom: 10px; width: 50%">
-                              <div class="input-group">
+                              <!-- <div class="input-group">
                                 <div class="input-group-addon">
                                   <i class="fa fa-search"></i>
                                 </div>
                                 <input type="text" id="myInputPlace" onkeyup="myFunction2()" placeholder="Cari nama tempat.." class="form-control">
-                              </div>
+                              </div> -->
                             </div>
                             <!-- end search -->
                         <div class="table-responsive" id="navbar">
-                            <table class="table table-striped table-bordered table-hover" id="myTablePlace">
+                            <table class="table table-bordered table-hover"" id="example1">
                                 <thead>
                                     <tr>
                                         <th style="width: 20px">No</th>
@@ -447,7 +447,7 @@
     });
 </script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     function myFunction2() {
     //deklarasi variabelnya
   var input, filter, table, tr, td, i;
@@ -467,22 +467,7 @@
     }       
   }
 }
-</script>
-
-<script type="text/javascript">
-    var colNumber=3 //number of table columns
-
-
-for (var i=0; i<colNumber; i++)
-  {
-      var thWidth=$("#scroll").find("th:eq("+i+")").width();
-      var tdWidth=$("#scroll").find("td:eq("+i+")").width();      
-      if (thWidth<tdWidth)                    
-          $("#scroll").find("th:eq("+i+")").width(tdWidth);
-      else
-          $("#scroll").find("td:eq("+i+")").width(thWidth);           
-  }  
-</script>
+</script> -->
 
 <script type="text/javascript">
     $("#hilang").show().delay(2000).slideUp(400);
@@ -491,7 +476,19 @@ for (var i=0; i<colNumber; i++)
 <script type="text/javascript">
     $(function () {
     $('#example1').DataTable({
-    //$('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
+
+<script type="text/javascript">
+    $(function () {
+    $('#example2').DataTable({
       'paging'      : true,
       'lengthChange': false,
       'searching'   : true,

@@ -61,11 +61,10 @@ class Ckategori_jenis extends BaseController {
 			'kategori' => $kategori
 		);
 		$this->Manalis_kelola->edit_kategori($data, $id_kategori);
-		
-		$this->session->set_flashdata('style', 'success');
-		$this->session->set_flashdata('alert', 'Berhasil!');
-		$this->session->set_flashdata('kategori_msg', 'Data kategori telah diubah!');
-		
+
+		$this->session->set_flashdata('style','success');
+		$this->session->set_flashdata('alert','Berhasil!');
+		$this->session->set_flashdata('kategori_msg','Data kategori telah berhasil diubah');
 		redirect('analis/kelola');
 	}
 
@@ -77,11 +76,11 @@ class Ckategori_jenis extends BaseController {
 			'nama_jenis' => $nama_jenis
 		);
 		$this->Manalis_kelola->edit_jenis($data, $id_jenis);
-		
-		$this->session->set_flashdata('style', 'success');
-		$this->session->set_flashdata('alert', 'Berhasil!');
-		$this->session->set_flashdata('kategori_msg', 'Data jenis telah diubah!');
-		
+
+		$this->session->set_flashdata('style','success');
+		$this->session->set_flashdata('alert','Berhasil!');
+		$this->session->set_flashdata('jenis_msg','Data jenis telah berhasil diubah');
+
 		redirect('analis/kelola');
 	}
 
@@ -89,11 +88,11 @@ class Ckategori_jenis extends BaseController {
 	{
 		$this->db->where('id_kategori',$id_kategori);
 		$this->db->update('kategori',array('deleted' => '1'));
-		
-		$this->session->set_flashdata('style', 'success');
-		$this->session->set_flashdata('alert', 'Berhasil!');
-		$this->session->set_flashdata('kategori_msg', 'Data kategori telah dihapus!');
-		
+
+		$this->session->set_flashdata('style','warning');
+		$this->session->set_flashdata('alert','Berhasil!');
+		$this->session->set_flashdata('kategori_msg','Data kategori berhasil berhasil dihapus');
+
 		redirect('analis/kelola');
 	}
 
@@ -101,11 +100,11 @@ class Ckategori_jenis extends BaseController {
 	{
 		$this->db->where('id_jenis',$id_jenis);
 		$this->db->update('jenis',array('deleted' => '1'));
-		
-		$this->session->set_flashdata('style', 'success');
-		$this->session->set_flashdata('alert', 'Berhasil!');
-		$this->session->set_flashdata('kategori_msg', 'Data jenis telah dihapus!');
-		
+
+		$this->session->set_flashdata('style','warning');
+		$this->session->set_flashdata('alert','Berhasil!');
+		$this->session->set_flashdata('jenis_msg','Data jenis berhasil dihapus');
+
 		redirect('analis/kelola');
 	}
 

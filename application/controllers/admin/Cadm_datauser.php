@@ -42,7 +42,7 @@ class Cadm_datauser extends BaseController {
 				$objPHPExcel = $objReader->load($inputFileName);
 			} catch(Exception $e) {
 				die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
-				var_dump("error lol");exit;
+				//var_dump("error lol");exit;
 			}
 			
 			$sheet = $objPHPExcel->getSheet(0);
@@ -66,6 +66,10 @@ class Cadm_datauser extends BaseController {
 				unlink($inputFileName);
 			}
 	}
+	$this->session->set_flashdata('style','success');
+	$this->session->set_flashdata('alert','Berhasil!');
+	$this->session->set_flashdata('message','Data sukses diimport!');
+
 	redirect('admin/data_user');
 }
 
@@ -92,7 +96,9 @@ class Cadm_datauser extends BaseController {
 	   $cek_old = $this->Madmin_datauser->cek_old();
 
 	   if (count($cek_old) == 0){
-		    $this->session->set_flashdata('error','Password lama yang Anda masukkan salah' );
+		    $this->session->set_flashdata('style','danger');
+			$this->session->set_flashdata('alert','Gagal!');
+			$this->session->set_flashdata('message','Password lama yang Anda masukkan salah!');
 		    
 		    redirect('admin/data_user');
 	   }
@@ -100,7 +106,6 @@ class Cadm_datauser extends BaseController {
 	   {
 		    $this->Madmin_datauser->save();
 		    $this->session->sess_destroy();
-		    $this->session->set_flashdata('success','Password anda telah berhasil diubah' );
 		    
 		    redirect('karyawan');
 	   }//end if valid_user
@@ -127,6 +132,11 @@ class Cadm_datauser extends BaseController {
 			'status' => $status
 		);
 		$this->Madmin_datauser->edit_user($data, $id_user);
+
+		$this->session->set_flashdata('style','success');
+		$this->session->set_flashdata('alert','Selesai!');
+		$this->session->set_flashdata('message','Data pengguna berhasil diubah!');
+
 		redirect('admin/data_user');
  	}
 
@@ -134,6 +144,11 @@ class Cadm_datauser extends BaseController {
  	{
  		$this->db->where('id_user',$id_user);
 		$this->db->update('user',array('deleted' => '1'));
+
+		$this->session->set_flashdata('style','warning');
+		$this->session->set_flashdata('alert','Selesai!');
+		$this->session->set_flashdata('message','Data pengguna telah dihapus!');
+
 		redirect('admin/data_user');
  	}
 }
