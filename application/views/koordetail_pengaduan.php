@@ -113,15 +113,15 @@
                                 {
                                     ?>
                                     <tr>
+                                        <td><b>Gambar Pendukung:</b></td>
+                                        <td>:</td>
+                                        <td style="width: 80%"><img src="<?php echo base_url('assets/gambar/'.$data->gambar) ?>" style="width: 20%; height: auto"></td>
+                                    </tr>
+                                    <tr>
                                         <td><b>Tanggal Kejadian</b></td>
                                         <td>:</td>
                                         <td><?php echo $data->tgl_kejadian ?></td>
                                     </tr>
-                                    <!-- <tr>
-                                        <td><b>Subjek</b></td>
-                                        <td>:</td>
-                                        <td><?php //echo $data->subjek ?></td>
-                                    </tr> -->
                                     <tr>
                                         <td><b>ID User</b></td>
                                         <td>:</td>
@@ -169,11 +169,6 @@
                                         <td><?php echo $data->kategori ?>
                                             <span></span>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Gambar Pendukung:</b></td>
-                                        <td>:</td>
-                                        <td style="width: 80%"><img src="<?php echo base_url('assets/gambar/'.$data->gambar) ?>" style="width: 60%; height: auto"></td>
                                     </tr>
 
                                     <!-- modal konfirm -->
@@ -227,7 +222,7 @@
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Batal</button>
                                                 <input type="submit" class="btn btn-primary" value="kirim">
                                             </div>
                                         </form>
@@ -273,6 +268,7 @@
 <script src=<?php echo base_url("assets/vendor/datatables-plugins/dataTables.bootstrap.min.js")?> ></script>
 <script src=<?php echo base_url("assets/vendor/datatables-responsive/dataTables.responsive.js")?> ></script>
 <script src=<?php echo base_url("assets/dist/js/sb-admin-2.js")?> ></script>
+<script src=<?php echo base_url("assets/dist/jquery.min.js")?> ></script>
 
 <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 <script>
@@ -308,9 +304,18 @@ $(document).on("click","td",function(){
 $(this).find("span[class~='caption']").hide();
 $(this).find("input[class~='editor']").fadeIn().focus();
 });
-
-
 });
+</script>
+
+<script>
+$(function(){
+
+  $('img').mouseenter(function(){
+  $('img').css('width','70%');
+ });
+ $('img').mouseleave(function(){
+  $('img').css('width','150');
+});});
 </script>
 
 </body>

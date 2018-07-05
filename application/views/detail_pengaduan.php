@@ -131,6 +131,11 @@
 			                            </div>
 									</tr>
 									<tr>
+										<td><b>Gambar Pendukung:</b></td>
+										<td>:</td>
+										<td style="width: 80%"><img src="<?php echo base_url('assets/gambar/'.$detail_pengaduan[0]->gambar) ?>" style="width: 200px; height: auto"></td>
+									</tr>
+									<tr>
 										<td><b>Tanggal Kejadian</b></td>
 										<td>:</td>
 										<td><?php echo $detail_pengaduan[0]->tgl_kejadian ?></td>
@@ -175,11 +180,6 @@
 										<td><b>Kategori</b></td>
 										<td>:</td>
 										<td><?php echo $detail_pengaduan[0]->kategori ?></td>
-									</tr>
-									<tr>
-										<td><b>Gambar Pendukung:</b></td>
-										<td>:</td>
-										<td style="width: 80%"><img src="<?php echo base_url('assets/gambar/'.$detail_pengaduan[0]->gambar) ?>" class="img-thumbnail" alt="detail_pengaduan" style="width: 60%; height: auto"></td>
 									</tr>
 									
 									<!-- modal tambah -->
@@ -270,6 +270,7 @@
 <script src=<?php echo base_url("assets/vendor/datatables-responsive/dataTables.responsive.js")?> ></script>
 <script src=<?php echo base_url("assets/dist/js/sb-admin-2.js")?> ></script>
 <script src=<?php echo base_url("assets/select2/dist/js/select2.full.min.js")?> ></script>
+<script src=<?php echo base_url("assets/dist/jquery.min.js")?> ></script>
 
 <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 <script>
@@ -310,6 +311,17 @@
 
 <script type="text/javascript">
 		$("#hilang").show().delay(2000).slideUp(400);
+</script>
+
+<script>
+$(function(){
+
+  $('img').mouseenter(function(){
+  $('img').css('width','70%');
+ });
+ $('img').mouseleave(function(){
+  $('img').css('width','200');
+});});
 </script>
 
 </body>
