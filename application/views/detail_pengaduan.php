@@ -174,14 +174,12 @@
 									<tr>
 										<td><b>Kategori</b></td>
 										<td>:</td>
-										<td><?php echo $detail_pengaduan[0]->kategori ?>
-											<!-- <a style="margin-left: 10px" data-toggle="modal" data-target="#modalEdit"><span class="fa fa-edit"></span></a> -->
-										</td>
+										<td><?php echo $detail_pengaduan[0]->kategori ?></td>
 									</tr>
 									<tr>
 										<td><b>Gambar Pendukung:</b></td>
 										<td>:</td>
-										<td style="width: 80%"><img src="<?php echo base_url('assets/gambar/'.$detail_pengaduan[0]->gambar) ?>" style="width: 60%; height: auto"></td>
+										<td style="width: 80%"><img src="<?php echo base_url('assets/gambar/'.$detail_pengaduan[0]->gambar) ?>" class="img-thumbnail" alt="detail_pengaduan" style="width: 60%; height: auto"></td>
 									</tr>
 									
 									<!-- modal tambah -->
@@ -307,8 +305,6 @@
 			$(this).find("span[class~='caption']").hide();
 			$(this).find("input[class~='editor']").fadeIn().focus();
 		});
-		
-		
 });
 </script>
 

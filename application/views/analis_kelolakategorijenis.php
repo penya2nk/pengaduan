@@ -159,7 +159,7 @@
                                             <div>
                                                 <div class="modal modal-primary fade" id="editKategori<?php echo $data->id_kategori; ?>" style="margin-top: 5%">
                                                   <div class="modal-dialog">
-                                                    <div class="modal-content">
+                                                    <div class="modal-content" style="width: 70%; margin-left: 15%">
                                                       <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                           <span aria-hidden="true">&times;</span></button>
@@ -181,7 +181,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Batal</button>
+                                                            <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Batal</button>
                                                             <input type="submit" class="btn btn-primary" value="simpan">
                                                         </div>
                                                     </form>
@@ -246,7 +246,7 @@
                                             <div>
                                                 <div class="modal modal-primary fade" id="editJenis<?php echo $data->id_jenis; ?>" style="margin-top: 5%">
                                                   <div class="modal-dialog">
-                                                    <div class="modal-content">
+                                                    <div class="modal-content" style="width: 70%; margin-left: 15%">
                                                       <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                           <span aria-hidden="true">&times;</span></button>
@@ -268,7 +268,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Batal</button>
+                                                            <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Batal</button>
                                                             <input type="submit" class="btn btn-primary" value="simpan">
                                                         </div>
                                                     </form>
@@ -319,7 +319,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Batal</button>
                     <input type="submit" class="btn btn-primary" value="simpan">
                 </div>
             </form>
@@ -332,7 +332,7 @@
 <div>
     <div class="modal modal-primary fade" id="jenis" style="margin-top: 5%">
       <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content"  style="width: 70%; margin-left: 15%">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span></button>
@@ -353,8 +353,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Batal</button>
-                <input type="submit" class="btn btn-primary" value="simpan">
+                <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Batal</button>
+                    <input type="submit" class="btn btn-primary" value="simpan">
             </div>
         </form>
     </div>

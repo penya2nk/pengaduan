@@ -178,7 +178,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Batal</button>
+                                                            <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Batal</button>
                                                             <input type="submit" class="btn btn-primary" value="simpan">
                                                         </div>
                                                     </form>
@@ -211,12 +211,6 @@
                     <div class="panel-body">
                         <!-- search -->
                             <div class="form-group" style="margin-bottom: 10px; width: 50%">
-                              <!-- <div class="input-group">
-                                <div class="input-group-addon">
-                                  <i class="fa fa-search"></i>
-                                </div>
-                                <input type="text" id="myInputPlace" onkeyup="myFunction2()" placeholder="Cari nama tempat.." class="form-control">
-                              </div> -->
                             </div>
                             <!-- end search -->
                         <div class="table-responsive" id="navbar">
@@ -269,7 +263,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Batal</button>
+                                                            <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Batal</button>
                                                             <input type="submit" class="btn btn-primary" value="simpan">
                                                         </div>
                                                     </form>
@@ -340,7 +334,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Batal</button>
                     <input type="submit" class="btn btn-primary" value="simpan">
                 </div>
             </form>
@@ -374,8 +368,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Batal</button>
-                <input type="submit" class="btn btn-primary" value="simpan">
+                <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Batal</button>
+                    <input type="submit" class="btn btn-primary" value="simpan">
             </div>
         </form>
     </div>
@@ -446,28 +440,6 @@
         });
     });
 </script>
-
-<!-- <script type="text/javascript">
-    function myFunction2() {
-    //deklarasi variabelnya
-  var input, filter, table, tr, td, i;
-  input = document.getElementById("myInputPlace");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTablePlace");
-  tr = table.getElementsByTagName("tr");
-
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1];
-    if (td) {
-      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
-}
-</script> -->
 
 <script type="text/javascript">
     $("#hilang").show().delay(2000).slideUp(400);
