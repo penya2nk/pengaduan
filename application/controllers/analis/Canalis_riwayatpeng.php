@@ -42,7 +42,9 @@ class Canalis_riwayatpeng extends BaseController {
 	   $cek_old = $this->Manalis_riwayatpeng->cek_old();
 
 	   if (count($cek_old) == 0){
-		    $this->session->set_flashdata('error','Password lama yang Anda masukkan salah' );
+		    $this->session->set_flashdata('style','danger' );
+		    $this->session->set_flashdata('alert','Gagal!' );
+		    $this->session->set_flashdata('message','Password lama yang Anda masukkan salah' );
 		    
 		    redirect('analis/riwayat_pengaduan');
 	   }
@@ -50,7 +52,6 @@ class Canalis_riwayatpeng extends BaseController {
 	   {
 		    $this->Manalis_riwayatpeng->save();
 		    $this->session->sess_destroy();
-		    $this->session->set_flashdata('error','Password anda telah berhasil diubah' );
 		    
 		    redirect('karyawan');
 	   }//end if valid_user

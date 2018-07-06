@@ -100,7 +100,9 @@ class Cpengaduan_masuk extends BaseController {
 	   $cek_old = $this->Manalis_pengaduanmsk->cek_old();
 
 	   if (count($cek_old) == 0){
-		    $this->session->set_flashdata('error','Password lama yang Anda masukkan salah' );
+		    $this->session->set_flashdata('style', 'danger');
+			$this->session->set_flashdata('alert', 'Gagal!');
+			$this->session->set_flashdata('message', 'Password lama yang Anda masukkan salah!');
 		    
 		    redirect('analis');
 	   }
@@ -108,7 +110,6 @@ class Cpengaduan_masuk extends BaseController {
 	   {
 		    $this->Manalis_pengaduanmsk->save();
 		    $this->session->sess_destroy();
-		    $this->session->set_flashdata('success','Password anda telah berhasil diubah' );
 		    
 		    redirect('karyawan');
 	   }//end if valid_user

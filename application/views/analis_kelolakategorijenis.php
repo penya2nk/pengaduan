@@ -110,14 +110,14 @@
                               <strong><?php echo $this->session->flashdata('alert') ?></strong>&nbsp;<br>
                               <?php echo $this->session->flashdata('kategori_msg') ?>
                         </div>
-                  <?php elseif($this->session->flashdata('jenis_msg')): ?>
-                    <div style="margin-top: 10px; width: 50%" id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
-                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                      <strong><?php echo $this->session->flashdata('alert') ?></strong>&nbsp;<br>
-                      <?php echo $this->session->flashdata('jenis_msg') ?>
-                    </div>
-                  <?php endif; ?>
-                </center>
+                      <?php elseif($this->session->flashdata('jenis_msg')): ?>
+                        <div style="margin-top: 10px; width: 50%" id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
+                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                          <strong><?php echo $this->session->flashdata('alert') ?></strong>&nbsp;<br>
+                          <?php echo $this->session->flashdata('jenis_msg') ?>
+                        </div>
+                      <?php endif; ?>
+                    </center>
 
 
                     <h1 class="page-header">Kategori dan Jenis</h1>
@@ -392,7 +392,7 @@
                         <h4 class="modal-title">RESET PASSWORD</h4>
                     </div>
                     
-                    <form method="POST" action="<?php echo base_url('analis/ubah_password') ?>">
+                    <form method="POST" action="<?php echo base_url('analis/ubah_password_k') ?>">
                         <div class="modal-body">
                             <div class="row">
                 <div class="col-md-12">

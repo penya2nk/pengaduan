@@ -98,12 +98,12 @@
 
                     <center>
                       <?php if($this->session->flashdata('message')): ?>
-                          <div style="margin-top: 10px;" id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
+                          <div style="margin-top: 10px; width: 50%" id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
                               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                               <strong><?php echo $this->session->flashdata('alert') ?></strong>&nbsp;<br>
                               <?php echo $this->session->flashdata('message') ?>
                         </div>
-                      <?php endif; ?>
+                    <?php endif; ?>
                     </center>
 
                     <h1 class="page-header">Pengaduan Masuk Analis</h1>
@@ -173,7 +173,7 @@
                         <h4 class="modal-title">RESET PASSWORD</h4>
                     </div>
                     
-                    <form method="POST" action="<?php echo base_url('analis/ubah_password') ?>">
+                    <form method="POST" action="<?php echo base_url('analis/ubah_password_m') ?>">
                         <div class="modal-body">
                             <div class="row">
                 <div class="col-md-12">

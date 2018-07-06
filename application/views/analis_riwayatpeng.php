@@ -92,6 +92,17 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
+
+                    <center>
+                      <?php if($this->session->flashdata('message')): ?>
+                          <div style="margin-top: 10px; width: 50%" id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
+                              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                              <strong><?php echo $this->session->flashdata('alert') ?></strong>&nbsp;<br>
+                              <?php echo $this->session->flashdata('message') ?>
+                        </div>
+                    <?php endif; ?>
+                    </center>
+
                     <h1 class="page-header">Riwayat Pengaduan</h1>
                 </div>
                 <!-- /.col-lg-12 -->
@@ -169,7 +180,7 @@
                   <h4 class="modal-title">UBAH PASSWORD</h4>
               </div>
 
-              <form method="POST" action="<?php echo base_url('analis/ubah_password') ?>">
+              <form method="POST" action="<?php echo base_url('analis/ubah_password_r') ?>">
                         <div class="modal-body">
                             <div class="row">
                 <div class="col-md-12">
@@ -226,6 +237,10 @@
               'autoWidth'   : false
           })
         })
+    </script>
+
+    <script type="text/javascript">
+        $("#hilang").show().delay(1500).slideUp(400);
     </script>
 
 </body>
