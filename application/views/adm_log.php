@@ -147,9 +147,9 @@
 
                                             </tr>
                                             <!-- modal edit user -->
-                                            <div class="modal modal-primary fade" id="detail<?php echo $data->id_pengaduan ?>" style="margin-top: 5%">
+                                            <div class="modal modal-primary fade" id="detail<?php echo $data->id_pengaduan ?>" style="margin-top: 5%;margin-right: 5%">
                                                 <div class="modal-dialog">
-                                                    <div class="modal-content">
+                                                    <div class="modal-content" style="width:110%;">
                                                         <div class="modal-header">
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span></button>
@@ -168,7 +168,10 @@
                                                                         <label>Jam</label>
                                                                     </div>
                                                                     <div class="col-md-3">
-                                                                        <label>Pengelola</label>
+                                                                        <label>Bagian</label>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <label>Nama</label>
                                                                     </div>
                                                                     <div class="col-md-3">
                                                                         <label>Status</label>
@@ -191,12 +194,7 @@
                                                                             <p><?php echo date("H:i:s", strtotime($log->timestamp)) ?></p>
                                                                         </div>
                                                                         <div class="col-md-3">
-                                                                            <p><?php
-                                                                                foreach($level as $l){
-                                                                                if($log->id_level == $level->id_level) {
-                                                                                    echo $l->nama_level." ".$l->posisi;
-                                                                                    }}
-                                                                                ?>
+                                                                            <p><?= $log->nama_level." ".$log->posisi; ?>
                                                                             </p>
                                                                         </div>
                                                                         <div class="col-md-3">

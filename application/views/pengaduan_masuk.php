@@ -53,9 +53,6 @@
 
             <!--- user panel -->
             <section class="sidebar">
-                    <!-- <div class="pull-center image">
-                        <img src='<?php //echo base_url("img/user2.png")?>' class="img-circle" alt="User Image"  style="margin-left: 24%; margin-right: 24%; margin-top: 10%; width: 50%">
-                    </div> -->
             </section>
 
             <div class="navbar-default sidebar" role="navigation"> <!--style="margin-top: 15%;"-->
