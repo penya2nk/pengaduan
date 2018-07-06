@@ -110,8 +110,8 @@
                                             <th>No</th>
                                             <th>Kategori</th>
                                             <th>Tempat</th>
-                                            <th>Jam</th>
-                                            <th>Tanggal</th>
+                                            <th>Jam kelola</th>
+                                            <th>Tanggal kelola</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
@@ -127,8 +127,8 @@
                                             <td><?php echo $i; ?></td>
                                             <td><?php echo $data->kategori ?></td>
                                             <td><?php echo $data->nama_ruang ?></td>
-                                            <td><?php echo date('H:i:s', strtotime($data->wkt_pengaduan)) ?></td>
-                                            <td><?php echo date('d-F-Y', strtotime($data->wkt_pengaduan)) ?></td>
+                                            <td><?php echo date('H:i:s', strtotime($data->timestamp)) ?></td>
+                                            <td><?php echo date('d-F-Y', strtotime($data->timestamp)) ?></td>
                                             <td>
                                             <?php
                                                 if($data->status == "diproses"){

@@ -104,11 +104,11 @@
                             <table width="100%" class="table table-striped table-bordered table-hover" id="example2">
                                 <thead>
                                     <tr>
-                                        <th>ID Pengaduan</th>
-                                        <th>Ruang</th>
-                                        <th>Status</th>
-                                        <th>Waktu</th>
-                                        <th>Aksi</th>
+                                        <th style="text-align: center;">ID Pengaduan</th>
+                                        <th style="text-align: center;">Ruang</th>
+                                        <th style="text-align: center;">Status</th>
+                                        <th style="text-align: center;">Waktu</th>
+                                        <th style="text-align: center;">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -118,7 +118,7 @@
                                     {
                                         ?>
                                         <tr>
-                                            <td><?php echo $data->id_pengaduan ?></td>
+                                            <td style="text-align: center;"><?php echo $data->id_pengaduan ?></td>
                                             <td><?php echo $data->nama_ruang ?></td>
                                             <td>
                                                 <?php
@@ -190,9 +190,15 @@
                                                                         <div class="col-md-2">
                                                                             <p><?php echo date("H:i:s", strtotime($log->timestamp)) ?></p>
                                                                         </div>
-                                                                        <!-- <div class="col-md-3">
-                                                                            <p><?php //echo $log->nama_level ?></p>
-                                                                        </div> -->
+                                                                        <div class="col-md-3">
+                                                                            <p><?php
+                                                                                foreach($level as $l){
+                                                                                if($log->id_level == $level->id_level) {
+                                                                                    echo $l->nama_level." ".$l->posisi;
+                                                                                    }}
+                                                                                ?>
+                                                                            </p>
+                                                                        </div>
                                                                         <div class="col-md-3">
                                                                             <p><?php echo $log->nama_pengguna ?></p>
                                                                         </div>

@@ -14,12 +14,17 @@ class Madm_log extends CI_Model {
 
 	public function detail_log($id_pengaduan)
 	{
-		$this->db->select('log.id_pengaduan, log.status, user.nama_pengguna, log.timestamp');
-		$this->db->from('log');
+		$this->db->select('log.id_pengaduan, log.status, user.id_user, level.id_level, level.nama_level, level.posisi, user.nama_pengguna, log.timestamp');
+		$this->db->from('log','user','level');
 		$this->db->join('user', 'user.id_user = log.id_user');
-		// $this->db->join('level', 'level.id_level = user.id_level');
+		$this->db->join('level', 'level.id_level = user.id_level');
 		$this->db->where('id_pengaduan',$id_pengaduan);
 		return $this->db->get()->result();
+	}
+
+	public function level()
+	{
+		return $this->db->get('level')->result();
 	}
 
 	//bikin update password di admin dulu
