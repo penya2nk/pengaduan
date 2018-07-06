@@ -104,11 +104,11 @@
                             <table width="100%" class="table table-striped table-bordered table-hover" id="example2">
                                 <thead>
                                     <tr>
-                                        <th style="text-align: center;">ID Pengaduan</th>
+                                        <th style="text-align: center; width: 100px">ID Pengaduan</th>
                                         <th style="text-align: center;">Ruang</th>
                                         <th style="text-align: center;">Status</th>
                                         <th style="text-align: center;">Waktu</th>
-                                        <th style="text-align: center;">Aksi</th>
+                                        <th style="text-align: center; width: 50px">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -120,7 +120,7 @@
                                         <tr>
                                             <td style="text-align: center;"><?php echo $data->id_pengaduan ?></td>
                                             <td><?php echo $data->nama_ruang ?></td>
-                                            <td>
+                                            <td style="text-align: center;">
                                                 <?php
                                                 if ($data->status == 'masuk') {
                                                     ?>

@@ -60,16 +60,17 @@ class Cadm_datauser extends BaseController {
 						"id_role" => $rowData[0][3],
 						"username" => $rowData[0][4]
 					);
+
 					$this->db->insert("user",$data);
-					unlink($inputFileName);
-				}
+				
+				unlink($inputFileName);
 			}
-		}
 		$this->session->set_flashdata('style','success');
 		$this->session->set_flashdata('alert','Berhasil!');
 		$this->session->set_flashdata('message','Data sukses diimport!');
 
 		redirect('admin/data_user');
+	}}
 }
 
 public function download()

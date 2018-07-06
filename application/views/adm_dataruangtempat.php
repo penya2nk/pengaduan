@@ -131,7 +131,7 @@
                                 <table class="table table-bordered table-hover"" id="example2">
                                     <thead>
                                         <tr>
-                                            <th style="width: 20px">No</th>
+                                            <th style="width: 40px">No</th>
                                             <th>Nama Ruang</th>
                                             <th style="width: 50px">Aksi</th>
                                         </tr>
@@ -217,7 +217,7 @@
                             <table class="table table-bordered table-hover"" id="example1">
                                 <thead>
                                     <tr>
-                                        <th style="width: 20px">No</th>
+                                        <th style="width: 40px">No</th>
                                         <th>Nama Tempat</th>
                                         <th style="width: 50px">Aksi</th>
                                     </tr>
