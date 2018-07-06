@@ -94,19 +94,31 @@
             <div class="row">
                 <div class="col-lg-12">
 
+                    <center>
+                      <?php if($this->session->flashdata('message')): ?>
+                          <div style="margin-top: 10px; width: 50%" id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
+                              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                              <strong><?php echo $this->session->flashdata('alert') ?></strong>&nbsp;<br>
+                              <?php echo $this->session->flashdata('message') ?>
+                        </div>
+                    <?php endif; ?>
+                    
+
                     <?php if($this->session->flashdata('kategori_msg')): ?>
-                      <div style="margin-top: 10px; width: 50%" id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
-                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                          <strong><?php echo $this->session->flashdata('alert') ?></strong>&nbsp;<br>
-                          <?php echo $this->session->flashdata('kategori_msg') ?>
-                    </div>
+                        <div style="margin-top: 10px; width: 50%" id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
+                              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                              <strong><?php echo $this->session->flashdata('alert') ?></strong>&nbsp;<br>
+                              <?php echo $this->session->flashdata('kategori_msg') ?>
+                        </div>
                   <?php elseif($this->session->flashdata('jenis_msg')): ?>
-                      <div style="margin-top: 10px; width: 50%" id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
-                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                          <strong><?php echo $this->session->flashdata('alert') ?></strong>&nbsp;<br>
-                          <?php echo $this->session->flashdata('jenis_msg') ?>
+                    <div style="margin-top: 10px; width: 50%" id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                      <strong><?php echo $this->session->flashdata('alert') ?></strong>&nbsp;<br>
+                      <?php echo $this->session->flashdata('jenis_msg') ?>
                     </div>
                   <?php endif; ?>
+                </center>
+
 
                     <h1 class="page-header">Kategori dan Jenis</h1>
                 </div>
@@ -464,7 +476,7 @@ for (var i=0; i<colNumber; i++)
 </script>
 
 <script type="text/javascript">
-    $("#hilang").show().delay(2000).slideUp(400);
+    $("#hilang").show().delay(1500).slideUp(400);
 </script>
 
 <script type="text/javascript">

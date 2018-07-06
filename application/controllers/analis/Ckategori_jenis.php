@@ -19,38 +19,80 @@ class Ckategori_jenis extends BaseController {
 		$this->load->view('analis_kelolakategorijenis',$data);
 	}
 
+	//tambah plus validasi kategori
 	public function tambah_kategori()
 	{
-		$id_kategori = $this->input->post('id_kategori');
-		$kategori = $this->input->post('kategori');
-		$data = array(
-			'id_kategori' => $id_kategori,
-			'kategori' => $kategori
-		);
-		$this->Manalis_kelola->tambah_kategori($data);
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('kategori','Kategori yang Anda masukkan sudah terdaftar!','required');
 
-		$this->session->set_flashdata('style', 'success');
-		$this->session->set_flashdata('alert', 'Berhasil!');
-		$this->session->set_flashdata('kategori_msg', 'Data kategori telah ditambahkan!');
+		if($this->form_validation->run()== FALSE )
+		{
+			redirect('analis/kelola');
+		}else{
+			$cek_kategori = $this->Manalis_kelola->cek_kategori();
 
-		redirect('analis/kelola');
+			if (count($cek_kategori) == 0){
+		    	$this->session->set_flashdata('style', 'danger');
+				$this->session->set_flashdata('alert', 'Gagal!');
+				$this->session->set_flashdata('kategori_msg','Data kategori sudah terdaftar!');
+		    
+		    redirect('analis/kelola');
+	   		}
+	   		else
+	   		{
+				$id_kategori = $this->input->post('id_kategori');
+				$kategori = $this->input->post('kategori');
+				$data = array(
+					'id_kategori' => $id_kategori,
+					'kategori' => $kategori
+				);
+				$this->Manalis_kelola->tambah_kategori($data);
+
+				$this->session->set_flashdata('style', 'success');
+				$this->session->set_flashdata('alert', 'Berhasil!');
+				$this->session->set_flashdata('kategori_msg', 'Data kategori telah ditambahkan!');
+
+				redirect('analis/kelola');
+			}
+		}
 	}
 
+	//tambah plus validasi jenis
 	public function tambah_jenis()
 	{
-		$id_jenis = $this->input->post('id_jenis');
-		$nama_jenis = $this->input->post('nama_jenis');
-		$data = array(
-			'id_jenis' => $id_jenis,
-			'nama_jenis' => $nama_jenis
-		);
-		$this->Manalis_kelola->tambah_jenis($data);
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('Jenis','Jenis yang Anda masukkan sudah terdaftar!','required');
 
-		$this->session->set_flashdata('style', 'success');
-		$this->session->set_flashdata('alert', 'Berhasil!');
-		$this->session->set_flashdata('jenis_msg', 'Data jenis telah ditambahkan!');
+		if($this->form_validation->run()== FALSE )
+		{
+			redirect('analis/kelola');
+		}else{
+			$cek_jenis = $this->Manalis_kelola->cek_jenis();
 
-		redirect('analis/kelola');
+			if (count($cek_jenis) == 0){
+		    	$this->session->set_flashdata('style', 'danger');
+				$this->session->set_flashdata('alert', 'Gagal!');
+				$this->session->set_flashdata('jenis_msg','Data jenis $nama_jenis sudah terdaftar!');
+		    
+		    redirect('analis/kelola');
+	   		}
+	   		else
+	   		{
+				$id_jenis = $this->input->post('id_jenis');
+				$nama_jenis = $this->input->post('nama_jenis');
+				$data = array(
+					'id_jenis' => $id_jenis,
+					'nama_jenis' => $nama_jenis
+				);
+				$this->Manalis_kelola->tambah_jenis($data);
+
+				$this->session->set_flashdata('style', 'success');
+				$this->session->set_flashdata('alert', 'Berhasil!');
+				$this->session->set_flashdata('jenis_msg', 'Data jenis telah ditambahkan!');
+
+				redirect('analis/kelola');
+			}
+		}
 	}
 
 	public function edit_kategori()
@@ -123,21 +165,22 @@ class Ckategori_jenis extends BaseController {
 	  }
 	  	else
 	  {
-	   $cek_old = $this->Manalis_kelola->cek_old();
+		   $cek_old = $this->Manalis_kelola->cek_old();
 
-	   if (count($cek_old) == 0){
-		    $this->session->set_flashdata('error','Password lama yang Anda masukkan salah' );
-		    
-		    redirect('analis/kelola');
-	   }
-	   	else
-	   {
-		    $this->Manalis_kelola->save();
-		    $this->session->sess_destroy();
-		    $this->session->set_flashdata('error','Password anda telah berhasil diubah' );
-		    
-		    redirect('karyawan');
-	   }//end if valid_user
-	}
- }
+		   if (count($cek_old) == 0){
+			    $this->session->set_flashdata('style','danger' );
+			    $this->session->set_flashdata('alert','Gagal!' );
+			    $this->session->set_flashdata('message','Password lama yang Anda masukkan salah' );
+			    
+			    redirect('analis/kelola');
+		   }
+		   	else
+		   {
+			    $this->Manalis_kelola->save();
+			    $this->session->sess_destroy();
+			    
+			    redirect('karyawan');
+		   }//end if valid_user
+		}
+ 	}
 }
