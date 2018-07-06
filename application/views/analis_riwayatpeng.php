@@ -104,7 +104,7 @@
                             Basic Form Elements
                         </div>
                             <div class="panel-body">
-                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <table width="100%" class="table table-striped table-bordered table-hover" id="example2">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -131,7 +131,6 @@
                                             <td><?php echo date('d-F-Y', strtotime($data->wkt_pengaduan)) ?></td>
                                             <td>
                                             <?php
-                                                // if($this->Manalis_riwayatpeng->pengaduan_selesai($data->id_pengaduan) == 0){
                                                 if($data->status == "diproses"){
                                             ?>
                                                 <span class="badge warning"><?php echo $data->status ?></span>
@@ -214,6 +213,19 @@
             responsive: true
         });
     });
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+              'paging'      : true,
+              'lengthChange': false,
+              'ordering'    : false,
+              'info'        : true,
+              'autoWidth'   : false
+          })
+        })
     </script>
 
 </body>

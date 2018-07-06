@@ -110,7 +110,7 @@
                                             <th>Kategori</th>
                                             <th>Tempat</th>
                                             <th>Jam</th>
-                                            <th>Tanggal Masuk</th>
+                                            <th>Tanggal</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
