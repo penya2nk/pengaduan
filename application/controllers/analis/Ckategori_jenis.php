@@ -61,7 +61,7 @@ class Ckategori_jenis extends BaseController {
 	public function tambah_jenis()
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('Jenis','Jenis yang Anda masukkan sudah terdaftar!','required');
+		$this->form_validation->set_rules('nama_jenis','Jenis yang Anda masukkan sudah terdaftar!','required');
 
 		if($this->form_validation->run()== FALSE )
 		{
