@@ -27,18 +27,8 @@ class Manalis_kelola extends CI_Model {
 	}
 
 	public function cek_kategori()
-	{
-		$kategori = $this->db->select('kategori')->where('id_kategori')->get('kategori')->result();
-		//var kategori = select kolom sesuai id_kategori, get dari tabel kategori
-		if(!empty($kategori)){
-			if($this->input->post('kategori').$kategori[0]->kategori){
-				return $kategori;
-			} else {
-				return array();
-			}
-		} else {
-			return array();
-		}
+	{	
+		return $this->db->where('kategori', strtolower($this->input->post('kategori')))->where('deleted', 0)->get('kategori');
 	}
 
 	public function tambah_jenis($data)
@@ -48,17 +38,7 @@ class Manalis_kelola extends CI_Model {
 
 	public function cek_jenis()
 	{
-		$jenis = $this->db->select('nama_jenis')->where('id_jenis')->get('jenis')->result();
-
-		if(!empty($jenis)){
-			if($this->input->post('nama_jenis').$jenis[0]->nama_jenis){
-				return $jenis;
-			} else {
-				return array();
-			}
-		} else {
-			return array();
-		}
+		return $this->db->where('id_jenis', strtolower($this->input->post('nama_jenis')))->where('deleted', 0)->get('jenis');		
 	}
 
 	public function edit_kategori($data,$id_kategori)

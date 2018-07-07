@@ -181,7 +181,7 @@
                                                       <form method="POST" action="<?php echo base_url('analis/edit_kategori') ?>">
                                                           <div class="modal-body">
                                                             <div class="row">
-                                                                <div class="col-md-12">
+																															<div class="col-md-12">
 
                                                                     <div class="form-group">
                                                                         <label>Edit Kategori</label>
@@ -324,7 +324,7 @@
 
                             <div class="form-group">
                                 <label>Kategori Baru :</label>
-                                <input type="text" name="kategori" class="form-control" required>
+                                <input type="text" name="kategori" class="form-control" required autofocus>
                             </div>
 
                         </div>
@@ -358,7 +358,7 @@
 
                         <div class="form-group">
                             <label>Jenis baru</label>
-                            <input class="form-control" type="text" name="nama_jenis" required>
+                            <input class="form-control" type="text" name="nama_jenis" required autofocus>
                         </div>
 
                     </div>

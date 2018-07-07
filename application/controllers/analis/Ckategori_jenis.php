@@ -30,8 +30,8 @@ class Ckategori_jenis extends BaseController {
 			redirect('analis/kelola');
 		}else{
 			$cek_kategori = $this->Manalis_kelola->cek_kategori();
-
-			if (count($cek_kategori) == 0){
+			// var_dump(count($cek_kategori));exit;
+			if (count($cek_kategori) > 0){
 		    	$this->session->set_flashdata('style', 'danger');
 				$this->session->set_flashdata('alert', 'Gagal!');
 				$this->session->set_flashdata('kategori_msg','Data kategori sudah terdaftar!');
@@ -40,11 +40,9 @@ class Ckategori_jenis extends BaseController {
 	   		}
 	   		else
 	   		{
-				$id_kategori = $this->input->post('id_kategori');
 				$kategori = $this->input->post('kategori');
 				$data = array(
-					'id_kategori' => $id_kategori,
-					'kategori' => $kategori
+					'kategori' => strtolower($kategori)
 				);
 				$this->Manalis_kelola->tambah_kategori($data);
 
@@ -69,7 +67,7 @@ class Ckategori_jenis extends BaseController {
 		}else{
 			$cek_jenis = $this->Manalis_kelola->cek_jenis();
 
-			if (count($cek_jenis) == 0){
+			if (count($cek_jenis) > 0){
 		    	$this->session->set_flashdata('style', 'danger');
 				$this->session->set_flashdata('alert', 'Gagal!');
 				$this->session->set_flashdata('jenis_msg','Data jenis sudah terdaftar!');
@@ -78,11 +76,9 @@ class Ckategori_jenis extends BaseController {
 	   		}
 	   		else
 	   		{
-				$id_jenis = $this->input->post('id_jenis');
 				$nama_jenis = $this->input->post('nama_jenis');
 				$data = array(
-					'id_jenis' => $id_jenis,
-					'nama_jenis' => $nama_jenis
+					'nama_jenis' => strtolower($nama_jenis)
 				);
 				$this->Manalis_kelola->tambah_jenis($data);
 
