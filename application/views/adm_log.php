@@ -161,19 +161,19 @@
                                                                     <div class="col-md-1">
                                                                         <label>No.</label>
                                                                     </div>
-                                                                    <div class="col-md-3">
+                                                                    <div class="col-md-2">
                                                                         <label>Tanggal</label>
                                                                     </div>
                                                                     <div class="col-md-2">
                                                                         <label>Jam</label>
                                                                     </div>
-                                                                    <div class="col-md-3">
+                                                                    <div class="col-md-2">
                                                                         <label>Bagian</label>
                                                                     </div>
                                                                     <div class="col-md-3">
                                                                         <label>Nama</label>
                                                                     </div>
-                                                                    <div class="col-md-3">
+                                                                    <div class="col-md-1">
                                                                         <label>Status</label>
                                                                     </div>
                                                                 </div>
@@ -187,20 +187,20 @@
                                                                         <div class="col-md-1">
                                                                             <p><?php echo $j ?></p>
                                                                         </div>
-                                                                        <div class="col-md-3">
+                                                                        <div class="col-md-2">
                                                                             <p><?php echo date("d F Y", strtotime($log->timestamp)) ?></p>
                                                                         </div>
                                                                         <div class="col-md-2">
                                                                             <p><?php echo date("H:i:s", strtotime($log->timestamp)) ?></p>
                                                                         </div>
-                                                                        <div class="col-md-3">
+                                                                        <div class="col-md-2">
                                                                             <p><?= $log->nama_level." ".$log->posisi; ?>
                                                                             </p>
                                                                         </div>
                                                                         <div class="col-md-3">
                                                                             <p><?php echo $log->nama_pengguna ?></p>
                                                                         </div>
-                                                                        <div class="col-md-3">
+                                                                        <div class="col-md-1">
                                                                             <p>
                                                                                 <?php
                                                                                 if($log->status == 'masuk') {
