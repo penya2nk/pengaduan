@@ -23,22 +23,12 @@ class Manalis_kelola extends CI_Model {
 
 	public function tambah_kategori($data)
 	{
-		$this->db->insert('kategori',$data);
+		return $this->db->insert('kategori',$data);
 	}
 
 	public function cek_kategori()
-	{
-		$kategori = $this->db->select('kategori')->where('id_kategori')->get('kategori')->result();
-		//var kategori = select kolom sesuai id_kategori, get dari tabel kategori
-		if(!empty($kategori)){
-			if($this->input->post('kategori').$kategori[0]->kategori){
-				return $kategori;
-			} else {
-				return array();
-			}
-		} else {
-			return array();
-		}
+	{	
+		return $this->db->where('kategori', strtolower($this->input->post('kategori')))->get('kategori');
 	}
 
 	public function tambah_jenis($data)
