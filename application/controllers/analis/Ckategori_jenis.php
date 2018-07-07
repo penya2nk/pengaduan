@@ -70,7 +70,7 @@ class Ckategori_jenis extends BaseController {
 			if (count($cek_jenis) == 0){
 		    	$this->session->set_flashdata('style', 'danger');
 				$this->session->set_flashdata('alert', 'Gagal!');
-				$this->session->set_flashdata('jenis_msg','Data jenis $nama_jenis sudah terdaftar!');
+				$this->session->set_flashdata('jenis_msg','Data jenis sudah terdaftar!');
 		    
 		    redirect('analis/kelola');
 	   		}
