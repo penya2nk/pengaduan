@@ -42,7 +42,7 @@ class Ckategori_jenis extends BaseController {
 	   		{
 				$kategori = $this->input->post('kategori');
 				$data = array(
-					'kategori' => $kategori
+					'kategori' => strtolower($kategori)
 				);
 				$this->Manalis_kelola->tambah_kategori($data);
 
@@ -59,7 +59,7 @@ class Ckategori_jenis extends BaseController {
 	public function tambah_jenis()
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('Jenis','Jenis yang Anda masukkan sudah terdaftar!','required');
+		$this->form_validation->set_rules('nama_jenis','Jenis yang Anda masukkan sudah terdaftar!','required');
 
 		if($this->form_validation->run()== FALSE )
 		{
@@ -76,11 +76,9 @@ class Ckategori_jenis extends BaseController {
 	   		}
 	   		else
 	   		{
-				$id_jenis = $this->input->post('id_jenis');
 				$nama_jenis = $this->input->post('nama_jenis');
 				$data = array(
-					'id_jenis' => $id_jenis,
-					'nama_jenis' => $nama_jenis
+					'nama_jenis' => strtolower($nama_jenis)
 				);
 				$this->Manalis_kelola->tambah_jenis($data);
 

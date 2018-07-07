@@ -38,17 +38,7 @@ class Manalis_kelola extends CI_Model {
 
 	public function cek_jenis()
 	{
-		$jenis = $this->db->select('nama_jenis')->where('id_jenis')->get('jenis')->result();
-
-		if(!empty($jenis)){
-			if($this->input->post('nama_jenis').$jenis[0]->nama_jenis){
-				return $jenis;
-			} else {
-				return array();
-			}
-		} else {
-			return array();
-		}
+		return $this->db->where('id_jenis', strtolower($this->input->post('nama_jenis')))->get('jenis');		
 	}
 
 	public function edit_kategori($data,$id_kategori)
