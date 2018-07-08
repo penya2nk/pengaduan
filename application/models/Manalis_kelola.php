@@ -27,7 +27,7 @@ class Manalis_kelola extends CI_Model {
 	}
 
 	public function cek_kategori()
-	{	
+	{	//strtolower = biar hurufnya kecil semua
 		return $this->db->where('kategori', strtolower($this->input->post('kategori')))->where('deleted', 0)->get('kategori')->result();
 	}
 
@@ -53,7 +53,7 @@ class Manalis_kelola extends CI_Model {
 		$this->db->update('jenis',$data);
 	}
 
-	// //bikin update password di admin dulu
+	//bikin update password di admin dulu
 	public function save()
 	{
 		$password = password_hash($this->input->post('new'), PASSWORD_BCRYPT);
