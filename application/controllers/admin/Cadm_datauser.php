@@ -22,65 +22,89 @@ class Cadm_datauser extends BaseController {
 
 	public function upload()
 	{
-		$fileName = time().$_FILES['file']['name'];
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('import','import error!','required');
 
-		$config['upload_path']='./assets/user/';
-		$config['file_name']=$fileName;
-		$config['allowed_types']='xls|xlsx|csv';
-		$config['max_size']=10000;
-
-		$this->load->library('upload',$config);
-		if (! $this->upload->do_upload('file')) {
-			$this->upload->display_errors();
+		if($this->form_validation->run()== FALSE )
+		{
+			redirect('admin/data_user');
 		}else{
-			$media = $this->upload->data();
-			$inputFileName = './assets/user/'.$media['file_name'];
-			
-			try {
-				$inputFileType = IOFactory::identify($inputFileName);
-				$objReader = IOFactory::createReader($inputFileType);
-				$objPHPExcel = $objReader->load($inputFileName);
-			} catch(Exception $e) {
-				die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
-				//var_dump("error lol");exit;
+
+			$fileName = time().$_FILES['file']['name'];
+
+			$config['upload_path']='./assets/user/';
+			$config['file_name']=$fileName;
+			$config['allowed_types']='xls|xlsx|csv';
+			$config['max_size']=10000;
+
+			$this->load->library('upload',$config);
+			if (! $this->upload->do_upload('file')) {
+				$this->upload->display_errors();
+			}else{
+				$media = $this->upload->data();
+				$inputFileName = './assets/user/'.$media['file_name'];
+
+				try {
+					$inputFileType = IOFactory::identify($inputFileName);
+					$objReader = IOFactory::createReader($inputFileType);
+					$objPHPExcel = $objReader->load($inputFileName);
+				} catch(Exception $e) {
+					die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
+			//var_dump("error lol");exit;
+				}
+
+				$sheet = $objPHPExcel->getSheet(0);
+				$highestRow = $sheet->getHighestRow();
+				$highestColumn = $sheet->getHighestColumn();
+
+				for ($row=2; $row <= $highestRow; $row++) { 
+					$rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row, NULL, TRUE, FALSE);
+
+					//SELECT BUAT DOBEL ENTRY
+					$cek = $this->db->select('email, username', strtolower($this->input->post('email'), $this->input->post('username')))->where('deleted', 0)->get('user')->result();
+
+					if (count($cek) == $rowData[0][1] || count($cek) == $rowData[0][4]){
+						$this->session->set_flashdata('style', 'danger');
+						$this->session->set_flashdata('alert', 'Gagal!');
+						$this->session->set_flashdata('mesage','Silahkan cek kembali data yang telah terdaftar!');
+
+						redirect('admin/data_user');
+					}
+					else
+					{
+
+					if($rowData[0][1] != ''){
+						$data = array(
+							"nama_pengguna" => $rowData[0][0],
+							"email" => $rowData[0][1],
+							"password" => password_hash($rowData[0][2], PASSWORD_BCRYPT),
+							"id_role" => $rowData[0][3],
+							"username" => $rowData[0][4]
+						);
+
+						$this->db->insert("user",$data);
+
+						unlink($inputFileName);
+					}
+					$this->session->set_flashdata('style','success');
+					$this->session->set_flashdata('alert','Berhasil!');
+					$this->session->set_flashdata('message','Data sukses diimport!');
+
+					redirect('admin/data_user');
+					}
+				}
 			}
-			
-			$sheet = $objPHPExcel->getSheet(0);
-			$highestRow = $sheet->getHighestRow();
-			$highestColumn = $sheet->getHighestColumn();
+		}
+	}
 
-			for ($row=2; $row <= $highestRow; $row++) { 
-				$rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row, NULL, TRUE, FALSE);
-
-				if($rowData[0][1] != ''){
-					$data = array(
-						"nama_pengguna" => $rowData[0][0],
-						"email" => $rowData[0][1],
-						"password" => password_hash($rowData[0][2], PASSWORD_BCRYPT),
-						"id_role" => $rowData[0][3],
-						"username" => $rowData[0][4]
-					);
-
-					$this->db->insert("user",$data);
-				
-				unlink($inputFileName);
-			}
-		$this->session->set_flashdata('style','success');
-		$this->session->set_flashdata('alert','Berhasil!');
-		$this->session->set_flashdata('message','Data sukses diimport!');
-
-		redirect('admin/data_user');
-	}}
-}
-
-public function download()
-{
+	public function download()
+	{
 	force_download('file/format_user_data.xlsx',NULL);
-}
+	}
 
 	//function mau cek data user
-public function save_password()
-{ 
+	public function save_password()
+	{ 
 
 	$this->load->library('form_validation');
 
