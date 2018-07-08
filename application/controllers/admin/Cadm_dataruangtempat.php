@@ -39,19 +39,38 @@ class Cadm_dataruangtempat extends BaseController {
 
 	public function tambah_tempat()
 	{
-		$id_tempat = $this->input->post('id_tempat');
-		$nama_tempat = $this->input->post('nama_tempat');
-		$data = array(
-			'id_tempat' => $id_tempat,
-			'nama_tempat' => $nama_tempat
-		);
-		$this->Madm_ruangtempat->tambah_tempat($data);
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('tempat','Tempat sudah terdaftar!','required');
 
-		$this->session->set_flashdata('style', 'success');
-		$this->session->set_flashdata('alert', 'Berhasil!');
-		$this->session->set_flashdata('tempat_msg', 'Data tempat telah ditambahkan!');
+		if($this->form_validation->run() == FALSE)
+		{
+			redirect('admin/data_lokasi');
+		}else{
+			$cek_tempat = $this->Madm_ruangtempat->cek_tempat();
+			
+			if(count($cek_tempat) > 0){
+				$this->session->set_flashdata('style','danger');
+				$this->session->set_flashdata('alert','Gagal!');
+				$this->session->set_flashdata('tempat_msg','Tempat telah terdaftar');
 
-		redirect('admin/data_lokasi');
+				redirect('admin/data_lokasi');
+		}else{
+
+			//$id_tempat = $this->input->post('id_tempat');
+			$nama_tempat = $this->input->post('nama_tempat');
+			$data = array(
+				//'id_tempat' => $id_tempat,
+				'nama_tempat' => strtolower($nama_tempat)
+			);
+			$this->Madm_ruangtempat->tambah_tempat($data);
+
+			$this->session->set_flashdata('style', 'success');
+			$this->session->set_flashdata('alert', 'Berhasil!');
+			$this->session->set_flashdata('tempat_msg', 'Data tempat telah ditambahkan!');
+
+			redirect('admin/data_lokasi');
+			}
+		}
 	}
 
 	public function edit_ruang()

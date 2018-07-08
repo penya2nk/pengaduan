@@ -22,16 +22,12 @@ class Cadm_datauser extends BaseController {
 
 	public function upload()
 	{
-		$fileName = time().$_FILES['file']['name'];
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('import','import error!','required');
 
-		$config['upload_path']='./assets/user/';
-		$config['file_name']=$fileName;
-		$config['allowed_types']='xls|xlsx|csv';
-		$config['max_size']=10000;
-
-		$this->load->library('upload',$config);
-		if (! $this->upload->do_upload('file')) {
-			$this->upload->display_errors();
+		if($this->form_validation->run()== FALSE )
+		{
+			redirect('admin/data_user');
 		}else{
 			$media = $this->upload->data();
 			$inputFileName = './assets/user/'.$media['file_name'];
@@ -89,14 +85,14 @@ class Cadm_datauser extends BaseController {
 		}
 }
 
-public function download()
-{
+	public function download()
+	{
 	force_download('file/format_user_data.xlsx',NULL);
-}
+	}
 
 	//function mau cek data user
-public function save_password()
-{ 
+	public function save_password()
+	{ 
 
 	$this->load->library('form_validation');
 

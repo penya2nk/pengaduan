@@ -36,7 +36,7 @@ class Ckategori_jenis extends BaseController {
 				$this->session->set_flashdata('alert', 'Gagal!');
 				$this->session->set_flashdata('kategori_msg','Data kategori sudah terdaftar!');
 		    
-		    redirect('analis/kelola');
+		    	redirect('analis/kelola');
 	   		}
 	   		else
 	   		{
