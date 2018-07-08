@@ -45,5 +45,39 @@ class Cform extends BaseController {
 			redirect('user/home');
 		}
 	}
+
+	//function mau cek data user
+	public function save_password()
+	 { 
+
+	 	$this->load->library('form_validation');
+
+	  $this->form_validation->set_rules('new','New','required|alpha_numeric');
+	  $this->form_validation->set_rules('re_new', 'Retype New', 'required|matches[new]');
+
+	    if($this->form_validation->run() == FALSE)
+	  {
+			redirect('user/home');
+	  }
+	  	else
+	  {
+		   $cek_old = $this->Mform_pengaduan->cek_old();
+
+		   if (count($cek_old) == 0){
+			    $this->session->set_flashdata('style','danger' );
+			    $this->session->set_flashdata('alert','Gagal!' );
+			    $this->session->set_flashdata('message','Password lama yang Anda masukkan salah' );
+			    
+			    redirect('user/home');
+		   }
+		   	else
+		   {
+			    $this->Mform_pengaduan->save();
+			    $this->session->sess_destroy();
+			    
+			    redirect('login_pengaduan');
+		   }//end if valid_user
+		}
+ 	}
     
 }

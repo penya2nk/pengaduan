@@ -47,52 +47,59 @@
             <i class="fa fa-user fa-fw"></i> <?php echo $this->session->userdata('nama_pengguna'); ?></i>
           </a>
           <ul class="dropdown-menu dropdown-user">
-            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-            </li>
-            <li class="divider"></li>
-            <li><a href="<?php echo base_url('logout') ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-            </li>
-          </ul>
-          <!-- /.dropdown-user -->
-        </li>
-        <!-- /.dropdown -->
-      </ul>
-      <!-- /.navbar-top-links -->
+            <li>
+              <a data-toggle="modal" data-target="#settingModal">
+                <i class="fa fa-gear fa-fw"></i> Settings
+              </a>
+              <li class="divider">
+              </li>
 
-      <div class="navbar-default sidebar" role="navigation">
+              <li>
+                <a href="<?php echo base_url('logout') ?>">
+                  <i class="fa fa-sign-out fa-fw"></i> Logout
+                </a>
+              </li>
+            </ul>
+            <!-- /.dropdown-user -->
+          </li>
+          <!-- /.dropdown -->
+        </ul>
+        <!-- /.navbar-top-links -->
 
-        <!-- /.sidebar-collapse -->
-      </div>
-      <!-- /.navbar-static-side -->
-    </nav>
+        <div class="navbar-default sidebar" role="navigation">
 
-    <!-- Page Content -->
-    <div class="container">
-      <!-- <h2 class="page-header"><img src="<?php //echo base_url('img/ugm.gif') ?>" style="width: auto; height: 60px; margin-right: 10px"> SISTEM INFORMASI PENGADUAN</h2> -->
-      <div class="row">
-        <div class="col-lg-12">
+          <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+      </nav>
 
-          <center>
-          <?php if($this->session->flashdata('message')): ?>
-              <div style="margin-top: 10px; width: 50%" id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
+      <!-- Page Content -->
+      <div class="container">
+        <!-- <h2 class="page-header"><img src="<?php //echo base_url('img/ugm.gif') ?>" style="width: auto; height: 60px; margin-right: 10px"> SISTEM INFORMASI PENGADUAN</h2> -->
+        <div class="row">
+          <div class="col-lg-12">
+
+            <center>
+              <?php if($this->session->flashdata('message')): ?>
+                <div style="margin-top: 10px; width: 50%" id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                   <strong><?php echo $this->session->flashdata('alert') ?></strong>&nbsp;<br>
                   <?php echo $this->session->flashdata('message') ?>
-            </div>
-          <?php endif; ?>
-        </center>
+                </div>
+              <?php endif; ?>
+            </center>
 
-          <div class="alert alert-warning alert-dismissable" style="margin-top: 10px">
-            <strong>Perhatian!</strong> Informasi <b>data diri Anda tidak akan terlihat</b> pada laporan pengaduan. Mohon berikan informasi sejelas-jelasnya untuk tindak lanjut yang lebih baik. Terimakasih.</a>.
-            keterangan :<b style="color: red"> * = wajib diisi </b>
-          </div>
-
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <center><h3><strong>FORM PENGADUAN</strong></h3></center>
+            <div class="alert alert-warning alert-dismissable" style="margin-top: 10px">
+              <strong>Perhatian!</strong> Informasi <b>data diri Anda tidak akan terlihat</b> pada laporan pengaduan. Mohon berikan informasi sejelas-jelasnya untuk tindak lanjut yang lebih baik. Terimakasih.</a>.
+              keterangan :<b style="color: red"> * = wajib diisi </b>
             </div>
-            <div class="panel-body">
-              <!-- Tab Pane Draft -->
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <center><h3><strong>FORM PENGADUAN</strong></h3></center>
+              </div>
+              <div class="panel-body">
+                <!-- Tab Pane Draft -->
               <div class="tab-content"><!-- 
                 <div class="active tab-pane fade in" id="halaman_1"> -->
                  <div class="box-body">
@@ -195,52 +202,91 @@
                     <input type="text" class="form-control" name="efek" id="efek" placeholder="Silahkan isi efek" required>
                   </div>
 
-                      <div class="form-group" style="margin-left: 15px; margin-right:15px">
-                        <label>Silahkan deskripsikan kejadian <b style="color: red">*</b></label>
-                        <textarea class="form-control" name="deskripsi" rows="3" placeholder="text..." required></textarea>
-                      </div>
+                  <div class="form-group" style="margin-left: 15px; margin-right:15px">
+                    <label>Silahkan deskripsikan kejadian <b style="color: red">*</b></label>
+                    <textarea class="form-control" name="deskripsi" rows="3" placeholder="text..." required></textarea>
+                  </div>
 
-                      <div class="form-group" style="margin-left: 15px; margin-right:15px">
-                        <label>Silahkan deskripsikan tindaklanjut yang telah Anda lakukan sendiri</label>
-                        <textarea class="form-control" name="tindaklanjut" rows="3" placeholder="text ..."></textarea>
-                      </div>
+                  <div class="form-group" style="margin-left: 15px; margin-right:15px">
+                    <label>Silahkan deskripsikan tindaklanjut yang telah Anda lakukan sendiri</label>
+                    <textarea class="form-control" name="tindaklanjut" rows="3" placeholder="text ..."></textarea>
+                  </div>
 
-                      <div class="form-group" style="margin-left: 15px; margin-right:15px">
-                        <label>Anda boleh menambahkan gambar pendukung (maksimal 2 Mb):</label>
-                        <input type="file" name="gambar">
-                        <input type="hidden" name="nama_pengguna" value="<?php echo $this->session->userdata('nama_pengguna') ?>">
-                      </div>
+                  <div class="form-group" style="margin-left: 15px; margin-right:15px">
+                    <label>Anda boleh menambahkan gambar pendukung (maksimal 2 Mb):</label>
+                    <input type="file" name="gambar">
+                    <input type="hidden" name="nama_pengguna" value="<?php echo $this->session->userdata('nama_pengguna') ?>">
+                  </div>
 
-                      <div style="margin-left: 90%">
-                        <button class="btn btn-success" name="simpan" value="simpan" style="margin-top: 20px; width:80px">simpan</button>
-                      </div>
-                    </div>
-                    <!-- /.tab-pane -->
-                  </form>
+                  <div style="margin-left: 90%">
+                    <button class="btn btn-success" name="simpan" value="simpan" style="margin-top: 20px; width:80px">simpan</button>
+                  </div>
                 </div>
-                <!-- /.tab-content -->
-              </div>
+                <!-- /.tab-pane -->
+              </form>
             </div>
+            <!-- /.tab-content -->
           </div>
-
         </div>
-
       </div>
-      <!-- /.col-lg-12 -->
+
     </div>
-    <!-- /.row -->
+
   </div>
-  <!-- /.container-fluid -->
+  <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+</div>
+<!-- /.container-fluid -->
 </div>
 <!-- /#page-wrapper -->
 
 </div>
 
-<footer class="footer">
-  <div class="container">
-    <strong>Copyright &copy; 2018 <a href="#">Tugas Akhir</a></strong>
- </div>
-</footer>
+<!-- modal setting -->
+<div class="modal modal-primary fade" id="settingModal" style="margin-top: 5%">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">RESET PASSWORD</h4>
+        </div>
+        
+        <form method="POST" action="<?php echo base_url('user/ubah_password') ?>">
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Password lama :</label>
+                  <input type="password" name="old" class="form-control" placeholder="Password Lama" required>
+                </div>
+                <div class="form-group">
+                  <label>Password baru :</label>
+                  <input type="password" name="new" class="form-control" placeholder="Password Baru" required>
+                </div>
+                <div class="form-group">
+                  <label>Ulangi password baru :</label>
+                  <input type="password" name="re_new" class="form-control" placeholder="Ulangi Password Baru" required>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Batal</button>
+            <input type="submit" class="btn btn-primary" value="Simpan">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- modal setting -->
+
+  <footer class="footer">
+    <div class="container">
+      <strong>Copyright &copy; 2018 <a href="#">Tugas Akhir</a></strong>
+    </div>
+  </footer>
 
 </div>
 
@@ -292,12 +338,12 @@
 </script>
 
 <script type="text/javascript">
-		$("#hilang").show().delay(1500).slideUp(400);
+  $("#hilang").show().delay(1500).slideUp(400);
 </script>
 
 <script type="text/javascript">
   
-  </script>
+</script>
 
 </body>
 
