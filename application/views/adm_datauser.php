@@ -550,9 +550,9 @@
 							<div class="col-md-12">
 								
                 <div class="alert alert-danger alert-dismissable">
-									<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-									<b>Perhatian!</b> Jika Anda ingin mengunggah data excel, pastikan data Anda sudah sesuai dengan syarat upload di bawah:
-								</div>
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<b>Perhatian!</b> Jika Anda ingin mengunggah data excel, pastikan data Anda sudah sesuai dengan syarat upload di bawah:
+				</div>
                 1. Data yang dapat diunggah dalam format <b>xls, xlsx, dan csv</b>.<br>
                 2. Pastikan <b>tidak ada</b> data yang <b>terlewat</b> atau <b>kosong!</b><br>
                 3. Ukuran file maksimum 10 mb.<br>

@@ -23,7 +23,7 @@ class Cadm_datauser extends BaseController {
 	public function upload()
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('import','import error!','required');
+		$this->form_validation->set_rules('file','import error!','required');
 
 		if($this->form_validation->run()== FALSE )
 		{
@@ -73,7 +73,7 @@ class Cadm_datauser extends BaseController {
 					unlink($inputFileName);
 				// var_dump($arr);exit;
 				if(count($arr) > 0) {
-					$this->session->set_flashdata('style','success');
+					$this->session->set_flashdata('style','warning');
 					$this->session->set_flashdata('alert','Berhasil!');
 					$this->session->set_flashdata('message','Data sukses diimport! Namun ada data yang duplikat yaitu '. $arr);
 				}else{

@@ -20,34 +20,53 @@ class Cadm_dataruangtempat extends BaseController {
 
 	public function tambah_ruang()
 	{
-		$id_ruang = $this->input->post('id_ruang');
-		$id_tempat = $this->input->post('id_tempat');
-		$nama_ruang = $this->input->post('nama_ruang');
-		$data = array(
-			'id_ruang' => $id_ruang,
-			'id_tempat' => $id_tempat,
-			'nama_ruang' => $nama_ruang
-		);
-		$this->Madm_ruangtempat->tambah_ruang($data);
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('nama_ruang','Tempat sudah terdaftar!','required');
+		//$this->form_validation->set_rules('name_di field view','error','required');
+		if($this->form_validation->run() == FALSE)
+		{
+			redirect('admin/data_lokasi');
+		}else{
+			$cek_ruang = $this->Madm_ruangtempat->cek_ruang();
 
-		$this->session->set_flashdata('style', 'success');
-		$this->session->set_flashdata('alert', 'Berhasil!');
-		$this->session->set_flashdata('ruang_msg', 'Data ruang telah ditambahkan!');
+			if(count($cek_ruang) > 0){
+				$this->session->set_flashdata('style','danger');
+				$this->session->set_flashdata('alert','Gagal!');
+				$this->session->set_flashdata('ruang_msg','Ruang telah terdaftar');
 
-		redirect('admin/data_lokasi');
+				redirect('admin/data_lokasi');
+			}else{
+
+				$id_ruang = $this->input->post('id_ruang');
+				$id_tempat = $this->input->post('id_tempat');
+				$nama_ruang = $this->input->post('nama_ruang');
+				$data = array(
+					'id_ruang' => $id_ruang,
+					'id_tempat' => $id_tempat,
+					'nama_ruang' => strtolower($nama_ruang)
+				);
+				$this->Madm_ruangtempat->tambah_ruang($data);
+
+				$this->session->set_flashdata('style', 'success');
+				$this->session->set_flashdata('alert', 'Berhasil!');
+				$this->session->set_flashdata('ruang_msg', 'Data ruang telah ditambahkan!');
+
+				redirect('admin/data_lokasi');
+			}
+		}
 	}
 
 	public function tambah_tempat()
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('tempat','Tempat sudah terdaftar!','required');
+		$this->form_validation->set_rules('nama_tempat','Tempat sudah terdaftar!','required');
 
 		if($this->form_validation->run() == FALSE)
 		{
 			redirect('admin/data_lokasi');
 		}else{
 			$cek_tempat = $this->Madm_ruangtempat->cek_tempat();
-			
+
 			if(count($cek_tempat) > 0){
 				$this->session->set_flashdata('style','danger');
 				$this->session->set_flashdata('alert','Gagal!');
