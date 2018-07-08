@@ -49,28 +49,44 @@ class Cadm_datauser extends BaseController {
 			$highestRow = $sheet->getHighestRow();
 			$highestColumn = $sheet->getHighestColumn();
 
+			$arr = ""; //wadah untuk nama yang duplikat
+			
 			for ($row=2; $row <= $highestRow; $row++) { 
 				$rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row, NULL, TRUE, FALSE);
 
 				if($rowData[0][1] != ''){
-					$data = array(
-						"nama_pengguna" => $rowData[0][0],
-						"email" => $rowData[0][1],
-						"password" => password_hash($rowData[0][2], PASSWORD_BCRYPT),
-						"id_role" => $rowData[0][3],
-						"username" => $rowData[0][4]
-					);
-
-					$this->db->insert("user",$data);
 				
-				unlink($inputFileName);
-			}
-		$this->session->set_flashdata('style','success');
-		$this->session->set_flashdata('alert','Berhasil!');
-		$this->session->set_flashdata('message','Data sukses diimport!');
+					$cek = $this->db->where('email', $rowData[0][1])->or_where('username', $rowData[0][4])->get('user')->num_rows();
+					if($cek > 0){
+						$arr .= $rowData[0][0] . ", ";
+					}else{
+						$data = array(
+							"nama_pengguna" => $rowData[0][0],
+							"email" => $rowData[0][1],
+							"password" => password_hash($rowData[0][2], PASSWORD_BCRYPT),
+							"id_role" => $rowData[0][3],
+							"username" => $rowData[0][4]
+						);
 
-		redirect('admin/data_user');
-	}}
+						$this->db->insert("user",$data);
+					}
+				
+				}
+				
+			}
+					unlink($inputFileName);
+				// var_dump($arr);exit;
+				if(count($arr) > 0) {
+					$this->session->set_flashdata('style','success');
+					$this->session->set_flashdata('alert','Berhasil!');
+					$this->session->set_flashdata('message','Data sukses diimport! Namun ada data yang duplikat yaitu '. $arr);
+				}else{
+					$this->session->set_flashdata('style','success');
+					$this->session->set_flashdata('alert','Berhasil!');
+					$this->session->set_flashdata('message','Data sukses diimport!');
+				}
+				redirect('admin/data_user');
+		}
 }
 
 public function download()

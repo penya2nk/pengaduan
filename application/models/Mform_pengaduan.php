@@ -89,7 +89,7 @@
 				'id_pengaduan' => $lastPengaduan,
 				//'id_kategori' => $kategori,
 				'id_user' => $user,
-				'status' => 'masuk'
+				'status' => "masuk"
 				);
 				return $this->db->insert('log', $data2);
 				
