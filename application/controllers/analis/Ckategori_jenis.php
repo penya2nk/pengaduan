@@ -30,6 +30,7 @@ class Ckategori_jenis extends BaseController {
 			redirect('analis/kelola');
 		}else{
 			$cek_kategori = $this->Manalis_kelola->cek_kategori();
+			
 			if (count($cek_kategori) > 0){
 		    	$this->session->set_flashdata('style', 'danger');
 				$this->session->set_flashdata('alert', 'Gagal!');
