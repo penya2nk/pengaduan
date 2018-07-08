@@ -40,7 +40,7 @@ class Cadm_dataruangtempat extends BaseController {
 	public function tambah_tempat()
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('tempat','Tempat sudah terdaftar!','required');
+		$this->form_validation->set_rules('nama_tempat','Tempat sudah terdaftar!','required');
 
 		if($this->form_validation->run() == FALSE)
 		{

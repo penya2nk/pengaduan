@@ -361,7 +361,7 @@
 
                         <div class="form-group">
                             <label>Tambah tempat</label>
-                            <input class="form-control" type="text" name="nama_tempat" required>
+                            <input class="form-control" type="text" name="nama_tempat" autofocus required>
                         </div>
 
                     </div>
