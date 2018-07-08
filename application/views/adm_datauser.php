@@ -130,7 +130,7 @@
 						<div class="tab-content">
 							<div id="mahasiswa" class="tab-pane fade in active">
 								<!-- data mahasiswa -->
-								<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+								<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example1">
 									<thead>
 										<tr>
 											<th>No</th>
@@ -250,7 +250,7 @@
 							
 							<div id="dosen" class="tab-pane fade">
 								<!-- data dosen -->
-                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example2">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -369,7 +369,7 @@
 							
 							<div id="staf" class="tab-pane fade">
 								<!-- data staf -->
-                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example3">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -590,14 +590,19 @@
 <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 <script>
 	$(document).ready(function() {
-		$('#dataTables-example').DataTable({
+		$('#dataTables-example1').DataTable({
+			responsive: true
+		}),
+		$('#dataTables-example2').DataTable({
+			responsive: true
+		}),
+		$('#dataTables-example3').DataTable({
 			responsive: true
 		});
 	});
 
 	$("#hilang").show().delay(1500).slideUp(400);
 </script>
-
 </body>
 
 </html>
