@@ -22,13 +22,18 @@ class Cadm_datauser extends BaseController {
 
 	public function upload()
 	{
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules('import error!','required');
-
-		if($this->form_validation->run()== FALSE )
+		if(empty($_FILES['file']))
 		{
 			redirect('admin/data_user');
 		}else{
+			$config['upload_path'] = './assets/user';
+        $config['allowed_types'] = 'xls|xlsx|csv';
+        $config['max_size'] = '10000';
+        $config['file_name'] = time()."pengguna";
+		
+        $this->load->library('upload', $config);
+		
+        $this->upload->do_upload('file');
 			$media = $this->upload->data();
 			$inputFileName = './assets/user/'.$media['file_name'];
 			
