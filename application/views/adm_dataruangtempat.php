@@ -233,7 +233,7 @@
                                             <td><?php echo $data->nama_tempat ?></td>
                                             <td>
                                                 <span><i class="fa fa-edit" style="color: blue" data-toggle="modal" data-target="#editTempat<?php echo $data->id_tempat; ?>"></i></span>&nbsp;
-                                                <a href="<?php echo base_url('admin/hapus_tempat/'.$data->id_tempat) ?>"><i class="fa fa-trash-o" style="color: red"></i></a>
+                                                <a onclick="return confirm('Apakah Anda yakin ingin menghapus data tempat ini?');" href="<?php echo base_url('admin/hapus_tempat/'.$data->id_tempat) ?>"><i class="fa fa-trash-o" style="color: red"></i></a>
                                             </td>
                                         </tr>
 
@@ -361,7 +361,7 @@
 
                         <div class="form-group">
                             <label>Tambah tempat</label>
-                            <input class="form-control" type="text" name="nama_tempat" required>
+                            <input class="form-control" type="text" name="nama_tempat" autofocus required>
                         </div>
 
                     </div>
