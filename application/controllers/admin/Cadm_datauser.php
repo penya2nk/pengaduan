@@ -57,7 +57,7 @@ class Cadm_datauser extends BaseController {
 			for ($row=2; $row <= $highestRow; $row++) { 
 				$rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row, NULL, TRUE, FALSE);
 
-				if($rowData[0][1] != ''){
+				if($rowData[0][1] != '' && $rowData[0][0] != ''){
 				
 					$cek = $this->db->where('email', $rowData[0][1])->or_where('username', $rowData[0][4])->get('user')->num_rows();
 					if($cek > 0){
