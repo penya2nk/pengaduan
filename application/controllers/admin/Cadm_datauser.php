@@ -23,7 +23,7 @@ class Cadm_datauser extends BaseController {
 	public function upload()
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('file','import error!','required');
+		$this->form_validation->set_rules('import error!','required');
 
 		if($this->form_validation->run()== FALSE )
 		{
