@@ -80,7 +80,7 @@ class Cadm_datauser extends BaseController {
 					unlink($inputFileName);
 				// var_dump($arr);exit;
 				if(count($arr) > 0) {
-					$this->session->set_flashdata('style','success');
+					$this->session->set_flashdata('style','warning');
 					$this->session->set_flashdata('alert','Berhasil!');
 					$this->session->set_flashdata('message','Data sukses diimport! Namun ada data yang duplikat yaitu '. $arr);
 				}else{

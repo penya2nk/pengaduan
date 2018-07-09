@@ -26,6 +26,11 @@ class Madm_ruangtempat extends CI_Model {
 		$this->db->insert('ruang',$data);
 	}
 
+	public function cek_ruang()
+	{
+		return $this->db->where('nama_ruang', strtolower($this->input->post('nama_ruang')))->where('deleted',0)->get('ruang')->result();
+	}
+
 	public function tambah_tempat($data)
 	{
 		$this->db->insert('tempat',$data);

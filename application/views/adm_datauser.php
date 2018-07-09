@@ -130,7 +130,7 @@
 						<div class="tab-content">
 							<div id="mahasiswa" class="tab-pane fade in active">
 								<!-- data mahasiswa -->
-								<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+								<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example1">
 									<thead>
 										<tr>
 											<th>No</th>
@@ -250,7 +250,7 @@
 							
 							<div id="dosen" class="tab-pane fade">
 								<!-- data dosen -->
-                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example2">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -369,7 +369,7 @@
 							
 							<div id="staf" class="tab-pane fade">
 								<!-- data staf -->
-                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example3">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -550,9 +550,9 @@
 							<div class="col-md-12">
 								
                 <div class="alert alert-danger alert-dismissable">
-									<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-									<b>Perhatian!</b> Jika Anda ingin mengunggah data excel, pastikan data Anda sudah sesuai dengan syarat upload di bawah:
-								</div>
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<b>Perhatian!</b> Jika Anda ingin mengunggah data excel, pastikan data Anda sudah sesuai dengan syarat upload di bawah:
+				</div>
                 1. Data yang dapat diunggah dalam format <b>xls, xlsx, dan csv</b>.<br>
                 2. Pastikan <b>tidak ada</b> data yang <b>terlewat</b> atau <b>kosong!</b><br>
                 3. Ukuran file maksimum 10 mb.<br>
@@ -590,14 +590,19 @@
 <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 <script>
 	$(document).ready(function() {
-		$('#dataTables-example').DataTable({
+		$('#dataTables-example1').DataTable({
+			responsive: true
+		}),
+		$('#dataTables-example2').DataTable({
+			responsive: true
+		}),
+		$('#dataTables-example3').DataTable({
 			responsive: true
 		});
 	});
 
 	$("#hilang").show().delay(1500).slideUp(400);
 </script>
-
 </body>
 
 </html>
