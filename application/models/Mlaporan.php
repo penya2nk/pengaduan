@@ -12,6 +12,14 @@ class Mlaporan extends CI_Model {
 		return $this->db->get()->result();
 	}
 
+	// public function bulan()
+	// {
+	// 	$this->db->select('p.wkt_pengaduan AS bulan, COUNT(*) AS jumlah');
+	// 	$this->db->from('pengaduan p');
+	// 	$this->db->group_by('MONTH(wkt_pengaduan)');
+	// 	return $this->db->get()->result();
+	// }
+
 	public function masuk()
 	{
 		$this->db->select('status');

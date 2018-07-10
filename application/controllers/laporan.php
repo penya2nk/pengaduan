@@ -12,6 +12,7 @@ class Laporan extends CI_Controller {
 
 	public function index()
 	{
+		//$data['bulan']=$this->Mlaporan->bulan();
 		$data['masuk']=$this->Mlaporan->masuk();
 		$data['diproses']=$this->Mlaporan->diproses();
 		$data['selesai']=$this->Mlaporan->selesai();
