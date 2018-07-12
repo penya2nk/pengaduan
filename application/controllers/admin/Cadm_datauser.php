@@ -24,6 +24,9 @@ class Cadm_datauser extends BaseController {
 	{
 		if(empty($_FILES['file']))
 		{
+			$this->session->set_flashdata('style','danger');
+					$this->session->set_flashdata('alert','Gagal!');
+					$this->session->set_flashdata('message','Data Kosong!');
 			redirect('admin/data_user');
 		}else{
 			$config['upload_path'] = './assets/user';
