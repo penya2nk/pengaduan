@@ -118,7 +118,7 @@
                                     <thead>
                                         <tr class="text-center">
                                             <th>Kategori</th>
-                                            <th>Tempat</th>
+                                            <th>Ruang</th>
                                             <th>Jam</th>
                                             <th>Tanggal</th>
                                             <th>Detail</th>

@@ -184,13 +184,25 @@
                   <div class="form-group" style="margin-left: 15px">
                     <label>Seberapa sering terjadi</label>
                     <select class="form-control" name="kejadian" style="width: 48%;">
-                      <option>
-                        -------------------------------------- pilih frekuensi ----------------------------------------
+                      <option value="">
+                        -------------------------------------- frekuensi -------------------------------------------
                       </option>
                       <option value="pertama">Pertama kali</option>
                       <option value="beberapa kali">Beberapa kali</option>
                     </select>
                   </div>
+
+                  <!-- <div class="form-check" style="margin-left: 15px; margin-bottom: 20px">
+                    <label>Tahukah Anda seberapa sering terjadi?</label><br>
+                      <input class="form-check-input" type="checkbox" value="pertama" name="kejadian">
+                      <label class="form-check-label">
+                        Pertama kali
+                      </label><br>
+                      <input class="form-check-input" type="checkbox" value="beberapa kali" name="kejadian">
+                      <label class="form-check-label">
+                        Beberapa kali
+                      </label>
+                  </div> -->
 
                   <div class="form-group" style="margin-left: 15px; margin-right:15px">
                     <label>Penyebab</label>
@@ -317,7 +329,7 @@
                       var html = '';
                       var i;
 
-                      html += '<option>----------------------------------------- pilih ruang ------------------------------------------</option>';
+                      html += '<option value="">----------------------------------------- pilih ruang ------------------------------------------</option>';
 
                       if(data.length == 0)
                       {

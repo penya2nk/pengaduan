@@ -601,7 +601,7 @@
 		});
 	});
 
-	$("#hilang").show().delay(1500).slideUp(400);
+	$("#hilang").show().delay(3000).slideUp(400);
 </script>
 </body>
 

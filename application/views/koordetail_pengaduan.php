@@ -128,11 +128,6 @@
                                         <td><?php echo $data->id_user ?></td>
                                     </tr>
                                     <tr>
-                                        <td><b>Tempat</b></td>
-                                        <td>:</td>
-                                        <td><?php echo $data->nama_tempat ?></td>
-                                    </tr>
-                                    <tr>
                                         <td><b>Ruang</b></td>
                                         <td>:</td>
                                         <td><?php echo $data->nama_ruang ?></td>

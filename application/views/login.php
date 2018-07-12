@@ -55,7 +55,7 @@
                         <div class="input-group-addon">
                           <i class="fa fa-user"></i>
                         </div>
-                        <input type="text" name="username" class="form-control"  placeholder="NIP/NIM">
+                        <input type="text" name="username" class="form-control"  placeholder="NIP/NIM" required>
                       </div>
                     </div>
 
@@ -64,7 +64,7 @@
                         <div class="input-group-addon">
                           <i class="fa fa-key"></i>
                         </div>
-                        <input class="form-control" placeholder="Password" name="password" type="password" required="required">
+                        <input class="form-control" placeholder="Password" name="password" type="password" required>
                       </div>
                     </div>
                     <div class="checkbox">

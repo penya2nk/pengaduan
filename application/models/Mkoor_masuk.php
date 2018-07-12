@@ -21,21 +21,14 @@ class Mkoor_masuk extends CI_Model
 		return $this->db->get()->result();
 	}
 
-	// public function pengaduan_selesai($id_pengaduan)
-	// {
-	// 	$this->db->where('l.id_pengaduan', $id_pengaduan);
-	// 	$this->db->where('l.status',"selesai");
-	// 	return $this->db->get('log l')->num_rows();	//hasil
-	// }
-
 	public function detail_koor($id)
 	{
-		$this->db->select('p.id_pengaduan, p.id_user, p.deskripsi, p.kejadian, p.penyebab, p.tindaklanjut, p.tgl_kejadian, p.efek,  r.nama_ruang, p.gambar, k.kategori, u.nama_pengguna, t.nama_tempat');	
+		$this->db->select('p.id_pengaduan, p.id_user, p.deskripsi, p.kejadian, p.penyebab, p.tindaklanjut, p.tgl_kejadian, p.efek,  r.nama_ruang, p.gambar, k.kategori, u.nama_pengguna');	
 		$this->db->from('pengaduan p','ruang r'); 
 		$this->db->join('ruang r','r.id_ruang = p.id_ruang');
 		$this->db->join('kategori k','k.id_kategori = p.id_kategori');
 		$this->db->join('user u','u.id_user = p.id_user');
-		$this->db->join('tempat t','t.id_tempat = r.id_tempat');
+		//$this->db->join('tempat t','t.id_tempat = r.id_tempat');
 		$this->db->where('p.id_pengaduan',$id);
 		return $this->db->get()->result();	
 	}
