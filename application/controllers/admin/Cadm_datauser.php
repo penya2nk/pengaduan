@@ -195,7 +195,7 @@ class Cadm_datauser extends BaseController {
 				$data = array(
 					'nama_pengguna' => strtolower($nama),
 					'email' => $email,
-					'password' => password_hash($nama, PASSWORD_BCRYPT),
+					'password' => password_hash($password, PASSWORD_BCRYPT),
 					'id_role' => $role,
 					'id_level' => $level
 				);
