@@ -75,6 +75,7 @@ $route['admin/download'] = 'admin/Cadm_datauser/download';
 $route['admin/edit_user'] = 'admin/Cadm_datauser/edit_user';
 $route['admin/hapus_user/(:num)'] = 'admin/Cadm_datauser/hapus_user/$1';
 $route['admin/ubah_password'] = 'admin/Cadm_datauser/save_password';
+$route['admin/tambah_user'] = 'admin/Cadm_datauser/tambah_user';
 
 //user
 $route['user'] = 'user/Cform';

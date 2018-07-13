@@ -588,41 +588,41 @@
 						</center>
 					</div>
 					
-					<form method="POST" action="<?php //echo base_url('admin/ubah_password') ?>">
+					<form method="POST" action="<?php echo base_url('admin/tambah_user') ?>">
 						<div class="modal-body">
 							<div class="row">
                 				<div class="col-md-12">
 
 									<div class="form-group row">
-									    <label for="inputEmail3" class="col-sm-2 col-form-label">Nama</label>
+									    <label class="col-sm-2 col-form-label">Nama</label>
 									    <div class="col-sm-10">
 									      <input type="text" class="form-control" name="name" placeholder="Silahkan isi nama lengkap" required>
 									    </div>
 									</div>
 
 									<div class="form-group row">
-									    <label for="inputEmail3" class="col-sm-2 col-form-label">NIP/NIM</label>
+									    <label class="col-sm-2 col-form-label">NIP/NIM</label>
 									    <div class="col-sm-10">
 									      <input type="text" class="form-control" name="username" placeholder="Silahkan isi nim atau nip" required>
 									    </div>
 									</div>
 
 									<div class="form-group row">
-									    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+									    <label class="col-sm-2 col-form-label">Email</label>
 									    <div class="col-sm-10">
 									      <input type="email" class="form-control" name="email" placeholder="Silahkan isi email" required>
 									    </div>
 									</div>
 
 									<div class="form-group row">
-									    <label for="inputEmail3" class="col-sm-2 col-form-label">Password</label>
+									    <label class="col-sm-2 col-form-label">Password</label>
 									    <div class="col-sm-10">
 									      <input type="password" class="form-control" name="email" required>
 									    </div>
 									</div>
 
 									<div class="form-group row">
-									    <label for="inputEmail3" class="col-sm-2 col-form-label">Role</label>
+									    <label class="col-sm-2 col-form-label">Role</label>
 									    <div class="col-sm-10">
 									    	<select class="form-control" style="width: 50%" required>
 									    		<option value="">Pilih Role</option>
@@ -640,7 +640,7 @@
 									</div>
 
 									<div class="form-group row">
-									    <label for="inputEmail3" class="col-sm-2 col-form-label">Level</label>
+									    <label class="col-sm-2 col-form-label">Level</label>
 									    <div class="col-sm-10">
 									    	<select class="form-control" style="width: 50%" required>
 									    		<option value="">Pilih Level</option>
@@ -661,7 +661,7 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Batal</button>
-							<input type="submit" class="btn btn-primary" value="Simpan">
+							<input type="submit" class="btn btn-success" value="Tambah">
 						</div>
 					</form>
 				</div>

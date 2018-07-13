@@ -57,5 +57,10 @@ class Madmin_datauser extends CI_Model {
 		$this->db->where('id_user',$id_user);
 		return $this->db->update('user',$data);
 	}
+
+	// public function cek_user()
+	// {	//strtolower = biar hurufnya kecil semua
+	// 	return $this->db->where('nama_pengguna')->or_where('email', $this->input->post('nama_pengguna').$this->input->post('email')))->where('deleted', 0)->get('user')->result();
+	// }
 }
 ?>
