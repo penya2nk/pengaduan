@@ -116,6 +116,8 @@
 					<div class="panel-heading">
 						
 						<a href="#" class="btn btn-success btn-md" data-toggle="modal" data-target="#modalUpload"><span class="fa fa-upload"></span> Unggah </a>
+
+						<a href="#" class="btn btn-primary btn-md" style="margin-left: 74%" data-toggle="modal" data-target="#tambahPengguna"><span class="fa fa-user-plus"></span> Tambah Pengguna </a>
 						
 					</div>
 					<div class="panel-body">
@@ -569,6 +571,99 @@
 						</form>
 					</div>
 					
+				</div>
+			</div>
+		</div>
+		<!-- modal setting -->
+
+		<!-- modal setting -->
+		<div class="modal modal-primary fade" id="tambahPengguna" style="margin-top: 5%">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width: 80%; margin-left: 10%">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span></button>
+						<center>
+						<h4 class="modal-title">TAMBAH PENGGUNA BARU</h4>
+						</center>
+					</div>
+					
+					<form method="POST" action="<?php //echo base_url('admin/ubah_password') ?>">
+						<div class="modal-body">
+							<div class="row">
+                				<div class="col-md-12">
+
+									<div class="form-group row">
+									    <label for="inputEmail3" class="col-sm-2 col-form-label">Nama</label>
+									    <div class="col-sm-10">
+									      <input type="text" class="form-control" name="name" placeholder="Silahkan isi nama lengkap" required>
+									    </div>
+									</div>
+
+									<div class="form-group row">
+									    <label for="inputEmail3" class="col-sm-2 col-form-label">NIP/NIM</label>
+									    <div class="col-sm-10">
+									      <input type="text" class="form-control" name="username" placeholder="Silahkan isi nim atau nip" required>
+									    </div>
+									</div>
+
+									<div class="form-group row">
+									    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+									    <div class="col-sm-10">
+									      <input type="email" class="form-control" name="email" placeholder="Silahkan isi email" required>
+									    </div>
+									</div>
+
+									<div class="form-group row">
+									    <label for="inputEmail3" class="col-sm-2 col-form-label">Password</label>
+									    <div class="col-sm-10">
+									      <input type="password" class="form-control" name="email" required>
+									    </div>
+									</div>
+
+									<div class="form-group row">
+									    <label for="inputEmail3" class="col-sm-2 col-form-label">Role</label>
+									    <div class="col-sm-10">
+									    	<select class="form-control" style="width: 50%" required>
+									    		<option value="">Pilih Role</option>
+									    		<?php
+									    			foreach ($role as $data)
+									    			{
+									    				if($data->role != 'mahasiswa'){
+									      		?>
+									      		<option value="<?php $data->id_role ?>"><?php echo $data->role ?></option>
+									      		<?php
+										      	}}
+										      	?>
+									    	</select>
+									    </div>
+									</div>
+
+									<div class="form-group row">
+									    <label for="inputEmail3" class="col-sm-2 col-form-label">Level</label>
+									    <div class="col-sm-10">
+									    	<select class="form-control" style="width: 50%" required>
+									    		<option value="">Pilih Level</option>
+									    		<?php
+									    			foreach ($level as $data)
+									    			{
+									      		?>
+									      		<option value="<?php $data->id_level ?>"><?php echo $data->nama_level." ".$data->posisi ?></option>
+									      		<?php
+										      	}
+										      	?>
+									    	</select>
+									    </div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Batal</button>
+							<input type="submit" class="btn btn-primary" value="Simpan">
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>

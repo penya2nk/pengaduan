@@ -17,6 +17,7 @@ class Cadm_datauser extends BaseController {
 	{
 		$data['user']=$this->Madmin_datauser->user();
 		$data['level']=$this->Madmin_datauser->level();
+		$data['role']=$this->Madmin_datauser->role();
 		$this->load->view('adm_datauser',$data);
 	}
 
@@ -166,4 +167,12 @@ class Cadm_datauser extends BaseController {
 
 		redirect('admin/data_user');
 	}
+
+	// public function tambah_user()
+	// {
+	// 	$this->load->library('form_validation');
+	// 	$this->form_validation->set_rules('nama','Email dan username tidak boleh sama!','required');
+
+	// 	if($this->form_validation->)
+	// }
 }

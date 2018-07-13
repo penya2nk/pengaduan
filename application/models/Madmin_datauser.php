@@ -19,6 +19,11 @@ class Madmin_datauser extends CI_Model {
 		return $this->db->get('level')->result();
 	}
 
+	public function role()
+	{
+		return $this->db->get('roles')->result();
+	}
+
 	//bikin update password di admin dulu
 	public function save()
 	{
