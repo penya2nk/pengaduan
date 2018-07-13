@@ -188,12 +188,14 @@ class Cadm_datauser extends BaseController {
 			else
 			{
 				$nama = $this->input->post('nama_pengguna');
+				$username = $this->input->post('username');
 				$email = $this->input->post('email');
 				$password = $this->input->post('password');
 				$role = $this->input->post('id_role');
 				$level = $this->input->post('id_level');
 				$data = array(
 					'nama_pengguna' => strtolower($nama),
+					'username' => $username,
 					'email' => $email,
 					'password' => password_hash($password, PASSWORD_BCRYPT),
 					'id_role' => $role,
