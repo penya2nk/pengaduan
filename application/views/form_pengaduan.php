@@ -119,9 +119,9 @@
                     <!-- ruang dan tempat -->
                     <div class="form-group" style="width: 100%; margin-bottom: 10px">
                       <div class="col-md-6">
-                        <label><b>Pilih tempat kejadian <b style="color: red">*</b></b></label>
+                        <label><b>Tempat <b style="color: red">*</b></b></label>
                         <select  class="form-control" name="tempat"  id="tempat" required>
-                          <option value="">----------------------------------------- pilih tempat ------------------------------------------</option>
+                          <option value="">pilih tempat kejadian</option>
                           <?php
                           foreach ($tempat as $data){
                             ?>
@@ -137,18 +137,18 @@
 
                     <div class="form-group">
                       <div class="col-md-6">
-                        <label><b>Pilih ruang kejadian <b style="color: red">*</b></b></label>
+                        <label><b>Ruang <b style="color: red">*</b></b></label>
                         <select class="form-control ruang" name="ruang" id="ruang" required>
-                          <option value="">----------------------------------------- pilih ruang ------------------------------------------</option>
+                          <option value="">pilih ruang kejadian</option>
                         </select>
                       </div>
                     </div>
 
                     <div class="form-group" style="width: 100%">
                       <div class="col-md-6" style="margin-bottom: 20px; margin-top: 10px">
-                        <label><b>Pilih kategori kejadian <b style="color: red">*</b></b></label>
+                        <label><b>Kategori <b style="color: red">*</b></b></label>
                         <select class="form-control" name="kategori"  id="kategori" required>
-                          <option value="">----------------------------------------- pilih kategori ------------------------------------------</option>
+                          <option value="">pilih kategori pengaduan</option>
                           <?php
                           foreach ($kategori as $data)
                           {
@@ -163,9 +163,9 @@
 
                     <div class="form-group">
                       <div class="col-md-6" style="margin-bottom: 20px; margin-top: 10px">
-                        <label><b>Pilih jenis kejadian <b style="color: red">*</b></b></label>
+                        <label><b>Jenis <b style="color: red">*</b></b></label>
                         <select class="form-control jenis" name="jenis" id="jenis" required>
-                          <option value="">----------------------------------------- pilih jenis ------------------------------------------</option>
+                          <option value="">pilih jenis pengaduan</option>
                           <?php
                           foreach ($jenis as $data)
                           {
@@ -258,29 +258,39 @@
 <!-- modal setting -->
 <div class="modal modal-primary fade" id="settingModal" style="margin-top: 5%">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content" style="width: 75%; margin-left: 15%">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">RESET PASSWORD</h4>
+          <center>
+          <h4 class="modal-title">GANTI PASSWORD</h4>
+        </center>
         </div>
         
         <form method="POST" action="<?php echo base_url('user/ubah_password') ?>">
           <div class="modal-body">
             <div class="row">
               <div class="col-md-12">
-                <div class="form-group">
-                  <label>Password lama :</label>
-                  <input type="password" name="old" class="form-control" placeholder="Password Lama" required>
+
+                <div class="form-group row">
+                  <label class="col-sm-4 col-form-label">Password lama :</label>
+                  <div class="col-sm-8">
+                    <input type="password" class="form-control" name="old" required>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label>Password baru :</label>
-                  <input type="password" name="new" class="form-control" placeholder="Password Baru" required>
+                <div class="form-group row">
+                  <label class="col-sm-4 col-form-label">Password baru :</label>
+                  <div class="col-sm-8">
+                    <input type="password" class="form-control" name="new" required>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label>Ulangi password baru :</label>
-                  <input type="password" name="re_new" class="form-control" placeholder="Ulangi Password Baru" required>
+                <div class="form-group row">
+                  <label class="col-sm-4 col-form-label">Konfirmasi :</label>
+                  <div class="col-sm-8">
+                    <input type="password" class="form-control" name="re_new" required>
+                  </div>
                 </div>
+                
               </div>
             </div>
           </div>
@@ -329,7 +339,7 @@
                       var html = '';
                       var i;
 
-                      html += '<option value="">----------------------------------------- pilih ruang ------------------------------------------</option>';
+                      html += '<option value="">pilih ruang kejadian</option>';
 
                       if(data.length == 0)
                       {

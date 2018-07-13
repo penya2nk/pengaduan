@@ -48,7 +48,7 @@
 
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #ffffff">
-                        <i class="fa fa-user fa-fw"></i> Isnaini barochatun</i>
+                        <i class="fa fa-user fa-fw"></i> <?php echo $this->session->userdata('nama_pengguna'); ?></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a data-toggle="modal" data-target="#settingModal"><i class="fa fa-gear fa-fw"></i> Settings</a>
@@ -108,6 +108,17 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
+
+                <center>
+                      <?php if($this->session->flashdata('message')): ?>
+                          <div style="margin-top: 10px; width: 50%" id="hilang" class="alert alert-<?php echo $this->session->flashdata('style') ?> alert-dismissable fade-in">
+                              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                              <strong><?php echo $this->session->flashdata('alert') ?></strong>&nbsp;<br>
+                              <?php echo $this->session->flashdata('message') ?>
+                        </div>
+                    <?php endif; ?>
+                    </center>
+
                 <h1 class="page-header" style="margin-bottom:">Laporan Pengaduan</h1>
             </div>
             <!-- /.col-lg-12 -->
@@ -239,13 +250,60 @@
                     </div>
                 </div>
 
-                
+                <!-- modal setting -->
+        <div class="modal modal-primary fade" id="settingModal" style="margin-top: 5%">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 75%; margin-left: 15%">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                        <center>
+                        <h4 class="modal-title">GANTI PASSWORD</h4>
+                        </center>
+                    </div>
+                    
+                    <form method="POST" action="<?php echo base_url('analis/ubah_password_l') ?>">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <div class="form-group row">
+                                      <label class="col-sm-4 col-form-label">Password lama :</label>
+                                      <div class="col-sm-8">
+                                        <input type="password" class="form-control" name="old" required>
+                                      </div>
+                                    </div>
+                                    <div class="form-group row">
+                                      <label class="col-sm-4 col-form-label">Password baru :</label>
+                                      <div class="col-sm-8">
+                                        <input type="password" class="form-control" name="new" required>
+                                      </div>
+                                    </div>
+                                    <div class="form-group row">
+                                      <label class="col-sm-4 col-form-label">Konfirmasi :</label>
+                                      <div class="col-sm-8">
+                                        <input type="password" class="form-control" name="re_new" required>
+                                      </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Batal</button>
+                            <input type="submit" class="btn btn-primary" value="Simpan">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+<!-- modal setting -->
+
+
             </div>
             <!-- /#page-wrapper -->
-
         </div>
         <!-- /#wrapper -->
-
 
         <script src=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.js")?> ></script>
         <script src=<?php echo base_url("assets/vendor/datatables/js/jquery.dataTables.min.js")?> ></script>
@@ -263,6 +321,10 @@
                     responsive: true
                 });
             });
+        </script>
+
+        <script type="text/javascript">
+            $("#hilang").show().delay(2000).slideUp(400);
         </script>
 
         <script>
