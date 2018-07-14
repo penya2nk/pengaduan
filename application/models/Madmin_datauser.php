@@ -57,6 +57,11 @@ class Madmin_datauser extends CI_Model {
 		$this->db->where('id_user',$id_user);
 		return $this->db->update('user',$data);
 	}
+	
+	public function tambah_user($data)
+	{
+		return $this->db->insert('user',$data);
+	}
 
 	// public function cek_user()
 	// {	//strtolower = biar hurufnya kecil semua

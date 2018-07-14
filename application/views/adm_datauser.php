@@ -52,13 +52,6 @@
 		</ul>
 		<!-- /.navbar-top-links -->
 		
-		<!--- user panel -->
-		<section class="sidebar">
-			<!-- <div class="pull-center image">
-				<img src='<?php //echo base_url("img/user2.png")?>' class="img-circle" alt="User Image"  style="margin-left: 24%; margin-right: 24%; margin-top: 10%; width: 50%">
-			</div> -->
-		</section>
-		
 		<!-- MENU -->
 		<div class="navbar-default sidebar" role="navigation">
 			<div class="sidebar-nav navbar-collapse">
@@ -606,7 +599,7 @@
 									<div class="form-group row">
 									    <label class="col-sm-2 col-form-label">Nama</label>
 									    <div class="col-sm-10">
-									      <input type="text" class="form-control" name="name" placeholder="Silahkan isi nama lengkap" required>
+									      <input type="text" class="form-control" name="nama_pengguna" placeholder="Silahkan isi nama lengkap" required>
 									    </div>
 									</div>
 
@@ -627,21 +620,21 @@
 									<div class="form-group row">
 									    <label class="col-sm-2 col-form-label">Password</label>
 									    <div class="col-sm-10">
-									      <input type="password" class="form-control" name="email" required>
+									      <input type="password" class="form-control" name="password" required>
 									    </div>
 									</div>
 
 									<div class="form-group row">
 									    <label class="col-sm-2 col-form-label">Role</label>
 									    <div class="col-sm-10">
-									    	<select class="form-control" style="width: 50%" required>
+									    	<select class="form-control" name="id_role" style="width: 50%" required>
 									    		<option value="">Pilih Role</option>
 									    		<?php
 									    			foreach ($role as $data)
 									    			{
 									    				if($data->role != 'mahasiswa'){
 									      		?>
-									      		<option value="<?php $data->id_role ?>"><?php echo $data->role ?></option>
+									      		<option value="<?php echo $data->id_role ?>"><?php echo $data->role ?></option>
 									      		<?php
 										      	}}
 										      	?>
@@ -652,13 +645,13 @@
 									<div class="form-group row">
 									    <label class="col-sm-2 col-form-label">Level</label>
 									    <div class="col-sm-10">
-									    	<select class="form-control" style="width: 50%" required>
+									    	<select class="form-control" name="id_level" style="width: 50%" required>
 									    		<option value="">Pilih Level</option>
 									    		<?php
 									    			foreach ($level as $data)
 									    			{
 									      		?>
-									      		<option value="<?php $data->id_level ?>"><?php echo $data->nama_level." ".$data->posisi ?></option>
+									      		<option value="<?php echo $data->id_level ?>"><?php echo $data->nama_level." ".$data->posisi ?></option>
 									      		<?php
 										      	}
 										      	?>
