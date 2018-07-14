@@ -611,9 +611,9 @@
 									</div>
 
 									<div class="form-group row">
-									    <label class="col-sm-2 col-form-label">NIP/NIM</label>
+									    <label class="col-sm-2 col-form-label">NIP</label>
 									    <div class="col-sm-10">
-									      <input type="text" class="form-control" name="username" placeholder="Silahkan isi nim atau nip" required>
+									      <input type="text" class="form-control" name="username" placeholder="Silahkan isi nip" required>
 									    </div>
 									</div>
 
