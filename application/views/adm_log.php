@@ -248,28 +248,37 @@
                         <!-- modal setting -->
                         <div class="modal modal-primary fade" id="settingModal" style="margin-top: 5%">
                           <div class="modal-dialog">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <div class="modal-content" style="width: 75%; margin-left: 15%">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title">RESET PASSWORD</h4>
+                                    <center>
+                                    <h4 class="modal-title">GANTI PASSWORD</h4>
+                                    </center>
                                 </div>
-
+                    
                                 <form method="POST" action="<?php echo base_url('admin/ubah_password') ?>">
                                     <div class="modal-body">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Password lama :</label>
-                                                    <input type="password" name="old" class="form-control" placeholder="Password Lama" required>
+                                                
+                                                <div class="form-group row">
+                                                  <label class="col-sm-4 col-form-label">Password lama :</label>
+                                                  <div class="col-sm-8">
+                                                    <input type="password" class="form-control" name="old" required>
+                                                  </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label>Password baru :</label>
-                                                    <input type="password" name="new" class="form-control" placeholder="Password Baru" required>
+                                                <div class="form-group row">
+                                                  <label class="col-sm-4 col-form-label">Password baru :</label>
+                                                  <div class="col-sm-8">
+                                                    <input type="password" class="form-control" name="new" required>
+                                                  </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label>Ulangi password baru :</label>
-                                                    <input type="password" name="re_new" class="form-control" placeholder="Ulangi Password Baru" required>
+                                                <div class="form-group row">
+                                                  <label class="col-sm-4 col-form-label">Konfirmasi :</label>
+                                                  <div class="col-sm-8">
+                                                    <input type="password" class="form-control" name="re_new" required>
+                                                  </div>
                                                 </div>
                                             </div>
                                         </div>

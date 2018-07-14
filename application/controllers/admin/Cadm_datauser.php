@@ -17,6 +17,7 @@ class Cadm_datauser extends BaseController {
 	{
 		$data['user']=$this->Madmin_datauser->user();
 		$data['level']=$this->Madmin_datauser->level();
+		$data['role']=$this->Madmin_datauser->role();
 		$this->load->view('adm_datauser',$data);
 	}
 
@@ -169,4 +170,49 @@ class Cadm_datauser extends BaseController {
 
 		redirect('admin/data_user');
 	}
+
+	public function tambah_user()
+	{
+		$this->load->library('form_validation');
+		// $this->form_validation->set_rules('nama','Email dan username tidak boleh sama!','required');
+
+		if($this->form_validation->run() == FALSE)
+		{
+			redirect('admin/data_user');
+		}else{
+			$cek_user = $this->db->where('email')->or_where('username')->get('user')->num_rows();
+
+			if(count($cek_user) > 0){
+				$this->session->set_flashdata('style','danger');
+				$this->session->set_flashdata('alert','Peringatan!');
+				$this->session->set_flashdata('message','Data yang Anda tambahkan sudah terdaftar pada sistem.');
+				redirect('admin/data_user');
+			}
+			else
+			{
+				$nama = $this->input->post('nama_pengguna');
+				$username = $this->input->post('username');
+				$email = $this->input->post('email');
+				$password = $this->input->post('password');
+				$role = $this->input->post('id_role');
+				$level = $this->input->post('id_level');
+				$data = array(
+					'nama_pengguna' => strtolower($nama),
+					'username' => $username,
+					'email' => $email,
+					'password' => password_hash($password, PASSWORD_BCRYPT),
+					'id_role' => $role,
+					'id_level' => $level
+				);
+				$this->Madmin_datauser->tambah_user($data);
+
+				$this->session->set_flashdata('style','success');
+				$this->session->set_flashdata('alert','Berhasil!');
+				$this->session->set_flashdata('message','Data pengguna baru telah tersimpan.');
+
+				redirect('admin/data_user');
+			}
+		}
+	}
+
 }

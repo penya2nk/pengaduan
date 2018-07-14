@@ -75,6 +75,7 @@ $route['admin/download'] = 'admin/Cadm_datauser/download';
 $route['admin/edit_user'] = 'admin/Cadm_datauser/edit_user';
 $route['admin/hapus_user/(:num)'] = 'admin/Cadm_datauser/hapus_user/$1';
 $route['admin/ubah_password'] = 'admin/Cadm_datauser/save_password';
+$route['admin/tambah_user'] = 'admin/Cadm_datauser/tambah_user';
 
 //user
 $route['user'] = 'user/Cform';
@@ -95,6 +96,7 @@ $route['analis/riwayat_deleted/(:num)'] = 'analis/Canalis_riwayatpeng/deleted/$1
 $route['analis/ubah_password_r'] = 'analis/Canalis_riwayatpeng/save_password';
 $route['analis/ubah_password_m'] = 'analis/Cpengaduan_masuk/save_password';
 $route['analis/ubah_password_k'] = 'analis/Ckategori_jenis/save_password';
+$route['analis/ubah_password_l'] = 'analis/Claporan_analis/save_password';
 $route['analis/laporan'] = 'analis/Claporan_analis';
 $route['analis/cetak'] = 'analis/Claporan_analis/print_laporan';
 $route['analis/kelola'] = 'analis/Ckategori_jenis';
