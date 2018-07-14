@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Analis</title>
+    <title>Laporan</title>
 
     <link href=<?php echo base_url("assets/vendor/bootstrap/css/bootstrap.min.css")?> rel="stylesheet">
     <link href=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.css")?>  rel="stylesheet">
@@ -21,7 +21,6 @@
     <link rel="stylesheet" type="text/css" href=<?php echo base_url("assets/badge.css")?> >
     <script src=<?php echo base_url("assets/vendor/jquery/jquery.min.js")?> ></script>
     <script src=<?php echo base_url("assets/vendor/bootstrap/js/bootstrap.min.js")?> ></script>
-    <script src=<?php echo base_url("assets/chartjs/Chart.bundle.min.js")?> ></script>
 </head>
 
 <style type="text/css">
@@ -83,17 +82,11 @@
 
                     <!-- menu -->
 
-                    <li class="active">
-                        <a href=<?php echo base_url('analis')?>><i class="fa fa-envelope"></i>&nbsp; Pengaduan Masuk</a>
+                    <li>
+                        <a href=<?php echo base_url('manajemen/laporan')?> ><i class="fa fa-dashboard"></i>&nbsp; Dashboard</a>
                     </li>
                     <li>
-                        <a href=<?php echo base_url('analis/riwayat_pengaduan')?> ><i class="fa fa-table"></i>&nbsp; Riwayat Pengaduan</a>
-                    </li>
-                    <li>
-                        <a href=<?php echo base_url('analis/kelola')?>><i class="fa fa-gears"></i>&nbsp; Kategori dan Jenis</a>
-                    </li>
-                    <li>
-                        <a href=<?php echo base_url('analis/laporan')?> style="color: #000000"><i class="fa fa-dashboard"></i><b>&nbsp; Laporan Pengaduan</b></a>
+                        <a href=<?php echo base_url('manajemen/rekap')?> ><i class="fa fa-table"></i>&nbsp; Rekap Data</a>
                     </li>
                     <!-- menu -->
 
@@ -125,47 +118,6 @@
         </div>
 
         <!-- /.row -->
-
-        <!-- /.row -->
-
-        <div class="row">
-            <div class="col-lg-12" style="margin-bottom: 10px; margin-left: 90%">
-                <!-- <a href="<?php //echo base_url('analis/cetak')?>" class="btn btn-success"><i class="fa fa-print"></i> cetak</a> -->
-                 <a class="btn btn-success btn-print" onclick="window.print()"><i class="fa fa-print"></i> cetak</a>
-            </div>
-
-            <div class="col-lg-12" style="width: 100%">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
-                        <div class="pull-right">
-                            <div class="btn-group">
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- /.panel-heading -->
-                    <div class="panel-body">
-
-                        <div class="box box-info">
-                            <div class="box-body chart-responsive">
-                              <canvas id="myChart" width="300" height="100"></canvas>
-                          </div>
-                          <!-- /.box-body -->
-                      </div>
-
-                  </div>
-                  <!-- /.panel-body -->
-              </div>
-              <!-- /.panel -->
-
-              <!-- /.panel -->
-          </div>
-
-      </div>
-      <!-- /.row -->
 
       <div class="row">
 
@@ -212,7 +164,7 @@
         <div class="col-lg-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Rekap Pengaduan Berdasarkan Ruang
+                    Rekap Pengaduan Berdasarkan Kategori
                     <div class="pull-right">
                     </div>
                 </div>

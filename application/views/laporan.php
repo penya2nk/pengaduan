@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin</title>
+    <title>Laporan</title>
 
     <link href=<?php echo base_url("assets/vendor/bootstrap/css/bootstrap.min.css")?> rel="stylesheet">
     <link href=<?php echo base_url("assets/vendor/metisMenu/metisMenu.min.css")?>  rel="stylesheet">
@@ -19,6 +19,7 @@
     <link href=<?php echo base_url("assets/vendor/morrisjs/morris.css")?> rel="stylesheet">
     <link href=<?php echo base_url("assets/vendor/font-awesome/css/font-awesome.min.css")?>  rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href=<?php echo base_url("assets/badge.css")?> >
+    <script src=<?php echo base_url("assets/chartjs/Chart.bundle.min.js")?> ></script>
 
 </head>
 
@@ -39,7 +40,7 @@
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #ffffff">
-                        <i class="fa fa-user fa-fw"></i> Isnaini barochatun</i>
+                        <i class="fa fa-user fa-fw"></i> <?php echo $this->session->userdata('nama_pengguna') ?></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a data-toggle="modal" data-target="#settingModal"><i class="fa fa-gear fa-fw"></i> Settings</a>
@@ -74,9 +75,11 @@
                         </li>
 
                     <!-- menu -->
-
                     <li>
-                        <a href=<?php echo base_url('laporan')?> ><i class="fa fa-dashboard"></i>&nbsp; Laporan</a>
+                        <a href=<?php echo base_url('manajemen/laporan')?> ><i class="fa fa-dashboard"></i>&nbsp; Dashboard</a>
+                    </li>
+                    <li>
+                        <a href=<?php echo base_url('manajemen/rekap')?> ><i class="fa fa-table"></i>&nbsp; Rekap Data</a>
                     </li>
                     <!-- menu -->
 
@@ -193,7 +196,7 @@
                         <i class="fa fa-bar-chart-o fa-fw"></i> Grafik Pengaduan Berdasarkan Kategori
                         <div class="pull-right">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                <!-- <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                                     Actions
                                     <span class="caret"></span>
                                 </button>
@@ -207,7 +210,7 @@
                                     <li class="divider"></li>
                                     <li><a href="#">Separated link</a>
                                     </li>
-                                </ul>
+                                </ul> -->
                             </div>
                         </div>
                     </div>
@@ -227,38 +230,43 @@
                 </div>
                 <!-- /.panel -->
 
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
-                        <div class="pull-right">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    Actions
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu pull-right" role="menu">
-                                    <li><a href="#">Action</a>
-                                    </li>
-                                    <li><a href="#">Another action</a>
-                                    </li>
-                                    <li><a href="#">Something else here</a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Separated link</a>
-                                    </li>
-                                </ul>
+                <!-- punyanya bulan -->
+                <div class="col-lg-12" style="width: 100%">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Grafik jumlah pengaduan berdasarkan ruang
+                            <div class="pull-right">
+                                <div class="btn-group">
+
+                                </div>
                             </div>
                         </div>
-                    </div>
+
+
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+
+                            <div class="box box-info">
+                                <div class="box-body chart-responsive">
+                                  <canvas id="myChart" width="300" height="100"></canvas>
+                              </div>
+                              <!-- /.box-body -->
+                          </div>
+
+                      </div>
+                      <!-- /.panel-body -->
+                  <!-- </div>
+                </div> -->
+
 
 
                     <!-- /.panel-heading -->
-                    <div class="panel-body">
+                    <!-- <div class="panel-body">
 
                         <div id="morris-area-chart2">
 
                         </div>
-                    </div>
+                    </div> -->
                     <!-- /.panel-body -->
                 </div>
                 
@@ -295,28 +303,28 @@
 <script type="text/javascript">
     $(function() {
 
-    Morris.Area({
-        element: 'morris-area-chart2',
+    // Morris.Area({
+    //     element: 'morris-area-chart2',
 
-        data: [
-        <?php foreach ($pengaduan as $data) 
-        {
-        ?>
-        {
-            bulan: '<?php echo $data->tahun ?> <?php echo $data->kategori ?>',
-            jumlah: <?php echo $data->jumlah ?>
-        },
-        <?php
-        }
-        ?> 
-        ],
-        xkey: 'bulan',
-        ykeys: ['jumlah'],
-        labels: ['Jumlah'],
-        pointSize: 1,
-        hideHover: 'auto',
-        resize: true
-    });
+    //     data: [
+    //     <?php //foreach ($pengaduan as $data) 
+    //     {
+    //     ?>
+    //     {
+    //         bulan: '<?php// echo $data->tahun ?> <?php// echo $data->kategori ?>',
+    //         jumlah: <?php// echo $data->jumlah ?>
+    //     },
+    //     <?php
+    //     }
+    //     ?> 
+    //     ],
+    //     xkey: 'bulan',
+    //     ykeys: ['jumlah'],
+    //     labels: ['Jumlah'],
+    //     pointSize: 1,
+    //     hideHover: 'auto',
+    //     resize: true
+    // });
 
     Morris.Bar({
         element: 'morris-bar-chart',
@@ -344,6 +352,55 @@
     });
     
 });
+</script>
+
+<script type="text/javascript">
+    var ctx = document.getElementById("myChart");
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+
+            labels: [
+            <?php for ($i=0; $i < count($ruang) ; $i++) 
+            { 
+                if (!empty($ruang[$i]->nama_ruang)) 
+                {
+                    echo '"'.$ruang[$i]->nama_ruang.'",';
+                } 
+            } 
+            ?>
+            ],
+            datasets: [{
+                label: '# nama ruang',
+                data: [
+                <?php for ($i=0; $i < count($ruang) ; $i++) 
+                { 
+                    if (!empty($ruang[$i]->jumlah)) 
+                    { 
+                        echo ''.$ruang[$i]->jumlah.',';
+                    }
+                } 
+                ?>
+                ],
+                backgroundColor: [
+                'rgba(54, 162, 235, 0)',
+                ],
+                borderColor: [
+                'rgba(54, 162, 235, 2)',
+                ],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });   
 
 </script>
 

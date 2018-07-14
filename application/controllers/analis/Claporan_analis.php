@@ -16,6 +16,7 @@ class Claporan_analis extends BaseController {
 	{
 		$data['bulan']=$this->Mlaporan_analis->bulan();
 		$data['ruang']=$this->Mlaporan_analis->ruang();
+		$data['kategori']=$this->Mlaporan_analis->kategori();
 		$this->load->view('laporan_analis',$data);
 	}
 
@@ -23,6 +24,7 @@ class Claporan_analis extends BaseController {
 	{
 		$data['bulan']=$this->Mlaporan_analis->bulan();
 		$data['ruang']=$this->Mlaporan_analis->ruang();
+		$data['kategori']=$this->Mlaporan_analis->kategori();
 		$this->load->view('cetak_laporan',$data);
 	}
 

@@ -22,6 +22,15 @@ class Mlaporan_analis extends CI_Model {
 		return $this->db->get()->result();
 	}
 
+	public function kategori()
+	{
+		$this->db->select('k.kategori, COUNT(p.id_kategori) AS jumlah');
+		$this->db->from('pengaduan p');
+		$this->db->join('kategori k','k.id_kategori = p.id_kategori');
+		$this->db->group_by('p.id_kategori');
+		return $this->db->get()->result();
+	}
+
 	//bikin update password di admin dulu
 	public function save()
 	{

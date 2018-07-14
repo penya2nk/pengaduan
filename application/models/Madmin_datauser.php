@@ -9,6 +9,7 @@ class Madmin_datauser extends CI_Model {
 		$this->db->from('user u','level l', 'roles r');
 		$this->db->join('level l','l.id_level = u.id_level');
 		$this->db->join('roles r','r.id_role = u.id_role','left');
+		$this->db->where('u.id_level !=',5);
 		$this->db->where('deleted',0);
 		return $this->db->get()->result();
 	}
