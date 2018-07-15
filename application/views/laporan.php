@@ -76,7 +76,7 @@
 
                     <!-- menu -->
                     <li>
-                        <a href=<?php echo base_url('manajemen/laporan')?> ><i class="fa fa-dashboard"></i>&nbsp; Dashboard</a>
+                        <a href=<?php echo base_url('manajemen')?> ><i class="fa fa-dashboard"></i>&nbsp; Dashboard</a>
                     </li>
                     <li>
                         <a href=<?php echo base_url('manajemen/rekap')?> ><i class="fa fa-table"></i>&nbsp; Rekap Data</a>
@@ -279,6 +279,55 @@
 
 </div>
 <!-- /#wrapper -->
+
+<!-- modal setting -->
+        <div class="modal modal-primary fade" id="settingModal" style="margin-top: 5%">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 75%; margin-left: 15%">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                        <center>
+                        <h4 class="modal-title">GANTI PASSWORD</h4>
+                        </center>
+                    </div>
+                    
+                    <form method="POST" action="<?php echo base_url('manajemen/ubah_password') ?>">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <div class="form-group row">
+                                      <label class="col-sm-4 col-form-label">Password lama :</label>
+                                      <div class="col-sm-8">
+                                        <input type="password" class="form-control" name="old" required>
+                                      </div>
+                                    </div>
+                                    <div class="form-group row">
+                                      <label class="col-sm-4 col-form-label">Password baru :</label>
+                                      <div class="col-sm-8">
+                                        <input type="password" class="form-control" name="new" required>
+                                      </div>
+                                    </div>
+                                    <div class="form-group row">
+                                      <label class="col-sm-4 col-form-label">Konfirmasi :</label>
+                                      <div class="col-sm-8">
+                                        <input type="password" class="form-control" name="re_new" required>
+                                      </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Batal</button>
+                            <input type="submit" class="btn btn-primary" value="Simpan">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+<!-- modal setting -->
 
 <script src=<?php echo base_url("assets/vendor/jquery/jquery.min.js")?> ></script>
 <script src=<?php echo base_url("assets/vendor/bootstrap/js/bootstrap.min.js")?> ></script>

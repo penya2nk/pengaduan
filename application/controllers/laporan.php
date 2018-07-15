@@ -1,13 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-class Laporan extends CI_Controller {
+require APPPATH . '/libraries/BaseController.php';
+class Laporan extends BaseController {
 
 	function __construct()
 	{
 		parent::__construct();
 		$this->load->model('Mlaporan');
 		$this->load->helper('url','form');
+		$this->isLoggedIn();
 	}
 
 	public function index()
@@ -26,5 +27,39 @@ class Laporan extends CI_Controller {
 		$data['bulan']=$this->Mlaporan->bulan();
 		$data['kategori']=$this->Mlaporan->kategori();
 		$this->load->view('rekap_manajemen',$data);	
+	}
+
+	//function mau cek data user
+		public function save_password()
+		{ 
+
+			$this->load->library('form_validation');
+
+			$this->form_validation->set_rules('new','New','required|alpha_numeric');
+			$this->form_validation->set_rules('re_new', 'Retype New', 'required|matches[new]');
+
+			if($this->form_validation->run() == FALSE)
+			{
+				redirect('mnajemen');
+			}
+			else
+			{
+				$cek_old = $this->Mlaporan->cek_old();
+
+				if (count($cek_old) == 0){
+					$this->session->set_flashdata('style','danger');
+					$this->session->set_flashdata('alert','Gagal!');
+					$this->session->set_flashdata('message','Password lama yang Anda masukkan salah!');
+
+					redirect('manajemen');
+				}
+				else
+				{
+					$this->Mlaporan->save();
+					$this->session->sess_destroy();
+
+					redirect('karyawan');
+	   		}//end if valid_user
+		}
 	}
 }

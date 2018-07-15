@@ -117,6 +117,7 @@ $route['koordinator/ubah_password_riwayat'] = 'analis/Ck_riwayatpeng/save_passwo
 $route['koordinator/ubah_password_masuk'] = 'koor/Ckpengaduan_masuk/save_password';
 $route['koordinator/kirim_pengaduan'] = 'koor/Ckpengaduan_masuk/kirim';
 
-$route['manajemen/laporan'] = 'Laporan';
+$route['manajemen'] = 'Laporan';
 $route['manajemen/rekap'] = 'Laporan/rekap';
+$route['manajemen/ubah_password'] = 'Laporan/save_password';
 

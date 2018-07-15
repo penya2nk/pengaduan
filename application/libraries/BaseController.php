@@ -34,7 +34,7 @@ class BaseController extends CI_Controller {
 		$isLoggedIn = $this->session->userdata ( 'isLoggedIn' );
 		
 		if (! isset ( $isLoggedIn ) || $isLoggedIn != TRUE) {
-			if($this->uri->segment(1) == 'admin' || $this->uri->segment(1) == 'analis' || $this->uri->segment(1) == 'koordinator'){
+			if($this->uri->segment(1) == 'admin' || $this->uri->segment(1) == 'analis' || $this->uri->segment(1) == 'koordinator' || $this->uri->segment(1) == 'manajemen'){
 
 			redirect ( 'karyawan' );
 		}

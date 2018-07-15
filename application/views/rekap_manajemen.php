@@ -83,7 +83,7 @@
                     <!-- menu -->
 
                     <li>
-                        <a href=<?php echo base_url('manajemen/laporan')?> ><i class="fa fa-dashboard"></i>&nbsp; Dashboard</a>
+                        <a href=<?php echo base_url('manajemen')?> ><i class="fa fa-dashboard"></i>&nbsp; Dashboard</a>
                     </li>
                     <li>
                         <a href=<?php echo base_url('manajemen/rekap')?> ><i class="fa fa-table"></i>&nbsp; Rekap Data</a>

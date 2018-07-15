@@ -25,6 +25,9 @@ class Cadm_datauser extends BaseController {
 	{
 		if(empty($_FILES['file'])) //cek inputan tanpa file atau bukan
 		{
+			$this->session->set_flashdata('style','danger');
+					$this->session->set_flashdata('alert','Gagal!');
+					$this->session->set_flashdata('message','Data Kosong!');
 			redirect('admin/data_user');
 		}else{
 			$config['upload_path'] = './assets/user';
@@ -171,15 +174,25 @@ class Cadm_datauser extends BaseController {
 	public function tambah_user()
 	{
 		$this->load->library('form_validation');
-		// $this->form_validation->set_rules('nama','Email dan username tidak boleh sama!','required');
+		$this->form_validation->set_rules('nama_pengguna','Nama Pengguna','required');
+		$this->form_validation->set_rules('username','Username','required');
+		$this->form_validation->set_rules('email','Email','required');
+		$this->form_validation->set_rules('password','Password','required');
 
 		if($this->form_validation->run() == FALSE)
 		{
 			redirect('admin/data_user');
 		}else{
-			$cek_user = $this->db->where('email')->or_where('username')->get('user')->num_rows();
+			$nama = $this->input->post('nama_pengguna');
+			$username = $this->input->post('username');
+			$email = $this->input->post('email');
+			$password = $this->input->post('password');
+			$role = $this->input->post('id_role');
+			$level = $this->input->post('id_level');
+			
+			$cek_user = $this->db->where('email', $email)->or_where('username', $username)->get('user')->num_rows();
 
-			if(count($cek_user) > 0){
+			if($cek_user > 0){
 				$this->session->set_flashdata('style','danger');
 				$this->session->set_flashdata('alert','Peringatan!');
 				$this->session->set_flashdata('message','Data yang Anda tambahkan sudah terdaftar pada sistem.');
@@ -187,12 +200,6 @@ class Cadm_datauser extends BaseController {
 			}
 			else
 			{
-				$nama = $this->input->post('nama_pengguna');
-				$username = $this->input->post('username');
-				$email = $this->input->post('email');
-				$password = $this->input->post('password');
-				$role = $this->input->post('id_role');
-				$level = $this->input->post('id_level');
 				$data = array(
 					'nama_pengguna' => strtolower($nama),
 					'username' => $username,
