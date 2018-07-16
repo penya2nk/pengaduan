@@ -24,6 +24,7 @@ class Laporan extends BaseController {
 
 	public function rekap()
 	{
+		// $data['jenis']=$this->Mlaporan->jenis();
 		$data['bulan']=$this->Mlaporan->bulan();
 		$data['kategori']=$this->Mlaporan->kategori();
 		$this->load->view('rekap_manajemen',$data);	

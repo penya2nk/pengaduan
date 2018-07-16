@@ -30,6 +30,11 @@ class Mlaporan extends CI_Model {
 		return $this->db->get()->result();
 	}
 
+	// public function jenis()
+	// {
+
+	// }
+
 	public function masuk()
 	{
 		$this->db->select('status');

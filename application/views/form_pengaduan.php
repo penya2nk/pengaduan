@@ -192,18 +192,6 @@
                     </select>
                   </div>
 
-                  <!-- <div class="form-check" style="margin-left: 15px; margin-bottom: 20px">
-                    <label>Tahukah Anda seberapa sering terjadi?</label><br>
-                      <input class="form-check-input" type="checkbox" value="pertama" name="kejadian">
-                      <label class="form-check-label">
-                        Pertama kali
-                      </label><br>
-                      <input class="form-check-input" type="checkbox" value="beberapa kali" name="kejadian">
-                      <label class="form-check-label">
-                        Beberapa kali
-                      </label>
-                  </div> -->
-
                   <div class="form-group" style="margin-left: 15px; margin-right:15px">
                     <label>Penyebab</label>
                     <input type="text" class="form-control" name="penyebab" id="penyebab" placeholder="Silahkan isi penyebab">
@@ -230,6 +218,15 @@
                     <input type="hidden" name="nama_pengguna" value="<?php echo $this->session->userdata('nama_pengguna') ?>">
                   </div>
 
+                  
+                  <!-- <div class="input-group form-group" style="width: 100%">
+                    <div class="input_fields_wrap">
+                        <input type="text" name="" placeholder="text" class="form-control" style="width: 40%">
+                        <button style="margin-left: 10px" class="add_field_button btn btn-primary">Add</button>
+                        <div></div>
+                    </div>
+                  </div> -->
+                  
                   <div style="margin-left: 90%">
                     <button class="btn btn-success" name="simpan" value="simpan" style="margin-top: 20px; width:80px">simpan</button>
                   </div>
@@ -363,9 +360,26 @@
   $("#hilang").show().delay(1500).slideUp(400);
 </script>
 
-<script type="text/javascript">
-  
-</script>
+<!-- <script type="text/javascript">
+    $(document).ready(function() {
+    var max_fields      = 3; //maximum input
+    var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+    var add_button      = $(".add_field_button"); //Add button ID
+    
+    var x = 1; //initlal text box count
+    $(add_button).click(function(e){ //on add input button click
+        e.preventDefault();
+        if(x < max_fields){ //max input box
+            x++; //text box increment
+            $(wrapper).append('<div class="input-group form-group" style="margin-top:10px; width:100%"><input class="form-control" style="width:40%" type="text" placeholder="text" name="mytext[]"/><a href="#" style="margin-left:10px" class="remove_field btn btn-danger">remove</a></div>'); //add input box
+        }
+    });
+    
+    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+        e.preventDefault(); $(this).parent('div').remove(); x min min;
+    })
+});
+</script> -->
 
 </body>
 
