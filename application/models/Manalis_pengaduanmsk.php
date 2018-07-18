@@ -68,11 +68,6 @@ class Manalis_pengaduanmsk extends CI_Model {
 		$this->db->insert('kategori',$data);
 	}
 
-	public function konfirmasi($data)
-	{
-		return $this->db->insert('log',$data);
-	}
-
 	//bikin update password di admin dulu
 	public function save()
 	{
@@ -100,5 +95,19 @@ class Manalis_pengaduanmsk extends CI_Model {
 		}
 	}
 		//end
+
+	public function konfirmasi($data)
+	{
+		return $this->db->insert('log',$data);
+	}
+
+	public function getByEmail($email,$id_pengaduan,$id_user)
+	{
+      	$this->db->where('email',$email);
+      	$this->db->where('id_pengaduan',$id_pengaduan);
+      	$this->db->where('id_user',$id_user);
+      	$result = $this->db->get('user');
+      	return $result;
+  	}
 
 }

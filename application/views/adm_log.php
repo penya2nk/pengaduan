@@ -149,7 +149,7 @@
                                             <!-- modal edit user -->
                                             <div class="modal modal-primary fade" id="detail<?php echo $data->id_pengaduan ?>" style="margin-top: 5%;">
                                                 <div class="modal-dialog modal-lg">
-                                                    <div class="modal-content" style="width:110%;">
+                                                    <div class="modal-content">
                                                         <div class="modal-header">
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span></button>
@@ -215,8 +215,8 @@
                                                                                         <?php }else{ ?>
                                                                                         <span class="badge success"><?php echo $log->status ?></span><br>
                                                                                         <?php } ?>
-                                                                                    </p>
-                                                                                </div>
+                                                                            </p>
+                                                                        </div>
                                                                         <div class="col-md-3">
                                                                             <p><?php echo $log->keterangan ?></p>
                                                                         </div>
