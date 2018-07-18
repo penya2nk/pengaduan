@@ -194,7 +194,7 @@
 													</center>
 												</div>
 												
-												<form method="POST" action="<?php echo base_url('analis/konfirmasi') ?>">
+												<form method="POST" action="<?php echo base_url('analis/konfirmasi/') ?>">
 													<div class="modal-body">
 														<div class="row">
 															<div class="col-md-12">

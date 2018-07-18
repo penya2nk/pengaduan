@@ -96,7 +96,7 @@ class Cpengaduan_masuk extends BaseController {
 	   	}
 	}
 
-	   public function konfirmasi($id_pengaduan)
+	   public function konfirmasi()
 	   {
 		// $id_user = $this->session->userdata('id_user');
 		// $pengaduan = $this->db->where('id_pengaduan',$id_pengaduan)->where('status','diproses')->get('log')->row();
@@ -115,6 +115,7 @@ class Cpengaduan_masuk extends BaseController {
 
 		// redirect('analis');
 
+	   	$id_pengaduan = $this->input->post('id_pengaduan');
 	   	$keterangan = $this->input->post('keterangan');
 	   	$pengaduan = $this->db->where('id_pengaduan',$id_pengaduan)->where('status','diproses')->get('log')->row();
 	   	$id_user = $this->session->userdata('id_user');
