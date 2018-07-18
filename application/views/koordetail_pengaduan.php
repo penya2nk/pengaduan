@@ -98,8 +98,6 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div>
-                                <!-- <a href="<?php //echo base_url('koordinator/konfirmasi/'.$detail_pengaduan[0]->id_pengaduan); ?>" class="btn btn-success btn-md"><span class="fa fa-check-square-o"></span> Konfirmasi </a> -->
-
                                 <a href="#" class="btn btn-success" data-toggle="modal" data-target="#modalKonfirmasi"><span class="fa fa-check"></span> Konfirmasi </a>
 
                                 <a style="margin-left: 20px" href="#" class="btn btn-warning btn-md" data-toggle="modal" data-target="#modalKirim"><span class="fa fa-send"></span> Kirim </a>
@@ -167,9 +165,9 @@
                                     </tr>
 
                                     <!-- modal konfirm -->
-                                    <div class="modal modal-primary fade" id="modalKonfirmasi" style="margin-top: 5%; margin-left: 25%">
+                                    <div class="modal modal-primary fade" id="modalKonfirmasi" style="margin-top: 5%;">
                                         <div class="modal-dialog">
-                                            <div class="modal-content" style="width: 50%">
+                                            <div class="modal-content" style="">
                                                 <div class="modal-header">
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span></button>
@@ -178,17 +176,26 @@
                                                     </center>
                                                 </div>
                                                 
-                                                <div class="modal-body">
+                                                <form method="POST" action="<?php echo base_url('koordinator/konfirmasi') ?>">
+                                                      <div class="modal-body">
                                                         <div class="row">
                                                             <div class="col-md-12">
-                                                                <center>
-                                                                    <button class="btn btn-danger btn-md" data-dismiss="modal">BATAL</button>
-
-                                                                    <a style="margin-left: 40px;" href="<?php echo base_url('koordinator/konfirmasi/'.$detail_pengaduan[0]->id_pengaduan); ?>" class="btn btn-success btn-md">&nbsp;&nbsp;&nbsp;YA&nbsp;&nbsp;&nbsp;</a>
-                                                                </center>
+                                                                <div >
+                                                                    <label>Silahkan berikan laporan terlebih dahulu :</label>
+                                                                    <textarea class="form-control" type="text" name="keterangan" required></textarea>
+                                                                    <input type="hidden" name="id_pengaduan" value="<?php echo $data->id_pengaduan ?>">
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Batal</button>
+                                                        <!-- <a style="margin-left: 40px;" href="<?php// echo base_url('koordinator/konfirmasi/'.$detail_pengaduan[0]->id_pengaduan); ?>" class="btn btn-success btn-md">&nbsp;&nbsp;&nbsp;YA&nbsp;&nbsp;&nbsp;</a>
+ -->
+                                                        <input type="submit" class="btn btn-primary" value="Konfirmasi">
+                                                    </div>
+                                                </form>
+
                                             </div>
                                         </div>
                                     </div>
@@ -201,7 +208,9 @@
                                           <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                               <span aria-hidden="true">&times;</span></button>
-                                              <h4 class="modal-title">KIRIM PENGADUAN</h4>
+                                              <center>
+                                                <h4 class="modal-title">KIRIM PENGADUAN</h4>
+                                              </center>
                                           </div>
 
                                           <form method="POST" action="<?php echo base_url('koordinator/kirim_pengaduan') ?>">
