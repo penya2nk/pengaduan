@@ -57,6 +57,7 @@
 			$tindaklanjut = $this->input->post('tindaklanjut');
 			$status = $this->input->post('status');
 			$nama_pengguna = $this->input->post('nama_pengguna');
+			$hidden = $this->input->post('hidden');
 			
 			$config['upload_path'] = './assets/gambar/';
 	    $config['allowed_types'] = 'gif|jpg|png|jpeg';
@@ -79,6 +80,10 @@
 				'tindaklanjut' => $tindaklanjut,
 				'gambar' => $this->upload->data()['file_name']
 				);
+				
+				if($hidden){
+					$data1['hidden'] = 1;
+				}
 				
 				$this->db->insert('pengaduan', $data1);
 				
@@ -107,6 +112,10 @@
 				'deskripsi' => $deskripsi,
 				'tindaklanjut' => $tindaklanjut,
 				);
+				
+				if($hidden){
+					$data1['hidden'] = 1;
+				}
 				
 				$this->db->insert('pengaduan', $data1);
 				

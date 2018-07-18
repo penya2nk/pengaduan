@@ -30,7 +30,7 @@ class Manalis_pengaduanmsk extends CI_Model {
 
 	public function detail_pengaduan($id)
 	{
-		$this->db->select('p.id_pengaduan, p.id_user, p.deskripsi, p.tindaklanjut, l.keterangan, p.kejadian, p.penyebab, p.tgl_kejadian, p.efek, p.gambar, r.nama_ruang, p.status, k.kategori, u.nama_pengguna, t.nama_tempat');	
+		$this->db->select('p.id_pengaduan, p.id_user, p.deskripsi, p.tindaklanjut, l.keterangan, p.kejadian, p.penyebab, p.tgl_kejadian, p.efek, p.gambar, r.nama_ruang, p.status, k.kategori, u.nama_pengguna, t.nama_tempat, p.hidden');	
 		$this->db->from('pengaduan p');
 		$this->db->join('ruang r','r.id_ruang = p.id_ruang');
 		$this->db->join('kategori k','k.id_kategori = p.id_kategori');

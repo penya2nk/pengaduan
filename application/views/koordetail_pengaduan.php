@@ -123,7 +123,16 @@
                                     <tr>
                                         <td><b>ID User</b></td>
                                         <td>:</td>
-                                        <td><?php echo $data->id_user ?></td>
+                                        <td>
+																				<?php 
+																					if($data->hidden){
+																						echo "anonim";
+																					}else{
+																						echo $data->nama_pengguna; 
+																					}
+																					
+																				?>
+																				</td>
                                     </tr>
                                     <tr>
                                         <td><b>Ruang</b></td>

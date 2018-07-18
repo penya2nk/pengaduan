@@ -112,7 +112,7 @@
                         <div class="input-group-addon">
                           <i class="fa fa-calendar"></i>
                         </div>
-                        <input type="date" name="waktu" class="form-control" datapicker value="<?php echo date('Y-m-d') ?>" required>
+                        <input type="date" name="waktu" class="form-control" value="<?php echo date('Y-m-d') ?>" max="<?php echo date('Y-m-d') ?>" required>
                       </div>
                     </div>
 
@@ -216,6 +216,10 @@
                     <label>Anda boleh menambahkan gambar pendukung (maksimal 2 Mb):</label>
                     <input type="file" name="gambar">
                     <input type="hidden" name="nama_pengguna" value="<?php echo $this->session->userdata('nama_pengguna') ?>">
+                  </div>
+									
+									<div class="form-group" style="margin-left: 15px; ">
+                    <input type="checkbox" name="hidden" value="1" checked> Sembunyikan Data Diri Anda
                   </div>
 
                   
