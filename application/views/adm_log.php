@@ -147,7 +147,7 @@
 
                                             </tr>
                                             <!-- modal edit user -->
-                                            <div class="modal modal-primary fade" id="detail<?php echo $data->id_pengaduan ?>" style="margin-top: 5%;margin-right: 5%">
+                                            <div class="modal modal-primary fade" id="detail<?php echo $data->id_pengaduan ?>" style="margin-top: 5%;margin-right: 20%">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content" style="width:110%;">
                                                         <div class="modal-header">
@@ -175,6 +175,9 @@
                                                                     </div>
                                                                     <div class="col-md-1">
                                                                         <label>Status</label>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <label>Laporan</label>
                                                                     </div>
                                                                 </div>
                                                                 <?php 
@@ -216,6 +219,9 @@
                                                                                 </div>
                                                                             </div>
                                                                             <?php $j++;} ?>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <p><?php echo $log->keterangan ?></p>
                                                                         </div>
 
                                                                         <div class="modal-footer">

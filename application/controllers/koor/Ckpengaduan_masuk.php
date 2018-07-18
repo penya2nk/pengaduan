@@ -24,26 +24,28 @@ class Ckpengaduan_masuk extends BaseController
 
 	}
 
-	public function konfirmasi($id_pengaduan)
+	public function konfirmasi()
 	{
+		$keterangan = $this->input->post('keterangan');
+		$id_pengaduan = $this->input->post('id_pengaduan');
 		$id_user = $this->session->userdata('id_user');
-		
 		$data = array(
 			'id_pengaduan'=>$id_pengaduan,
+			'keterangan'=>$keterangan,
 			'id_user'=>$id_user,
 			'status'=>'selesai'
-			);
-		$this->db->insert('log',$data);
+		);
+		$this->Mkoor_masuk->konfirmasi($data);
 
 		$data2 = array(
 			'status'=>'selesai'
 		);
 		$this->db->where('id_pengaduan',$id_pengaduan)->update('pengaduan',$data2);
 
-		$this->session->set_flashdata('style','success');
-		$this->session->set_flashdata('alert','Berhasil');
-		$this->session->set_flashdata('message','Pengaduan telah dikonfirmasi!');
-		
+		$this->session->set_flashdata('style', 'success');
+		$this->session->set_flashdata('alert', 'Berhasil!');
+		$this->session->set_flashdata('message', 'Pengaduan telah dikonfirmasi.');
+
 		redirect('koordinator');
 	}
 
@@ -80,7 +82,7 @@ class Ckpengaduan_masuk extends BaseController
 	}
  }
 
-public function kirim()
+	public function kirim()
 	{
 		$keterangan = $this->input->post('keterangan');
 		$id_pengaduan = $this->input->post('id_pengaduan');

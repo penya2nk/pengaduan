@@ -262,7 +262,7 @@
                                             $i = 1;
                                             foreach ($user as $data)
                                             {
-                                                if($data->id_role == 2) {
+                                                if($data->id_role == 2 || $data->id_role == 4) {
                                                 ?>
                                                 <tr>
                                                     <td><?php echo $i; ?></td>

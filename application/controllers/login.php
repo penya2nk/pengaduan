@@ -40,6 +40,9 @@ class Login extends CI_Controller {
                 }
                 elseif ($level == 3 || $level == 4) {
                 	redirect('koordinator');
+                }
+                elseif ($level == 6) {
+                    redirect('manajemen');
                 }else{
                     $this->session->sess_destroy();
                     redirect('karyawan');
@@ -92,7 +95,11 @@ class Login extends CI_Controller {
                     }
                     elseif ($res->id_level == 3 || $res->id_level == 4) {
                         redirect('koordinator');
-                    }else{
+                    }
+                    elseif ($res->id_level == 6) {
+                        redirect('manajemen');
+                    }
+                    else{
                         $this->session->sess_destroy();
                         redirect('karyawan');
                     }

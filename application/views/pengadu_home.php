@@ -17,9 +17,7 @@
   <link rel="stylesheet" type="text/css" href=<?php echo base_url("assets/badge.css")?> >
 
 </head>
-
-<!--<body style="background-image: url('<?php //echo base_url("img/dn.jpg")?>'); width: auto; height: 100%" > -->
-  <body style="background-image: url('<?php echo base_url("img/ugm.png")?>'); background-size: 1370px 750px;">
+  <body style="background-image: url('<?php echo base_url("img/rekmed.png")?>'); background-size: 1380px 850px;">
     <div class="container">
 
       <div class="card">

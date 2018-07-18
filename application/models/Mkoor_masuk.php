@@ -65,6 +65,10 @@ class Mkoor_masuk extends CI_Model
 	{
 		return $this->db->insert('log',$data);
 	}
+	public function konfirmasi($data)
+	{
+		return $this->db->insert('log',$data);
+	}
 
 }
 

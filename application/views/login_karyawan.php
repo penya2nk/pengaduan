@@ -18,8 +18,7 @@
 
 </head>
 
-<!--<body style="background-image: url('<?php //echo base_url("img/dn.jpg")?>'); width: auto; height: 100%" > -->
-  <body style="background-color: #404040">
+  <body style="background-image: url('<?php echo base_url("img/ugm.png")?>'); background-size: 1370px 750px;">
     <div class="container">
 
       <div class="card">
@@ -41,6 +40,7 @@
                 <div class="panel-heading" style="align-items: center;">
                   <img src=<?php echo base_url("img/ugm.gif")?> style="width: auto; height: 100px; margin-bottom: 10px">
                   <h3 class="panel-title"><b>LOGIN PENGELOLA <br><br>SISTEM INFORMASI PENGADUAN</b></h3>
+                  <h5>Program Studi D3 Rekam Medis</h5>
                 </div>
               </center>
 

@@ -125,7 +125,8 @@ class Ckategori_jenis extends BaseController {
 	public function hapus_kategori($id_kategori)
 	{
 		$this->db->where('id_kategori',$id_kategori);
-		$this->db->update('kategori',array('deleted' => '1'));
+		//$this->db->update('kategori',array('deleted' => '1'));
+		$this->db->delete('kategori');
 
 		$this->session->set_flashdata('style','warning');
 		$this->session->set_flashdata('alert','Berhasil!');
@@ -137,7 +138,7 @@ class Ckategori_jenis extends BaseController {
 	public function hapus_jenis($id_jenis)
 	{
 		$this->db->where('id_jenis',$id_jenis);
-		$this->db->update('jenis',array('deleted' => '1'));
+		$this->db->delete('jenis');
 
 		$this->session->set_flashdata('style','warning');
 		$this->session->set_flashdata('alert','Berhasil!');

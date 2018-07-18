@@ -106,17 +106,20 @@ $route['analis/tambah_jenis'] = 'analis/Ckategori_jenis/tambah_jenis';
 $route['analis/edit_jenis'] = 'analis/Ckategori_jenis/edit_jenis';
 $route['analis/hapus_kategori/(:num)'] = 'analis/Ckategori_jenis/hapus_kategori/$1';
 $route['analis/hapus_jenis/(:num)'] = 'analis/Ckategori_jenis/hapus_jenis/$1';
-$route['analis/konfirmasi/(:num)'] = 'analis/Cpengaduan_masuk/konfirmasi/$1';
+//$route['analis/konfirmasi/(:num)'] = 'analis/Cpengaduan_masuk/konfirmasi/$1';
+$route['analis/konfirmasi'] = 'analis/Cpengaduan_masuk/konfirmasi';
 
 //koor
 $route['koordinator'] = 'koor/Ckpengaduan_masuk';
 $route['koordinator/riwayat'] = 'koor/Ck_riwayatpeng';
 $route['koordinator/detail_pengaduan_koor/(:num)'] = 'koor/Ckpengaduan_masuk/detail_koor/$1';
-$route['koordinator/konfirmasi/(:num)'] = 'koor/Ckpengaduan_masuk/konfirmasi/$1';
+//$route['koordinator/konfirmasi/(:num)'] = 'koor/Ckpengaduan_masuk/konfirmasi/$1';
+$route['koordinator/konfirmasi'] = 'koor/Ckpengaduan_masuk/konfirmasi';
 $route['koordinator/ubah_password_riwayat'] = 'analis/Ck_riwayatpeng/save_password';
 $route['koordinator/ubah_password_masuk'] = 'koor/Ckpengaduan_masuk/save_password';
 $route['koordinator/kirim_pengaduan'] = 'koor/Ckpengaduan_masuk/kirim';
 
-$route['manajemen/laporan'] = 'Laporan';
+$route['manajemen'] = 'Laporan';
 $route['manajemen/rekap'] = 'Laporan/rekap';
+$route['manajemen/ubah_password'] = 'Laporan/save_password';
 

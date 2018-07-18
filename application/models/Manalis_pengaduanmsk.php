@@ -68,6 +68,11 @@ class Manalis_pengaduanmsk extends CI_Model {
 		$this->db->insert('kategori',$data);
 	}
 
+	public function konfirmasi($data)
+	{
+		return $this->db->insert('log',$data);
+	}
+
 	//bikin update password di admin dulu
 	public function save()
 	{
