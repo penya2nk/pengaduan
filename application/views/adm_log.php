@@ -147,9 +147,9 @@
 
                                             </tr>
                                             <!-- modal edit user -->
-                                            <div class="modal modal-primary fade" id="detail<?php echo $data->id_pengaduan ?>" style="margin-top: 5%;margin-right: 20%">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content" style="width:110%;">
+                                            <div class="modal modal-primary fade" id="detail<?php echo $data->id_pengaduan ?>" style="margin-top: 5%;">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
                                                         <div class="modal-header">
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span></button>
@@ -164,13 +164,13 @@
                                                                     <div class="col-md-2">
                                                                         <label>Tanggal</label>
                                                                     </div>
-                                                                    <div class="col-md-2">
+                                                                    <div class="col-md-1">
                                                                         <label>Jam</label>
                                                                     </div>
                                                                     <div class="col-md-2">
                                                                         <label>Bagian</label>
                                                                     </div>
-                                                                    <div class="col-md-3">
+                                                                    <div class="col-md-2">
                                                                         <label>Nama</label>
                                                                     </div>
                                                                     <div class="col-md-1">
@@ -193,14 +193,14 @@
                                                                         <div class="col-md-2">
                                                                             <p><?php echo date("d F Y", strtotime($log->timestamp)) ?></p>
                                                                         </div>
-                                                                        <div class="col-md-2">
+                                                                        <div class="col-md-1">
                                                                             <p><?php echo date("H:i:s", strtotime($log->timestamp)) ?></p>
                                                                         </div>
                                                                         <div class="col-md-2">
                                                                             <p><?= $log->nama_level." ".$log->posisi; ?>
                                                                             </p>
                                                                         </div>
-                                                                        <div class="col-md-3">
+                                                                        <div class="col-md-2">
                                                                             <p><?php echo $log->nama_pengguna ?></p>
                                                                         </div>
                                                                         <div class="col-md-1">
@@ -215,13 +215,13 @@
                                                                                         <?php }else{ ?>
                                                                                         <span class="badge success"><?php echo $log->status ?></span><br>
                                                                                         <?php } ?>
-                                                                                    </p>
-                                                                                </div>
-                                                                            </div>
-                                                                            <?php $j++;} ?>
+                                                                            </p>
                                                                         </div>
                                                                         <div class="col-md-3">
                                                                             <p><?php echo $log->keterangan ?></p>
+                                                                        </div>
+                                                                            </div>
+                                                                            <?php $j++;} ?>
                                                                         </div>
 
                                                                         <div class="modal-footer">
