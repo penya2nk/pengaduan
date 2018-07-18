@@ -98,22 +98,6 @@ class Cpengaduan_masuk extends BaseController {
 
 	   public function konfirmasi($id_pengaduan)
 	   {
-		// $id_user = $this->session->userdata('id_user');
-		// $pengaduan = $this->db->where('id_pengaduan',$id_pengaduan)->where('status','diproses')->get('log')->row();
-
-		// $data = array(
-		// 	'id_pengaduan'=>$id_pengaduan,
-		// 	'id_user'=>$id_user,
-		// 	'status'=>'selesai'
-		// 	);
-		// $this->db->insert('log',$data);
-		// $this->db->where('id_pengaduan',$id_pengaduan)->update('pengaduan',array('status'=>'selesai'));
-
-		// $this->session->set_flashdata('style','success');
-		// $this->session->set_flashdata('alert','Berhasil');
-		// $this->session->set_flashdata('message','Pengaduan telah dikonfirmasi!');
-
-		// redirect('analis');
 
 	   	$keterangan = $this->input->post('keterangan');
 	   	$pengaduan = $this->db->where('id_pengaduan',$id_pengaduan)->where('status','diproses')->get('log')->row();
