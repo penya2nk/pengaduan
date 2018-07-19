@@ -144,14 +144,13 @@
 									<td><b>Nama Pengadu</b></td>
 									<td>:</td>
 									<td>
-									<?php 
-										if($detail_pengaduan[0]->hidden){
-											echo "anonim";
-										}else{
-											echo $detail_pengaduan[0]->nama_pengguna; 
-										}
-										
-									?>	
+										<?php 
+											if($detail_pengaduan[0]->hidden){
+												echo "anonim";
+											}else{
+												echo $detail_pengaduan[0]->nama_pengguna; 
+											}
+										?>
 									</td>
 								</tr>
 								<tr>

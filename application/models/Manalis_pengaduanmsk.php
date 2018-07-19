@@ -47,15 +47,9 @@ class Manalis_pengaduanmsk extends CI_Model {
 	{
 		$this->db->select('*');	//select field yang mau ditampilin
 		$this->db->from('level l'); //tabel
-		//$this->db->join('kategori k','k.id_level = l.id_level'); //tabel
 		$this->db->where('nama_level','koordinator'); //tabel
 		return $this->db->get()->result();	//hasil
 	}
-	
-	// public function kirim($data)
-	// {
-	// 	return $this->db->insert('pengaduan_level',$data);
-	// }
 
 	public function ubah($data,$id_pengaduan)
 	{

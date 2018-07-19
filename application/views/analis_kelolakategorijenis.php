@@ -219,7 +219,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <strong>JENIS</strong>
-                        <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#jenis" style="margin-left: 75%"><i class="fa fa-plus"></i> tambah</button>
+                        <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#jenis" style="margin-left: 73%"><i class="fa fa-plus"></i> tambah</button>
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">

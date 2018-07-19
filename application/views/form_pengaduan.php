@@ -90,8 +90,7 @@
             </center>
 
             <div class="alert alert-warning alert-dismissable" style="margin-top: 10px">
-              <strong>Perhatian!</strong> Informasi <b>data diri Anda tidak akan terlihat</b> pada laporan pengaduan. Mohon berikan informasi sejelas-jelasnya untuk tindak lanjut yang lebih baik. Terimakasih.</a>.
-              keterangan :<b style="color: red"> * = wajib diisi </b>
+              <strong><input type="checkbox" name="hidden" value="1" checked> Sembunyikan data diri Anda pada laporan pengaduan</strong>
             </div>
 
             <div class="panel panel-default">
@@ -217,11 +216,6 @@
                     <input type="file" name="gambar">
                     <input type="hidden" name="nama_pengguna" value="<?php echo $this->session->userdata('nama_pengguna') ?>">
                   </div>
-									
-									<div class="form-group" style="margin-left: 15px; ">
-                    <input type="checkbox" name="hidden" value="1" checked> Sembunyikan Data Diri Anda
-                  </div>
-
                   
                   <!-- <div class="input-group form-group" style="width: 100%">
                     <div class="input_fields_wrap">

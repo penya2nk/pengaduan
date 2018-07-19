@@ -121,18 +121,17 @@
                                         <td><?php echo $data->tgl_kejadian ?></td>
                                     </tr>
                                     <tr>
-                                        <td><b>ID User</b></td>
+                                        <td><b>Nama Pengadu</b></td>
                                         <td>:</td>
                                         <td>
-																				<?php 
-																					if($data->hidden){
-																						echo "anonim";
-																					}else{
-																						echo $data->nama_pengguna; 
-																					}
-																					
-																				?>
-																				</td>
+											<?php 
+												if($data->hidden){
+													echo "anonim";
+												}else{
+													echo $data->nama_pengguna; 
+												}
+											?>
+										</td>
                                     </tr>
                                     <tr>
                                         <td><b>Ruang</b></td>
