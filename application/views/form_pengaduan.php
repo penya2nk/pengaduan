@@ -93,12 +93,12 @@
             </center>
 
             <div class="alert alert-warning alert-dismissable" style="margin-top: 10px">
-              <strong><input type="checkbox" name="hidden" value="1" checked> Sembunyikan data diri Anda pada laporan pengaduan</strong>
+              <strong><input type="checkbox" name="hidden" value="0" checked> Sembunyikan data diri Anda pada laporan pengaduan</strong>
             </div>
 
             <div class="panel panel-default">
               <div class="panel-heading">
-                <center><h3><strong>FORM PENGADUAN</strong></h3></center><?= "DONE"?>
+                <center><h3><strong>FORM PENGADUAN</strong></h3></center>
               </div>
               <div class="panel-body">
                 <!-- Tab Pane Draft -->
