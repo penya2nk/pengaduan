@@ -33,7 +33,10 @@
             </a>
           </li>
           <li>
-            <a href="<?php echo base_url('user/riwayat_pengaduan')?>" style="color: #ffffff"><i class="fa fa-history"></i> Riwayat
+            <a href="<?php echo base_url('user/riwayat_pengaduan')?>" style="color: #ffffff"><i class="fa fa-history"></i>
+              <span class="pull-right-container">
+              <span class="label label-success pull-right" style="margin-left: 2px">2</span>
+            </span> Riwayat
             </a>
           </li>
 
@@ -95,7 +98,7 @@
 
             <div class="panel panel-default">
               <div class="panel-heading">
-                <center><h3><strong>FORM PENGADUAN</strong></h3></center>
+                <center><h3><strong>FORM PENGADUAN</strong></h3></center><?= "DONE"?>
               </div>
               <div class="panel-body">
                 <!-- Tab Pane Draft -->
